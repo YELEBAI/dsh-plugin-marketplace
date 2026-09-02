@@ -6,18 +6,58 @@ import { buildGuidedAgentTask, guidedInstallRoute } from '../src/host/guided-age
 import { INSTALL_SKILL_NAME, loadInstallSkill } from '../src/host/install-skill.ts'
 import { RegistryClient } from '../src/host/registry.ts'
 import { createGuidedAgentWorkspace } from '../src/client/agent-workspace.ts'
+import { pickCompatibleDirectory } from '../src/client/directory-picker.ts'
 
 const registryUrl = pathToFileURL(path.resolve('registry/plugins.json')).href
 const registry = new RegistryClient(registryUrl, registryUrl, 60_000, 10_000)
 const clientSource = readFileSync('src/client/index.ts', 'utf8')
 const clientScopeInject = clientSource.match(/ctx\.inject\(\[([\s\S]*?)\],\s*\(scope:/)?.[1]
 assert(clientScopeInject, 'marketplace client scope inject list must be discoverable')
-for (const service of ['sessions', 'workspaces', 'uiWorkspace']) {
+for (const service of ['sessions', 'workspaces']) {
   assert(clientScopeInject.includes(`'${service}'`), `marketplace client scope must inject ${service}`)
 }
+assert.doesNotMatch(clientScopeInject, /uiWorkspace/, '市场入口不应等待只存在于旧版 DSH 的 uiWorkspace 服务')
 assert.doesNotMatch(clientScopeInject, /remote\.agentPresets|remote\.session/, '引导 Agent 不应依赖可选的 preset/session Remote namespace')
 assert.match(clientSource, /scope\.sessions\.create\(\{ workspaceId: target\.workspaceId \}\)/, '引导 Agent 必须通过 ClientSessions 使用默认 composition')
 assert.doesNotMatch(clientSource, /agentPresets\.list\(/, '引导 Agent 不应读取可选 preset roster')
+
+let currentPickerCalls = 0
+let legacyPickerCalls = 0
+const currentPick = await pickCompatibleDirectory({
+  workspaces: {
+    pickDirectory: async () => {
+      currentPickerCalls += 1
+      return '/current-picker'
+    },
+  },
+  get: () => ({
+    pickDirectory: async () => {
+      legacyPickerCalls += 1
+      return '/legacy-picker'
+    },
+  }),
+})
+assert.equal(currentPick, '/current-picker')
+assert.equal(currentPickerCalls, 1)
+assert.equal(legacyPickerCalls, 0, '新版 workspaces picker 可用时不应调用旧服务')
+
+const legacyPick = await pickCompatibleDirectory({
+  workspaces: {},
+  get: name => name === 'uiWorkspace'
+    ? {
+        pickDirectory: async () => {
+          legacyPickerCalls += 1
+          return '/legacy-picker'
+        },
+      }
+    : undefined,
+})
+assert.equal(legacyPick, '/legacy-picker')
+assert.equal(legacyPickerCalls, 1)
+await assert.rejects(
+  pickCompatibleDirectory({ workspaces: {}, get: () => undefined }),
+  /compatible directory picker service/,
+)
 // 热门第一页可能全部是一键安装条目；从完整快照选定引导型 fixture，再通过客户端读取。
 const snapshot = JSON.parse(readFileSync('registry/plugins.json', 'utf8')) as {
   plugins: Array<{ fullName: string; install: { mode: string } }>

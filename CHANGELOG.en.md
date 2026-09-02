@@ -10,6 +10,20 @@ Registry refresh commits are grouped instead of listed individually.
 
 No unreleased changes yet.
 
+## [0.9.4] - 2026-09-02
+
+### Fixed
+
+- Directory picking now works across DSH generations: current runtimes use
+  `workspaces.pickDirectory()`, while older runtimes lazily fall back to
+  `uiWorkspace.pickDirectory()`. The marketplace tab no longer requires the legacy-only
+  `uiWorkspace` service, fixing the entire entry disappearing after an update.
+
+### Tests
+
+- Added regressions for the current picker, the legacy fallback, an explicit missing-picker
+  failure, and a guard that prevents the marketplace entry from waiting on `uiWorkspace` again.
+
 ## [0.9.3] - 2026-09-02
 
 ### Added and improved
