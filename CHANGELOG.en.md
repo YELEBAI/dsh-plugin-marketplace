@@ -8,6 +8,10 @@ Registry refresh commits are grouped instead of listed individually.
 
 ## [Unreleased]
 
+No unreleased changes yet.
+
+## [0.9.3] - 2026-09-02
+
 ### Added and improved
 
 - The Registry now reads optional `dsh-plugin.json` files and performs a static preflight against dsh-std
@@ -29,6 +33,10 @@ Registry refresh commits are grouped instead of listed individually.
 
 ### Fixed
 
+- Agent-assisted installs and updates now create sessions through Client Sessions with the configured default
+  composition instead of reading the optional `agentPresets` Remote. This fixes
+  `Cannot read properties of undefined (reading 'list')` when updating guided plugins such as
+  `dsh-better-sidebar`.
 - GitHub automatic installs now validate the exact Registry repository and commit, then pass pnpm a
   commit-pinned HTTPS codeload archive. This prevents the `github:` shorthand from becoming
   `git@github.com` and requiring users to configure an SSH key for public plugins.
@@ -41,6 +49,7 @@ Registry refresh commits are grouped instead of listed individually.
 
 ### Tests
 
+- Added a regression assertion that guided Agents use Client Sessions and never read the optional preset roster.
 - Added regressions for forced Registry refresh, skipped default-directory orphan scans, manual command
   updates, GitHub HTTPS execution sources, exclusion of finished jobs from restored queue state, and
   explicit-only live self-update checks.

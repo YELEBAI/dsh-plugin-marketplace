@@ -7,6 +7,10 @@
 
 ## [未发布]
 
+暂无。
+
+## [0.9.3] - 2026-09-02
+
 ### 新增与改进
 
 - Registry 现可读取可选的 `dsh-plugin.json`，并按 `dsh-std` Community v0.15 与
@@ -26,6 +30,9 @@
 
 ### 修复
 
+- Agent 安装/更新改由 Client Sessions 服务使用当前默认 composition 创建会话，不再读取可选的
+  `agentPresets` Remote；修复更新 `dsh-better-sidebar` 等引导型插件时出现
+  `Cannot read properties of undefined (reading 'list')` 的问题。
 - GitHub 自动安装在通过 Registry 的精确仓库与 commit 校验后，改用 codeload 的 HTTPS 固定
   commit 归档交给 pnpm，避免 `github:` shorthand 被解析为 `git@github.com` 并要求 SSH 私钥。
 - Profile 修改增加跨 DSH 进程文件锁，并对 Windows 上 `writeLockfile`、`EBUSY`、`EPERM`
@@ -36,6 +43,7 @@
 
 ### 测试
 
+- 增加引导 Agent 必须通过 Client Sessions 创建会话、且不得直接读取 preset roster 的回归断言。
 - 增加强制 Registry 刷新、跳过默认目录孤立扫描、手动命令更新、GitHub HTTPS 执行来源、
   完成任务不恢复，以及自更新实时请求仅由显式刷新触发等回归测试。
 

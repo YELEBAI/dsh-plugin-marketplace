@@ -12,9 +12,12 @@ const registry = new RegistryClient(registryUrl, registryUrl, 60_000, 10_000)
 const clientSource = readFileSync('src/client/index.ts', 'utf8')
 const clientScopeInject = clientSource.match(/ctx\.inject\(\[([\s\S]*?)\],\s*\(scope:/)?.[1]
 assert(clientScopeInject, 'marketplace client scope inject list must be discoverable')
-for (const service of ['remote.agentPresets', 'remote.session', 'uiWorkspace']) {
+for (const service of ['sessions', 'workspaces', 'uiWorkspace']) {
   assert(clientScopeInject.includes(`'${service}'`), `marketplace client scope must inject ${service}`)
 }
+assert.doesNotMatch(clientScopeInject, /remote\.agentPresets|remote\.session/, '引导 Agent 不应依赖可选的 preset/session Remote namespace')
+assert.match(clientSource, /scope\.sessions\.create\(\{ workspaceId: target\.workspaceId \}\)/, '引导 Agent 必须通过 ClientSessions 使用默认 composition')
+assert.doesNotMatch(clientSource, /agentPresets\.list\(/, '引导 Agent 不应读取可选 preset roster')
 // 热门第一页可能全部是一键安装条目；从完整快照选定引导型 fixture，再通过客户端读取。
 const snapshot = JSON.parse(readFileSync('registry/plugins.json', 'utf8')) as {
   plugins: Array<{ fullName: string; install: { mode: string } }>

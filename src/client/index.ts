@@ -51,7 +51,7 @@ export async function apply(ctx: ClientContext): Promise<void> {
   ctx.effect(() => disposeRemote, 'plugin-marketplace: remote lifetime')
 
   ctx.inject([
-    'slots', 'locale', 'remote', 'remote.marketplace', 'remote.agentPresets', 'remote.session',
+    'slots', 'locale', 'remote', 'remote.marketplace',
     'connection', 'sessions', 'workspaces', 'uiWorkspace',
   ], (scope: ClientContext) => {
     scope.effect(() => scope.locale.register(NS, { zh, en }), 'plugin-marketplace: dictionaries')
@@ -69,21 +69,15 @@ export async function apply(ctx: ClientContext): Promise<void> {
           throw new Error(t('agentWorkspaceRequired') + ': ' + (error instanceof Error ? error.message : String(error)))
         }
 
-        const roster = await scope.remote.agentPresets.list()
-        if (!roster.ok) throw new Error(roster.error.message)
-        const usable = roster.value.presets.filter(preset => preset.broken === undefined)
-        const preset = usable.find(candidate => candidate.id === 'standard')
-          ?? usable.find(candidate => candidate.id === 'code')
-          ?? usable.find(candidate => candidate.isDefault)
-        if (preset === undefined) throw new Error(t('agentPresetUnavailable'))
-
-        const created = await scope.remote.session.create({ workspaceId: target.workspaceId, agentPreset: preset.id })
-        if (!created.ok) throw new Error(created.error.message)
-        const binding = await waitForBinding(scope, created.value.sessionId)
+        // ClientSessions 使用部署配置的默认 composition，并在本地 binding 可寻址后才返回。
+        // 不直接依赖可选的 agentPresets Remote，避免只有 Sessions、没有 preset roster 的
+        // 部署在启动引导更新时失败。
+        const sessionId = await scope.sessions.create({ workspaceId: target.workspaceId })
+        const binding = await waitForBinding(scope, sessionId)
         await binding.session.rename(task.title)
         const prompted = await binding.session.prompt([{ type: 'text', text: task.prompt }], 'queue')
         if (!prompted.ok) throw new Error(prompted.error.message)
-        scope.sessions.open(created.value.sessionId)
+        scope.sessions.open(sessionId)
       },
       install: async (repo, ref) => unwrapMarketplace(await scope.remote.marketplace.installPlugin({ repo, ref }), t).jobId,
       manualInstall: async (command) => unwrapMarketplace(await scope.remote.marketplace.manualInstall({ command }), t),
