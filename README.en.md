@@ -37,7 +37,7 @@
 ### 1. Install
 
 ```sh
-dsh plugin --profile web add github:YELEBAI/dsh-plugin-marketplace#v0.9.3
+dsh plugin --profile web add github:YELEBAI/dsh-plugin-marketplace#v0.9.4
 ```
 
 For local development:

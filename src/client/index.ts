@@ -17,6 +17,7 @@ import type { MarketplaceResult } from '../types.ts'
 import { TYPERT_REMOTE } from '../remote.ts'
 import { MarketplaceTab, type MarketplaceTabInjected } from './MarketplaceTab.tsx'
 import { createGuidedAgentWorkspace } from './agent-workspace.ts'
+import { pickCompatibleDirectory } from './directory-picker.ts'
 import { en, zh, type PluginMarketplaceLocaleKey } from './locales.ts'
 
 export type { MarketplaceTabInjected, MarketplaceTabProps } from './MarketplaceTab.tsx'
@@ -52,7 +53,7 @@ export async function apply(ctx: ClientContext): Promise<void> {
 
   ctx.inject([
     'slots', 'locale', 'remote', 'remote.marketplace',
-    'connection', 'sessions', 'workspaces', 'uiWorkspace',
+    'connection', 'sessions', 'workspaces',
   ], (scope: ClientContext) => {
     scope.effect(() => scope.locale.register(NS, { zh, en }), 'plugin-marketplace: dictionaries')
 
@@ -93,14 +94,14 @@ export async function apply(ctx: ClientContext): Promise<void> {
       setAgentWorkspaceDir: async (workspaceDir) => unwrapMarketplace(await scope.remote.marketplace.setAgentWorkspaceDir({ workspaceDir }), t),
       chooseInstallDir: async () => {
         try {
-          return await scope.uiWorkspace.pickDirectory()
+          return await pickCompatibleDirectory(scope)
         } catch (error) {
           throw new Error(t('installDirPickerFailed') + ': ' + (error instanceof Error ? error.message : String(error)))
         }
       },
       chooseAgentWorkspaceDir: async () => {
         try {
-          return await scope.uiWorkspace.pickDirectory()
+          return await pickCompatibleDirectory(scope)
         } catch (error) {
           throw new Error(t('agentWorkspacePickerFailed') + ': ' + (error instanceof Error ? error.message : String(error)))
         }
