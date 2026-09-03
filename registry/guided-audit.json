@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T18:08:38.417Z",
-  "total": 1111,
+  "generatedAt": "2026-09-03T21:16:20.714Z",
+  "total": 1113,
   "groups": {
     "remote-command-found": 370,
-    "local-or-unparsed-command-only": 566,
-    "no-install-command-found": 175
+    "local-or-unparsed-command-only": 567,
+    "no-install-command-found": 176
   },
   "rows": [
     {
@@ -2186,7 +2186,7 @@
       "repository": "ai-daming/clickvibe",
       "packageName": "clickvibe",
       "version": "0.1.0",
-      "verifiedCommit": "ef27abcda23e7144cf4f7e82f553204cfa69037a",
+      "verifiedCommit": "8c59c017652cad85a3ab81ba1619bd16fdd4b844",
       "readmePath": "README.md",
       "commands": [
         {
@@ -4244,7 +4244,7 @@
       "repository": "bailong-Hakuryu/dsh-engineering-control-plane",
       "packageName": "dsh-engineering-control-plane",
       "version": "0.1.9",
-      "verifiedCommit": "87c372d86b54ae754048db39976b92d7674eac47",
+      "verifiedCommit": "fe492ac11430896d67ba14a511692306ff6188ce",
       "readmePath": "README.md",
       "commands": [
         {
@@ -4282,7 +4282,7 @@
       "repository": "bailong-Hakuryu/dsh-security-assurance",
       "packageName": "dsh-security-assurance",
       "version": "0.1.0-rc.10",
-      "verifiedCommit": "7d5aca81ec3dd473faf419834d1a33186a4ae16c",
+      "verifiedCommit": "c248d96e8535d6416416b7f67c6569e3aa9a80c1",
       "readmePath": "README.md",
       "commands": [
         {
@@ -5444,8 +5444,8 @@
     {
       "repository": "blaxel-ai/deepseek-harness-blaxel-sandbox",
       "packageName": "@blaxel/dsh-sandbox",
-      "version": "0.1.1",
-      "verifiedCommit": "4416e30a56006b9df0dfce2bb8380dc905b8adc3",
+      "version": "0.1.2",
+      "verifiedCommit": "d64db85969c2b6a02f958441e25f11a3f3d7f262",
       "readmePath": "README.md",
       "commands": [
         {
@@ -5473,7 +5473,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@blaxel/dsh-sandbox@0.1.1",
+        "spec": "@blaxel/dsh-sandbox@0.1.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -8101,7 +8101,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "fc68aa09b43bad464d1f3661ed83f71d4f99893f",
+      "verifiedCommit": "59d0cb0c6b7fce9af0ce810acbb98aa5f4263911",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11507,7 +11507,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "1b3f3d2305ab4943cad81d09f32eff48d3d1d3f9",
+      "verifiedCommit": "275836172b9509b989d03c54b3b2cc605cf54596",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12991,7 +12991,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.7.13",
-      "verifiedCommit": "bd7a797456d900cd83dd947a93130dc162f03b63",
+      "verifiedCommit": "a712c210d34ad302327b468e56f7253553632251",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15050,7 +15050,7 @@
       "repository": "GoshawkGGGG/dsh-safe-tool",
       "packageName": "dsh-safe-tool",
       "version": "0.1.0",
-      "verifiedCommit": "7b0bab175bc9c8520c016331edbf194fd6e4c5b3",
+      "verifiedCommit": "d337f81583f2f9903a7048096b2955cd65dcea77",
       "readmePath": "README.md",
       "commands": [
         {
@@ -24741,6 +24741,53 @@
       }
     },
     {
+      "repository": "linkbag/dsh-swarm-orchestrator",
+      "packageName": "dsh-swarm-orchestrator",
+      "version": "0.3.1",
+      "verifiedCommit": "4bf9b4564669cdff4ac646183ef9e98c18279d80",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:linkbag/dsh-swarm-orchestrator",
+          "profile": "web",
+          "spec": "github:linkbag/dsh-swarm-orchestrator",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dsh-swarm-orchestrator",
+          "profile": "web",
+          "spec": "./dsh-swarm-orchestrator",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-swarm-orchestrator@0.3.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "Linxiushen/dsh-workflow-isolate",
       "packageName": "dsh-workflow-isolate",
       "version": "0.1.0",
@@ -27223,6 +27270,36 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "marcemira/dsh-theme-nier-automata",
+      "packageName": "dsh-theme-nier-automata",
+      "version": "1.0.0",
+      "verifiedCommit": "4b9bef51945712c888abae9f2e309df64d2d47bb",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-theme-nier-automata@1.0.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -32409,7 +32486,7 @@
       "repository": "omdsh-dev/plugin-template",
       "packageName": "@your-scope/dsh-plugin-template",
       "version": "0.0.1",
-      "verifiedCommit": "74e3a3a6f6d1f8cbae5e7648c7a6c3d2bbb87e46",
+      "verifiedCommit": "92d0943e706a06c7609da0ba5ab93328289d3fa5",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -47541,7 +47618,7 @@
       "repository": "Wuxie233/dsh-plugin-agent-teams",
       "packageName": "@wuxie233/dsh-agent-teams",
       "version": "0.2.2",
-      "verifiedCommit": "2c762cfeba1adfb12f55134b36d72599c58e87ec",
+      "verifiedCommit": "60602f52296fe07b3fde075960d893ef2b164d49",
       "readmePath": "README.md",
       "commands": [
         {
@@ -50881,7 +50958,7 @@
       "repository": "youridol/dsh-sess",
       "packageName": "dsh-sess",
       "version": "0.2.0",
-      "verifiedCommit": "fe2fdeb082247bc8fba8a8dd76b5091503f88948",
+      "verifiedCommit": "b4597e005e0866344244296cd10488b976630487",
       "readmePath": "README.md",
       "commands": [
         {
