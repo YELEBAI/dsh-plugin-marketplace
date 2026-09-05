@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T21:00:35.600Z",
-  "total": 1126,
+  "generatedAt": "2026-09-05T00:20:35.079Z",
+  "total": 1128,
   "groups": {
-    "remote-command-found": 376,
-    "local-or-unparsed-command-only": 573,
+    "remote-command-found": 377,
+    "local-or-unparsed-command-only": 574,
     "no-install-command-found": 177
   },
   "rows": [
@@ -4696,13 +4696,13 @@
       "repository": "beiyege-01/dsh-voice-ai-girlfriend-plugin",
       "packageName": "@beiyege-01/dsh-voice-ai-girlfriend",
       "version": "0.2.0",
-      "verifiedCommit": "58f85fbe9a0b3f920eac64d5407aabdb4f4de634",
+      "verifiedCommit": "87ac927a744f28ea17dec8bb55a086af7848fe97",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin add` 安装时 loader 找不到 main 的问题。`dsh plugin add` 即可安装。",
+          "raw": "dsh plugin add` 安装与样式注入。含数字人（DUIX）控制、DeepSeek 余额 badge（stats 行）、五态麦克风。`dsh plugin add` 即可安装。",
           "profile": null,
-          "spec": "安装时",
+          "spec": "安装与样式注入。含数字人（DUIX）控制、DeepSeek",
           "source": "unknown"
         },
         {
@@ -8281,7 +8281,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "9a03c2ac843e4b1fffce6b6a5c6cc87c6c7de9df",
+      "verifiedCommit": "813a05a558b7c87838d5a57485aef6e91bb9039b",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13353,57 +13353,6 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
-      }
-    },
-    {
-      "repository": "extracurricular-ai/dsh-filesnap",
-      "packageName": "dsh-filesnap",
-      "version": "0.2.2",
-      "verifiedCommit": "ca12ff79956b3fc4bc123a395187a98b2c6958cb",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-filesnap",
-          "profile": "web",
-          "spec": "dsh-filesnap",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-filesnap",
-          "profile": "web",
-          "spec": "dsh-filesnap",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-filesnap",
-          "profile": "web",
-          "spec": "dsh-filesnap",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-filesnap@0.2.2",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
       }
     },
     {
@@ -26408,7 +26357,7 @@
       "repository": "lrplrplrp/dsh-sidebar-gdhighlight",
       "packageName": "dsh-sidebar-gdhighlight",
       "version": "0.1.0",
-      "verifiedCommit": "b1a2dc1be6405a950534aab7dcae55b2a86a7420",
+      "verifiedCommit": "89722db5c6eca3f356d44db55f99be3aefcb9126",
       "readmePath": "README.md",
       "commands": [
         {
@@ -48152,6 +48101,73 @@
       }
     },
     {
+      "repository": "wss534857356/dsh-plugin-codex",
+      "packageName": "dsh-llm-codex-app-server",
+      "version": "0.1.21",
+      "verifiedCommit": "c91adf29eb7dd700278c518e9214b9a37b23742c",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-llm-codex-app-server@latest",
+          "profile": "web",
+          "spec": "dsh-llm-codex-app-server@latest",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dist/dsh-llm-codex-app-server-<version>.tgz",
+          "profile": "web",
+          "spec": "./dist/dsh-llm-codex-app-server-<version>.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:wss534857356/dsh-plugin-codex",
+          "profile": "web",
+          "spec": "github:wss534857356/dsh-plugin-codex",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-llm-codex-app-server@latest",
+          "profile": "web",
+          "spec": "dsh-llm-codex-app-server@latest",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-llm-codex-app-server@latest",
+          "profile": "web",
+          "spec": "dsh-llm-codex-app-server@latest",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-llm-codex-app-server@0.1.21",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "wulun811/dsh-plugin-vet",
       "packageName": "@jieai/dsh-plugin-vet",
       "version": "0.3.6",
@@ -52903,6 +52919,53 @@
       }
     },
     {
+      "repository": "zhang-bin-98/sci-fork",
+      "packageName": "dsh-scifork",
+      "version": "0.0.2",
+      "verifiedCommit": "4d08f0aa9b6043bd5a8fd920f653ee31e5f4d334",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add git+https://github.com/zhang-bin-98/sci-fork.git",
+          "profile": "web",
+          "spec": "git+https://github.com/zhang-bin-98/sci-fork.git",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dsh-scifork-0.0.2.tgz",
+          "profile": "web",
+          "spec": "./dsh-scifork-0.0.2.tgz",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-scifork@0.0.2",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "zhang787jun/dsh-finance",
       "packageName": "dsh-finance",
       "version": "0.2.0",
@@ -53222,6 +53285,77 @@
       "npmVerification": {
         "verified": false,
         "spec": "dsh-todo-panel@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
+      "repository": "zhangmiao03/dsh-cloak",
+      "packageName": "dsh-cloak",
+      "version": "0.1.0",
+      "verifiedCommit": "5058c40cc2ff14c34be747184e7b175743ec21e9",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add \"github:zhangmiao03/dsh-cloak#main\"",
+          "profile": "web",
+          "spec": "github:zhangmiao03/dsh-cloak#main",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add \"github:zhangmiao03/dsh-cloak#v0.1.0\"",
+          "profile": "web",
+          "spec": "github:zhangmiao03/dsh-cloak#v0.1.0",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-cloak",
+          "profile": "web",
+          "spec": "dsh-cloak",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add /path/to/dsh-cloak",
+          "profile": "web",
+          "spec": "/path/to/dsh-cloak",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-cloak",
+          "profile": "web",
+          "spec": "dsh-cloak",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-cloak",
+          "profile": "web",
+          "spec": "dsh-cloak",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-cloak@0.1.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
