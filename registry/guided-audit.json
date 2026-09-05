@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T10:51:33.233Z",
-  "total": 1127,
+  "generatedAt": "2026-09-05T15:28:45.501Z",
+  "total": 1130,
   "groups": {
-    "remote-command-found": 380,
+    "remote-command-found": 383,
     "local-or-unparsed-command-only": 571,
     "no-install-command-found": 176
   },
@@ -3666,6 +3666,65 @@
       }
     },
     {
+      "repository": "auggie246/dsh-llm-openai-codex",
+      "packageName": "dsh-llm-openai-codex",
+      "version": "0.5.0",
+      "verifiedCommit": "629c32fc870969997674cd67761803f41d25caa8",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-llm-openai-codex",
+          "profile": "web",
+          "spec": "dsh-llm-openai-codex",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:auggie246/dsh-llm-openai-codex",
+          "profile": "web",
+          "spec": "github:auggie246/dsh-llm-openai-codex",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-llm-openai-codex",
+          "profile": "web",
+          "spec": "dsh-llm-openai-codex",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-llm-openai-codex",
+          "profile": "web",
+          "spec": "dsh-llm-openai-codex",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-llm-openai-codex@0.5.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "auki-zy/dsh-cursor-theme",
       "packageName": "dsh-cursor-theme",
       "version": "0.3.0",
@@ -4293,7 +4352,7 @@
       "repository": "bailong-Hakuryu/dsh-security-assurance",
       "packageName": "dsh-security-assurance",
       "version": "0.1.0-rc.11",
-      "verifiedCommit": "0e16ef493bdd8c10fd258f4034a7377b2ae19c6b",
+      "verifiedCommit": "f52a9e78a7e015c62860f52ba83ad8d2d73ca7e8",
       "readmePath": "README.md",
       "commands": [
         {
@@ -6869,7 +6928,7 @@
       "repository": "cdxDNRF/dsh-wishadel-theme",
       "packageName": "@cdxdnrf/dsh-client-ui-skin-wishadel",
       "version": "0.7.0",
-      "verifiedCommit": "748b674d231aafe6b351001abd42b6fca19908ca",
+      "verifiedCommit": "c72c2d74d1e8bc81a09a59c51aed09e4fd853974",
       "readmePath": "README.md",
       "commands": [
         {
@@ -8208,7 +8267,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "2a47887cd615876285fe9ecdcfdf77a87345ad6b",
+      "verifiedCommit": "0669154ce8877feac522231f2f5035dab280ce11",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11896,7 +11955,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "96e9dfefa157aab221745c078c7b20a7ab157ab5",
+      "verifiedCommit": "3acd02b9d4a3ef9e88b7379456bf447e7380d03f",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12334,7 +12393,7 @@
       "repository": "dream-num/dsh-univer-office",
       "packageName": "dsh-univer-office",
       "version": "0.2.14",
-      "verifiedCommit": "70ea6e61ab5a8f17f38259efb71e9e4fcfc2da84",
+      "verifiedCommit": "3cfc26a464fb6784f6d2cda423a6bd690d826c8a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13409,8 +13468,8 @@
     {
       "repository": "fb0sh/dsh-pentester",
       "packageName": "dsh-pentester",
-      "version": "2.5.0",
-      "verifiedCommit": "54747a7aee0f65b690b1151b8f69fa2c199c7c3d",
+      "version": "2.6.0",
+      "verifiedCommit": "219c244fba2d8ea8064dfb1206d18aa2d515e6b5",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13444,7 +13503,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-pentester@2.5.0",
+        "spec": "dsh-pentester@2.6.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -13471,7 +13530,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.7.14",
-      "verifiedCommit": "33c96369aac9ecb8e08dd101aabba8f19b3fc111",
+      "verifiedCommit": "a6281dbbc39df178cf82f290fe2748b6a9d753df",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16503,6 +16562,63 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "harryopo/dsh-cloud-workspaces",
+      "packageName": "dsh-cloud-workspaces",
+      "version": "0.2.2",
+      "verifiedCommit": "f111ed3ec2863791a3898ef6d08a0e8e96f23b0c",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-cloud-workspaces",
+          "profile": "web",
+          "spec": "dsh-cloud-workspaces",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:C:\\path\\to\\dsh-cloud-workspaces",
+          "profile": "web",
+          "spec": "link:C:\\path\\to\\dsh-cloud-workspaces",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-cloud-workspaces",
+          "profile": "web",
+          "spec": "dsh-cloud-workspaces",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-cloud-workspaces",
+          "profile": "web",
+          "spec": "dsh-cloud-workspaces",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-cloud-workspaces@0.2.2",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -23751,7 +23867,7 @@
       "repository": "le-soleil-se-couche/dsh-token-cost",
       "packageName": "@deepseek-ai/dsh-token-cost",
       "version": "0.2.0",
-      "verifiedCommit": "3263f26b6a6e85cf733853cc510abdf594bf7997",
+      "verifiedCommit": "058d6358127c07b1735a80bbd7478571a7e98d57",
       "readmePath": "README.md",
       "commands": [
         {
@@ -26779,7 +26895,7 @@
       "repository": "luoxunhao/dsh-codex-project",
       "packageName": "@luoxunhao/dsh-codex-project",
       "version": "0.11.2",
-      "verifiedCommit": "137666d32ac2dba0ea86d93b14ba88537425d777",
+      "verifiedCommit": "a36ef3557f7c8194f35f3fdf9b6dd2ded6e86b4b",
       "readmePath": "README.md",
       "commands": [
         {
@@ -30298,7 +30414,7 @@
       "repository": "Mortal520/dsh-provider-pro",
       "packageName": "dsh-provider-pro",
       "version": "0.5.0",
-      "verifiedCommit": "df532dddce1f7a8ad117638d0f069c0cbc03a44c",
+      "verifiedCommit": "27cbf875fbad7db3b45210703c8054bd13bda083",
       "readmePath": "README.md",
       "commands": [
         {
@@ -31611,7 +31727,7 @@
       "repository": "NinjaSln-labs/dsh-subagent-cursor",
       "packageName": "dsh-subagent-cursor",
       "version": "0.1.0",
-      "verifiedCommit": "7989def25621de17dee5da85fa54be45c8348636",
+      "verifiedCommit": "c0dd765c8c776d6ba612abbb104609b7fd876b71",
       "readmePath": "README.md",
       "commands": [
         {
@@ -35200,7 +35316,7 @@
       "repository": "po-et/dsh-http-probe",
       "packageName": "dsh-http-probe",
       "version": "0.1.0",
-      "verifiedCommit": "f88667e7a06adf54a44cf7667e67f695e1641889",
+      "verifiedCommit": "1e8e64e023ab9553389192547dd53744b71c4a31",
       "readmePath": "README.md",
       "commands": [
         {
@@ -35253,7 +35369,7 @@
       "repository": "po-et/dsh-session-guard",
       "packageName": "@po-et/dsh-session-guard",
       "version": "0.1.0",
-      "verifiedCommit": "124513347f4c51caf66f5c4025e694d149d6196e",
+      "verifiedCommit": "242884bb9fc11cf0b0c9303f306590a4eb1480bc",
       "readmePath": "README.md",
       "commands": [
         {
@@ -35306,7 +35422,7 @@
       "repository": "po-et/dsh-session-snapshot",
       "packageName": "dsh-session-snapshot",
       "version": "0.1.0",
-      "verifiedCommit": "2a6ceb044df5b25bfa158e5122617d3ed468fcfb",
+      "verifiedCommit": "f23e6b747ad5eeb351e95e86bf84ebf8f2bceffc",
       "readmePath": "README.md",
       "commands": [
         {
@@ -36617,7 +36733,7 @@
       "repository": "RangeKing/dsh-iris",
       "packageName": "dsh-iris",
       "version": "0.2.0",
-      "verifiedCommit": "61b99363becf0442b83dd22874eebd844652d700",
+      "verifiedCommit": "b67c2a3253abee9e2038dbd0010acbebc20df22f",
       "readmePath": "README.md",
       "commands": [
         {
@@ -44372,6 +44488,59 @@
       }
     },
     {
+      "repository": "TURIING/dsh-glob-rules",
+      "packageName": "dsh-glob-rules",
+      "version": "0.1.0",
+      "verifiedCommit": "5902a81a86f97608861a11519079cf6e9b31fbe5",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-glob-rules",
+          "profile": "desktop",
+          "spec": "dsh-glob-rules",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-glob-rules",
+          "profile": "desktop",
+          "spec": "dsh-glob-rules",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-glob-rules",
+          "profile": "desktop",
+          "spec": "dsh-glob-rules",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-glob-rules@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "turtle1999/turtle-ui",
       "packageName": "@deepseek-ai/dsh-tui",
       "version": "0.0.1",
@@ -50133,8 +50302,8 @@
     {
       "repository": "xsoc1/math-research-dsh",
       "packageName": "math-research-dsh",
-      "version": "1.15.0",
-      "verifiedCommit": "87b4ce4ead20c15662a025bcdd80a9ce06dcb50f",
+      "version": "1.15.1",
+      "verifiedCommit": "2b80ea4cb546f66eaf21eaf7129e86ff7d6013bd",
       "readmePath": "README.md",
       "commands": [
         {
@@ -50148,7 +50317,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "math-research-dsh@1.15.0",
+        "spec": "math-research-dsh@1.15.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
