@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T22:15:32.545Z",
+  "generatedAt": "2026-09-06T00:06:00.149Z",
   "total": 1136,
   "groups": {
     "remote-command-found": 389,
@@ -1580,8 +1580,8 @@
     {
       "repository": "abiddotdev/dsh-visualizer",
       "packageName": "dsh-visualizer",
-      "version": "0.7.0",
-      "verifiedCommit": "7c44cf7e6c1f156140d9d02f018b6e4d271894e4",
+      "version": "0.8.0",
+      "verifiedCommit": "f500214a46a819e3fd60202d5fb5acec21fedb8a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -1619,7 +1619,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-visualizer@0.7.0",
+        "spec": "dsh-visualizer@0.8.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -8267,7 +8267,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "ba99df68c2361c1e493336ac597d5fff59041f0f",
+      "verifiedCommit": "b5f69b81ad59638e2aeb1377d8f2d17d36c17dda",
       "readmePath": "README.md",
       "commands": [
         {
@@ -35953,83 +35953,6 @@
       }
     },
     {
-      "repository": "pure-craft/dsh-capability-panel",
-      "packageName": "dsh-capability-panel",
-      "version": "1.0.0",
-      "verifiedCommit": "f7657972d555c160b7a2eb923349d2ddde3d0462",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-capability-panel` (then restart dsh) |",
-          "profile": "web",
-          "spec": "dsh-capability-panel",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-capability-panel",
-          "profile": "web",
-          "spec": "dsh-capability-panel",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add github:pure-craft/dsh-capability-panel",
-          "profile": "web",
-          "spec": "github:pure-craft/dsh-capability-panel",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-capability-panel` (then restart dsh) |",
-          "profile": "web",
-          "spec": "dsh-capability-panel",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-capability-panel",
-          "profile": "web",
-          "spec": "dsh-capability-panel",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-capability-panel` (then restart dsh) |",
-          "profile": "web",
-          "spec": "dsh-capability-panel",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-capability-panel",
-          "profile": "web",
-          "spec": "dsh-capability-panel",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-capability-panel@1.0.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
-      }
-    },
-    {
       "repository": "pwping/moyu_games",
       "packageName": "moyu-games",
       "version": "0.1.0",
@@ -49396,6 +49319,97 @@
       }
     },
     {
+      "repository": "xi-kari/dsh-amphoreus",
+      "packageName": "dsh-amphoreus",
+      "version": "0.3.0",
+      "verifiedCommit": "38317751541dbc1cb6b4f65f76f6746c0276707a",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-amphoreus@alpha",
+          "profile": "web",
+          "spec": "dsh-amphoreus@alpha",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-amphoreus@0.3.0",
+          "profile": "web",
+          "spec": "dsh-amphoreus@0.3.0",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dsh-amphoreus-0.3.0.tgz",
+          "profile": "web",
+          "spec": "./dsh-amphoreus-0.3.0.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:xi-kari/dsh-amphoreus#<sha>",
+          "profile": "web",
+          "spec": "github:xi-kari/dsh-amphoreus#<sha>",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin add`；launcher 的参数转发会在空格处断开。改在 profile 目录安装 link，再让 launcher reconcile：",
+          "profile": null,
+          "spec": "；launcher",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-amphoreus@alpha",
+          "profile": "web",
+          "spec": "dsh-amphoreus@alpha",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-amphoreus@0.3.0",
+          "profile": "web",
+          "spec": "dsh-amphoreus@0.3.0",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-amphoreus@alpha",
+          "profile": "web",
+          "spec": "dsh-amphoreus@alpha",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-amphoreus@0.3.0",
+          "profile": "web",
+          "spec": "dsh-amphoreus@0.3.0",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-amphoreus@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "xiagaogaozi/dsh-silly-plugin",
       "packageName": "dsh-tavern-mode",
       "version": "1.0.0",
@@ -54910,7 +54924,7 @@
       "repository": "zsxh1990/pr-genius",
       "packageName": "pr-genius",
       "version": "1.1.0",
-      "verifiedCommit": "f468629bc85e90012609a7041ec65a9f89f63637",
+      "verifiedCommit": "7aa44ea2bc1bad320c3f50fba6961c2e87883eb8",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -55023,20 +55037,26 @@
       "repository": "zw11591-sketch/dsh-pet-panel",
       "packageName": "dsh-pet-panel",
       "version": "0.1.0",
-      "verifiedCommit": "f3999ac95f7570e069d3e45745fd063c16f94b0b",
+      "verifiedCommit": "17e0fd9287910ba1bcd1184132969ef7f807041a",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add github:zw11591-sketch/dsh-pet-panel",
-          "profile": "web",
+          "raw": "dsh plugin --profile <name> add github:zw11591-sketch/dsh-pet-panel",
+          "profile": "<name>",
           "spec": "github:zw11591-sketch/dsh-pet-panel",
           "source": "unknown"
         },
         {
-          "raw": "dsh plugin --profile web add file:.",
-          "profile": "web",
+          "raw": "dsh plugin --profile <name> add file:.",
+          "profile": "<name>",
           "spec": "file:",
           "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add \"github:zw11591-sketch/dsh-pet-panel#<branch-or-commit>\"",
+          "profile": "<name>",
+          "spec": "github:zw11591-sketch/dsh-pet-panel#<branch-or-commit>",
+          "source": "unknown"
         }
       ],
       "targetedCommands": [],
@@ -55273,7 +55293,7 @@
       "repository": "zzhzz/dsh-ask-peer",
       "packageName": "dsh-ask-peer",
       "version": "0.1.0",
-      "verifiedCommit": "b803fcd94bd231d8f9055a2116beabdd5de25c1c",
+      "verifiedCommit": "e706e82c5203fc8a4f0f6af13a4c947125ab6524",
       "readmePath": "README.md",
       "commands": [
         {
