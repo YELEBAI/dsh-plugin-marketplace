@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T18:33:21.397Z",
+  "generatedAt": "2026-09-06T22:22:05.052Z",
   "total": 1146,
   "groups": {
     "remote-command-found": 392,
@@ -8419,7 +8419,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "29863788796f76448ca3913ad96fd657e00e75b5",
+      "verifiedCommit": "34006972e1dd982e879dd69b3a4c5b4b497b92e7",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12343,7 +12343,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "433e7ecb51b7a7b833e33871477626d0c68ac29b",
+      "verifiedCommit": "2482238b5e3650b742a433a721ee1cd2c0127a34",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16097,7 +16097,7 @@
       "repository": "GoshawkGGGG/dsh-safe-tool",
       "packageName": "dsh-safe-tool",
       "version": "0.1.0",
-      "verifiedCommit": "d337f81583f2f9903a7048096b2955cd65dcea77",
+      "verifiedCommit": "3a1b9d44c72bd688736739395d5df32566d7d461",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16213,57 +16213,6 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
-      }
-    },
-    {
-      "repository": "grloper/dsh-deep-research",
-      "packageName": "dsh-deep-research",
-      "version": "0.1.0",
-      "verifiedCommit": "2c31f5a661f0412310d6a96648a3c455800dd23b",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-deep-research",
-          "profile": "web",
-          "spec": "dsh-deep-research",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-deep-research",
-          "profile": "web",
-          "spec": "dsh-deep-research",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-deep-research",
-          "profile": "web",
-          "spec": "dsh-deep-research",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-deep-research@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
       }
     },
     {
@@ -22314,7 +22263,7 @@
       "repository": "JunNanLYS/dsh-input-markdown",
       "packageName": "dsh-input-markdown",
       "version": "0.1.0",
-      "verifiedCommit": "20a3accc8eeabe3fcb79a959d0bbe7a3387a2031",
+      "verifiedCommit": "1d485c719c9cb68337f64ebe7462fb4484ff8b9c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -43695,8 +43644,8 @@
     {
       "repository": "TikaFlow/dsh-model-reasoning",
       "packageName": "dsh-model-reasoning",
-      "version": "0.7.18",
-      "verifiedCommit": "8c35c31a62e0a040736ea86f02f3348631700efc",
+      "version": "0.7.23",
+      "verifiedCommit": "e64536c44bb145110d1dd8ec30af79c43894ec91",
       "readmePath": "README.md",
       "commands": [
         {
@@ -43710,7 +43659,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-model-reasoning@0.7.18",
+        "spec": "dsh-model-reasoning@0.7.23",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -54835,6 +54784,71 @@
       "npmVerification": {
         "verified": false,
         "spec": "dsh-biomni@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "zijun-T/dsh-sidebar-remote",
+      "packageName": "dsh-sidebar-remote",
+      "version": "0.2.0",
+      "verifiedCommit": "88b379d4fbb9db22d98e603af4044356a2daedc2",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add /path/to/remote-sidebar-plugin",
+          "profile": "web",
+          "spec": "/path/to/remote-sidebar-plugin",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dsh-sidebar-remote-0.2.0.tgz",
+          "profile": "web",
+          "spec": "./dsh-sidebar-remote-0.2.0.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-sidebar-remote",
+          "profile": "web",
+          "spec": "dsh-sidebar-remote",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-sidebar-remote",
+          "profile": "web",
+          "spec": "dsh-sidebar-remote",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-sidebar-remote",
+          "profile": "web",
+          "spec": "dsh-sidebar-remote",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-sidebar-remote@0.2.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
