@@ -62,6 +62,37 @@ try {
   assert.equal(urls.length, 2, 'a Raw timeout must continue through the Contents API fallback')
   assert.match(urls[0] ?? '', /^https:\/\/raw\.githubusercontent\.com\//)
   assert.match(urls[1] ?? '', /^https:\/\/api\.github\.com\/repos\/owner\/repo\/contents\/package\.json\?ref=/)
+
+  // 无 ref 的详情也必须先锁定 SHA，避免在多次文件读取间混入移动后的 tag/分支。
+  for (const hasRelease of [true, false]) {
+    const requests: string[] = []
+    const commit = 'b'.repeat(40)
+    const selectedRef = hasRelease ? 'v1.0.0' : 'main'
+    globalThis.fetch = async (input) => {
+      const url = String(input)
+      requests.push(url)
+      if (url.endsWith('/releases/latest')) {
+        return new Response(JSON.stringify({ tag_name: selectedRef }), { status: hasRelease ? 200 : 404 })
+      }
+      if (url === 'https://api.github.com/repos/owner/repo') {
+        return new Response(JSON.stringify({ default_branch: selectedRef }))
+      }
+      if (url.endsWith('/commits/' + selectedRef)) return new Response(JSON.stringify({ sha: commit }))
+      if (url.endsWith('/package.json')) {
+        return new Response(JSON.stringify({
+          name: 'fixture-plugin', version: '1.0.0', main: './lib/index.js',
+          dsh: { bundle: { patch: './cordis.patch.yml' } },
+        }))
+      }
+      return new Response('fixture')
+    }
+    const details = await new GitHubClient().details('owner/repo', '')
+    assert.equal(details.resolvedRef, commit, '自动选择的 tag/分支必须解析为精确 commit')
+    const fileRequests = requests.filter(url => url.startsWith('https://raw.githubusercontent.com/'))
+    assert.equal(fileRequests.length, 3)
+    assert(fileRequests.every(url => url.startsWith('https://raw.githubusercontent.com/owner/repo/' + commit + '/')),
+      'manifest、patch 与入口必须来自同一个已解析的 commit')
+  }
 } finally {
   globalThis.fetch = originalFetch
 }

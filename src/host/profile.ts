@@ -5,7 +5,7 @@
  */
 
 import { createRequire } from 'node:module'
-import { existsSync, readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, realpathSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Context } from '@deepseek-ai/cordis'
@@ -65,8 +65,22 @@ export function ensureProfile(dir: string, name: string): void {
 /** Resolve an installed dependency's package.json from the profile directory. */
 export function packageManifestPath(packageName: string, dir: string): string | null {
   try {
+    // 暂存项目自身可能就是待检查的包；Node 会通过 `exports` 支持包自引用。
+    const ownManifest = join(dir, 'package.json')
+    try {
+      const ownPackage = JSON.parse(readFileSync(ownManifest, 'utf8')) as { name?: unknown; exports?: unknown }
+      if (ownPackage.name === packageName && ownPackage.exports !== undefined) return realpathSync(ownManifest)
+    } catch {
+      // 自身清单不可读时继续按 node_modules 搜索。
+    }
+
     const require = createRequire(join(dir, 'package.json'))
-    return require.resolve(packageName + '/package.json')
+    // `exports` 可能不导出 `./package.json`；按 Node 的普通查找路径解析包目录后直接读取清单。
+    for (const searchPath of require.resolve.paths(packageName) ?? []) {
+      const candidate = join(searchPath, packageName, 'package.json')
+      if (existsSync(candidate)) return realpathSync(candidate)
+    }
+    return null
   } catch {
     return null
   }

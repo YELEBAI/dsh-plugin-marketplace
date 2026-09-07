@@ -171,6 +171,7 @@ export class RegistryClient {
   private cache: RegistryCache | undefined
   private loading: Promise<MarketplaceRegistry> | undefined
   private backgroundRefresh: Promise<MarketplaceRegistry> | undefined
+  private refreshing: Promise<void> | undefined
   private bootstrapped = false
   private readonly repositories = new Map<string, MarketplaceRegistryPlugin>()
   private readonly packages = new Map<string, MarketplaceRegistryPlugin>()
@@ -260,10 +261,22 @@ export class RegistryClient {
 
   /** 显式检查更新时绕过 TTL，重新读取远程 Registry 与发现数据。 */
   async refresh(): Promise<void> {
+    if (this.refreshing !== undefined) return this.refreshing
+    const refreshing = this.refreshUncached()
+    this.refreshing = refreshing
+    try {
+      await refreshing
+    } finally {
+      if (this.refreshing === refreshing) this.refreshing = undefined
+    }
+  }
+
+  private async refreshUncached(): Promise<void> {
     if (this.loading !== undefined) await this.loading.catch(() => undefined)
     if (this.backgroundRefresh !== undefined) await this.backgroundRefresh.catch(() => undefined)
     this.bootstrapped = true
-    this.cache = undefined
+    // 只让 TTL 失效，保留 ETag 和最近有效快照供条件请求及离线恢复使用。
+    if (this.cache !== undefined) this.cache.expiresAt = 0
     await this.load()
   }
 
@@ -286,6 +299,7 @@ export class RegistryClient {
   private async load(): Promise<MarketplaceRegistry> {
     if (this.cache !== undefined && Date.now() < this.cache.expiresAt) return this.cache.registry
     if (this.loading !== undefined) return this.loading
+    if (this.backgroundRefresh !== undefined) return this.backgroundRefresh
     const loading = this.loadUncached()
     this.loading = loading
     try {
@@ -299,13 +313,17 @@ export class RegistryClient {
   private async loadUncached(): Promise<MarketplaceRegistry> {
     if (this.preferBundledFirst && !this.bootstrapped && this.source !== this.bundledSource) {
       this.bootstrapped = true
-      const registry = await this.loadSource(this.bundledSource)
-      const backgroundRefresh = this.loadSource(this.source)
-      this.backgroundRefresh = backgroundRefresh
-      void backgroundRefresh.catch(() => undefined).finally(() => {
-        if (this.backgroundRefresh === backgroundRefresh) this.backgroundRefresh = undefined
-      })
-      return registry
+      try {
+        const registry = await this.loadSource(this.bundledSource)
+        const backgroundRefresh = this.loadUncached()
+        this.backgroundRefresh = backgroundRefresh
+        void backgroundRefresh.catch(() => undefined).finally(() => {
+          if (this.backgroundRefresh === backgroundRefresh) this.backgroundRefresh = undefined
+        })
+        return registry
+      } catch {
+        // 包内快照缺失或损坏时，仍可从远端恢复首屏。
+      }
     }
     this.bootstrapped = true
     try {
@@ -339,8 +357,8 @@ export class RegistryClient {
       if (this.cache?.source === source && this.cache.etag !== null) headers['if-none-match'] = this.cache.etag
       const response = await fetch(url, { headers, signal: AbortSignal.timeout(this.timeoutMs) })
       if (response.status === 304 && this.cache?.source === source) {
-        this.cache.expiresAt = Date.now() + this.cacheMs
-        return this.cache.registry
+        const registry = applyDiscovery(this.cache.registry, await discovery)
+        return this.storeRegistry(registry, response.headers.get('etag') ?? this.cache.etag, source)
       }
       if (!response.ok) throw new Error(`Registry returned HTTP ${String(response.status)}`)
       raw = await response.json() as unknown
@@ -365,6 +383,11 @@ export class RegistryClient {
         }
       }
     }
+    return this.storeRegistry(registry, etag, source)
+  }
+
+  /** 同时替换快照和查找索引，避免不同入口看到不同的发现数据。 */
+  private storeRegistry(registry: MarketplaceRegistry, etag: string | null, source: string): MarketplaceRegistry {
     this.cache = { registry, etag, expiresAt: Date.now() + this.cacheMs, source }
     this.repositories.clear()
     this.packages.clear()

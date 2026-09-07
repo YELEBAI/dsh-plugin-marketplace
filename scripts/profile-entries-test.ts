@@ -4,7 +4,7 @@
  */
 
 import { strict as assert } from 'node:assert'
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, realpathSync, rmSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import type { ProfileManifest } from '@deepseek-ai/dsh-app-boot'
@@ -25,6 +25,8 @@ function makeBundle(dir: string, name: string, extra: Record<string, unknown> = 
     version: '1.2.3',
     description: name + ' does things',
     homepage: 'https://github.com/owner/' + name,
+    // 常见的包导出不会包含 ./package.json；Host 仍需读取清单维护安装状态。
+    exports: { '.': './index.js' },
     dsh: { bundle: { patch: './cordis.patch.yml' } },
     ...extra,
   }))
@@ -48,11 +50,22 @@ try {
 
   // ── installedEntries: linked rows ─────────────────────────────────────
   const manualGitHubSpec = `github:owner/linked-plugin#${'a'.repeat(40)}`
+  const junctionRoot = join(tmp, 'junction-root')
+  makeBundle(junctionRoot, 'junction-plugin')
+  mkdirSync(join(profileDir, 'node_modules'), { recursive: true })
+  symlinkSync(
+    join(junctionRoot, 'node_modules', 'junction-plugin'),
+    join(profileDir, 'node_modules', 'junction-plugin'),
+    process.platform === 'win32' ? 'junction' : 'dir',
+  )
   const manifest = {
     name: 'test-profile',
     private: true,
-    dsh: { profile: { bundles: ['linked-plugin'] } },
-    dependencies: { 'linked-plugin': manualGitHubSpec },
+    dsh: { profile: { bundles: ['linked-plugin', 'junction-plugin'] } },
+    dependencies: {
+      'linked-plugin': manualGitHubSpec,
+      'junction-plugin': `github:owner/junction-plugin#${'b'.repeat(40)}`,
+    },
   } as unknown as ProfileManifest
   const entries = installedEntries(manifest, profileDir, join(profileDir, 'node_modules'))
   const linked = entries.find(entry => entry.packageName === 'linked-plugin')
@@ -64,6 +77,14 @@ try {
     assert.equal(linked?.location, join(profileDir, 'node_modules', 'linked-plugin'))
     assert.equal(linked?.description, 'linked-plugin does things')
     assert.equal(linked?.currentSpec, manualGitHubSpec)
+  })
+  ok('junction installs resolve the real package path when exports hides package.json', () => {
+    const junction = entries.find(entry => entry.packageName === 'junction-plugin')
+    assert.ok(junction !== undefined)
+    assert.equal(junction?.linked, true)
+    assert.equal(junction?.isBundle, true)
+    assert.equal(junction?.enabled, true)
+    assert.equal(junction?.location, realpathSync(join(junctionRoot, 'node_modules', 'junction-plugin')))
   })
 
   // ── installedEntries: unlinked directory scan ─────────────────────────
@@ -111,7 +132,7 @@ try {
   })
   ok('default node_modules scans can skip unlinked directory discovery', () => {
     const linkedOnly = installedEntries(manifest, profileDir, pluginDir, false)
-    assert.deepEqual(linkedOnly.map(entry => entry.packageName), ['linked-plugin'])
+    assert.deepEqual(linkedOnly.map(entry => entry.packageName), ['junction-plugin', 'linked-plugin'])
   })
 } finally {
   rmSync(tmp, { recursive: true, force: true })

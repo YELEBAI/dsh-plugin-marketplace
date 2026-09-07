@@ -38,9 +38,8 @@ function makePlugin(
     version: '1.0.0',
     description: name + ' description',
     dsh: { bundle: { patch: './cordis.patch.yml' } },
-    // Mirror real marketplace packages: exports must allow './package.json'
-    // so the host's createRequire(...).resolve(name + '/package.json') works.
-    exports: opts.exports ?? { '.': './lib/index.js', './package.json': './package.json' },
+    // 常见的包导出不会包含 ./package.json；冲突扫描仍需读取清单和入口。
+    exports: opts.exports ?? { '.': './lib/index.js' },
   }))
   writeFileSync(join(dir, 'cordis.patch.yml'), opts.patch ?? [
     '- insert:',

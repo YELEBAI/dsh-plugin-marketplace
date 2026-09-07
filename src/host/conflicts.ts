@@ -6,11 +6,11 @@
  *  are a pre-flight guard, not a runtime guarantee.
  */
 
-import { createRequire } from 'node:module'
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import type { ProfileManifest } from '@deepseek-ai/dsh-app-boot'
 import type { MarketplaceConflict, MarketplaceConflictProvider } from '../types.ts'
+import { packageManifestPath } from './profile.ts'
 
 /** Cordis Context fields that must never count as `ctx.foo =` service provides. */
 const CORDIS_CTX_RESERVED = new Set([
@@ -88,16 +88,6 @@ export function extractPatchRows(source: string): PatchRow[] {
   }
   flush()
   return rows.filter(row => row.id !== '')
-}
-
-/** Resolve an installed dependency's package.json from the profile directory. */
-function packageManifestPath(packageName: string, dir: string): string | null {
-  try {
-    const require = createRequire(join(dir, 'package.json'))
-    return require.resolve(packageName + '/package.json')
-  } catch {
-    return null
-  }
 }
 
 export function packagePatchPath(packageName: string, dir: string): string | null {

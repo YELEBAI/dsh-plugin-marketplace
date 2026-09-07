@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useRef, useState, type ComponentProps, type ReactNode } from 'react'
 import {
-  Button,
+  Button as PrimitiveButton,
   IconChevronDownOutline14,
   IconSearchOutline16,
   Input,
-  Pill,
+  Pill as PrimitivePill,
   RiskConfirmation,
   StateDot,
   type StateDotState,
@@ -31,6 +31,20 @@ import type {
   MarketplaceToggleResult,
 } from '../types.ts'
 import type { PluginMarketplaceLocaleKey } from './locales.ts'
+import { marketplaceStyles } from './marketplace-styles.ts'
+
+/** 保留平台按钮行为，只统一市场内的外观与危险操作标识。 */
+function Button({ tone, className = '', ...props }: ComponentProps<typeof PrimitiveButton> & { tone?: 'danger' }): ReactNode {
+  return <PrimitiveButton {...props} className={'mkt-button ' + className} data-tone={tone} />
+}
+
+function Pill({ active = false, ...props }: ComponentProps<typeof PrimitivePill>): ReactNode {
+  return <PrimitivePill {...props} active={active} aria-pressed={active} className='mkt-pill' />
+}
+
+function PluginIcon(): ReactNode {
+  return <span className='mkt-card-icon' aria-hidden='true'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='1.6' strokeLinecap='round' strokeLinejoin='round'><rect x='3' y='3' width='7' height='7' rx='2' /><rect x='14' y='3' width='7' height='7' rx='2' /><rect x='3' y='14' width='7' height='7' rx='2' /><path d='M17.5 14v7M14 17.5h7' /></svg></span>
+}
 
 /** Registration-side Remote face used by the section. */
 export interface MarketplaceTabInjected {
@@ -107,24 +121,7 @@ const CATEGORY_OPTIONS: MarketplacePluginCategory[] = [
 ]
 
 const s = {
-  section: { width: '100%', maxWidth: 920, display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--dsw-alias-label-primary)' } as React.CSSProperties,
-  subnav: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, paddingBottom: 2 } as React.CSSProperties,
-  subnavGroup: { display: 'flex', alignItems: 'center', gap: 8 } as React.CSSProperties,
   subnavMeta: { display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 10, flexWrap: 'wrap' } as React.CSSProperties,
-  toolbar: { display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' } as React.CSSProperties,
-  search: { minWidth: 220, flex: '1 1 260px' } as React.CSSProperties,
-  sortGroup: { display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 8, whiteSpace: 'nowrap', flexWrap: 'wrap' } as React.CSSProperties,
-  categorySelect: {
-    minWidth: 124,
-    height: 30,
-    border: '1px solid var(--dsw-alias-border-l2)',
-    borderRadius: 8,
-    background: 'var(--dsw-alias-bg-layer-2)',
-    color: 'var(--dsw-alias-label-secondary)',
-    padding: '0 28px 0 10px',
-    font: 'inherit',
-    fontSize: 12,
-  } as React.CSSProperties,
   rateRow: { display: 'flex', justifyContent: 'flex-end', minHeight: 20, marginTop: -8 } as React.CSSProperties,
   muted: { color: 'var(--dsw-alias-label-tertiary)', fontSize: 13, lineHeight: '20px', margin: 0 } as React.CSSProperties,
   failure: { display: 'flex', alignItems: 'center', gap: 10, color: 'var(--dsw-alias-state-error-primary)', fontSize: 13 } as React.CSSProperties,
@@ -136,10 +133,6 @@ const s = {
     display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
   } as React.CSSProperties,
   bannerText: { minWidth: 0, flex: 1 } as React.CSSProperties,
-  cards: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 270px), 1fr))', gap: 12, margin: 0, padding: 0, listStyle: 'none', alignItems: 'start' } as React.CSSProperties,
-  card: { border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-3)', borderRadius: 12, minWidth: 0, overflow: 'hidden' } as React.CSSProperties,
-  cardBody: { minHeight: 232, boxSizing: 'border-box', padding: '16px 16px 12px', display: 'flex', flexDirection: 'column', gap: 8 } as React.CSSProperties,
-  titleRow: { display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, minHeight: 22 } as React.CSSProperties,
   title: { fontSize: 14, fontWeight: 600, lineHeight: '22px', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', minWidth: 0 } as React.CSSProperties,
   authorLine: { color: 'var(--dsw-alias-label-tertiary)', fontSize: 11, lineHeight: '17px', margin: '-4px 0 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' } as React.CSSProperties,
   verifiedBadge: {
@@ -164,9 +157,7 @@ const s = {
     padding: '2px 8px', fontSize: 10, lineHeight: '16px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
   } as React.CSSProperties,
   meta: { color: 'var(--dsw-alias-label-tertiary)', fontSize: 12, lineHeight: '18px', whiteSpace: 'nowrap' } as React.CSSProperties,
-  actions: { display: 'flex', alignItems: 'center', gap: 10, minHeight: 34, paddingTop: 10, borderTop: '1px solid var(--dsw-alias-border-l2)' } as React.CSSProperties,
   actionLinks: { minWidth: 0, marginLeft: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 14 } as React.CSSProperties,
-  detailToggle: { display: 'flex', alignItems: 'center', gap: 6, color: 'var(--dsw-alias-label-tertiary)', fontSize: 12, background: 'none', border: 0, cursor: 'pointer', padding: 0, font: 'inherit' } as React.CSSProperties,
   details: { borderTop: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-module-platform)', padding: '10px 14px 12px', display: 'flex', flexDirection: 'column', gap: 8 } as React.CSSProperties,
   kv: { display: 'grid', gridTemplateColumns: '76px minmax(0, 1fr)', gap: '4px 10px', margin: 0 } as React.CSSProperties,
   kvDt: { color: 'var(--dsw-alias-label-tertiary)', fontSize: 11, lineHeight: '17px' } as React.CSSProperties,
@@ -175,39 +166,30 @@ const s = {
   jobPanel: { border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-1)', borderRadius: 10, padding: '10px 12px', display: 'flex', flexDirection: 'column', gap: 8 } as React.CSSProperties,
   jobHead: { display: 'flex', alignItems: 'center', gap: 8 } as React.CSSProperties,
   jobLog: { overflowWrap: 'anywhere', fontFamily: 'var(--ds-font-family-code)', fontSize: 11, lineHeight: '16px', whiteSpace: 'pre-wrap', maxHeight: 160, overflow: 'auto', margin: 0, color: 'var(--dsw-alias-label-secondary)' } as React.CSSProperties,
-  pager: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, padding: '4px 0' } as React.CSSProperties,
   link: { color: 'var(--dsw-alias-state-business-primary)', fontSize: 12, textDecoration: 'none', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' } as React.CSSProperties,
   chevron: { flex: 'none' } as React.CSSProperties,
   tag: { color: 'var(--dsw-alias-state-success-primary)', fontSize: 11, lineHeight: '16px', flex: 'none' } as React.CSSProperties,
   installedList: { display: 'flex', flexDirection: 'column', gap: 10, margin: 0, padding: 0, listStyle: 'none' } as React.CSSProperties,
-  installedToolbar: { display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' } as React.CSSProperties,
-  bulkActions: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, flexWrap: 'wrap', border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-2)', borderRadius: 10, padding: '10px 12px' } as React.CSSProperties,
   queuePanel: { display: 'flex', flexDirection: 'column', gap: 10, border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-2)', borderRadius: 10, padding: '12px 14px' } as React.CSSProperties,
   queueHead: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' } as React.CSSProperties,
   queueList: { display: 'flex', flexDirection: 'column', gap: 8, margin: 0, padding: 0, listStyle: 'none' } as React.CSSProperties,
-  installedCard: { display: 'flex', flexDirection: 'column', gap: 12, border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-3)', borderRadius: 10, padding: '16px 18px' } as React.CSSProperties,
-  installedTop: { display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', alignItems: 'start', gap: 20 } as React.CSSProperties,
-  installedInfo: { minWidth: 0, display: 'flex', flexDirection: 'column', gap: 5 } as React.CSSProperties,
   installedDescription: { color: 'var(--dsw-alias-label-tertiary)', fontSize: 13, lineHeight: '20px', minHeight: 40, margin: '2px 0 0', overflowWrap: 'anywhere', overflow: 'hidden', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2 } as React.CSSProperties,
   installedMetaRow: { display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginTop: 2 } as React.CSSProperties,
   installedStatusRow: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' } as React.CSSProperties,
   installedStatusChip: { display: 'inline-flex', alignItems: 'center', minHeight: 22, border: '1px solid var(--dsw-alias-border-l2)', borderRadius: 999, padding: '1px 8px', color: 'var(--dsw-alias-label-tertiary)', background: 'var(--dsw-alias-bg-layer-2)', fontSize: 11, lineHeight: '18px' } as React.CSSProperties,
   installedStatusChipActive: { borderColor: 'color-mix(in srgb, var(--dsw-alias-state-success-primary) 45%, var(--dsw-alias-border-l2))', color: 'var(--dsw-alias-state-success-primary)' } as React.CSSProperties,
-  installedActions: { display: 'grid', gridTemplateColumns: 'minmax(92px, auto) 68px 68px', alignItems: 'center', justifyContent: 'end', gap: 8, paddingTop: 2 } as React.CSSProperties,
-  installedActionButton: { width: '100%', justifyContent: 'center', whiteSpace: 'nowrap' } as React.CSSProperties,
-  installedActionLink: { display: 'inline-flex', width: '100%', minHeight: 30, alignItems: 'center', justifyContent: 'center', border: '1px solid var(--dsw-alias-border-l2)', borderRadius: 999, padding: '0 10px', boxSizing: 'border-box' } as React.CSSProperties,
+  installedActionButton: { justifyContent: 'center', whiteSpace: 'nowrap' } as React.CSSProperties,
+  installedActionLink: { display: 'inline-flex', minHeight: 34, alignItems: 'center', justifyContent: 'center', border: '1px solid var(--dsw-alias-border-l2)', borderRadius: 9, padding: '0 12px' } as React.CSSProperties,
   directoryPath: { width: '100%', boxSizing: 'border-box', border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-2)', color: 'var(--dsw-alias-label-primary)', borderRadius: 8, padding: '9px 11px', fontFamily: 'ui-monospace, SFMono-Regular, Consolas, monospace', fontSize: 13 } as React.CSSProperties,
-  toast: { position: 'fixed', top: 16, right: 16, zIndex: 99999, maxWidth: 460, minWidth: 260, display: 'flex', alignItems: 'flex-start', gap: 10, borderRadius: 10, padding: '12px 14px', fontSize: 13, lineHeight: '20px', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.28)', border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-3)', color: 'var(--dsw-alias-label-primary)' } as React.CSSProperties,
+  toast: { position: 'fixed', top: 16, right: 16, zIndex: 99999, maxWidth: 'min(460px, calc(100vw - 32px))', minWidth: 'min(260px, calc(100vw - 32px))', display: 'flex', alignItems: 'flex-start', gap: 10, borderRadius: 10, padding: '12px 14px', fontSize: 13, lineHeight: '20px', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.28)', border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-3)', color: 'var(--dsw-alias-label-primary)' } as React.CSSProperties,
   toastError: { borderColor: 'var(--dsw-alias-state-error-primary)' } as React.CSSProperties,
   toastInfo: { borderColor: 'var(--dsw-alias-state-success-primary)' } as React.CSSProperties,
   toastText: { flex: 1, minWidth: 0, overflowWrap: 'anywhere', whiteSpace: 'pre-wrap' } as React.CSSProperties,
   toastClose: { background: 'none', border: 0, color: 'var(--dsw-alias-label-tertiary)', cursor: 'pointer', fontSize: 16, lineHeight: 1, padding: 0 } as React.CSSProperties,
-  panel: { border: '1px solid var(--dsw-alias-border-l2)', background: 'var(--dsw-alias-bg-layer-3)', borderRadius: 10, padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 8 } as React.CSSProperties,
   field: { display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', alignItems: 'center', gap: 10 } as React.CSSProperties,
   fieldLabel: { color: 'var(--dsw-alias-label-secondary)', fontSize: 13, lineHeight: '20px' } as React.CSSProperties,
   fieldMeta: { color: 'var(--dsw-alias-label-tertiary)', fontSize: 12, lineHeight: '18px', margin: 0 } as React.CSSProperties,
   fieldActions: { display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 8, flexWrap: 'wrap' } as React.CSSProperties,
-  manualCommandRow: { display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', alignItems: 'end', gap: 10 } as React.CSSProperties,
   conflictList: { display: 'flex', flexDirection: 'column', gap: 8, margin: 0, padding: 0, listStyle: 'none' } as React.CSSProperties,
   conflictItem: { border: '1px solid var(--dsw-alias-state-error-primary)', background: 'color-mix(in srgb, var(--dsw-alias-state-error-primary) 8%, transparent)', borderRadius: 8, padding: '10px 12px', display: 'flex', flexDirection: 'column', gap: 4 } as React.CSSProperties,
   conflictTitle: { color: 'var(--dsw-alias-state-error-primary)', fontSize: 13, fontWeight: 600, lineHeight: '20px' } as React.CSSProperties,
@@ -907,7 +889,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
     ].some(value => value.toLocaleLowerCase().includes(installedNeedle))
   })
   const visibleUpdateableEntries = visibleInstalledEntries.filter((entry) => entry.updateAvailable && entry.canUpdate && entry.registryRepo !== null && entry.verifiedCommit !== null)
-  const selectedEntries = visibleInstalledEntries.filter(entry => entry.linked && selectedUpdates.has(entry.packageName))
+  const selectedEntries = installedEntries.filter(entry => entry.linked && selectedUpdates.has(entry.packageName))
   const selectedUpdateEntries = selectedEntries.filter((entry) => entry.updateAvailable && entry.canUpdate && entry.registryRepo !== null && entry.verifiedCommit !== null)
   const selectedEnabledEntries = selectedEntries.filter(entry => entry.enabled)
   const selectedDisabledEntries = selectedEntries.filter(entry => !entry.enabled)
@@ -951,7 +933,12 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
                   : confirm?.mode === 'update' ? t('confirmUpdate') : t('confirm')
 
   return (
-    <div style={s.section} aria-busy={view.status === 'loading' || restartState !== 'idle' || batchBusy}>
+    <div className='dsh-marketplace' aria-busy={(subpage === 'catalog' && view.status === 'loading') || restartState !== 'idle' || batchBusy}>
+      <style>{marketplaceStyles}</style>
+      <header className='mkt-heading'>
+        <h2>{t(subpage === 'catalog' ? 'catalog' : subpage === 'installed' ? 'installedPage' : 'managementPage')}</h2>
+        <p>{t(subpage === 'catalog' ? 'catalogHint' : subpage === 'installed' ? 'installedHint' : 'managementHint')}</p>
+      </header>
       {banner !== null ? (
         <div style={s.banner} role={banner === t('restartBanner') || restartState !== 'idle' ? 'status' : 'alert'}>
           <span style={s.bannerText}>{banner}</span>
@@ -960,14 +947,14 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
           ) : null}
         </div>
       ) : null}
-      <div style={s.subnav}>
-        <div style={s.subnavGroup}>
+      <div className='mkt-subnav'>
+        <div className='mkt-subnav-group' role='group' aria-label={t('marketplaceNavigation')}>
           <Pill active={subpage === 'catalog'} onClick={() => { setSubpage('catalog') }}>{t('catalog')}</Pill>
           <Pill active={subpage === 'installed'} onClick={() => { setSubpage('installed') }}>{t('installedPage')}</Pill>
           <Pill active={subpage === 'management'} onClick={() => { setSubpage('management') }}>{t('managementPage')}</Pill>
         </div>
         <div style={s.subnavMeta}>
-          {installedProfile !== '' ? <span style={s.muted}>{fmt(t, 'currentProfile', { profile: installedProfile })}</span> : null}
+          {installedProfile !== '' ? <span className='mkt-profile'>{fmt(t, 'currentProfile', { profile: installedProfile })}</span> : null}
           {subpage !== 'catalog' ? (
             <Button variant='outline' size='sm' disabled={restartDisabled} onClick={openRestartConfirm}>
               {restartState === 'idle' ? t('restart') : t('restarting')}
@@ -984,8 +971,8 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
       ) : null}
       {subpage === 'catalog' ? (
         <>
-          <div style={s.toolbar}>
-            <div style={s.search}>
+          <div className='mkt-toolbar'>
+            <div className='mkt-search'>
               <Input
                 type='search'
                 icon={<IconSearchOutline16 aria-hidden='true' />}
@@ -995,9 +982,9 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
                 onChange={(event) => { setQuery(event.currentTarget.value) }}
               />
             </div>
-            <div style={s.sortGroup}>
+            <div className='mkt-sort-group'>
               <select
-                style={s.categorySelect}
+                className='mkt-select'
                 value={category}
                 aria-label={t('category')}
                 onChange={(event) => {
@@ -1013,6 +1000,12 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
               <Pill active={sort === 'updated'} onClick={() => { setSort('updated'); setPage(1) }}>{t('sortUpdated')}</Pill>
             </div>
           </div>
+          <div className='mkt-results'>
+            <span role='status'>{ready !== null ? fmt(t, 'resultCount', { count: ready.totalCount }) : view.status === 'loading' ? t('loading') : ''}</span>
+            {query !== '' || category !== 'all' || sort !== 'stars' ? (
+              <Button variant='ghost' size='sm' onClick={() => { setQuery(''); setDebouncedQuery(''); setCategory('all'); setSort('stars'); setPage(1) }}>{t('resetFilters')}</Button>
+            ) : null}
+          </div>
           {rate !== null && rate.limit > 0 ? (
             <div style={s.rateRow}>
               <span style={s.muted}>
@@ -1020,16 +1013,16 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
               </span>
             </div>
           ) : null}
-          {view.status === 'loading' ? <p style={s.muted}>{t('loading')}</p> : null}
+          {view.status === 'loading' ? <div className='mkt-empty' role='status'><IconSearchOutline16 aria-hidden='true' /><p>{t('loading')}</p></div> : null}
           {view.status === 'error' ? (
             <div style={s.failure}>
               <p role='alert' style={s.muted}>{t('error')} {view.message}</p>
               <Button variant='outline' size='sm' onClick={retry}>{t('retry')}</Button>
             </div>
           ) : null}
-          {ready !== null && ready.items.length === 0 ? <p style={s.muted}>{debouncedQuery === '' && category === 'all' ? t('empty') : t('emptySearch')}</p> : null}
+          {ready !== null && ready.items.length === 0 ? <div className='mkt-empty' role='status'><IconSearchOutline16 aria-hidden='true' /><p>{debouncedQuery === '' && category === 'all' ? t('empty') : t('emptySearch')}</p></div> : null}
           {ready !== null && ready.items.length > 0 ? (
-            <ul style={s.cards}>
+            <ul className='mkt-cards'>
               {ready.items.map((item) => (
                 <CardRow
                   key={item.fullName}
@@ -1057,7 +1050,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
             </ul>
           ) : null}
           {ready !== null ? (
-            <div style={s.pager}>
+            <div className='mkt-pager'>
               <Button variant='outline' size='sm' disabled={page <= 1} onClick={() => { setPage((value) => Math.max(1, value - 1)) }}>{t('pagePrev')}</Button>
               <span style={s.muted}>{fmt(t, 'pageOf', { page })} · {fmt(t, 'total', { total: ready.totalCount })}</span>
               <Button variant='outline' size='sm' disabled={page * RESULT_PAGE_SIZE >= ready.totalCount} onClick={() => { setPage((value) => value + 1) }}>{t('pageNext')}</Button>
@@ -1066,8 +1059,8 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
         </>
       ) : subpage === 'installed' ? (
         <>
-          <div style={s.installedToolbar}>
-            <div style={s.search}>
+          <div className='mkt-toolbar'>
+            <div className='mkt-search'>
               <Input
                 type='search'
                 icon={<IconSearchOutline16 aria-hidden='true' />}
@@ -1093,8 +1086,15 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
               {installedLoading ? t('checkingUpdates') : t('checkUpdates')}
             </Button>
           </div>
+          {installedQuery !== '' || installedFilter !== 'all' ? (
+            <div className='mkt-results'>
+              <span role='status'>{fmt(t, 'resultCount', { count: visibleInstalledEntries.length })}</span>
+              <Button variant='ghost' size='sm' onClick={() => { setInstalledQuery(''); setInstalledFilter('all') }}>{t('resetFilters')}</Button>
+            </div>
+          ) : null}
           <InstalledList
             entries={visibleInstalledEntries}
+            selection={selectedEntries}
             currentProfile={installedProfile}
             loading={installedLoading}
             error={installedError}
@@ -1148,7 +1148,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
         </>
       ) : (
         <>
-          <p style={s.muted}>{t('managementHint')}</p>
+          <div className='mkt-management'>
           <ManualInstallPanel
             command={manualCommand}
             profile={installedProfile}
@@ -1181,6 +1181,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
             onDiagnose={runDiagnosis}
             t={t}
           />
+          </div>
         </>
       )}
       <RiskConfirmation
@@ -1239,15 +1240,16 @@ function CardRow({ item, t, currentProfile, profileLoading, profileAvailable, is
   const operationActive = startingKind !== null || jobActive
   const description = preferredDescription(item.description, t)
   return (
-    <li style={s.card}>
-      <div style={s.cardBody}>
-        <div style={s.titleRow}>
-          <strong style={s.title} title={item.fullName}>
-            {item.repo}
-          </strong>
+    <li className='mkt-card'>
+      <div className='mkt-card-body'>
+        <div className='mkt-card-head'>
+          <PluginIcon />
+          <div className='mkt-card-name'>
+            <strong style={s.title} title={item.fullName}>{item.repo}</strong>
+            <p style={s.authorLine} title={item.owner}>{item.owner}</p>
+          </div>
           <span style={s.verifiedBadge}><span style={s.verifiedDot} aria-hidden='true' />{t('verified')}</span>
         </div>
-        <p style={s.authorLine} title={item.owner}>{fmt(t, 'repositoryAuthor', { author: item.owner })}</p>
         <p style={s.description} title={item.description ?? undefined}>{description ?? '\u00A0'}</p>
         <div style={s.statsRow}>
           <div style={s.statGroup}>
@@ -1259,7 +1261,7 @@ function CardRow({ item, t, currentProfile, profileLoading, profileAvailable, is
         <div style={s.chipRow}>
           {item.categories.slice(0, 2).map((category) => <span key={category} style={s.chip}>{categoryLabel(category, t)}</span>)}
         </div>
-        <div style={s.actions}>
+        <div className='mkt-card-actions'>
           {operationActive ? (
             <Button variant='primary' size='sm' disabled>{activeJobLabel({ kind: job?.kind ?? startingKind ?? 'install' }, t)}</Button>
           ) : isInstalled ? (
@@ -1279,7 +1281,7 @@ function CardRow({ item, t, currentProfile, profileLoading, profileAvailable, is
           )}
           <div style={s.actionLinks}>
             <a style={s.link} href={item.htmlUrl} target='_blank' rel='noreferrer' title={item.fullName}>{t('openInGithub')}</a>
-            <button type='button' style={s.detailToggle} aria-expanded={expanded} onClick={onToggle}>
+            <button type='button' className='mkt-detail-toggle' aria-expanded={expanded} onClick={onToggle}>
               {t('details')}
               <span style={{ ...s.chevron, display: 'inline-flex', transform: expanded ? 'rotate(180deg)' : undefined }}>
                 <IconChevronDownOutline14 size={12} aria-hidden='true' />
@@ -1344,6 +1346,7 @@ function CardRow({ item, t, currentProfile, profileLoading, profileAvailable, is
 }
 
 interface InstalledListProps {
+  selection: MarketplaceInstalledEntry[]
   entries: MarketplaceInstalledEntry[]
   currentProfile: string
   loading: boolean
@@ -1393,8 +1396,8 @@ function OperationQueuePanel({ jobs, t, onClearFinished }: {
   )
 }
 
-function InstalledList({ entries, currentProfile, loading, error, emptyMessage, t, onRetry, onUpdate, selectedUpdates, onToggleSelected, onSelectVisible, onClearSelection, onUpdateSelected, onUpdateAll, onEnableSelected, onDisableSelected, onUninstallSelected, onUninstall, onSetEnabled, onAgentUpdate, agentBusy, toggleBusy, jobs, startingActions, batchBusy }: InstalledListProps): ReactNode {
-  if (loading) return <p style={s.muted}>{t('loadingInstalled')}</p>
+function InstalledList({ entries, selection, currentProfile, loading, error, emptyMessage, t, onRetry, onUpdate, selectedUpdates, onToggleSelected, onSelectVisible, onClearSelection, onUpdateSelected, onUpdateAll, onEnableSelected, onDisableSelected, onUninstallSelected, onUninstall, onSetEnabled, onAgentUpdate, agentBusy, toggleBusy, jobs, startingActions, batchBusy }: InstalledListProps): ReactNode {
+  if (loading) return <div className='mkt-empty' role='status'>{t('loadingInstalled')}</div>
   if (error !== null) {
     return (
       <div style={s.failure}>
@@ -1403,31 +1406,37 @@ function InstalledList({ entries, currentProfile, loading, error, emptyMessage, 
       </div>
     )
   }
-  if (entries.length === 0) return <p style={s.muted}>{emptyMessage}</p>
   const selectable = entries.filter(entry => entry.linked)
-  const selected = selectable.filter(entry => selectedUpdates.has(entry.packageName))
+  const selected = selection
+  const hiddenSelectionCount = selected.filter(entry => !entries.some(visible => visible.packageName === entry.packageName)).length
   const updateable = entries.filter((entry) => entry.updateAvailable && entry.canUpdate && entry.registryRepo !== null && entry.verifiedCommit !== null)
-  const selectedUpdateCount = updateable.filter((entry) => selectedUpdates.has(entry.packageName)).length
+  const selectedUpdateCount = selected.filter(entry => entry.updateAvailable && entry.canUpdate && entry.registryRepo !== null && entry.verifiedCommit !== null).length
   const selectedEnabledCount = selected.filter(entry => entry.enabled).length
   const selectedDisabledCount = selected.filter(entry => !entry.enabled).length
   return (
     <>
-      {selectable.length > 0 ? (
-        <div style={s.bulkActions}>
-          <span style={s.muted}>{selected.length > 0 ? fmt(t, 'selectForBatch', { count: selected.length }) : t('batchOperationHint')}</span>
-          <div style={s.fieldActions}>
-            <Button variant='outline' size='sm' disabled={batchBusy} onClick={onSelectVisible}>{t('selectVisible')}</Button>
-            <Button variant='outline' size='sm' disabled={batchBusy || selected.length === 0} onClick={onClearSelection}>{t('clearSelection')}</Button>
+      {selectable.length > 0 || selected.length > 0 ? (
+        <div className='mkt-bulk-actions'>
+          <div className='mkt-bulk-head'>
+            <span style={s.muted}>{selected.length > 0 ? fmt(t, 'selectForBatch', { count: selected.length }) : t('batchOperationHint')}</span>
+            <div style={s.fieldActions}>
+              <Button variant='outline' size='sm' disabled={batchBusy || selectable.length === 0} onClick={onSelectVisible}>{t('selectVisible')}</Button>
+              <Button variant='outline' size='sm' disabled={batchBusy || selected.length === 0} onClick={onClearSelection}>{t('clearSelection')}</Button>
+            </div>
+          </div>
+          <div className='mkt-bulk-buttons'>
             <Button variant='outline' size='sm' disabled={batchBusy || selectedUpdateCount === 0} onClick={onUpdateSelected}>
               {fmt(t, 'batchUpdateSelected', { count: selectedUpdateCount })}
             </Button>
             <Button variant='outline' size='sm' disabled={batchBusy || updateable.length === 0} onClick={onUpdateAll}>{fmt(t, 'batchUpdateAll', { count: updateable.length })}</Button>
             <Button variant='outline' size='sm' disabled={batchBusy || selectedDisabledCount === 0} onClick={onEnableSelected}>{fmt(t, 'batchEnableSelected', { count: selectedDisabledCount })}</Button>
             <Button variant='outline' size='sm' disabled={batchBusy || selectedEnabledCount === 0} onClick={onDisableSelected}>{fmt(t, 'batchDisableSelected', { count: selectedEnabledCount })}</Button>
-            <Button variant='primary' size='sm' disabled={batchBusy || selected.length === 0} onClick={onUninstallSelected}>{fmt(t, 'batchUninstallSelected', { count: selected.length })}</Button>
+            <Button tone='danger' variant='outline' size='sm' disabled={batchBusy || selected.length === 0} onClick={onUninstallSelected}>{fmt(t, 'batchUninstallSelected', { count: selected.length })}</Button>
           </div>
+          {hiddenSelectionCount > 0 ? <p style={s.fieldMeta}>{fmt(t, 'hiddenSelection', { count: hiddenSelectionCount })}</p> : null}
         </div>
       ) : null}
+      {entries.length === 0 ? <div className='mkt-empty' role='status'>{emptyMessage}</div> : null}
       <ul style={s.installedList}>
         {entries.map((entry) => {
         const job = latestJobForPackage(jobs, entry.packageName)
@@ -1436,9 +1445,9 @@ function InstalledList({ entries, currentProfile, loading, error, emptyMessage, 
         const operationActive = startingKind !== null || jobActive
         const description = preferredDescription(entry.description, t)
         return (
-          <li key={entry.packageName} style={s.installedCard}>
-            <div style={s.installedTop}>
-              <div style={s.installedInfo}>
+          <li key={entry.packageName} className='mkt-installed-card' data-selected={selectedUpdates.has(entry.packageName)}>
+            <div className='mkt-installed-top'>
+              <div className='mkt-installed-info'>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
                   {entry.linked ? (
                     <input
@@ -1480,7 +1489,7 @@ function InstalledList({ entries, currentProfile, loading, error, emptyMessage, 
                   ) : null}
                 </div>
               </div>
-              <div style={s.installedActions}>
+              <div className='mkt-installed-actions'>
                 {!entry.linked ? (
                   <Button style={s.installedActionButton} variant='outline' size='sm' disabled>{t('profileActionsUnavailable')}</Button>
                 ) : operationActive ? (
@@ -1505,7 +1514,7 @@ function InstalledList({ entries, currentProfile, loading, error, emptyMessage, 
                 <Button style={s.installedActionButton} variant='outline' size='sm' disabled={batchBusy || !entry.linked || operationActive || toggleBusy === entry.packageName} onClick={() => { onSetEnabled(entry) }}>
                   {entry.enabled ? t('disable') : t('enable')}
                 </Button>
-                <Button style={s.installedActionButton} variant='outline' size='sm' disabled={batchBusy || !entry.linked || operationActive} onClick={() => { onUninstall(entry) }}>{t('uninstall')}</Button>
+                <Button tone='danger' style={s.installedActionButton} variant='outline' size='sm' disabled={batchBusy || !entry.linked || operationActive} onClick={() => { onUninstall(entry) }}>{t('uninstall')}</Button>
               </div>
             </div>
             {job !== undefined ? (
@@ -1532,10 +1541,10 @@ function ManualInstallPanel({ command, profile, busy, job, onCommandChange, onIn
 }): ReactNode {
   const currentProfile = profile === '' ? 'web' : profile
   return (
-    <div style={s.panel}>
+    <div className='mkt-panel'>
       <strong style={s.fieldLabel}>{t('manualInstallTitle')}</strong>
       <p style={s.fieldMeta}>{t('manualInstallDescription')}</p>
-      <div style={s.manualCommandRow}>
+      <div className='mkt-manual-command'>
         <Input
           type='text'
           value={command}
@@ -1564,7 +1573,7 @@ function InstallDirField({ installDir, installDirCustom, onChoose, onReset, busy
 }): ReactNode {
   const displayDir = installDir || t('installDirUnavailable')
   return (
-    <div style={s.panel}>
+    <div className='mkt-panel'>
       <strong style={s.fieldLabel}>{t('installDirTitle')}</strong>
       {installDirCustom
         ? <p style={s.fieldMeta}>{fmt(t, 'installDirCustomHint', { dir: displayDir })}</p>
@@ -1593,7 +1602,7 @@ function AgentWorkspaceField({ workspaceDir, workspaceDirCustom, onChoose, onRes
 }): ReactNode {
   const displayDir = workspaceDir || t('agentWorkspaceUnavailable')
   return (
-    <div style={s.panel}>
+    <div className='mkt-panel'>
       <strong style={s.fieldLabel}>{t('agentWorkspaceTitle')}</strong>
       <p style={s.fieldMeta}>{workspaceDirCustom ? t('agentWorkspaceCustomHint') : t('agentWorkspaceDefaultHint')}</p>
       <input style={s.directoryPath} value={displayDir} readOnly title={displayDir} aria-label={t('agentWorkspacePathLabel')} />
@@ -1629,7 +1638,7 @@ function ConflictPanel({ conflicts, diagnosedAt, busy, onDiagnose, t }: {
   )
   if (conflicts.length === 0) {
     return (
-      <div style={s.panel}>
+      <div className='mkt-panel'>
         {header}
         <p style={s.conflictBody}>{t('conflictHint')}</p>
         {diagnosedAt !== null ? <p style={s.fieldMeta}>{fmt(t, 'diagnosedAt', { time: new Date(diagnosedAt).toLocaleString() })}</p> : null}
@@ -1637,7 +1646,7 @@ function ConflictPanel({ conflicts, diagnosedAt, busy, onDiagnose, t }: {
     )
   }
   return (
-    <div style={s.panel}>
+    <div className='mkt-panel'>
       {header}
       <ul style={s.conflictList}>
         {conflicts.map((conflict) => (
@@ -1675,7 +1684,7 @@ function JobPanel({ job, t }: { job: MarketplaceJobStatus; t: MarketplaceTabProp
       </div>
       {job.log !== '' ? (
         <details open={settled && job.failure !== null}>
-          <summary style={s.detailToggle}>{t('jobLog')}</summary>
+          <summary className='mkt-detail-toggle'>{t('jobLog')}</summary>
           <pre style={s.jobLog}>{job.log}</pre>
         </details>
       ) : null}

@@ -133,6 +133,17 @@ Agent 会先只读检查精确 commit。执行安装、构建、`prepare`、`pos
 
 已安装插件支持按当前筛选结果选择，并批量更新、启用、停用或卸载。单批最多处理 50 个插件；批量启用会先检查组合后的新增冲突，批量启用/停用只写入一次 Profile manifest。
 
+搜索和状态筛选支持一键重置。已选插件会跨筛选保留；有已选项被隐藏时，面板会明确提示，
+批量操作仍包含这些已选插件。点击“清空选择”可一次取消全部选择。
+
+界面沿用 DSH 明暗主题。导航、搜索筛选、插件操作分区展示；窄窗口下，卡片、操作按钮和管理
+面板自动换行。卸载使用独立的危险操作样式，安装与批量操作继续使用原有确认流程。
+市场采用紧凑卡片：内容区达到 490px 时可显示双列，压缩内边距与筛选区留白，减少浏览长列表时的滚动。
+
+自定义目录卸载完成 Profile 解除关联后，若 Windows 文件占用导致实体清理失败，插件仍保持已卸载，
+任务日志会列出残留路径，供重启后清理；不会重新关联可能已被部分删除的文件。安装成功后的旧备份
+和临时目录清理失败同样只记录警告，不撤销已经完成的安装。
+
 更新判断不只比较版本号。对于从精确 GitHub 来源安装的插件，即使 Registry 版本号没有变化，只要 Registry 已验证的 commit 与当前安装 commit 不同，也会显示可更新；npm 来源仍依据已验证的精确发行版本判断。
 
 市场首屏先读取包内 Registry 快照和轻量 Profile 依赖列表，并在后台刷新远端 Registry；完整的版本、说明与更新匹配只在进入相应页面后按需执行。点击 **检查更新** 会绕过缓存立即读取远端。默认安装目录不会再遍历整个 `node_modules` 查找孤立插件，只有自定义插件目录才执行该检查。
@@ -209,6 +220,10 @@ dsh --profile web
 ```
 
 也可以在插件配置中设置 `registryUrl`。远程内容默认在内存中缓存 15 分钟并支持 ETag；刷新失败时先使用最近一次有效内容，再回退到包内快照。缓存时间可通过 `registryCacheMinutes` 调整；Registry 与安装时 GitHub 请求的超时统一由 `registryRequestTimeoutMs` 控制。
+
+显式检查更新会绕过缓存时间，但保留 ETag 和最近有效快照；并发检查会合并为一次请求。核心 Registry
+返回 304 时仍会刷新分类与 Star 增长数据，可选发现数据暂时不可用时保留已有值。首屏优先读取包内
+快照；快照缺失或损坏时会尝试远端。
 
 自建 Registry 可以不提供 `discovery.json` 和 `guided-audit.json`：
 
@@ -315,6 +330,12 @@ pnpm build
 pnpm verify
 pnpm typecheck
 ```
+
+界面回归使用 DSH checkout 中已有的 `esbuild`、React、Playwright 和本机 Chromium，不会自动下载依赖。
+执行 `pnpm ui:test` 可检查明暗主题、窄窗口、中英文、筛选与批量选择、安装/卸载确认，并更新
+[`docs/screenshots/marketplace-refresh-light.png`](./docs/screenshots/marketplace-refresh-light.png) 等预览。
+若浏览器不在 Playwright 默认位置，可设置 `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`。测试使用模拟数据和
+隔离页面，不会操作真实 Profile 或安装插件；真实宿主集成仍需在 DSH 中验证。
 
 发布前需要更新版本、重新生成 Registry、构建 `lib/`，然后提交产物并创建版本标签。
 

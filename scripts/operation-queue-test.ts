@@ -1,12 +1,16 @@
 /** 已构建 Host 的快速接单、重复抑制与卸载失败隔离测试。 */
 
 import { strict as assert } from 'node:assert'
+import fs from 'node:fs'
+import { syncBuiltinESMExports } from 'node:module'
 import { mkdirSync, mkdtempSync, rmSync, unlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import MarketplaceService from '../lib/index.js'
-import { JobTable, MutationQueue } from '../src/host/installer.ts'
+import { JobTable, MutationQueue, type JobRecord } from '../src/host/installer.ts'
+import { readProfileManifest, type ProfileManifest } from '@deepseek-ai/dsh-app-boot'
+import { createProfilePackageLink, localDependencySpec, type ProfileInstallLocation } from '../src/host/install-location.ts'
 
 type TestService = {
   restartPending: boolean
@@ -193,4 +197,100 @@ try {
   rmSync(manualRoot, { recursive: true, force: true })
 }
 
-console.log('operation queue tests passed: 7')
+// 模拟 Windows 在卸载实体时占用文件，覆盖清理已部分发生的情况。
+const cleanupRoot = mkdtempSync(join(tmpdir(), 'mkt-uninstall-cleanup-'))
+const originalRmSync = fs.rmSync
+try {
+  process.env.DSH_HOME = cleanupRoot
+  for (const partial of [false, true]) {
+    const dir = join(cleanupRoot, partial ? 'partial-profile' : 'locked-profile')
+    const pluginDir = join(cleanupRoot, partial ? 'partial-plugins' : 'locked-plugins')
+    const target = join(pluginDir, 'cleanup-plugin')
+    mkdirSync(dir, { recursive: true })
+    mkdirSync(target, { recursive: true })
+    writeFileSync(join(target, 'package.json'), JSON.stringify({
+      name: 'cleanup-plugin', version: '1.0.0', dsh: { bundle: { patch: './cordis.patch.yml' } },
+    }))
+    writeFileSync(join(target, 'index.js'), 'export default {}')
+    const before = {
+      private: true,
+      dependencies: { 'cleanup-plugin': localDependencySpec(dir, target) },
+      dsh: { profile: { bundles: ['cleanup-plugin'] } },
+    } as ProfileManifest
+    writeFileSync(join(dir, 'package.json'), JSON.stringify(before))
+    createProfilePackageLink(dir, 'cleanup-plugin', target, 'fixture')
+    const cleanupService = Object.create(MarketplaceService.prototype) as {
+      jobs: JobTable
+      driveUninstall: (job: JobRecord, profile: ProfileInstallLocation, before: ProfileManifest, bundle: boolean) => Promise<void>
+    }
+    cleanupService.jobs = new JobTable()
+    const job = cleanupService.jobs.create('uninstall', 'cleanup-plugin')
+    fs.rmSync = (path, options) => {
+      if (String(path) !== target) return originalRmSync(path, options)
+      if (partial) originalRmSync(join(target, 'index.js'))
+      throw Object.assign(new Error('synthetic Windows file lock'), { code: 'EPERM' })
+    }
+    syncBuiltinESMExports()
+    await cleanupService.driveUninstall(job, {
+      dir, name: 'web', custom: true, pluginDir, storeDir: join(cleanupRoot, 'store'),
+    }, before, true)
+    const after = readProfileManifest('dsh', dir)
+    assert.equal(job.phase, 'done', job.log)
+    assert.equal(job.failure, null)
+    assert.equal(after.dependencies?.['cleanup-plugin'], undefined, '不得重新关联可能已被部分删除的实体')
+    assert.deepEqual(after.dsh?.profile?.bundles, [], '卸载后的 Bundle 层必须与依赖一致')
+    assert(job.log.includes(target), '清理警告必须标明需要处理的残留路径')
+    assert(job.log.includes('synthetic Windows file lock'))
+    fs.rmSync = originalRmSync
+    syncBuiltinESMExports()
+  }
+
+  const dir = join(cleanupRoot, 'update-profile')
+  const pluginDir = join(cleanupRoot, 'update-plugins')
+  const target = join(pluginDir, 'cleanup-plugin')
+  const source = join(cleanupRoot, 'new-version')
+  mkdirSync(dir, { recursive: true })
+  for (const [path, version] of [[target, '1.0.0'], [source, '2.0.0']]) {
+    mkdirSync(path!, { recursive: true })
+    writeFileSync(join(path!, 'package.json'), JSON.stringify({
+      name: 'cleanup-plugin', version, dsh: { bundle: { patch: './cordis.patch.yml' } },
+    }))
+    writeFileSync(join(path!, 'cordis.patch.yml'), '[]\n')
+  }
+  const before = {
+    private: true,
+    dependencies: { 'cleanup-plugin': localDependencySpec(dir, target) },
+    dsh: { profile: { bundles: ['cleanup-plugin'] } },
+  } as ProfileManifest
+  writeFileSync(join(dir, 'package.json'), JSON.stringify(before))
+  createProfilePackageLink(dir, 'cleanup-plugin', target, 'fixture')
+  const updateService = Object.create(MarketplaceService.prototype) as {
+    jobs: JobTable
+    driveInstall: (job: JobRecord, profile: ProfileInstallLocation, spec: string, before: ProfileManifest, bundle: boolean, restart: boolean, target: string) => Promise<void>
+  }
+  updateService.jobs = new JobTable()
+  const job = updateService.jobs.create('update', 'cleanup-plugin')
+  const backup = target + '.marketplace-backup-' + job.jobId
+  fs.rmSync = (path, options) => {
+    if (String(path) !== backup) return originalRmSync(path, options)
+    throw Object.assign(new Error('synthetic backup lock'), { code: 'EPERM' })
+  }
+  syncBuiltinESMExports()
+  await updateService.driveInstall(job, {
+    dir, name: 'web', custom: true, pluginDir, storeDir: join(cleanupRoot, 'store'),
+  }, 'file:' + source.replace(/\\/g, '/'), before, true, true, target)
+  assert.equal(job.phase, 'done', job.log)
+  assert.equal(job.failure, null, '旧备份清理失败不能把成功更新变为失败')
+  assert.equal(job.outcome?.version, '2.0.0')
+  assert.equal(JSON.parse(fs.readFileSync(join(target, 'package.json'), 'utf8')).version, '2.0.0')
+  assert.deepEqual(readProfileManifest('dsh', dir).dsh?.profile?.bundles, ['cleanup-plugin'])
+  assert(job.log.includes(backup), '更新清理警告必须标明残留备份')
+} finally {
+  if (previousDshHome === undefined) delete process.env.DSH_HOME
+  else process.env.DSH_HOME = previousDshHome
+  fs.rmSync = originalRmSync
+  syncBuiltinESMExports()
+  rmSync(cleanupRoot, { recursive: true, force: true })
+}
+
+console.log('operation queue tests passed: 10')

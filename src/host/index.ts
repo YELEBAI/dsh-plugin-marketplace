@@ -273,10 +273,7 @@ export class MarketplaceService extends TypertRemoteService {
         return fail('manual-command-invalid', error instanceof Error ? error.message : String(error))
       }
 
-      let details = await this.github.details(parsed.repo, parsed.ref)
-      if (!/^[0-9a-f]{40}$/i.test(details.resolvedRef)) {
-        details = await this.github.details(parsed.repo, details.resolvedRef)
-      }
+      const details = await this.github.details(parsed.repo, parsed.ref)
       if (!/^[0-9a-f]{40}$/i.test(details.resolvedRef)) {
         return fail('manual-ref-unresolved', 'The GitHub source could not be frozen to an exact commit.')
       }
@@ -920,8 +917,8 @@ export class MarketplaceService extends TypertRemoteService {
       reconcileBundle(before, beforeDeclaresBundle, job.packageName, profile.dir)
       const version = installedVersion(job.packageName, profile.dir) ?? 'unknown'
       this.jobs.settle(job, { packageName: job.packageName, version, requiresRestart })
-      if (backupCreated) rmSync(backup, { recursive: true, force: true })
-      if (profilePackageState.backupCreated) removePackagePath(profilePackageState.backupPath)
+      if (backupCreated) this.cleanupPackagePath(job, backup)
+      if (profilePackageState.backupCreated) this.cleanupPackagePath(job, profilePackageState.backupPath)
     } catch (error) {
       if (profilePackageState !== null) {
         removePackagePath(profilePackageState.linkPath)
@@ -937,7 +934,7 @@ export class MarketplaceService extends TypertRemoteService {
         message: error instanceof Error ? error.message : String(error),
       })
     } finally {
-      rmSync(stageDir, { recursive: true, force: true })
+      this.cleanupPackagePath(job, stageDir)
     }
   }
 
@@ -978,7 +975,7 @@ export class MarketplaceService extends TypertRemoteService {
         message: error instanceof Error ? error.message : String(error),
       })
     } finally {
-      rmSync(stageDir, { recursive: true, force: true })
+      this.cleanupPackagePath(job, stageDir)
     }
   }
 
@@ -1004,12 +1001,9 @@ export class MarketplaceService extends TypertRemoteService {
       if (code !== 0) throw new Error(code === null ? 'pnpm could not be spawned — is pnpm on PATH?' : 'Profile unlink failed: pnpm exited with code ' + String(code) + '.')
       this.jobs.phase(job, 'reconciling')
       reconcileBundle(before, beforeDeclaresBundle, job.packageName, profile.dir)
-      try {
-        removePackagePath(profilePackagePath(profile.dir, job.packageName))
-      } catch (error) {
-        this.jobs.append(job, 'Warning: the old runtime package could not be removed until DSH restarts: ' + (error instanceof Error ? error.message : String(error)) + '\n')
-      }
-      if (existsSync(target)) rmSync(target, { recursive: true, force: true })
+      // Profile 已解除关联；清理失败不能重新关联可能已被部分删除的插件实体。
+      this.cleanupPackagePath(job, profilePackagePath(profile.dir, job.packageName))
+      this.cleanupPackagePath(job, target)
       this.jobs.settle(job, { packageName: job.packageName, version: 'removed', requiresRestart })
     } catch (error) {
       if (manifestWritten) {
@@ -1019,6 +1013,17 @@ export class MarketplaceService extends TypertRemoteService {
         code: 'uninstall-failed',
         message: error instanceof Error ? error.message : String(error),
       })
+    }
+  }
+
+  /** 已提交操作的文件清理失败只记录残留位置，不触发安装状态回滚。 */
+  private cleanupPackagePath(job: JobRecord, path: string): void {
+    try {
+      removePackagePath(path)
+    } catch (error) {
+      this.jobs.append(job, 'Warning: cleanup did not complete for ' + path
+        + '; retry removing this path after DSH restarts: '
+        + (error instanceof Error ? error.message : String(error)) + '\n')
     }
   }
 

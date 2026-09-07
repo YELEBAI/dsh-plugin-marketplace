@@ -185,16 +185,16 @@ export class GitHubClient {
       }
     }
     try {
-      const { body, headers } = await this.api('/repos/' + owner + '/' + repo + '/releases/latest')
+      const { body } = await this.api('/repos/' + owner + '/' + repo + '/releases/latest')
       const tag = (body as { tag_name?: unknown }).tag_name
-      if (typeof tag === 'string' && tag !== '') return { ref: tag, rate: this.rate(headers, 'core') }
+      if (typeof tag === 'string' && tag !== '') return this.resolveRef(owner, repo, tag)
     } catch (error) {
       if (!(error instanceof GitHubError) || error.code !== 'not-found') throw error
     }
-    const { body, headers } = await this.api('/repos/' + owner + '/' + repo)
+    const { body } = await this.api('/repos/' + owner + '/' + repo)
     const branch = (body as { default_branch?: unknown }).default_branch
     const fallback = typeof branch === 'string' && branch !== '' ? branch : 'main'
-    return { ref: fallback, rate: this.rate(headers, 'core') }
+    return this.resolveRef(owner, repo, fallback)
   }
 
   /** Read the plugin manifest and bundle patch at one ref, for review before install. */
