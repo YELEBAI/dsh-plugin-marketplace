@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T16:54:12.989Z",
-  "total": 1155,
+  "generatedAt": "2026-09-08T21:25:05.112Z",
+  "total": 1158,
   "groups": {
-    "remote-command-found": 392,
-    "local-or-unparsed-command-only": 580,
-    "no-install-command-found": 183
+    "remote-command-found": 393,
+    "local-or-unparsed-command-only": 581,
+    "no-install-command-found": 184
   },
   "rows": [
     {
@@ -2365,7 +2365,7 @@
       "repository": "ai-daming/clickvibe",
       "packageName": "clickvibe",
       "version": "0.1.0",
-      "verifiedCommit": "b92f150fb3019d6f9eddf5633826feb74100dbb8",
+      "verifiedCommit": "1a2ea2f02f17bd8df67f878141ac49321a9dbaa8",
       "readmePath": "README.md",
       "commands": [
         {
@@ -3148,6 +3148,46 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "AncientMoon114/dsh-minitui",
+      "packageName": "@dsh-external/dsh-minitui",
+      "version": "0.1.0",
+      "verifiedCommit": "9684339ca9f96098a22ffe9915074dd25f7a553e",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile minitui add link://这里需要填入minitui的绝对路径",
+          "profile": "minitui",
+          "spec": "link://这里需要填入minitui的绝对路径",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@dsh-external/dsh-minitui@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "postinstall"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -8620,7 +8660,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "0061beb6daadfafe65d945c7550a5dcaf2c20b94",
+      "verifiedCommit": "d49b49db9100fc5ba5d8ff95f1f849a4e2a22cc3",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12466,7 +12506,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "e3a27e03511e8ea0d2a54148602f4938e052c3da",
+      "verifiedCommit": "55590df889700d6525922c610ba87610bd92d5ee",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14130,7 +14170,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.7.15",
-      "verifiedCommit": "e63279c1a2c66409aab957ea8dae6400fa79c63c",
+      "verifiedCommit": "72b7e76497125f0afb37d5fc4c491f4e13d8f081",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16631,7 +16671,7 @@
       "repository": "GZX2211/dsh-Visual-Workflow",
       "packageName": "dsh-visual-workflow",
       "version": "0.1.0",
-      "verifiedCommit": "f458160dc0fd094cdf92a5a4e901b5f0f81e8529",
+      "verifiedCommit": "e6a1ebf54161c030b7144967736cdbeb851505de",
       "readmePath": "README.md",
       "commands": [
         {
@@ -25917,6 +25957,61 @@
       }
     },
     {
+      "repository": "LiPu-jpg/Openwrite",
+      "packageName": "dsh-openwrite",
+      "version": "0.2.0",
+      "verifiedCommit": "3e5a34587f5866a5646c999942d9ec26483b9f3d",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add -w https://github.com/LiPu-jpg/Openwrite/releases/download/v0.2.0/dsh-openwrite-0.2.0.tgz",
+          "profile": "web",
+          "spec": "https://github.com/LiPu-jpg/Openwrite/releases/download/v0.2.0/dsh-openwrite-0.2.0.tgz",
+          "source": "tarball"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add -w https://github.com/LiPu-jpg/Openwrite/releases/download/v0.2.0/dsh-openwrite-0.2.0.tgz",
+          "profile": "web",
+          "spec": "https://github.com/LiPu-jpg/Openwrite/releases/download/v0.2.0/dsh-openwrite-0.2.0.tgz",
+          "source": "tarball"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add -w https://github.com/LiPu-jpg/Openwrite/releases/download/v0.2.0/dsh-openwrite-0.2.0.tgz",
+          "profile": "web",
+          "spec": "https://github.com/LiPu-jpg/Openwrite/releases/download/v0.2.0/dsh-openwrite-0.2.0.tgz",
+          "source": "tarball"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-openwrite@0.2.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-tarball-unverified",
+        "reason": "release-tarball-not-statically-verified"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": [
+          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
+        ]
+      }
+    },
+    {
       "repository": "liqiming-whu/dsh-environment-context",
       "packageName": "dsh-environment-context",
       "version": "0.3.4",
@@ -29405,6 +29500,38 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": true,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "menotbobbybrown/create-dsh-app",
+      "packageName": "create-dsh-app",
+      "version": "1.0.0",
+      "verifiedCommit": "4c713c1c37486338f46720f465201e06a99884ec",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "create-dsh-app@1.0.0",
+        "reason": "npm-manifest-invalid",
+        "detail": "package.json does not declare a safe dsh.bundle.patch"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
     },
@@ -33877,7 +34004,7 @@
       "repository": "omdsh-dev/plugin-template",
       "packageName": "@your-scope/dsh-plugin-template",
       "version": "0.0.1",
-      "verifiedCommit": "891c5f1acd9d2e6b40912c2ff1ee99091eeb4f84",
+      "verifiedCommit": "1936ff62015a33288d49f0776e5d1a64cbbd4220",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -51349,42 +51476,42 @@
     {
       "repository": "XuXcode/dsh-loghud",
       "packageName": "dsh-loghud",
-      "version": "0.3.0",
-      "verifiedCommit": "20580ca6155088c3ad21d33ac2b60fbb100325b0",
+      "version": "0.4.0",
+      "verifiedCommit": "36b47c9f5c76a483fafb5438320cfd5acdb2051b",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/XuXcode/dsh-loghud/releases/download/v0.3.0/dsh-loghud-0.3.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/XuXcode/dsh-loghud/releases/download/v0.4.0/dsh-loghud-0.4.0.tgz",
           "profile": "web",
-          "spec": "https://github.com/XuXcode/dsh-loghud/releases/download/v0.3.0/dsh-loghud-0.3.0.tgz",
+          "spec": "https://github.com/XuXcode/dsh-loghud/releases/download/v0.4.0/dsh-loghud-0.4.0.tgz",
           "source": "tarball"
         },
         {
-          "raw": "dsh plugin --profile web add ./dsh-loghud-0.3.0.tgz",
+          "raw": "dsh plugin --profile web add ./dsh-loghud-0.4.0.tgz",
           "profile": "web",
-          "spec": "./dsh-loghud-0.3.0.tgz",
+          "spec": "./dsh-loghud-0.4.0.tgz",
           "source": "local"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/XuXcode/dsh-loghud/releases/download/v0.3.0/dsh-loghud-0.3.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/XuXcode/dsh-loghud/releases/download/v0.4.0/dsh-loghud-0.4.0.tgz",
           "profile": "web",
-          "spec": "https://github.com/XuXcode/dsh-loghud/releases/download/v0.3.0/dsh-loghud-0.3.0.tgz",
+          "spec": "https://github.com/XuXcode/dsh-loghud/releases/download/v0.4.0/dsh-loghud-0.4.0.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/XuXcode/dsh-loghud/releases/download/v0.3.0/dsh-loghud-0.3.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/XuXcode/dsh-loghud/releases/download/v0.4.0/dsh-loghud-0.4.0.tgz",
           "profile": "web",
-          "spec": "https://github.com/XuXcode/dsh-loghud/releases/download/v0.3.0/dsh-loghud-0.3.0.tgz",
+          "spec": "https://github.com/XuXcode/dsh-loghud/releases/download/v0.4.0/dsh-loghud-0.4.0.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-loghud@0.3.0",
+        "spec": "dsh-loghud@0.4.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -51407,7 +51534,7 @@
       "repository": "xxwj225-James/tomilite-dsh-plugin",
       "packageName": "tomilite-dsh-plugin",
       "version": "0.1.0",
-      "verifiedCommit": "e3813b44f92b9838d4f1f30765bb784b4b0f0f39",
+      "verifiedCommit": "cbac3017c36b3bc4865268e635f10eb88a828ae3",
       "readmePath": "README.md",
       "commands": [
         {
@@ -51471,42 +51598,42 @@
     {
       "repository": "XXXXXQ-0206/dsh-prompt-for-me",
       "packageName": "dsh-prompt-for-me",
-      "version": "0.6.8",
-      "verifiedCommit": "30736202cf0c024623cf5af45caf2ef44289057b",
+      "version": "0.7.0",
+      "verifiedCommit": "73286fc01bed88e389ace6f6c3a802859e3dee63",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.6.8/dsh-prompt-for-me-0.6.8.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.7.0/dsh-prompt-for-me-0.7.0.tgz",
           "profile": "web",
-          "spec": "https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.6.8/dsh-prompt-for-me-0.6.8.tgz",
+          "spec": "https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.7.0/dsh-prompt-for-me-0.7.0.tgz",
           "source": "tarball"
         },
         {
-          "raw": "dsh plugin --profile web add github:XXXXXQ-0206/dsh-prompt-for-me#v0.6.8",
+          "raw": "dsh plugin --profile web add github:XXXXXQ-0206/dsh-prompt-for-me#v0.7.0",
           "profile": "web",
-          "spec": "github:XXXXXQ-0206/dsh-prompt-for-me#v0.6.8",
+          "spec": "github:XXXXXQ-0206/dsh-prompt-for-me#v0.7.0",
           "source": "unknown"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.6.8/dsh-prompt-for-me-0.6.8.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.7.0/dsh-prompt-for-me-0.7.0.tgz",
           "profile": "web",
-          "spec": "https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.6.8/dsh-prompt-for-me-0.6.8.tgz",
+          "spec": "https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.7.0/dsh-prompt-for-me-0.7.0.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.6.8/dsh-prompt-for-me-0.6.8.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.7.0/dsh-prompt-for-me-0.7.0.tgz",
           "profile": "web",
-          "spec": "https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.6.8/dsh-prompt-for-me-0.6.8.tgz",
+          "spec": "https://github.com/XXXXXQ-0206/dsh-prompt-for-me/releases/download/v0.7.0/dsh-prompt-for-me-0.7.0.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-prompt-for-me@0.6.8",
+        "spec": "dsh-prompt-for-me@0.7.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -53283,7 +53410,7 @@
       "repository": "yuezengwu/dsh-explain",
       "packageName": "dsh-explain",
       "version": "0.3.0",
-      "verifiedCommit": "36318868656a2d7b4b94cf29eb69a98cb691273e",
+      "verifiedCommit": "2541e3337e1a1ee80933090760d1debbc2c4e5a7",
       "readmePath": "README.md",
       "commands": [
         {
