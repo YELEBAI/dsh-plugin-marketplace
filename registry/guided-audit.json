@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T21:14:09.413Z",
-  "total": 1173,
+  "generatedAt": "2026-09-10T00:31:25.179Z",
+  "total": 1175,
   "groups": {
-    "remote-command-found": 397,
-    "local-or-unparsed-command-only": 589,
-    "no-install-command-found": 187
+    "remote-command-found": 396,
+    "local-or-unparsed-command-only": 590,
+    "no-install-command-found": 189
   },
   "rows": [
     {
@@ -675,6 +675,36 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "2021Heei/dsh-tts-flash",
+      "packageName": "dsh-tts-flash",
+      "version": "0.1.0",
+      "verifiedCommit": "26368770995a75a70cde413bef069f1674de2f2e",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-tts-flash@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -8763,7 +8793,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "74f8f9d8ad85182ca187a3cf212411f78e3d1886",
+      "verifiedCommit": "2876f9dc78d5c0dab5bf1aff9a9bd32bb6da3147",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14238,7 +14268,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.7.16",
-      "verifiedCommit": "a0240d58c787265be7a0eba35481dcc43ed80ac9",
+      "verifiedCommit": "85807603c84e891ab842eef6ddcb81b2f156e161",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14550,6 +14580,44 @@
         "lifecycleScripts": [
           "prepare"
         ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "fhidalgodev/dsh-odoo-sdd",
+      "packageName": "dsh-odoo-sdd",
+      "version": "0.1.0",
+      "verifiedCommit": "f7a137297b60aff67800efbd8e142b8c4e97e183",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile odoo add <path-or-package-spec>",
+          "profile": "odoo",
+          "spec": "<path-or-package-spec>",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-odoo-sdd@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -28289,7 +28357,7 @@
       "repository": "lzszq/dsh-scholar",
       "packageName": "@dsh-scholar/research-plugin",
       "version": "0.1.0",
-      "verifiedCommit": "4def972e2c0941fddab8d6e0ac27ec8b34c3fe9f",
+      "verifiedCommit": "086b19a2fbd7824dd71dde7ea2043f22888606e0",
       "readmePath": "README.md",
       "commands": [
         {
@@ -44444,8 +44512,8 @@
     {
       "repository": "TikaFlow/dsh-model-fix",
       "packageName": "dsh-model-fix",
-      "version": "0.10.2",
-      "verifiedCommit": "bc56c2ecf9f6d2a71938919ad5b28d55297c9adf",
+      "version": "0.10.4",
+      "verifiedCommit": "0f9cff9c2e4d7eabbd42b49457e4c0449a1ae1ea",
       "readmePath": "README.md",
       "commands": [
         {
@@ -44459,7 +44527,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-model-fix@0.10.2",
+        "spec": "dsh-model-fix@0.10.4",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -47366,59 +47434,6 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": true,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "vitas/dsh-model-pricing",
-      "packageName": "dsh-model-pricing",
-      "version": "0.2.0",
-      "verifiedCommit": "8393ec5fa2ed051be8c56b15330c0244de3c37d6",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-model-pricing",
-          "profile": "web",
-          "spec": "dsh-model-pricing",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-model-pricing",
-          "profile": "web",
-          "spec": "dsh-model-pricing",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-model-pricing",
-          "profile": "web",
-          "spec": "dsh-model-pricing",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-model-pricing@0.2.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
     },
@@ -53822,7 +53837,7 @@
       "repository": "yuezengwu/dsh-explain",
       "packageName": "dsh-explain",
       "version": "0.3.0",
-      "verifiedCommit": "2541e3337e1a1ee80933090760d1debbc2c4e5a7",
+      "verifiedCommit": "b7b09dd3c8782cfbf8b4af7532d0d505ff0f57c2",
       "readmePath": "README.md",
       "commands": [
         {
@@ -53904,7 +53919,7 @@
       "repository": "yunmin311/dsh-universal-palette",
       "packageName": "@yunmin311/dsh-universal-palette",
       "version": "0.2.0",
-      "verifiedCommit": "4083e2716541d2149177c620a30f7d4a04941ad5",
+      "verifiedCommit": "9461595c71f0668283297dabdf9bd07977bd3288",
       "readmePath": "README.md",
       "commands": [
         {
@@ -54484,6 +54499,39 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "zaimokuza-yoshiteru/dsh-theme-library",
+      "packageName": "@zaimokuza/dsh-theme-library",
+      "version": "0.3.0",
+      "verifiedCommit": "e14c83138e42dfcf1c02ad393c47e95910f2a04d",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@zaimokuza/dsh-theme-library@0.3.0",
+        "reason": "npm-tarball-invalid",
+        "detail": "@zaimokuza/dsh-theme-library@0.3.0 tarball exceeds 52428800 bytes"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
