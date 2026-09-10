@@ -34,6 +34,13 @@
 
 ## 快速开始
 
+### 运行要求与分发说明
+
+- **Node.js**：`^22.19.0 || >=24.0.0`；使用 DSH 的 **web** Profile。
+- **DSH 依赖**：`@deepseek-ai/cordis ^4.0.1`、`dsh-app-boot` 和 `dsh-typert-protocol ^0.1.0-rc.5`，由 `peerDependencies` 声明。版本范围不代表每个 DSH Release 都经过独立运行时认证。
+- 安装包包含编译后的 Host、Web Client、Typert 入口及对应类型声明；安装本插件无需执行构建或生命周期脚本。
+- `zod` 是参数和远程协议校验所需的运行依赖，并非安装脚本。市场会访问 Registry/GitHub；用户发起安装或更新时还会调用包管理器并访问对应包源，读写当前 Profile 与选定的插件目录；Agent 任务使用独立工作区。这些权限不能等同于“无权限插件”或安全认证。
+
 ### 1. 安装
 
 ```sh
@@ -328,6 +335,7 @@ pnpm self-update:test
 pnpm guided-agent:test
 pnpm build
 pnpm verify
+pnpm package:test
 pnpm typecheck
 ```
 

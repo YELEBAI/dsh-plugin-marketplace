@@ -34,6 +34,13 @@
 
 ## Quick start
 
+### Requirements and distribution
+
+- **Node.js**: `^22.19.0 || >=24.0.0`; use DSH's **web** Profile.
+- **DSH peers**: `@deepseek-ai/cordis ^4.0.1`, and `dsh-app-boot` / `dsh-typert-protocol ^0.1.0-rc.5`, declared in `peerDependencies`. These ranges do not certify every DSH release as independently runtime-tested.
+- The package includes compiled Host, Web Client and Typert entries with their declarations. Installing this plugin requires no build or lifecycle scripts.
+- `zod` is a runtime dependency for input and remote-protocol validation, not an install script. The marketplace accesses the Registry/GitHub; user-requested installs and updates also run a package manager and access package sources, modifying the active Profile and selected plugin directory. Agent tasks use a dedicated workspace. These capabilities are not a permission-free or security-certified execution model.
+
 ### 1. Install
 
 ```sh
@@ -334,6 +341,7 @@ pnpm self-update:test
 pnpm guided-agent:test
 pnpm build
 pnpm verify
+pnpm package:test
 pnpm typecheck
 ```
 

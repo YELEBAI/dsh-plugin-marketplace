@@ -336,6 +336,7 @@ export type MarketplaceInstallLocationOutcome = MarketplaceResult<MarketplaceIns
 export type MarketplaceInstallDirOutcome = MarketplaceResult<MarketplaceInstallLocation>
 export type MarketplaceAgentWorkspaceOutcome = MarketplaceResult<MarketplaceAgentWorkspace>
 export type MarketplaceDiagnoseConflictsOutcome = MarketplaceResult<MarketplaceDiagnoseConflictsResult>
+export type MarketplaceGuidedAgentOutcome = MarketplaceResult<MarketplaceGuidedAgentTask>
 
 export interface MarketplaceToggleResult {
   packageName: string

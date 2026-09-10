@@ -1,11 +1,12 @@
 /** Build the dual-face plugin artifacts with the checkout's esbuild.
  *  node scripts/build.mjs  (DSH_CHECKOUT overrides the checkout path)
- *  Emits: lib/index.js (host), lib/typert.js, lib/remote.js, lib/client.js
+ *  Emits runtime entries in lib/ and owned declarations in lib/types/.
  */
 import { createRequire } from 'node:module'
 import { existsSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { buildDeclarations } from './build-declarations.mjs'
 
 const require = createRequire(import.meta.url)
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)))
@@ -103,4 +104,15 @@ await esbuild.build({
   define: { 'process.env.NODE_ENV': JSON.stringify('production') },
 })
 
-console.log('build complete: lib/index.js, lib/typert.js, lib/remote.js, lib/client.js')
+await esbuild.build({
+  absWorkingDir: root,
+  entryPoints: ['src/types.ts'],
+  tsconfigRaw: { compilerOptions: {} },
+  format: 'esm',
+  outfile: 'lib/types.js',
+  banner: { js: '// Generated from src/types.ts. Type-only declarations have no runtime values.' },
+  footer: { js: 'export {};' },
+})
+buildDeclarations(root, checkout)
+
+console.log('build complete: host, client, wire artifacts and public declarations')
