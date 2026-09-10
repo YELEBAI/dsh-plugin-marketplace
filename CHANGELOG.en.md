@@ -10,6 +10,8 @@ Registry refresh commits are grouped instead of listed individually.
 
 ### Fixed and improved
 
+- Fixed package export defects reported in DSH Store #716: generate and ship real declarations, correct Host/Typert/Remote type entries and the `./types` JS entry, and export the guided-task result type referenced by the wire contract.
+- Declared the Node.js runtime range and documented distribution, DSH peers, and required capabilities; retained the legitimate `zod` runtime dependency without claiming external security certification.
 - Increased catalog density: two columns from 490px of content width, no fixed minimum card height, and tighter card/filter spacing. A 12-plugin fixture checks that at least four plugins fit fully in a 794px-high viewport.
 - Refined navigation, filter bars, cards, management panels, button sizing, keyboard focus, and light/dark theme support, with responsive action layouts and a distinct uninstall treatment.
 - Added result counts and filter reset, improved empty/loading feedback, and kept batch selection counts and actions consistent across filters, including explicitly indicated hidden selections.
@@ -21,6 +23,7 @@ Registry refresh commits are grouped instead of listed individually.
 
 ### Tests
 
+- Added real npm tarball export/declaration-closure checks, public entry imports, TypeScript consumption of 31 Typert types, and missing-file/manifest regressions; CI covers Node 22.19.0 and 24.
 - Added browser regressions using real React/DSH components and mock data for layouts, themes, filters, selections, and confirmations, without touching a real Profile.
 - Added regression coverage for conditional requests, offline recovery, concurrent refreshes, automatic ref pinning, encapsulated manifests, and Windows cleanup failures.
 

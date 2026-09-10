@@ -9,6 +9,7 @@ import { createRequire } from 'node:module'
 import { existsSync, readdirSync, readFileSync, unlinkSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { assertPackageContract } from './package-contract.mjs'
 
 const require = createRequire(import.meta.url)
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)))
@@ -78,6 +79,10 @@ console.log('client bundle shape valid: ' + requires.length + ' external require
 
 // ── 3. package manifest contract ──────────────────────────────────────────
 const pkg = JSON.parse(readFileSync(path.join(root, 'package.json'), 'utf8'))
+assertPackageContract(pkg, file => {
+  const target = path.join(root, file)
+  return existsSync(target) ? readFileSync(target, 'utf8') : undefined
+})
 if (pkg.dsh?.bundle?.patch !== './cordis.patch.yml') throw new Error('dsh.bundle.patch missing')
 if (pkg.dsh?.client?.platform !== 'web') throw new Error('dsh.client.platform must be web')
 if (pkg.exports?.['./client'] === undefined) throw new Error('./client export missing')

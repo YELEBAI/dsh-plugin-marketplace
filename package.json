@@ -3,6 +3,9 @@
   "description": "Verified DSH plugin marketplace with guided-install Agents, direct self-update, discovery and install management",
   "version": "0.9.4",
   "packageManager": "pnpm@11.1.2",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,10 +17,10 @@
   },
   "type": "module",
   "main": "lib/index.js",
-  "types": "lib/types/index.d.ts",
+  "types": "lib/types/host/index.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/types/index.d.ts",
+      "types": "./lib/types/host/index.d.ts",
       "default": "./lib/index.js"
     },
     "./client": {
@@ -26,14 +29,14 @@
     },
     "./types": {
       "types": "./lib/types/types.d.ts",
-      "default": "./lib/types/types.js"
+      "default": "./lib/types.js"
     },
     "./typert": {
-      "types": "./lib/typert.d.ts",
+      "types": "./lib/types/typert.d.ts",
       "default": "./lib/typert.js"
     },
     "./remote": {
-      "types": "./lib/remote.d.ts",
+      "types": "./lib/types/remote.d.ts",
       "default": "./lib/remote.js"
     },
     "./package.json": "./package.json"
@@ -66,6 +69,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "verify": "node scripts/verify.mjs",
+    "package:test": "node scripts/package-contract-test.mjs",
     "ui:test": "node scripts/ui-test.mjs",
     "registry:verify": "node scripts/verify.mjs --registry-only",
     "registry:scan": "node scripts/registry-scan.mjs",
