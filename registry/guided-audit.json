@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-10T21:10:40.493Z",
-  "total": 1170,
+  "generatedAt": "2026-09-11T00:28:15.460Z",
+  "total": 1174,
   "groups": {
-    "remote-command-found": 395,
-    "local-or-unparsed-command-only": 582,
+    "remote-command-found": 397,
+    "local-or-unparsed-command-only": 584,
     "no-install-command-found": 193
   },
   "rows": [
@@ -546,6 +546,71 @@
       }
     },
     {
+      "repository": "1569126506-sudo/dsh-team-cost",
+      "packageName": "dsh-team-cost",
+      "version": "0.2.1",
+      "verifiedCommit": "72f371c7cf45578791739c06b1d949e2868536dd",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add https://github.com/1569126506-sudo/dsh-team-cost",
+          "profile": "web",
+          "spec": "https://github.com/1569126506-sudo/dsh-team-cost",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dsh-team-cost",
+          "profile": "web",
+          "spec": "./dsh-team-cost",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-team-cost`）待账号注册开放后启用。",
+          "profile": "web",
+          "spec": "dsh-team-cost",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-team-cost`）待账号注册开放后启用。",
+          "profile": "web",
+          "spec": "dsh-team-cost",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-team-cost`）待账号注册开放后启用。",
+          "profile": "web",
+          "spec": "dsh-team-cost",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-team-cost@0.2.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "16480000/dsh-plugin-memory",
       "packageName": "dsh-plugin-memory",
       "version": "0.1.0",
@@ -981,7 +1046,7 @@
       "repository": "54shitaimzf/dsh-price-less",
       "packageName": "dsh-price-less",
       "version": "0.0.1",
-      "verifiedCommit": "5a661a5ad596d06ee8be4934574f2af6eb545980",
+      "verifiedCommit": "81bacb1fd8677daf3dd56cd6d13e29bd89f6d2ad",
       "readmePath": "README.md",
       "commands": [
         {
@@ -8753,7 +8818,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "71a15eda993d9c22ce6b1d76b59c395016a4efa7",
+      "verifiedCommit": "24a97a25c750ea43a5641897a836e55667bec5fa",
       "readmePath": "README.md",
       "commands": [
         {
@@ -48808,6 +48873,58 @@
       }
     },
     {
+      "repository": "wings1848/dsh-mcp-lazy",
+      "packageName": "dsh-mcp-lazy",
+      "version": "0.1.0",
+      "verifiedCommit": "7820a599b3ac879f4ad0ba201cb21ac77be154a6",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <your-profile> add dsh-mcp-lazy",
+          "profile": "<your-profile>",
+          "spec": "dsh-mcp-lazy",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile <your-profile> add dsh-mcp-lazy",
+          "profile": "<your-profile>",
+          "spec": "dsh-mcp-lazy",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile <your-profile> add dsh-mcp-lazy",
+          "profile": "<your-profile>",
+          "spec": "dsh-mcp-lazy",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-mcp-lazy@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "winter-street/dsh-plugin-agent-budget",
       "packageName": "dsh-plugin-agent-budget",
       "version": "0.2.0",
@@ -51374,6 +51491,102 @@
       }
     },
     {
+      "repository": "xlennart/dsh-goal-mode-enhance",
+      "packageName": "dsh-goal-mode",
+      "version": "0.1.0",
+      "verifiedCommit": "f351daf586ebfc9606e4e5bfb1b141e318e59dab",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin add` 安装，页面刷新/重启不丢 | 日常使用、分享给他人 |",
+          "profile": null,
+          "spec": "安装，页面刷新/重启不丢",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add <tgz 路径>` 后重启即可；开发者本地构建方式见 [INSTALL.md](./INSTALL.md)。已验证的 DSH 版本兼容性结论见 [COMPATIBILITY.md](./COMPATIBILITY.md)。",
+          "profile": "web",
+          "spec": "<tgz",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-goal-mode@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "xlennart/dsh-side-chat",
+      "packageName": "dsh-side-chat",
+      "version": "1.2.0",
+      "verifiedCommit": "eed2a3a7e19e9ecc241a5afe421d96008f1c3144",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add .\\dsh-side-chat-1.2.0.tgz",
+          "profile": "web",
+          "spec": ".\\dsh-side-chat-1.2.0.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add .\\release\\dsh-side-chat-1.2.0.tgz",
+          "profile": "web",
+          "spec": ".\\release\\dsh-side-chat-1.2.0.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add $PluginSource",
+          "profile": "web",
+          "spec": "$PluginSource",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-side-chat@1.2.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": [
+          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
+        ]
+      }
+    },
+    {
       "repository": "xluomo/dsh-deliverables-accordion",
       "packageName": "dsh-deliverables-accordion",
       "version": "0.1.1",
@@ -52393,8 +52606,8 @@
     {
       "repository": "yishengjun8/dsh-workspace-studio",
       "packageName": "@yishengjun8/dsh-workspace-studio",
-      "version": "0.6.20",
-      "verifiedCommit": "79bd3d9a2304037e3c0f13bb1ae5c89cf3b0a98a",
+      "version": "0.7.4",
+      "verifiedCommit": "4c00dcf83338fcc279cf35949f5099ebed96e8d4",
       "readmePath": "README.md",
       "commands": [
         {
@@ -52408,7 +52621,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "@yishengjun8/dsh-workspace-studio@0.6.20",
+        "spec": "@yishengjun8/dsh-workspace-studio@0.7.4",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -52566,37 +52779,43 @@
     {
       "repository": "YJLTF/dsh-plugin-offline-packager",
       "packageName": "dsh-plugin-offline-packager",
-      "version": "0.2.0",
-      "verifiedCommit": "c0cdb30c85cc948853a850ebae64d142e0c07cf8",
+      "version": "0.3.0",
+      "verifiedCommit": "841d8f35dd08a57ff428c2bd0008e258476abd9f",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add` 命令安装。",
-          "profile": "web",
-          "spec": "命令安装。",
+          "raw": "dsh plugin add` 本质是把参数转发给离线 profile 目录里的 `pnpm add`。对普通插件执行这条命令时，pnpm 需要联网解析并下载插件的每一个 npm 依赖，离线环境必然失败。本插件把\"依赖下载\"这一步提前到联网机器上完成：在暂存目录装好插件的全部生产依赖，再通过 npm 的 `bundleDependencies` 机制把整个 `node_modules` 依赖闭包一起塞进 tarball。离线机器拿到的就是一个不缺文件的完整安装包。",
+          "profile": null,
+          "spec": "本质是把参数转发给离线",
           "source": "unknown"
         },
         {
-          "raw": "dsh plugin --profile web add \"deepseek-ai-dsh-base-0.1.1-rc.2.tgz\"",
+          "raw": "dsh plugin --profile web add \"F:\\offline-packages\\deepseek-ai-dsh-base-0.1.5-alpha.2.tgz\"",
           "profile": "web",
-          "spec": "deepseek-ai-dsh-base-0.1.1-rc.2.tgz",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add ./deepseek-ai-dsh-base-0.1.1-rc.2.tgz",
-          "profile": "web",
-          "spec": "./deepseek-ai-dsh-base-0.1.1-rc.2.tgz",
+          "spec": "F:\\offline-packages\\deepseek-ai-dsh-base-0.1.5-alpha.2.tgz",
           "source": "local"
         },
         {
-          "raw": "dsh plugin --profile web add` 会报 `ENOENT`，详见下方[注意事项](#注意事项)。",
+          "raw": "dsh plugin --profile web add ./deepseek-ai-dsh-base-0.1.5-alpha.2.tgz",
           "profile": "web",
-          "spec": "会报",
+          "spec": "./deepseek-ai-dsh-base-0.1.5-alpha.2.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin add` 会把参数转发成 profile 目录里的 `pnpm add`。pnpm 11 起 `minimumReleaseAge` 供应链策略默认开启（1440 分钟），`pnpm add` 不只解析新包，还会为 profile 中**已装好的整个依赖树**联网拉取发布时间元数据，离线环境因此报错：",
+          "profile": null,
+          "spec": "会把参数转发成",
           "source": "unknown"
         },
         {
-          "raw": "dsh plugin --profile web add` 在 Windows 上以 shell 模式把参数转发给 pnpm，且不会为参数补引号，路径会在空格处被截断。例如在 `D:\\DSH Desktop\\offline-packages` 下执行 `dsh plugin --profile web add ./xxx.tgz`，pnpm 实际会去 `<profile 目录>\\Desktop\\offline-packages\\xxx.tgz` 找文件，报 `ENOENT: no such file or directory`。此问题与 tar 包格式无关，手动加引号也无效（引号在传参给 dsh 时已被 shell 消费）。解决办法是先把 `.tgz` 移到不含空格的目录再安装：",
+          "raw": "dsh plugin --profile web add ./xxx.tgz --config.minimum-release-age=0",
           "profile": "web",
+          "spec": "./xxx.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin add` 在 Windows 上以 shell 模式转发参数且不补引号，路径会在空格处被截断，报 `ENOENT`。手动加引号也无效（引号在传参给 dsh 时已被 shell 消费）。先把文件移到不含空格的目录再安装：",
+          "profile": null,
           "spec": "在",
           "source": "unknown"
         },
@@ -52611,7 +52830,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-plugin-offline-packager@0.2.0",
+        "spec": "dsh-plugin-offline-packager@0.3.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -53567,7 +53786,7 @@
       "repository": "yuezengwu/dsh-explain",
       "packageName": "dsh-explain",
       "version": "0.3.0",
-      "verifiedCommit": "b7b09dd3c8782cfbf8b4af7532d0d505ff0f57c2",
+      "verifiedCommit": "405d83d79a3401c95dfed1e7c8a22874d13d6088",
       "readmePath": "README.md",
       "commands": [
         {
