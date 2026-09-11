@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-11T16:44:12.498Z",
-  "total": 1187,
+  "generatedAt": "2026-09-11T21:14:03.946Z",
+  "total": 1190,
   "groups": {
-    "remote-command-found": 407,
-    "local-or-unparsed-command-only": 589,
+    "remote-command-found": 409,
+    "local-or-unparsed-command-only": 590,
     "no-install-command-found": 191
   },
   "rows": [
@@ -2550,7 +2550,7 @@
       "repository": "ai-daming/clickvibe",
       "packageName": "clickvibe",
       "version": "0.1.0",
-      "verifiedCommit": "15ee503e4846aa901e26e7d9539b831deed6c5e4",
+      "verifiedCommit": "0169cdb1a1cba25a4d25703d45c386b4e2ee0600",
       "readmePath": "README.md",
       "commands": [
         {
@@ -8908,7 +8908,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "c0cbcc647bff4eac7132d5d5fcd584bdfa19d25e",
+      "verifiedCommit": "60456a2d603047a02da06799f159bc22ab4da1cd",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11616,51 +11616,6 @@
       }
     },
     {
-      "repository": "Dayi-Z/memoripo",
-      "packageName": "memoripo",
-      "version": "0.9.1",
-      "verifiedCommit": "d746a570e8c3f0604086cd1e2272059b6299fe74",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin add github:Dayi-Z/memoripo",
-          "profile": null,
-          "spec": "github:Dayi-Z/memoripo",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin add ./",
-          "profile": null,
-          "spec": "./",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "memoripo@0.9.1",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "dblate/dsh-read-image-view",
       "packageName": "dsh-read-image-view",
       "version": "0.1.0",
@@ -12188,8 +12143,8 @@
     {
       "repository": "dickpy/dsh-imagegen",
       "packageName": "@dickpy/dsh-imagegen",
-      "version": "1.6.1",
-      "verifiedCommit": "9bf24bfd63a9dba7b0173b8b67033afe6ff700ab",
+      "version": "1.5.12",
+      "verifiedCommit": "fd4a0b6ecd6ea82f443acab12920e576a40b06a5",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12247,12 +12202,13 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@dickpy/dsh-imagegen@1.6.1",
-        "reason": "npm-version-not-published"
+        "spec": "@dickpy/dsh-imagegen@1.5.12",
+        "reason": "npm-tarball-invalid",
+        "detail": "@dickpy/dsh-imagegen@1.5.12 tarball exceeds 52428800 bytes"
       },
       "assessment": {
         "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
+        "reason": "npm-tarball-invalid"
       },
       "auditErrors": [],
       "current": {
@@ -12429,7 +12385,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "b82c9423f81621e3908379b0892e7ef21435a551",
+      "verifiedCommit": "e2cf5e5ba335b7f0a08bc35d9c028f64696d3243",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14464,7 +14420,7 @@
       "repository": "fhidalgodev/dsh-odoo-sdd",
       "packageName": "dsh-odoo-sdd",
       "version": "0.1.0",
-      "verifiedCommit": "db9734c6c118bbe0f1f87b99f3fd22b56729faef",
+      "verifiedCommit": "3c8ec3289df0b54e5e48b0d9a35661c6ccaeb31a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14488,12 +14444,13 @@
       "auditErrors": [],
       "current": {
         "profiles": [
-          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
         "manualSteps": true,
-        "lifecycleScripts": [],
+        "lifecycleScripts": [
+          "prepare"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -23655,14 +23612,14 @@
     {
       "repository": "kllilizxc/dsh-worka",
       "packageName": "@dsh-workbench/plugin",
-      "version": "0.1.0",
-      "verifiedCommit": "86d2254f1fea9e93ee967ac0eefc2d0fb7dc5cf7",
+      "version": "0.1.1",
+      "verifiedCommit": "335a2ba93e4000c982d2024eca978c5ff9dadf95",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add ./artifacts/dsh-workbench-plugin-0.1.0.tgz",
+          "raw": "dsh plugin --profile web add ./artifacts/dsh-workbench-plugin-0.1.1.tgz",
           "profile": "web",
-          "spec": "./artifacts/dsh-workbench-plugin-0.1.0.tgz",
+          "spec": "./artifacts/dsh-workbench-plugin-0.1.1.tgz",
           "source": "local"
         },
         {
@@ -23676,7 +23633,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "@dsh-workbench/plugin@0.1.0",
+        "spec": "@dsh-workbench/plugin@0.1.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -24629,6 +24586,77 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "lcestou/dsh-oh-my-claude",
+      "packageName": "dsh-oh-my-claude",
+      "version": "1.0.0",
+      "verifiedCommit": "19fe85af5610bb992729862c9eeda508faca4b55",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-oh-my-claude                        # from npm",
+          "profile": "web",
+          "spec": "dsh-oh-my-claude",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:lcestou/dsh-oh-my-claude         # or straight from the repository",
+          "profile": "web",
+          "spec": "github:lcestou/dsh-oh-my-claude",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin add` registers it in the profile by itself. After the restart, \"Oh My Claude\" appears in the model picker with the models your login can use. Pick one and chat. Later, `dsh plugin --profile web update dsh-oh-my-claude` and the same restart bring in a new version.",
+          "profile": "web",
+          "spec": "registers",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:/path/to/oh-my-claude`. The source is strict TypeScript under `src/`; dsh loads the compiled output in `lib/`, so run `bun run build` after every edit. `lib/client.js` hot-reloads into every open tab the moment it is written; a change under `lib/server` needs a restart of `dsh web`. `lib/server` comes from `tsc`, `lib/client.js` from `bun build` of `src/client/index.tsx`; both are committed, so a plain install has them. `bun run validate` runs the whole gate: fo",
+          "profile": "web",
+          "spec": "link:/path/to/oh-my-claude",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-oh-my-claude                        # from npm",
+          "profile": "web",
+          "spec": "dsh-oh-my-claude",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-oh-my-claude                        # from npm",
+          "profile": "web",
+          "spec": "dsh-oh-my-claude",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-oh-my-claude@1.0.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
         "reviewReasons": []
       }
     },
@@ -26289,8 +26317,8 @@
     {
       "repository": "linkbag/dsh-swarm-orchestrator",
       "packageName": "dsh-swarm-orchestrator",
-      "version": "0.5.7",
-      "verifiedCommit": "3bfb8ac5a041e4bc44a00f2c7649684d0c49150d",
+      "version": "0.5.8",
+      "verifiedCommit": "3d58f88b32b59399445b90b863a0e5bbbbb4f828",
       "readmePath": "README.md",
       "commands": [
         {
@@ -26324,7 +26352,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-swarm-orchestrator@0.5.7",
+        "spec": "dsh-swarm-orchestrator@0.5.8",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -30756,6 +30784,43 @@
       }
     },
     {
+      "repository": "minhdevtry/dsh-markdown-ide",
+      "packageName": "@anoslide/dsh-vscode-workspace",
+      "version": "1.0.0",
+      "verifiedCommit": "8cc966a22403398f3bacb10999dea8ee7e6bf687",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add link:.",
+          "profile": "web",
+          "spec": "link:",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@anoslide/dsh-vscode-workspace@1.0.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "minyang-chen/dsh-stock-lookup",
       "packageName": "dsh-stock-lookup",
       "version": "0.2.0",
@@ -32441,7 +32506,7 @@
       "repository": "mrme000m/dsh-prime-orchestrator",
       "packageName": "dsh-prime-orchestrator",
       "version": "0.6.0",
-      "verifiedCommit": "12d0267c01b24b4cc702d32e5b18152f331a9c4f",
+      "verifiedCommit": "59816ef89a03693a2f7d9d0bdef36766fe2675fd",
       "readmePath": "README.md",
       "commands": [
         {
@@ -41207,6 +41272,43 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "shuiiiiimu/dsh-stock-portfolio",
+      "packageName": "dsh-stock-portfolio",
+      "version": "0.1.0",
+      "verifiedCommit": "51275c9d73f5a4cd5832c1bc1e01af68e973738c",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add ~/codespaces/dsh-stock-portfolio      # 方式一",
+          "profile": "web",
+          "spec": "~/codespaces/dsh-stock-portfolio",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-stock-portfolio@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -53098,6 +53200,85 @@
         "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
+      }
+    },
+    {
+      "repository": "Y1X1n/dsh-prompt-optimizer",
+      "packageName": "@y1x1n/dsh-prompt-optimizer",
+      "version": "0.3.17",
+      "verifiedCommit": "074784ae9193ff649076b28175768375a2a5b5f4",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add @y1x1n/dsh-prompt-optimizer",
+          "profile": "web",
+          "spec": "@y1x1n/dsh-prompt-optimizer",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./y1x1n-dsh-prompt-optimizer-<版本号>.tgz",
+          "profile": "web",
+          "spec": "./y1x1n-dsh-prompt-optimizer-<版本号>.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./y1x1n-dsh-prompt-optimizer-<version>.tgz",
+          "profile": "web",
+          "spec": "./y1x1n-dsh-prompt-optimizer-<version>.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin add ./目录` 走 pnpm 的 `link:`,目前会把盘符冒号错解析成协议分隔符,生成失效符号链接(`node_modules/<pkg>` 指向不存在的路径),表现为插件不加载。本地安装请用上面的 tarball 形式;目录链接形式在 macOS/Linux 正常。",
+          "profile": null,
+          "spec": "./目录",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:Y1X1n/dsh-prompt-optimizer",
+          "profile": "web",
+          "spec": "github:Y1X1n/dsh-prompt-optimizer",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @y1x1n/dsh-prompt-optimizer",
+          "profile": "web",
+          "spec": "@y1x1n/dsh-prompt-optimizer",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @y1x1n/dsh-prompt-optimizer",
+          "profile": "web",
+          "spec": "@y1x1n/dsh-prompt-optimizer",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@y1x1n/dsh-prompt-optimizer@0.3.17",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
       }
     },
     {
