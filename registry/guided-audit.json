@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T18:38:35.996Z",
-  "total": 1204,
+  "generatedAt": "2026-09-12T22:33:39.329Z",
+  "total": 1207,
   "groups": {
-    "remote-command-found": 415,
-    "local-or-unparsed-command-only": 596,
+    "remote-command-found": 417,
+    "local-or-unparsed-command-only": 597,
     "no-install-command-found": 193
   },
   "rows": [
@@ -7614,7 +7614,7 @@
       "repository": "canelaslorenzoenego-ai/Orderzx",
       "packageName": "@dsh-community/dsh-browser",
       "version": "0.2.0-rc.1",
-      "verifiedCommit": "ffd6b5147851aa9459548fed2ff19b5e7ddecdc2",
+      "verifiedCommit": "57ef5b7a2f1d06ce97f034b50070eadefc86f169",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -9055,7 +9055,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "abdbf738ada3b80cd092aaec0887d7e4fd299335",
+      "verifiedCommit": "f413970f368d4638a56c5ba3bbe2f69befda53c1",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12575,6 +12575,63 @@
       }
     },
     {
+      "repository": "dingminhua/dsh-connect-trae",
+      "packageName": "dsh-connect-trae",
+      "version": "1.4.4",
+      "verifiedCommit": "fdc03dce51febdf28546ec1bd0a517e7f258363b",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add /Users/dmh2002/DshProject/dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "/Users/dmh2002/DshProject/dsh-connect-trae",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-connect-trae@1.4.4",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "DingTalk-Real-AI/dsh-dingtalk",
       "packageName": "@dingtalk-real-ai/dsh-dingtalk",
       "version": "0.0.0-development",
@@ -12629,7 +12686,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "30aab99adf31cc9769941d60e987067a60c84745",
+      "verifiedCommit": "a81de6837eb43ca2162d37490e372edea64a4fc2",
       "readmePath": "README.md",
       "commands": [
         {
@@ -22509,7 +22566,7 @@
       "repository": "jonah791/dsh-agent-context",
       "packageName": "dsh-agent-context",
       "version": "0.2.1",
-      "verifiedCommit": "1c34800dc072e4da8c0e4edc9f37f080e8a9b0bc",
+      "verifiedCommit": "235848460408286df8ab4cf76a646bcd974a605d",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -22540,7 +22597,7 @@
       "repository": "jonah791/dsh-agent-memory",
       "packageName": "dsh-agent-memory",
       "version": "0.2.3",
-      "verifiedCommit": "abdf1163ecfebfec13a2294251121867eaa20999",
+      "verifiedCommit": "cd135dbea45a06c35b805dc96c44f5e7b91460cb",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -38054,6 +38111,45 @@
       }
     },
     {
+      "repository": "pureexe/dsh-windows-remote-ssh",
+      "packageName": "dsh-windows-remote-ssh",
+      "version": "0.1.0",
+      "verifiedCommit": "87e20e711dddb87e11790728389995f37cb71047",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add \"github:pureexe/dsh-windows-remote-ssh#main\"",
+          "profile": "web",
+          "spec": "github:pureexe/dsh-windows-remote-ssh#main",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-windows-remote-ssh@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "pwping/moyu_games",
       "packageName": "moyu-games",
       "version": "0.1.0",
@@ -41458,6 +41554,57 @@
       }
     },
     {
+      "repository": "shinzarou-eng/dsh-codebase-chat",
+      "packageName": "dsh-codebase-chat",
+      "version": "0.27.0",
+      "verifiedCommit": "ddf32af4bb593126c591dde8fa2094641a1bcef5",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-codebase-chat",
+          "profile": "web",
+          "spec": "dsh-codebase-chat",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-codebase-chat",
+          "profile": "web",
+          "spec": "dsh-codebase-chat",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-codebase-chat",
+          "profile": "web",
+          "spec": "dsh-codebase-chat",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-codebase-chat@0.27.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "Short-Arm-Ape/dsh-intranet-browser",
       "packageName": "@short-arm-ape/dsh-intranet-browser",
       "version": "0.1.0",
@@ -42511,8 +42658,8 @@
     {
       "repository": "skymecode/dsh-bgm",
       "packageName": "dsh-bgm",
-      "version": "0.1.2",
-      "verifiedCommit": "1f177296c5f75b4fae3582f8d682cf93fb1f6d32",
+      "version": "0.1.3",
+      "verifiedCommit": "6d1bf469489c75f9d4812c44c953e926a6de9c92",
       "readmePath": "README.md",
       "commands": [
         {
@@ -42522,9 +42669,9 @@
           "source": "tarball"
         },
         {
-          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-bgm/releases/download/v0.1.2/dsh-bgm.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-bgm/releases/download/v0.1.3/dsh-bgm.tgz",
           "profile": "web",
-          "spec": "https://github.com/skymecode/dsh-bgm/releases/download/v0.1.2/dsh-bgm.tgz",
+          "spec": "https://github.com/skymecode/dsh-bgm/releases/download/v0.1.3/dsh-bgm.tgz",
           "source": "tarball"
         },
         {
@@ -42542,9 +42689,9 @@
           "source": "tarball"
         },
         {
-          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-bgm/releases/download/v0.1.2/dsh-bgm.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-bgm/releases/download/v0.1.3/dsh-bgm.tgz",
           "profile": "web",
-          "spec": "https://github.com/skymecode/dsh-bgm/releases/download/v0.1.2/dsh-bgm.tgz",
+          "spec": "https://github.com/skymecode/dsh-bgm/releases/download/v0.1.3/dsh-bgm.tgz",
           "source": "tarball"
         }
       ],
@@ -42556,15 +42703,15 @@
           "source": "tarball"
         },
         {
-          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-bgm/releases/download/v0.1.2/dsh-bgm.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-bgm/releases/download/v0.1.3/dsh-bgm.tgz",
           "profile": "web",
-          "spec": "https://github.com/skymecode/dsh-bgm/releases/download/v0.1.2/dsh-bgm.tgz",
+          "spec": "https://github.com/skymecode/dsh-bgm/releases/download/v0.1.3/dsh-bgm.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-bgm@0.1.2",
+        "spec": "dsh-bgm@0.1.3",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -42588,14 +42735,14 @@
     {
       "repository": "skymecode/dsh-deep-diving",
       "packageName": "dsh-deep-dive-skins",
-      "version": "0.2.0",
-      "verifiedCommit": "1126cc2c915847f1116e0cdd083d1767d1c03e7f",
+      "version": "0.2.1",
+      "verifiedCommit": "958d691997c07a457796bebe09738df5a0274c31",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.0/dsh-deep-dive-skins-0.2.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.1/dsh-deep-dive-skins-0.2.1.tgz",
           "profile": "web",
-          "spec": "https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.0/dsh-deep-dive-skins-0.2.0.tgz",
+          "spec": "https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.1/dsh-deep-dive-skins-0.2.1.tgz",
           "source": "tarball"
         },
         {
@@ -42607,23 +42754,23 @@
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.0/dsh-deep-dive-skins-0.2.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.1/dsh-deep-dive-skins-0.2.1.tgz",
           "profile": "web",
-          "spec": "https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.0/dsh-deep-dive-skins-0.2.0.tgz",
+          "spec": "https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.1/dsh-deep-dive-skins-0.2.1.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.0/dsh-deep-dive-skins-0.2.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.1/dsh-deep-dive-skins-0.2.1.tgz",
           "profile": "web",
-          "spec": "https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.0/dsh-deep-dive-skins-0.2.0.tgz",
+          "spec": "https://github.com/skymecode/dsh-deep-diving/releases/download/v0.2.1/dsh-deep-dive-skins-0.2.1.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-deep-dive-skins@0.2.0",
+        "spec": "dsh-deep-dive-skins@0.2.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
