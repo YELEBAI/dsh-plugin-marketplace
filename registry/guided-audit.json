@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T19:37:34.007Z",
-  "total": 1238,
+  "generatedAt": "2026-09-14T23:22:02.163Z",
+  "total": 1237,
   "groups": {
-    "remote-command-found": 424,
-    "local-or-unparsed-command-only": 604,
-    "no-install-command-found": 210
+    "remote-command-found": 423,
+    "local-or-unparsed-command-only": 605,
+    "no-install-command-found": 209
   },
   "rows": [
     {
@@ -9463,7 +9463,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "15aca59273cf106d0672c361f705e350e66a3936",
+      "verifiedCommit": "5f83333a192848ff8550dceda0c6144a62998e4c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12991,7 +12991,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "bf0705ef736f1e288425111d7e40f20b16910907",
+      "verifiedCommit": "e32b763823e2121f938c6ac461302a90b0a8f176",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15849,39 +15849,6 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "FuRongJun-1999/dsh-memory",
-      "packageName": "@furongjun1999/dsh-memory",
-      "version": "0.4.7",
-      "verifiedCommit": "a61c08eb8ebaa8e1fe7e75acc930cdd677fe9a4c",
-      "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@furongjun1999/dsh-memory@0.4.7",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -27330,67 +27297,6 @@
       }
     },
     {
-      "repository": "linkbag/dsh-swarm-orchestrator",
-      "packageName": "dsh-swarm-orchestrator",
-      "version": "0.6.4",
-      "verifiedCommit": "3afac167dd6c679b4ed4547f59f2986c9f7c6f33",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add github:linkbag/dsh-swarm-orchestrator",
-          "profile": "web",
-          "spec": "github:linkbag/dsh-swarm-orchestrator",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
-          "profile": "web",
-          "spec": "dsh-swarm-orchestrator",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
-          "profile": "web",
-          "spec": "dsh-swarm-orchestrator",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
-          "profile": "web",
-          "spec": "dsh-swarm-orchestrator",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-swarm-orchestrator@0.6.4",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
-      }
-    },
-    {
       "repository": "Linxiushen/dsh-workflow-isolate",
       "packageName": "dsh-workflow-isolate",
       "version": "0.1.0",
@@ -37468,6 +37374,75 @@
       }
     },
     {
+      "repository": "OoJae/dsh-technocore-watch",
+      "packageName": "dsh-technocore-watch",
+      "version": "0.1.0",
+      "verifiedCommit": "d3bfc193d06a576c5763f04135f00536143c33b9",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add ./dsh-technocore-watch     # installs the bundle layer into the profile",
+          "profile": "web",
+          "spec": "./dsh-technocore-watch",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-technocore-watch`.)",
+          "profile": "web",
+          "spec": "dsh-technocore-watch",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin add` + bundle layer + both example overlays composing, headless one-shot with the plugin, sdk profile with the **installed bundle**: idle → 0 model requests, 8-burst → 1 notice turn and the model pages seq 2..9, restart → no duplicate, new activity → one notice for exactly the new range |",
+          "profile": null,
+          "spec": "+",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dsh-technocore-watch",
+          "profile": "web",
+          "spec": "./dsh-technocore-watch",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-technocore-watch`.)",
+          "profile": "web",
+          "spec": "dsh-technocore-watch",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-technocore-watch`.)",
+          "profile": "web",
+          "spec": "dsh-technocore-watch",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-technocore-watch@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "OpenTritium/dsh-codex-shim",
       "packageName": "@opentritium/dsh-codex-shim",
       "version": "0.1.1",
@@ -44053,59 +44028,27 @@
     {
       "repository": "slatinwine/dsh-sentience-audit",
       "packageName": "@slatinwine/dsh-sentience-audit",
-      "version": "0.1.0",
-      "verifiedCommit": "3b3012e37944475d217e8af69d8574079534bc54",
+      "version": "0.1.1",
+      "verifiedCommit": "9731d7f3805790c3f411add6520a0e51121616fc",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile my-profile add ./slatinwine-dsh-sentience-audit-0.1.0.tgz",
+          "raw": "dsh plugin --profile my-profile add ./slatinwine-dsh-sentience-audit-0.1.1.tgz",
           "profile": "my-profile",
-          "spec": "./slatinwine-dsh-sentience-audit-0.1.0.tgz",
+          "spec": "./slatinwine-dsh-sentience-audit-0.1.1.tgz",
           "source": "local"
-        },
-        {
-          "raw": "dsh plugin add contribute a composition layer rather than merely installing a dependency — a",
-          "profile": null,
-          "spec": "contribute",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile my-profile add @slatinwine/dsh-sentience-audit",
-          "profile": "my-profile",
-          "spec": "@slatinwine/dsh-sentience-audit",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile my-profile add github:slatinwine/dsh-sentience-audit#v0.1.0",
-          "profile": "my-profile",
-          "spec": "github:slatinwine/dsh-sentience-audit#v0.1.0",
-          "source": "unknown"
         }
       ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile my-profile add @slatinwine/dsh-sentience-audit",
-          "profile": "my-profile",
-          "spec": "@slatinwine/dsh-sentience-audit",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile my-profile add @slatinwine/dsh-sentience-audit",
-          "profile": "my-profile",
-          "spec": "@slatinwine/dsh-sentience-audit",
-          "source": "npm"
-        }
-      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "@slatinwine/dsh-sentience-audit@0.1.0",
+        "spec": "@slatinwine/dsh-sentience-audit@0.1.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
@@ -44118,9 +44061,7 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
+        "reviewReasons": []
       }
     },
     {
@@ -54301,8 +54242,8 @@
     {
       "repository": "xiaozs-com/dsh-screen-automation",
       "packageName": "dsh-screen-automation",
-      "version": "0.1.7",
-      "verifiedCommit": "fbb49c4071a08397c493b9885f0bb47f61411e7a",
+      "version": "0.1.8",
+      "verifiedCommit": "615b37b832e6dcea2aa7f24f81400386756dd1c7",
       "readmePath": "README.md",
       "commands": [
         {
@@ -54360,7 +54301,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-screen-automation@0.1.7",
+        "spec": "dsh-screen-automation@0.1.8",
         "reason": "npm-version-not-published"
       },
       "assessment": {
