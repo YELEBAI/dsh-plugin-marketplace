@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T17:18:39.188Z",
-  "total": 1239,
+  "generatedAt": "2026-09-15T21:35:37.313Z",
+  "total": 1245,
   "groups": {
-    "remote-command-found": 425,
-    "local-or-unparsed-command-only": 604,
+    "remote-command-found": 432,
+    "local-or-unparsed-command-only": 603,
     "no-install-command-found": 210
   },
   "rows": [
@@ -9538,7 +9538,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "bc5aaff2ef7f835f902792d011602d63e0901a43",
+      "verifiedCommit": "0c18a3e707b6839ec4556db48a7c623ff3edeab6",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13065,6 +13065,63 @@
       }
     },
     {
+      "repository": "dingminhua/dsh-connect-trae",
+      "packageName": "dsh-connect-trae",
+      "version": "2.0.2",
+      "verifiedCommit": "d65c947627e033cd5750baa31fa994ad8f48ac8a",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add /Users/dmh2002/DshProject/dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "/Users/dmh2002/DshProject/dsh-connect-trae",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-connect-trae@2.0.2",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "DingTalk-Real-AI/dsh-dingtalk",
       "packageName": "@dingtalk-real-ai/dsh-dingtalk",
       "version": "0.0.0-development",
@@ -13119,7 +13176,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "0d9342a6ef2e655a5407c473d0f81f57127cc50b",
+      "verifiedCommit": "904d0e79e6533d117740f8440c9b6afcd39811f0",
       "readmePath": "README.md",
       "commands": [
         {
@@ -33697,53 +33754,6 @@
       }
     },
     {
-      "repository": "MrWeiCodes/dsh-fs-encoding",
-      "packageName": "dsh-fs-encoding",
-      "version": "0.1.0",
-      "verifiedCommit": "99b1ebcc561b6e0617e48287c620e39e2e0df9e7",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add -w github:MrWeiCodes/dsh-fs-encoding",
-          "profile": "web",
-          "spec": "github:MrWeiCodes/dsh-fs-encoding",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin add` 命令。",
-          "profile": null,
-          "spec": "命令。",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-fs-encoding@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
-      }
-    },
-    {
       "repository": "Muelsysel/DeepSeek-Harness-Desktop",
       "packageName": "dsh-desktop",
       "version": "0.1.4",
@@ -34445,48 +34455,42 @@
     {
       "repository": "navid-kianfar/dsh-add-assets",
       "packageName": "@achasoft/dsh-add-assets",
-      "version": "0.1.0",
-      "verifiedCommit": "43f99fcee8e532dd072ccd363c46956ec1fcd131",
+      "version": "0.3.0",
+      "verifiedCommit": "8de804548ce06b5509f6d4f3eee2ffa035aba906",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile default add @achasoft/dsh-add-assets",
-          "profile": "default",
+          "raw": "dsh plugin --profile web add @achasoft/dsh-add-assets",
+          "profile": "web",
           "spec": "@achasoft/dsh-add-assets",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile default add ./achasoft-dsh-add-assets-0.1.0.tgz   # from `pnpm pack dsh plugin --profile default add ./dsh-add-assets                       # a local checkout",
-          "profile": "default",
+          "raw": "dsh plugin --profile web add ./achasoft-dsh-add-assets-0.1.0.tgz",
+          "profile": "web",
           "spec": "./achasoft-dsh-add-assets-0.1.0.tgz",
           "source": "local"
-        },
-        {
-          "raw": "dsh plugin --profile default add github:navid-kianfar/dsh-add-assets#<sha>   # from git",
-          "profile": "default",
-          "spec": "github:navid-kianfar/dsh-add-assets#<sha>",
-          "source": "unknown"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile default add @achasoft/dsh-add-assets",
-          "profile": "default",
+          "raw": "dsh plugin --profile web add @achasoft/dsh-add-assets",
+          "profile": "web",
           "spec": "@achasoft/dsh-add-assets",
           "source": "npm"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile default add @achasoft/dsh-add-assets",
-          "profile": "default",
+          "raw": "dsh plugin --profile web add @achasoft/dsh-add-assets",
+          "profile": "web",
           "spec": "@achasoft/dsh-add-assets",
           "source": "npm"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@achasoft/dsh-add-assets@0.1.0",
+        "spec": "@achasoft/dsh-add-assets@0.3.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -34496,7 +34500,7 @@
       "auditErrors": [],
       "current": {
         "profiles": [
-          "default"
+          "web"
         ],
         "requiresBuildApproval": true,
         "manualSteps": true,
@@ -34504,41 +34508,295 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
+        "reviewReasons": []
       }
     },
     {
       "repository": "navid-kianfar/dsh-advanced-sidebar",
       "packageName": "@achasoft/dsh-advanced-sidebar",
-      "version": "0.2.0",
-      "verifiedCommit": "23f7f3d651699e4c2b782b11a63b1ba91923cff7",
+      "version": "0.3.0",
+      "verifiedCommit": "73eccc5e9301f87ac4f6cf8276e5f0c2652f31f7",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add /abs/path/to/dsh-advanced-sidebar",
+          "raw": "dsh plugin --profile web add @achasoft/dsh-advanced-sidebar",
           "profile": "web",
-          "spec": "/abs/path/to/dsh-advanced-sidebar",
-          "source": "local"
+          "spec": "@achasoft/dsh-advanced-sidebar",
+          "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add ../dsh-plugins/dsh-advanced-sidebar",
+          "raw": "dsh plugin --profile web add \"$(pwd)\"",
           "profile": "web",
-          "spec": "../dsh-plugins/dsh-advanced-sidebar",
-          "source": "local"
+          "spec": "$(pwd",
+          "source": "unknown"
         }
       ],
-      "targetedCommands": [],
-      "remoteCommands": [],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-advanced-sidebar",
+          "profile": "web",
+          "spec": "@achasoft/dsh-advanced-sidebar",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-advanced-sidebar",
+          "profile": "web",
+          "spec": "@achasoft/dsh-advanced-sidebar",
+          "source": "npm"
+        }
+      ],
       "npmVerification": {
         "verified": false,
-        "spec": "@achasoft/dsh-advanced-sidebar@0.2.0",
+        "spec": "@achasoft/dsh-advanced-sidebar@0.3.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "navid-kianfar/dsh-memory",
+      "packageName": "@achasoft/dsh-memory",
+      "version": "0.3.0",
+      "verifiedCommit": "6645652f1ac489a55b39d373648f2ff35a60c44b",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-memory",
+          "profile": "web",
+          "spec": "@achasoft/dsh-memory",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:/absolute/path/to/dsh-memory",
+          "profile": "web",
+          "spec": "link:/absolute/path/to/dsh-memory",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-memory",
+          "profile": "web",
+          "spec": "@achasoft/dsh-memory",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-memory",
+          "profile": "web",
+          "spec": "@achasoft/dsh-memory",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@achasoft/dsh-memory@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "navid-kianfar/dsh-tasks-manager",
+      "packageName": "@achasoft/dsh-tasks-manager",
+      "version": "0.3.0",
+      "verifiedCommit": "edf300690ce9743e891c98df3c1ecb5c6b5607df",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-tasks-manager",
+          "profile": "web",
+          "spec": "@achasoft/dsh-tasks-manager",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:/absolute/path/to/dsh-tasks-manager",
+          "profile": "web",
+          "spec": "link:/absolute/path/to/dsh-tasks-manager",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-tasks-manager",
+          "profile": "web",
+          "spec": "@achasoft/dsh-tasks-manager",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-tasks-manager",
+          "profile": "web",
+          "spec": "@achasoft/dsh-tasks-manager",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@achasoft/dsh-tasks-manager@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "navid-kianfar/dsh-usage-info",
+      "packageName": "@achasoft/dsh-usage-info",
+      "version": "0.3.0",
+      "verifiedCommit": "52fb93fa1d7a2001fd51f5878fa1ce5d947e8aeb",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-usage-info",
+          "profile": "web",
+          "spec": "@achasoft/dsh-usage-info",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dsh-usage-info           # a local checkout, linked; run `npm run build` in it first",
+          "profile": "web",
+          "spec": "./dsh-usage-info",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./achasoft-dsh-usage-info-0.1.0.tgz",
+          "profile": "web",
+          "spec": "./achasoft-dsh-usage-info-0.1.0.tgz",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-usage-info",
+          "profile": "web",
+          "spec": "@achasoft/dsh-usage-info",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-usage-info",
+          "profile": "web",
+          "spec": "@achasoft/dsh-usage-info",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@achasoft/dsh-usage-info@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "navid-kianfar/dsh-worktree",
+      "packageName": "@achasoft/dsh-worktree",
+      "version": "0.3.0",
+      "verifiedCommit": "015f6c7884b9d7be82489e49898cf39521544342",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-worktree",
+          "profile": "web",
+          "spec": "@achasoft/dsh-worktree",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add \"$(pwd)\"",
+          "profile": "web",
+          "spec": "$(pwd",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-worktree",
+          "profile": "web",
+          "spec": "@achasoft/dsh-worktree",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @achasoft/dsh-worktree",
+          "profile": "web",
+          "spec": "@achasoft/dsh-worktree",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@achasoft/dsh-worktree@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
       },
       "auditErrors": [],
       "current": {
@@ -34740,8 +34998,8 @@
     {
       "repository": "NeoXider/neoxider-mcp-hub",
       "packageName": "@neoxider/mcp-hub",
-      "version": "0.7.0",
-      "verifiedCommit": "0c017cd231a10edf9b5e23a26700c02e6006a830",
+      "version": "0.8.0",
+      "verifiedCommit": "c354913209f42da72577d5887516080166f35cc8",
       "readmePath": "README.md",
       "commands": [
         {
@@ -34769,7 +35027,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@neoxider/mcp-hub@0.7.0",
+        "spec": "@neoxider/mcp-hub@0.8.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -40906,7 +41164,7 @@
       "repository": "rootkiller6788/dsh-flow",
       "packageName": "dsh-flow",
       "version": "0.3.0",
-      "verifiedCommit": "98b32d14d4109a7b496575634c4b92b9b80e8cee",
+      "verifiedCommit": "3abeaae8fae9679e28c4adb03ead3d40f69a725e",
       "readmePath": "README.md",
       "commands": [
         {
@@ -41962,7 +42220,7 @@
       "repository": "sdegongzuo/dsh-webops-plugin",
       "packageName": "dsh-webops-plugin",
       "version": "0.2.3",
-      "verifiedCommit": "d708c5b07f9217f960689c74b834d4a9d2a85150",
+      "verifiedCommit": "699d493e5b77d4a8eaacaceb8e8eb97d76d00d65",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -52459,6 +52717,85 @@
       }
     },
     {
+      "repository": "wloops/dsh-git-worktree",
+      "packageName": "dsh-git-worktree",
+      "version": "0.9.1",
+      "verifiedCommit": "e2a28c87d9a55ee713f8ddb06532db618be944dc",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-git-worktree@0.9.0",
+          "profile": "web",
+          "spec": "dsh-git-worktree@0.9.0",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-git-worktree",
+          "profile": "web",
+          "spec": "dsh-git-worktree",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:wloops/dsh-git-worktree#v0.9.1",
+          "profile": "web",
+          "spec": "github:wloops/dsh-git-worktree#v0.9.1",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-git-worktree@0.9.0",
+          "profile": "web",
+          "spec": "dsh-git-worktree@0.9.0",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-git-worktree",
+          "profile": "web",
+          "spec": "dsh-git-worktree",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-git-worktree@0.9.0",
+          "profile": "web",
+          "spec": "dsh-git-worktree@0.9.0",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-git-worktree",
+          "profile": "web",
+          "spec": "dsh-git-worktree",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-git-worktree@0.9.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "WODE25500/dsh-lan-share",
       "packageName": "dsh-lan-share",
       "version": "0.1.0",
@@ -52970,6 +53307,53 @@
       "assessment": {
         "outcome": "guided-npm-unverified",
         "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
+      "repository": "wyzh0117/dsh-notebook",
+      "packageName": "dsh-notebook",
+      "version": "0.1.0",
+      "verifiedCommit": "ce6138b4fa72d29272bc647959d16fe10e972d6a",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:wyzh0117/dsh-notebook",
+          "profile": "web",
+          "spec": "github:wyzh0117/dsh-notebook",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add \"link:$PWD\"",
+          "profile": "web",
+          "spec": "link:$PWD",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-notebook@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
