@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T18:27:33.028Z",
-  "total": 1240,
+  "generatedAt": "2026-09-16T21:35:58.048Z",
+  "total": 1241,
   "groups": {
     "remote-command-found": 425,
-    "local-or-unparsed-command-only": 606,
+    "local-or-unparsed-command-only": 607,
     "no-install-command-found": 209
   },
   "rows": [
@@ -9633,7 +9633,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "f363edb0bcff824161625c85e4e93609645ae74f",
+      "verifiedCommit": "1dbb76eeeb56b501c3bdb4079daefa41dd9f8191",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13244,7 +13244,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "e18e207066cf1cf28b7a3c4477f503b6fb66af53",
+      "verifiedCommit": "840b3de2c097badbd1e3e93a0184f4f1106c840c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17584,6 +17584,43 @@
       "current": {
         "profiles": [
           "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "guhanfei-ai/dsh-fingerprint-signature",
+      "packageName": "dsh-fingerprint-signature",
+      "version": "0.1.0",
+      "verifiedCommit": "9b4f09e39c21547ee025b40531b4f4faf6786160",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add link:/absolute/path/to/dsh-fingerprint-signature",
+          "profile": "web",
+          "spec": "link:/absolute/path/to/dsh-fingerprint-signature",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-fingerprint-signature@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
           "web"
         ],
         "requiresBuildApproval": true,
@@ -53068,8 +53105,8 @@
     {
       "repository": "wyzh0117/dsh-notebook",
       "packageName": "dsh-notebook",
-      "version": "0.1.0",
-      "verifiedCommit": "ce6138b4fa72d29272bc647959d16fe10e972d6a",
+      "version": "0.2.3",
+      "verifiedCommit": "71cb7a77adf0f2aeb0b522ef81692681b9e36f9e",
       "readmePath": "README.md",
       "commands": [
         {
@@ -53089,7 +53126,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-notebook@0.1.0",
+        "spec": "dsh-notebook@0.2.3",
         "reason": "npm-version-not-published"
       },
       "assessment": {
