@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-17T18:29:57.431Z",
-  "total": 1241,
+  "generatedAt": "2026-09-17T21:41:23.555Z",
+  "total": 1243,
   "groups": {
-    "remote-command-found": 422,
+    "remote-command-found": 423,
     "local-or-unparsed-command-only": 609,
-    "no-install-command-found": 210
+    "no-install-command-found": 211
   },
   "rows": [
     {
@@ -9601,7 +9601,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "af5cc7391f7e2ae626745d27173b21599609c233",
+      "verifiedCommit": "af6d1d713e89e80b6e53dff9dc5d262685738469",
       "readmePath": "README.md",
       "commands": [
         {
@@ -10775,6 +10775,37 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "cogine-ai/dsh-claude-tui",
+      "packageName": "dsh-claude-tui",
+      "version": "0.1.7",
+      "verifiedCommit": "71b2bfa1aa9632fa521905aaa1c1ffe161422e9c",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-claude-tui@0.1.7",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -13197,7 +13228,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "5a39f0e2461cf171f8716b06cfc3f0a1401f9b27",
+      "verifiedCommit": "f74956619f924f4989ea5402b631836d5cb0264b",
       "readmePath": "README.md",
       "commands": [
         {
@@ -40449,6 +40480,57 @@
       }
     },
     {
+      "repository": "RealAlexandreAI/dsh-dejavu-memory",
+      "packageName": "dsh-dejavu-memory",
+      "version": "0.4.0",
+      "verifiedCommit": "bb73fbbe8015b5b73b138605cc4fff0f5432a43a",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-dejavu-memory",
+          "profile": "web",
+          "spec": "dsh-dejavu-memory",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-dejavu-memory",
+          "profile": "web",
+          "spec": "dsh-dejavu-memory",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-dejavu-memory",
+          "profile": "web",
+          "spec": "dsh-dejavu-memory",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-dejavu-memory@0.4.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "realchenwenqiao/dash",
       "packageName": "@realchenwenqiao/dash",
       "version": "0.1.1",
@@ -53940,21 +54022,15 @@
     {
       "repository": "xiaoso456/dsh-tool-plus",
       "packageName": "@xiaoso/dsh-tool-plus",
-      "version": "0.1.8-beta.3",
-      "verifiedCommit": "51db06c0aea9a1e06b6416c61e4f6e2008b1a56e",
+      "version": "0.1.8",
+      "verifiedCommit": "ce6a78d941c9f33b5895da61f1b0c128211f9880",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add @xiaoso/dsh-tool-plus",
+          "raw": "dsh plugin --profile web add --allow-build=@xiaoso/dsh-tool-plus @xiaoso/dsh-tool-plus",
           "profile": "web",
           "spec": "@xiaoso/dsh-tool-plus",
           "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add github:xiaoso456/dsh-tool-plus",
-          "profile": "web",
-          "spec": "github:xiaoso456/dsh-tool-plus",
-          "source": "unknown"
         },
         {
           "raw": "dsh plugin --profile web add link:<本仓库路径>",
@@ -53965,7 +54041,7 @@
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile web add @xiaoso/dsh-tool-plus",
+          "raw": "dsh plugin --profile web add --allow-build=@xiaoso/dsh-tool-plus @xiaoso/dsh-tool-plus",
           "profile": "web",
           "spec": "@xiaoso/dsh-tool-plus",
           "source": "npm"
@@ -53973,7 +54049,7 @@
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile web add @xiaoso/dsh-tool-plus",
+          "raw": "dsh plugin --profile web add --allow-build=@xiaoso/dsh-tool-plus @xiaoso/dsh-tool-plus",
           "profile": "web",
           "spec": "@xiaoso/dsh-tool-plus",
           "source": "npm"
@@ -53981,7 +54057,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@xiaoso/dsh-tool-plus@0.1.8-beta.3",
+        "spec": "@xiaoso/dsh-tool-plus@0.1.8",
         "reason": "npm-hard-lifecycle-scripts",
         "detail": "postinstall"
       },
@@ -54000,9 +54076,7 @@
           "postinstall"
         ],
         "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
+        "reviewReasons": []
       }
     },
     {
