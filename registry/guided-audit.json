@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-18T17:59:08.170Z",
-  "total": 1245,
+  "generatedAt": "2026-09-18T21:09:10.609Z",
+  "total": 1246,
   "groups": {
     "remote-command-found": 421,
     "local-or-unparsed-command-only": 609,
-    "no-install-command-found": 215
+    "no-install-command-found": 216
   },
   "rows": [
     {
@@ -2102,8 +2102,8 @@
     {
       "repository": "adithyanraj03/dsh-graft-plugin",
       "packageName": "dsh-graft-plugin",
-      "version": "0.1.0",
-      "verifiedCommit": "ee9996b9cc846ea0e9a57135db9a76fd2f608dcb",
+      "version": "0.1.2",
+      "verifiedCommit": "11f073306e74fc2c786414bfc2073a66d2a9029a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -2113,15 +2113,39 @@
           "source": "npm"
         },
         {
+          "raw": "dsh plugin --profile web add dsh-graft-plugin      # re-run so the bundle row gets written",
+          "profile": "web",
+          "spec": "dsh-graft-plugin",
+          "source": "npm"
+        },
+        {
           "raw": "dsh plugin --profile web add dsh-better-sidebar",
           "profile": "web",
           "spec": "dsh-better-sidebar",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-graft-plugin`. If `pnpm approve-builds` reports nothing awaiting approval, check `pnpm-workspace.yaml` for an unanswered `dsh-graft-plugin` entry (pnpm's approval placeholder) and set its value to `true` first.",
+          "profile": "web",
+          "spec": "dsh-graft-plugin",
           "source": "npm"
         }
       ],
       "targetedCommands": [
         {
           "raw": "dsh plugin --profile web add dsh-graft-plugin",
+          "profile": "web",
+          "spec": "dsh-graft-plugin",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-graft-plugin      # re-run so the bundle row gets written",
+          "profile": "web",
+          "spec": "dsh-graft-plugin",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-graft-plugin`. If `pnpm approve-builds` reports nothing awaiting approval, check `pnpm-workspace.yaml` for an unanswered `dsh-graft-plugin` entry (pnpm's approval placeholder) and set its value to `true` first.",
           "profile": "web",
           "spec": "dsh-graft-plugin",
           "source": "npm"
@@ -2133,11 +2157,23 @@
           "profile": "web",
           "spec": "dsh-graft-plugin",
           "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-graft-plugin      # re-run so the bundle row gets written",
+          "profile": "web",
+          "spec": "dsh-graft-plugin",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-graft-plugin`. If `pnpm approve-builds` reports nothing awaiting approval, check `pnpm-workspace.yaml` for an unanswered `dsh-graft-plugin` entry (pnpm's approval placeholder) and set its value to `true` first.",
+          "profile": "web",
+          "spec": "dsh-graft-plugin",
+          "source": "npm"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-graft-plugin@0.1.0",
+        "spec": "dsh-graft-plugin@0.1.2",
         "reason": "npm-hard-lifecycle-scripts",
         "detail": "postinstall"
       },
@@ -3309,7 +3345,7 @@
       "repository": "Alyosha28/dsh-plugin-c2c",
       "packageName": "dsh-plugin-c2c",
       "version": "0.1.0",
-      "verifiedCommit": "2a84f898ea46819d055a9ffe1d98ce494e77475e",
+      "verifiedCommit": "2bdff64f436fcb7a66a4089f98b260cb2522b911",
       "readmePath": "README.md",
       "commands": [
         {
@@ -9789,7 +9825,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "376767e61a49744f546c07e68276c7db70d4e1a8",
+      "verifiedCommit": "b92350df6c5d43e1f4a2c26100b1534b91eb8f19",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13461,7 +13497,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "98dd52bb8b01c86446da186e600dca883b9f474b",
+      "verifiedCommit": "dde2f94031dd91109cc2dd3d628e0a3de0ea5489",
       "readmePath": "README.md",
       "commands": [
         {
@@ -31020,6 +31056,36 @@
       }
     },
     {
+      "repository": "Max-Null/dsh-memory",
+      "packageName": "@max-null/dsh-memory",
+      "version": "0.10.1",
+      "verifiedCommit": "6b179aa26fbb14ac7035d474fff4d5134ffa312d",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@max-null/dsh-memory@0.10.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "MaxHou-infinity/dsh-scout",
       "packageName": "dsh-scout",
       "version": "0.8.2",
@@ -46893,14 +46959,14 @@
       "repository": "tearslee/dsh-workbuddy2api",
       "packageName": "dsh-workbuddy2api",
       "version": "0.3.0",
-      "verifiedCommit": "19657ed059f815b59b7fea7bb070187982fd63d0",
+      "verifiedCommit": "3efebbaf651ccb1c9f2825adf3b3df348bdef293",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin add dsh-workbuddy2api` 暂时会 404）。用下面的 Release 路径安装。",
-          "profile": null,
-          "spec": "dsh-workbuddy2api",
-          "source": "npm"
+          "raw": "dsh plugin --profile web add https://github.com/tearslee/dsh-workbuddy2api/releases/download/v0.3.0/dsh-workbuddy2api-0.3.0.tgz",
+          "profile": "web",
+          "spec": "https://github.com/tearslee/dsh-workbuddy2api/releases/download/v0.3.0/dsh-workbuddy2api-0.3.0.tgz",
+          "source": "tarball"
         },
         {
           "raw": "dsh plugin --profile web add file:/绝对路径/dsh-workbuddy2api-0.3.0.tgz",
@@ -46913,11 +46979,23 @@
           "profile": "web",
           "spec": "file:./dist/dsh-workbuddy2api-0.3.0.tgz",
           "source": "local"
+        },
+        {
+          "raw": "dsh plugin add dsh-workbuddy2api` 会 404 —— 请用上面三种方式之一。发布后会更新这里。",
+          "profile": null,
+          "spec": "dsh-workbuddy2api",
+          "source": "npm"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin add dsh-workbuddy2api` 暂时会 404）。用下面的 Release 路径安装。",
+          "raw": "dsh plugin --profile web add https://github.com/tearslee/dsh-workbuddy2api/releases/download/v0.3.0/dsh-workbuddy2api-0.3.0.tgz",
+          "profile": "web",
+          "spec": "https://github.com/tearslee/dsh-workbuddy2api/releases/download/v0.3.0/dsh-workbuddy2api-0.3.0.tgz",
+          "source": "tarball"
+        },
+        {
+          "raw": "dsh plugin add dsh-workbuddy2api` 会 404 —— 请用上面三种方式之一。发布后会更新这里。",
           "profile": null,
           "spec": "dsh-workbuddy2api",
           "source": "npm"
@@ -46925,7 +47003,13 @@
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin add dsh-workbuddy2api` 暂时会 404）。用下面的 Release 路径安装。",
+          "raw": "dsh plugin --profile web add https://github.com/tearslee/dsh-workbuddy2api/releases/download/v0.3.0/dsh-workbuddy2api-0.3.0.tgz",
+          "profile": "web",
+          "spec": "https://github.com/tearslee/dsh-workbuddy2api/releases/download/v0.3.0/dsh-workbuddy2api-0.3.0.tgz",
+          "source": "tarball"
+        },
+        {
+          "raw": "dsh plugin add dsh-workbuddy2api` 会 404 —— 请用上面三种方式之一。发布后会更新这里。",
           "profile": null,
           "spec": "dsh-workbuddy2api",
           "source": "npm"
@@ -46943,7 +47027,6 @@
       "auditErrors": [],
       "current": {
         "profiles": [
-          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
@@ -51028,7 +51111,7 @@
       "repository": "wanrenhuifu/NovelNovel",
       "packageName": "dsh-novelnovel",
       "version": "0.1.0",
-      "verifiedCommit": "411024d16cac15399a0e9fd6535ae0e0bec64406",
+      "verifiedCommit": "e6745479e2ec5833324a92f522012b59c0e01f98",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -52066,8 +52149,8 @@
     {
       "repository": "winter-street/dsh-plugin-agent-budget",
       "packageName": "dsh-plugin-agent-budget",
-      "version": "0.2.0",
-      "verifiedCommit": "b4092e480f7ece98fd7dcd6d2a32c465e737b3d2",
+      "version": "0.3.0",
+      "verifiedCommit": "c6ffbffd916940cf55f536f6c010a892dbc1ebed",
       "readmePath": "README.md",
       "commands": [
         {
@@ -52095,7 +52178,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-plugin-agent-budget@0.2.0",
+        "spec": "dsh-plugin-agent-budget@0.3.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -52832,7 +52915,7 @@
       "repository": "writeCasually/dsh-git",
       "packageName": "dsh-git",
       "version": "0.1.0",
-      "verifiedCommit": "2ca21d144b7df4635dfe6ba3bcca455d8e19ca17",
+      "verifiedCommit": "b2165fa2148926b9a075d87b5488fe7843858ec9",
       "readmePath": "README.md",
       "commands": [
         {
