@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-17T21:41:23.555Z",
-  "total": 1243,
+  "generatedAt": "2026-09-18T00:35:01.459Z",
+  "total": 1244,
   "groups": {
     "remote-command-found": 423,
-    "local-or-unparsed-command-only": 609,
+    "local-or-unparsed-command-only": 610,
     "no-install-command-found": 211
   },
   "rows": [
@@ -9601,7 +9601,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "af6d1d713e89e80b6e53dff9dc5d262685738469",
+      "verifiedCommit": "14c0c65a45e390ec402c4d427dc0331dc0cfb17a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11425,6 +11425,52 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "cyanseek/dsh-tool-chaos",
+      "packageName": "dsh-tool-chaos",
+      "version": "0.1.0-next.0",
+      "verifiedCommit": "a0445676033fd9e31cdee564d0b5d5b5a4e34edc",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile chaos-demo add ./dsh-tool-chaos-0.1.0-next.0.tgz",
+          "profile": "chaos-demo",
+          "spec": "./dsh-tool-chaos-0.1.0-next.0.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile chaos-demo add  github:cyanseek/dsh-tool-chaos#<commit-sha>",
+          "profile": "chaos-demo",
+          "spec": "github:cyanseek/dsh-tool-chaos#<commit-sha>",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-tool-chaos@0.1.0-next.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -13513,8 +13559,8 @@
     {
       "repository": "Doozqoo/dsh-pixel-office",
       "packageName": "dsh-client-pixel-office",
-      "version": "0.1.0",
-      "verifiedCommit": "a9e801c6dc0484cc57bb0dd20baf1c85d8d5566e",
+      "version": "0.2.0",
+      "verifiedCommit": "055c1f0cd7eb2f6e8edc95f4f1aaabd6eb710fcd",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13540,7 +13586,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-client-pixel-office@0.1.0",
+        "spec": "dsh-client-pixel-office@0.2.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -16597,63 +16643,6 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": true,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "GGboya/dsh-paper-reader",
-      "packageName": "@ggboy123/dsh-paper-reader",
-      "version": "0.2.0",
-      "verifiedCommit": "3fc2d6a8d2c23a5c6b90329ad267af4dfaa8d208",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add @ggboy123/dsh-paper-reader",
-          "profile": "web",
-          "spec": "@ggboy123/dsh-paper-reader",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add ./dsh-paper-reader   # 从父目录执行，或用绝对路径",
-          "profile": "web",
-          "spec": "./dsh-paper-reader",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add @ggboy123/dsh-paper-reader",
-          "profile": "web",
-          "spec": "@ggboy123/dsh-paper-reader",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add @ggboy123/dsh-paper-reader",
-          "profile": "web",
-          "spec": "@ggboy123/dsh-paper-reader",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@ggboy123/dsh-paper-reader@0.2.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
     },
@@ -20608,6 +20597,73 @@
         "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
+      }
+    },
+    {
+      "repository": "idoall/dsh-notify",
+      "packageName": "dsh-notify",
+      "version": "0.2.0",
+      "verifiedCommit": "b46f7a736a9318228cb64e4e01c568a00f00709b",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add \"github:idoall/dsh-notify\"",
+          "profile": "web",
+          "spec": "github:idoall/dsh-notify",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add \"link:$(pwd)\"",
+          "profile": "web",
+          "spec": "link:$(pwd",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin add dsh-notify` cannot pull the wrong plugin.",
+          "profile": null,
+          "spec": "dsh-notify",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin add dsh-notify` cannot pull the wrong plugin.",
+          "profile": null,
+          "spec": "dsh-notify",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin add dsh-notify` cannot pull the wrong plugin.",
+          "profile": null,
+          "spec": "dsh-notify",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-notify@0.2.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
       }
     },
     {
@@ -26433,36 +26489,36 @@
     {
       "repository": "lengmoXXL/dsh-remote-workspace",
       "packageName": "dsh-remote-workspace",
-      "version": "0.1.9",
-      "verifiedCommit": "9edb8dca68587b180cef1ee3a271c02f5a9c58ca",
+      "version": "0.1.11",
+      "verifiedCommit": "c98218c36b6b621f04cd23b6951f3a9e3aaed034",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.9/dsh-remote-workspace-0.1.9.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.11/dsh-remote-workspace-0.1.11.tgz",
           "profile": "web",
-          "spec": "https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.9/dsh-remote-workspace-0.1.9.tgz",
+          "spec": "https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.11/dsh-remote-workspace-0.1.11.tgz",
           "source": "tarball"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.9/dsh-remote-workspace-0.1.9.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.11/dsh-remote-workspace-0.1.11.tgz",
           "profile": "web",
-          "spec": "https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.9/dsh-remote-workspace-0.1.9.tgz",
+          "spec": "https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.11/dsh-remote-workspace-0.1.11.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.9/dsh-remote-workspace-0.1.9.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.11/dsh-remote-workspace-0.1.11.tgz",
           "profile": "web",
-          "spec": "https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.9/dsh-remote-workspace-0.1.9.tgz",
+          "spec": "https://github.com/lengmoXXL/dsh-remote-workspace/releases/download/plugin-v0.1.11/dsh-remote-workspace-0.1.11.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-remote-workspace@0.1.9",
+        "spec": "dsh-remote-workspace@0.1.11",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -35409,7 +35465,7 @@
       "repository": "noetion/dsh-jev",
       "packageName": "dsh-jev",
       "version": "0.1.0",
-      "verifiedCommit": "b8d9ad094027c65dbf26d5eb349b19a60e83664b",
+      "verifiedCommit": "48fef197d8a9ccec7881955aa8a4891df823d75c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -40483,7 +40539,7 @@
       "repository": "RealAlexandreAI/dsh-dejavu-memory",
       "packageName": "dsh-dejavu-memory",
       "version": "0.4.0",
-      "verifiedCommit": "bb73fbbe8015b5b73b138605cc4fff0f5432a43a",
+      "verifiedCommit": "bde6de3478bd6182aac847a5e5601d19b5598c03",
       "readmePath": "README.md",
       "commands": [
         {
@@ -47509,8 +47565,8 @@
     {
       "repository": "TikaFlow/dsh-model-fix",
       "packageName": "dsh-model-fix",
-      "version": "0.11.2",
-      "verifiedCommit": "41b4ab2b2133474c072c589a3947f657468e5b99",
+      "version": "0.12.6",
+      "verifiedCommit": "f54c8cae136d37af0e070f5a756ce83ec41f0037",
       "readmePath": "README.md",
       "commands": [
         {
@@ -47544,7 +47600,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-model-fix@0.11.2",
+        "spec": "dsh-model-fix@0.12.6",
         "reason": "npm-version-not-published"
       },
       "assessment": {
