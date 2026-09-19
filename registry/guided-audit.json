@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-18T21:09:10.609Z",
-  "total": 1246,
+  "generatedAt": "2026-09-19T00:39:18.550Z",
+  "total": 1248,
   "groups": {
-    "remote-command-found": 421,
+    "remote-command-found": 423,
     "local-or-unparsed-command-only": 609,
     "no-install-command-found": 216
   },
@@ -9825,7 +9825,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "b92350df6c5d43e1f4a2c26100b1534b91eb8f19",
+      "verifiedCommit": "20cdef64613d38c48a84f37808f5e9e6fbf86bc4",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14415,6 +14415,113 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "elysia395/dsh-wallpaper-engine",
+      "packageName": "dsh-plugin-wallpaper-engine",
+      "version": "0.7.4",
+      "verifiedCommit": "9927601d3bc20bdae16c7e9911106f6487e6e59b",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-better-sidebar@latest`；",
+          "profile": "web",
+          "spec": "dsh-better-sidebar@latest",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine`（或插件市场里点更新）。",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine-mac",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine-mac",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:<插件文件夹绝对路径>",
+          "profile": "web",
+          "spec": "link:<插件文件夹绝对路径>",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:D:\\dev\\dsh-wallpaper-engine",
+          "profile": "web",
+          "spec": "link:D:\\dev\\dsh-wallpaper-engine",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:./dsh-wallpaper-engine",
+          "profile": "web",
+          "spec": "link:./dsh-wallpaper-engine",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:elysia395/dsh-wallpaper-engine`）。pnpm 11 出于供应链安全，默认拒绝从 git 安装的包执行构建脚本，而本插件的 git checkout 需要 `prepare` 脚本构建 client，因此 `github:` 直装必然失败。请改用 **npm 包名**安装（npm 发布包已预构建，无需安装时编译）：",
+          "profile": "web",
+          "spec": "github:elysia395/dsh-wallpaper-engine",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine`（或插件市场里点更新）。",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine`（或插件市场里点更新）。",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-plugin-wallpaper-engine@0.7.4",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": []
       }
     },
     {
@@ -27662,6 +27769,67 @@
         ],
         "runtimeArtifactsCommitted": true,
         "reviewReasons": []
+      }
+    },
+    {
+      "repository": "linkbag/dsh-swarm-orchestrator",
+      "packageName": "dsh-swarm-orchestrator",
+      "version": "0.6.7",
+      "verifiedCommit": "fad8812cfa9cf441d4912c26a869483e51c0c5db",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:linkbag/dsh-swarm-orchestrator",
+          "profile": "web",
+          "spec": "github:linkbag/dsh-swarm-orchestrator",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
+          "profile": "web",
+          "spec": "dsh-swarm-orchestrator",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
+          "profile": "web",
+          "spec": "dsh-swarm-orchestrator",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
+          "profile": "web",
+          "spec": "dsh-swarm-orchestrator",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-swarm-orchestrator@0.6.7",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
       }
     },
     {
@@ -42227,7 +42395,7 @@
       "repository": "sdegongzuo/dsh-webops-plugin",
       "packageName": "dsh-webops-plugin",
       "version": "0.2.6",
-      "verifiedCommit": "b7a61e97b1f8b453eaa5645aea3ae0e3aab9bc04",
+      "verifiedCommit": "597e583ab39fbd5c38a57d22099f0f04ccf21e9a",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
