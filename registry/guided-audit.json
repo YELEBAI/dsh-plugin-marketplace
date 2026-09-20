@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-19T20:56:39.178Z",
-  "total": 1243,
+  "generatedAt": "2026-09-20T00:22:59.167Z",
+  "total": 1244,
   "groups": {
     "remote-command-found": 418,
     "local-or-unparsed-command-only": 609,
-    "no-install-command-found": 216
+    "no-install-command-found": 217
   },
   "rows": [
     {
@@ -9902,7 +9902,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "63d76e34736bbf27cd5bd80ad701ba99863fa77e",
+      "verifiedCommit": "e5725c5b522c80f5ecffc52b72d0dcf0df4969a2",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15691,6 +15691,36 @@
       "current": {
         "profiles": [
           "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "Fishsb/dsh-plugin-roundtable",
+      "packageName": "dsh-plugin-roundtable",
+      "version": "0.2.45",
+      "verifiedCommit": "6ab43ad59f07be5498e442df4d40911e22fab397",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-plugin-roundtable@0.2.45",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
           "web"
         ],
         "requiresBuildApproval": true,
@@ -29708,8 +29738,8 @@
     {
       "repository": "luoxunhao/dsh-codex-project",
       "packageName": "@luoxunhao/dsh-codex-project",
-      "version": "0.12.0",
-      "verifiedCommit": "9e9fccb8617862b9a4adfdd8496020ebd1645d4a",
+      "version": "0.13.0",
+      "verifiedCommit": "e76306094cd0b1b9c5f723eadef65e65139b43ab",
       "readmePath": "README.md",
       "commands": [
         {
@@ -29761,7 +29791,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@luoxunhao/dsh-codex-project@0.12.0",
+        "spec": "@luoxunhao/dsh-codex-project@0.13.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -43123,11 +43153,23 @@
       "repository": "Shyboy0499/dsh-pr-watch",
       "packageName": "dsh-pr-watch",
       "version": "0.1.0",
-      "verifiedCommit": "f9b701e5fcfde1c3abb4fa0ddf9753fdd4c49cba",
+      "verifiedCommit": "02bd1ad6d677e2f779dd5a3cadf2b83c83d4cbef",
       "readmePath": "README.md",
       "commands": [
         {
           "raw": "dsh plugin --profile web add dsh-pr-watch",
+          "profile": "web",
+          "spec": "dsh-pr-watch",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:.",
+          "profile": "web",
+          "spec": "link:",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-pr-watch` cannot resolve yet.",
           "profile": "web",
           "spec": "dsh-pr-watch",
           "source": "npm"
@@ -43139,11 +43181,23 @@
           "profile": "web",
           "spec": "dsh-pr-watch",
           "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-pr-watch` cannot resolve yet.",
+          "profile": "web",
+          "spec": "dsh-pr-watch",
+          "source": "npm"
         }
       ],
       "remoteCommands": [
         {
           "raw": "dsh plugin --profile web add dsh-pr-watch",
+          "profile": "web",
+          "spec": "dsh-pr-watch",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-pr-watch` cannot resolve yet.",
           "profile": "web",
           "spec": "dsh-pr-watch",
           "source": "npm"
@@ -48324,7 +48378,7 @@
       "repository": "Traveritas/petween",
       "packageName": "petween",
       "version": "1.2.0",
-      "verifiedCommit": "8190ae66f286019fcb19531e53dac9cae22262cb",
+      "verifiedCommit": "cb016d83b6ce7fda7e7712e50db610c2ee27308a",
       "readmePath": "README.md",
       "commands": [
         {
