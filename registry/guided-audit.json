@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T19:02:03.191Z",
+  "generatedAt": "2026-09-20T22:42:34.114Z",
   "total": 1251,
   "groups": {
     "remote-command-found": 420,
@@ -10074,7 +10074,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "a7317fc1c8329fbd422e7779713748fa67f2aea9",
+      "verifiedCommit": "5e9f9e3ce61159735866efbb50ce2195f37f60b5",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13831,7 +13831,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "71c99ee662d753ef92f2dcbd3741bed32fa4c9a5",
+      "verifiedCommit": "7fa1d2d0170facd1de2714de517efa5fa3259ea7",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14499,61 +14499,6 @@
       }
     },
     {
-      "repository": "EastMG/dsh-gacha-calendar",
-      "packageName": "dsh-gacha-calendar",
-      "version": "0.9.35",
-      "verifiedCommit": "97713fdb85e9a4fadc16d3584479bfeb6f42dda6",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-gacha-calendar",
-          "profile": "desktop",
-          "spec": "dsh-gacha-calendar",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-gacha-calendar",
-          "profile": "desktop",
-          "spec": "dsh-gacha-calendar",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-gacha-calendar",
-          "profile": "desktop",
-          "spec": "dsh-gacha-calendar",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-gacha-calendar@0.9.35",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "desktop"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": [
-          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
-        ]
-      }
-    },
-    {
       "repository": "Edge-HH/GrokBot_in_DeepseekHerness",
       "packageName": "@edge-hh/dsh-grokbot-pet",
       "version": "2.0.1",
@@ -14742,6 +14687,113 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "elysia395/dsh-wallpaper-engine",
+      "packageName": "dsh-plugin-wallpaper-engine",
+      "version": "0.7.4",
+      "verifiedCommit": "eda001f22859e8b63912606f4a1a226d2578645b",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-better-sidebar@latest`；",
+          "profile": "web",
+          "spec": "dsh-better-sidebar@latest",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine`（或插件市场里点更新）。",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine-mac",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine-mac",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:<插件文件夹绝对路径>",
+          "profile": "web",
+          "spec": "link:<插件文件夹绝对路径>",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:D:\\dev\\dsh-wallpaper-engine",
+          "profile": "web",
+          "spec": "link:D:\\dev\\dsh-wallpaper-engine",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:./dsh-wallpaper-engine",
+          "profile": "web",
+          "spec": "link:./dsh-wallpaper-engine",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:elysia395/dsh-wallpaper-engine`）。pnpm 11 出于供应链安全，默认拒绝从 git 安装的包执行构建脚本，而本插件的 git checkout 需要 `prepare` 脚本构建 client，因此 `github:` 直装必然失败。请改用 **npm 包名**安装（npm 发布包已预构建，无需安装时编译）：",
+          "profile": "web",
+          "spec": "github:elysia395/dsh-wallpaper-engine",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine`（或插件市场里点更新）。",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine`（或插件市场里点更新）。",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-wallpaper-engine",
+          "profile": "web",
+          "spec": "dsh-plugin-wallpaper-engine",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-plugin-wallpaper-engine@0.7.4",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": []
       }
     },
     {
