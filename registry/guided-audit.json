@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T19:44:34.122Z",
-  "total": 1259,
+  "generatedAt": "2026-09-21T23:32:29.049Z",
+  "total": 1256,
   "groups": {
-    "remote-command-found": 428,
+    "remote-command-found": 426,
     "local-or-unparsed-command-only": 617,
-    "no-install-command-found": 214
+    "no-install-command-found": 213
   },
   "rows": [
     {
@@ -6967,7 +6967,7 @@
       "repository": "bojansandhaus/jev-lcm-dsh-compaction",
       "packageName": "@bojansandhaus/jev-lcm-dsh-compaction",
       "version": "1.0.0-rc.1",
-      "verifiedCommit": "3110d6cf0303340006ef3555be5c90ca4e96d08d",
+      "verifiedCommit": "2b09fc706a58c4b58c2a699b05976601c32fe1b0",
       "readmePath": "README.md",
       "commands": [
         {
@@ -10140,7 +10140,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "0d27e0bbaeca10754dd8cab9bd6a12e3995fdbb8",
+      "verifiedCommit": "793f4478a5fd95ef07a87662ed25e6f5bf95653b",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13924,7 +13924,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "b5eea964cec338c4e4e380ae1575c0f263cff83f",
+      "verifiedCommit": "3b67fae6c638d66a1d41d785530b9639fc4a9f20",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14021,59 +14021,6 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "diqierjia/StrataGate-AgentMemory",
-      "packageName": "stratagate-dsh",
-      "version": "0.2.78",
-      "verifiedCommit": "d335915ae6d120eb5cf22dbc6f972a701cb469b3",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add stratagate-dsh",
-          "profile": "web",
-          "spec": "stratagate-dsh",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add stratagate-dsh",
-          "profile": "web",
-          "spec": "stratagate-dsh",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add stratagate-dsh",
-          "profile": "web",
-          "spec": "stratagate-dsh",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "stratagate-dsh@0.2.78",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -42899,71 +42846,6 @@
       }
     },
     {
-      "repository": "Sddft97/dsh-client-ui-skin-verdandi",
-      "packageName": "@hjbztlbr/dsh-client-ui-skin-verdandi",
-      "version": "0.1.1",
-      "verifiedCommit": "08d87bb0d450eee791da1eafd7550da9bd41976c",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add @hjbztlbr/dsh-client-ui-skin-verdandi",
-          "profile": "web",
-          "spec": "@hjbztlbr/dsh-client-ui-skin-verdandi",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add github:Sddft97/dsh-client-ui-skin-verdandi",
-          "profile": "web",
-          "spec": "github:Sddft97/dsh-client-ui-skin-verdandi",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add link:C:/absolute/path/to/dsh-client-ui-skin-verdandi",
-          "profile": "web",
-          "spec": "link:C:/absolute/path/to/dsh-client-ui-skin-verdandi",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add @hjbztlbr/dsh-client-ui-skin-verdandi",
-          "profile": "web",
-          "spec": "@hjbztlbr/dsh-client-ui-skin-verdandi",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add @hjbztlbr/dsh-client-ui-skin-verdandi",
-          "profile": "web",
-          "spec": "@hjbztlbr/dsh-client-ui-skin-verdandi",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@hjbztlbr/dsh-client-ui-skin-verdandi@0.1.1",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "sdegongzuo/dsh-webops-plugin",
       "packageName": "dsh-webops-plugin",
       "version": "0.2.7",
@@ -48554,8 +48436,8 @@
     {
       "repository": "TikaFlow/dsh-model-fix",
       "packageName": "dsh-model-fix",
-      "version": "0.12.6",
-      "verifiedCommit": "f54c8cae136d37af0e070f5a756ce83ec41f0037",
+      "version": "0.13.0",
+      "verifiedCommit": "9605e46e6f523143d56d3a35e8c4fb3c965a9c87",
       "readmePath": "README.md",
       "commands": [
         {
@@ -48589,7 +48471,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-model-fix@0.12.6",
+        "spec": "dsh-model-fix@0.13.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -52118,15 +52000,15 @@
     {
       "repository": "wbushihenshuai-design/dsh-error-improvement",
       "packageName": "dsh-error-improvement",
-      "version": "0.1.1",
-      "verifiedCommit": "bb32d50e281fbf6863ce1e99e3b708b866068fb2",
+      "version": "0.2.0",
+      "verifiedCommit": "afb5ca57eefc1e6b33f58617080a9ce9591a1a5e",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-error-improvement@0.1.1",
+        "spec": "dsh-error-improvement@0.2.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -58662,41 +58544,6 @@
         ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
-      }
-    },
-    {
-      "repository": "zcx369658780/governed-workflow-for-dsh",
-      "packageName": "dsh-governed-workflow",
-      "version": "0.1.0",
-      "verifiedCommit": "e2e0e470247e3f19242136c451b39a362d5a84ad",
-      "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-governed-workflow@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": [
-          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
-        ]
       }
     },
     {
