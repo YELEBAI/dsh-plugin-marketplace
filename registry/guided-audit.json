@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T18:39:07.614Z",
+  "generatedAt": "2026-09-23T23:12:33.592Z",
   "total": 1280,
   "groups": {
-    "remote-command-found": 438,
-    "local-or-unparsed-command-only": 630,
+    "remote-command-found": 439,
+    "local-or-unparsed-command-only": 629,
     "no-install-command-found": 212
   },
   "rows": [
@@ -499,53 +499,6 @@
         ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
-      }
-    },
-    {
-      "repository": "1475505/miliastra-beyond-simulator",
-      "packageName": "dsh-plugin-beyond-simulator",
-      "version": "1.0.6",
-      "verifiedCommit": "56f9f6a0f18555f72d446d50a75d33160b4c2c1f",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add ./release/dsh-plugin-beyond-simulator-1.0.6.tgz",
-          "profile": "web",
-          "spec": "./release/dsh-plugin-beyond-simulator-1.0.6.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin --profile web add github:1475505/miliastra-beyond-simulator",
-          "profile": "web",
-          "spec": "github:1475505/miliastra-beyond-simulator",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-plugin-beyond-simulator@1.0.6",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
       }
     },
     {
@@ -10247,7 +10200,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "e3257d1f1b5be27f6889c1ba03063f96997450b3",
+      "verifiedCommit": "394dfa6f5251c0a98ba87851fc3c5dd82ae86f05",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11084,8 +11037,8 @@
     {
       "repository": "ClearLeaf13/dsh-llamacpp-connect",
       "packageName": "dsh-llamacpp-connect",
-      "version": "0.1.0",
-      "verifiedCommit": "b64a811cdbf141dedd851709c9a7494e504ef58e",
+      "version": "0.1.2",
+      "verifiedCommit": "898181208221a9db43d2cf3e9ad59f12a0192efa",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11113,7 +11066,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-llamacpp-connect@0.1.0",
+        "spec": "dsh-llamacpp-connect@0.1.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -13995,7 +13948,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "d9a009d84ed18db29478d3b5d17b22c3a42ac639",
+      "verifiedCommit": "0758e65c77c83bcabb601a98ff6795b3eb3f5f2d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17123,6 +17076,69 @@
         "lifecycleScripts": [
           "prepare"
         ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "gcry13067381632-jpg/dsh-qqbot",
+      "packageName": "@zaofan/dsh-qqbot",
+      "version": "1.5.8",
+      "verifiedCommit": "9b01f1be4359d3801bc4dff5e0b66a446a9ef071",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add @zaofan/dsh-qqbot",
+          "profile": "web",
+          "spec": "@zaofan/dsh-qqbot",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add /tmp/zaofan-dsh-qqbot-0.4.0.tgz",
+          "profile": "web",
+          "spec": "/tmp/zaofan-dsh-qqbot-0.4.0.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin add 安装)",
+          "profile": null,
+          "spec": "安装",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @zaofan/dsh-qqbot",
+          "profile": "web",
+          "spec": "@zaofan/dsh-qqbot",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @zaofan/dsh-qqbot",
+          "profile": "web",
+          "spec": "@zaofan/dsh-qqbot",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@zaofan/dsh-qqbot@1.5.8",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -34278,8 +34294,8 @@
     {
       "repository": "Mlte0907/dsh-teams-x",
       "packageName": "dsh-teams-x",
-      "version": "0.10.1",
-      "verifiedCommit": "1474d8b3004c9d8dbd0b5cfa8952b9ff3fd58843",
+      "version": "0.10.2",
+      "verifiedCommit": "e8ce4d3e98f0c2f555748c99f70eaca778afe965",
       "readmePath": "README.md",
       "commands": [
         {
@@ -34311,7 +34327,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-teams-x@0.10.1",
+        "spec": "dsh-teams-x@0.10.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -34328,7 +34344,7 @@
         "lifecycleScripts": [
           "postinstall"
         ],
-        "runtimeArtifactsCommitted": false,
+        "runtimeArtifactsCommitted": true,
         "reviewReasons": []
       }
     },
@@ -52312,7 +52328,7 @@
       "repository": "VinciBeans/dsh-web-search-anysearch",
       "packageName": "@wenqi_bian/dsh-web-search-anysearch",
       "version": "0.1.7-alpha.2",
-      "verifiedCommit": "8c99c67bd88c9a6e7d752fd43d102826b6891c32",
+      "verifiedCommit": "2f70a8fe88601a895b6685d0696d9fc4928f207a",
       "readmePath": "README.md",
       "commands": [
         {
