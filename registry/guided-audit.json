@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T21:48:13.851Z",
+  "generatedAt": "2026-09-25T00:48:50.842Z",
   "total": 1296,
   "groups": {
     "remote-command-found": 453,
@@ -9987,7 +9987,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "e13c3f0bc89893abc017ce84fca35b8b2b0873e1",
+      "verifiedCommit": "10903ecf269f7ce200af0b0525bc8b0d3a2eeb06",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11333,7 +11333,7 @@
       "repository": "CooperZhuang/dsh-context-window",
       "packageName": "dsh-context-window",
       "version": "0.0.1",
-      "verifiedCommit": "0f2cf761b6b4910d05bc8ec7c8c4479e62974d73",
+      "verifiedCommit": "36018cb6a6bae5c45dcff5c565c3618f58e0339c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -41262,47 +41262,6 @@
       }
     },
     {
-      "repository": "Phant0Meow/dsh-meow-memory",
-      "packageName": "meow-memory",
-      "version": "0.28.2",
-      "verifiedCommit": "b1d4d94ad90cb1b9032e365078c90e23f853d218",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add github:Phant0Meow/dsh-meow-memory",
-          "profile": "web",
-          "spec": "github:Phant0Meow/dsh-meow-memory",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "meow-memory@0.28.2",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
-      }
-    },
-    {
       "repository": "pharaohnie/dsh-rtk-tools",
       "packageName": "dsh-rtk-tools",
       "version": "0.1.0",
@@ -45181,6 +45140,49 @@
         "lifecycleScripts": [
           "prepare"
         ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "SenmuuuuW/dsh-diagnostic-tutor",
+      "packageName": "dsh-diagnostic-tutor",
+      "version": "0.0.9",
+      "verifiedCommit": "8fd01a1f3baec4a9b4980955457f718c93649508",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin add without it exits non-zero, because `dsh plugin` is a thin pnpm forwarder.",
+          "profile": null,
+          "spec": "without",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile <profile> add \"$PWD\"",
+          "profile": "<profile>",
+          "spec": "$PWD",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-diagnostic-tutor@0.0.9",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
