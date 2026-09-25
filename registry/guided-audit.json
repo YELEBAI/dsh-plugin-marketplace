@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T14:04:20.284Z",
-  "total": 1269,
+  "generatedAt": "2026-09-25T18:52:43.940Z",
+  "total": 1273,
   "groups": {
-    "remote-command-found": 433,
-    "local-or-unparsed-command-only": 622,
-    "no-install-command-found": 214
+    "remote-command-found": 435,
+    "local-or-unparsed-command-only": 623,
+    "no-install-command-found": 215
   },
   "rows": [
     {
@@ -4715,7 +4715,7 @@
       "repository": "Au1314/dsh-style-hub",
       "packageName": "dsh-style-hub",
       "version": "0.1.0",
-      "verifiedCommit": "3658616fad9a50cc3ba0fc6603d9d8ad0c220bfa",
+      "verifiedCommit": "c1487bea355c37748ea2ba264b42e8a9b1014bef",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -10027,7 +10027,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "eb863199a907add80685028ac3696873da0a1c99",
+      "verifiedCommit": "f783208094b70a0b6c3e52b6e353313e830d1b00",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13558,10 +13558,82 @@
       }
     },
     {
+      "repository": "dingyi222666/dsh-wakatime",
+      "packageName": "@dingyi222666/dsh-wakatime",
+      "version": "0.2.6",
+      "verifiedCommit": "9849cdd9c57f4f524dd73115c1e2a28c5e9d4959",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add @dingyi222666/dsh-wakatime",
+          "profile": "web",
+          "spec": "@dingyi222666/dsh-wakatime",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile headless add @dingyi222666/dsh-wakatime",
+          "profile": "headless",
+          "spec": "@dingyi222666/dsh-wakatime",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @dingyi222666/dsh-wakatime",
+          "profile": "web",
+          "spec": "@dingyi222666/dsh-wakatime",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile headless add @dingyi222666/dsh-wakatime",
+          "profile": "headless",
+          "spec": "@dingyi222666/dsh-wakatime",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @dingyi222666/dsh-wakatime",
+          "profile": "web",
+          "spec": "@dingyi222666/dsh-wakatime",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile headless add @dingyi222666/dsh-wakatime",
+          "profile": "headless",
+          "spec": "@dingyi222666/dsh-wakatime",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@dingyi222666/dsh-wakatime@0.2.6",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "4480f1934296f78755900de2ef220559b4cdf696",
+      "verifiedCommit": "5ba707663a1f44eabdab18db7838cea72faa3d36",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15570,7 +15642,7 @@
       "repository": "Fishsb/dsh-plugin-roundtable",
       "packageName": "dsh-plugin-roundtable",
       "version": "0.2.61",
-      "verifiedCommit": "77c820ccfbb41972ff53e4485ae7c06bc8a1ee93",
+      "verifiedCommit": "8bcd213103b1de309cbaeccc169f1004c9ecb6b2",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -19004,6 +19076,57 @@
       }
     },
     {
+      "repository": "havoc-rao/dsh-git-commit-agent",
+      "packageName": "dsh-git-commit-agent",
+      "version": "0.1.0",
+      "verifiedCommit": "c6ac37eaf0049a00188bd8103af630d5223ec62c",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-git-commit-agent",
+          "profile": "<name>",
+          "spec": "dsh-git-commit-agent",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-git-commit-agent",
+          "profile": "<name>",
+          "spec": "dsh-git-commit-agent",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-git-commit-agent",
+          "profile": "<name>",
+          "spec": "dsh-git-commit-agent",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-git-commit-agent@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "haxi8/dsh-JujutsuKaisen-rainlove",
       "packageName": "dsh-video-bg",
       "version": "0.1.0",
@@ -21496,6 +21619,51 @@
       "npmVerification": {
         "verified": false,
         "spec": "dsh-gpu-monitor-nvml@1.0.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "janpauldahlke/dsh-slot-health",
+      "packageName": "dsh-slot-health",
+      "version": "1.0.0",
+      "verifiedCommit": "211f36b11c9b6e2d286e95bb1556602502f00431",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:janpauldahlke/dsh-slot-health",
+          "profile": "web",
+          "spec": "github:janpauldahlke/dsh-slot-health",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add \"$PWD\"",
+          "profile": "web",
+          "spec": "$PWD",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-slot-health@1.0.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -25582,7 +25750,7 @@
       "repository": "kuun993/dsh-loop-engine",
       "packageName": "dsh-loop-engine",
       "version": "0.1.7-rc2",
-      "verifiedCommit": "ccba7fd0ea5ab8109a204442edaaa61dbe0a83e5",
+      "verifiedCommit": "4e305d54397c780a1964a79be21b03583cd6fc71",
       "readmePath": "README.md",
       "commands": [
         {
@@ -31591,6 +31759,36 @@
       }
     },
     {
+      "repository": "Max-Null/dsh-node-appearance",
+      "packageName": "@max-null/dsh-node-appearance",
+      "version": "0.6.0",
+      "verifiedCommit": "a9db40e6a0a39c7d2ff0f7669c949a43b2e1eeb9",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@max-null/dsh-node-appearance@0.6.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "MaxHou-infinity/dsh-scout",
       "packageName": "dsh-scout",
       "version": "0.8.2",
@@ -34483,8 +34681,8 @@
     {
       "repository": "MrWeiCodes/dsh-loop-guard",
       "packageName": "dsh-loop-guard",
-      "version": "1.0.4",
-      "verifiedCommit": "e95e21dcc21a8192a2baeeda2423a8afb8e98c39",
+      "version": "1.0.5",
+      "verifiedCommit": "d7f111088fd862b41ee96e97874efc08899b452c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -34498,7 +34696,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-loop-guard@1.0.4",
+        "spec": "dsh-loop-guard@1.0.5",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -43072,8 +43270,8 @@
     {
       "repository": "SenmuuuuW/dsh-diagnostic-tutor",
       "packageName": "dsh-diagnostic-tutor",
-      "version": "0.0.10",
-      "verifiedCommit": "eeca9de12a67d2d95f59a70ded4a4e969eba034e",
+      "version": "0.0.11",
+      "verifiedCommit": "1c4dd9ab8f5d7be84bce0a8202e3c93388ced369",
       "readmePath": "README.md",
       "commands": [
         {
@@ -43087,7 +43285,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-diagnostic-tutor@0.0.10",
+        "spec": "dsh-diagnostic-tutor@0.0.11",
         "reason": "npm-version-not-published"
       },
       "assessment": {
