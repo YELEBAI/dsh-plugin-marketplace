@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-27T01:00:41.780Z",
-  "total": 1276,
+  "generatedAt": "2026-09-27T08:26:16.810Z",
+  "total": 1280,
   "groups": {
-    "remote-command-found": 436,
+    "remote-command-found": 439,
     "local-or-unparsed-command-only": 625,
-    "no-install-command-found": 215
+    "no-install-command-found": 216
   },
   "rows": [
     {
@@ -2020,8 +2020,8 @@
     {
       "repository": "acefun29/dsh-file-mount",
       "packageName": "dsh-file-mount",
-      "version": "0.5.2",
-      "verifiedCommit": "d9ecced5a8f81884fe69fe72ff62b6ab25cc4fbc",
+      "version": "0.7.0",
+      "verifiedCommit": "6efff5afe5ed9070d585fc04bfd2cb8eda6aff39",
       "readmePath": "README.md",
       "commands": [
         {
@@ -2073,7 +2073,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-file-mount@0.5.2",
+        "spec": "dsh-file-mount@0.7.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -2988,15 +2988,13 @@
       "npmVerification": {
         "verified": false,
         "spec": "xiaoxiao-persona-core@0.1.0",
-        "reason": "temporary-audit-error"
+        "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-audit-incomplete",
-        "reason": "npm-audit-failed: npm metadata request failed for xiaoxiao-persona-core@0.1.0: The operation was aborted due to timeout"
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
-      "auditErrors": [
-        "npm-audit-failed: npm metadata request failed for xiaoxiao-persona-core@0.1.0: The operation was aborted due to timeout"
-      ],
+      "auditErrors": [],
       "current": {
         "profiles": [
           "web"
@@ -6550,6 +6548,47 @@
         "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
+      }
+    },
+    {
+      "repository": "Bingtang1019/dsh-ppt-fusion",
+      "packageName": "dsh-ppt-flashmade",
+      "version": "0.6.0",
+      "verifiedCommit": "af8f993d969da2d90c34e25388fb17b4963af944",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin add` 带 `-w`；PS 5.1 下生成文件用 Node 写（无 BOM）；`[Content_Types].xml` 路径必须 `-LiteralPath`；子进程管道可用但大产物走文件契约。",
+          "profile": null,
+          "spec": "带",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-ppt-flashmade@0.6.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": [
+          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
+        ]
       }
     },
     {
@@ -10237,7 +10276,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "314bd039e63ad23a015bd3fc4e1c72d7ad918919",
+      "verifiedCommit": "be008cf4dbbec802b247257b25e577f03a2216d1",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11637,51 +11676,6 @@
       }
     },
     {
-      "repository": "CosmoSail/dsh-bloomglass",
-      "packageName": "dsh-bloomglass",
-      "version": "0.1.0",
-      "verifiedCommit": "5ec52e47ed06bec5ba04d03eed10cdf21d601c12",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add github:CosmoSail/dsh-bloomglass",
-          "profile": "web",
-          "spec": "github:CosmoSail/dsh-bloomglass",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin add github:` 依赖它，也免去用户本地构建），因此**改完源码请重新构建再提交**。",
-          "profile": null,
-          "spec": "github:",
-          "source": "github"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-bloomglass@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "couldbeme/dsh-write-gate",
       "packageName": "dsh-write-gate",
       "version": "0.2.0",
@@ -12087,6 +12081,77 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "CyberryRe/lx_music-for-dsh",
+      "packageName": "lx-music-for-dsh",
+      "version": "1.2.0",
+      "verifiedCommit": "f10b51a476f15e779fd2a3bf5f99341dde4992c0",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin add + 旧版残留迁移校验",
+          "profile": null,
+          "spec": "+",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin add` 会自动激活，",
+          "profile": null,
+          "spec": "会自动激活，",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add lx-music-for-dsh@1.2.0",
+          "profile": "web",
+          "spec": "lx-music-for-dsh@1.2.0",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin add 后自动生效的插件行）",
+          "profile": null,
+          "spec": "后自动生效的插件行）",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add lx-music-for-dsh@1.2.0",
+          "profile": "web",
+          "spec": "lx-music-for-dsh@1.2.0",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add lx-music-for-dsh@1.2.0",
+          "profile": "web",
+          "spec": "lx-music-for-dsh@1.2.0",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "lx-music-for-dsh@1.2.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -13843,7 +13908,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "ef9a80b99be66a3bd2c992d67ffaa815b3f20e8a",
+      "verifiedCommit": "5ed9484c5b638020ef535b372bfddda3fad92e57",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13947,8 +14012,8 @@
     {
       "repository": "diqierjia/StrataGate-AgentMemory",
       "packageName": "stratagate-dsh",
-      "version": "0.2.87",
-      "verifiedCommit": "c930d0931437f11d14fe1e66687381090dd409a2",
+      "version": "0.2.88",
+      "verifiedCommit": "da2cd1122d4289ff1622b27e7497eeeab15d4c46",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13976,7 +14041,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "stratagate-dsh@0.2.87",
+        "spec": "stratagate-dsh@0.2.88",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -15461,7 +15526,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.7.30",
-      "verifiedCommit": "554fab56e354e526642e0607b67c15511409f474",
+      "verifiedCommit": "cf2bc80db250a1691cfd68778e863fecb9f29fde",
       "readmePath": "README.md",
       "commands": [
         {
@@ -23228,6 +23293,37 @@
       }
     },
     {
+      "repository": "jingchangzhao-gif/dsh-errkb",
+      "packageName": "dsh-errkb",
+      "version": "0.0.0",
+      "verifiedCommit": "cb66a843467fed48b535e581e51584e77c724dbd",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-errkb@0.0.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "JingzeChen/dsh-beacon",
       "packageName": "@jingzechen/dsh-beacon",
       "version": "0.1.0",
@@ -28260,6 +28356,71 @@
       }
     },
     {
+      "repository": "Likenttt/garmin-connect-plugin-for-dsh",
+      "packageName": "dsh-plugin-garmin-connect",
+      "version": "0.1.9",
+      "verifiedCommit": "ca5a05773cabb7a4beaf32f96722d8f48d5068f3",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-garmin-connect",
+          "profile": "web",
+          "spec": "dsh-plugin-garmin-connect",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:<owner>/<repo>",
+          "profile": "web",
+          "spec": "github:<owner>/<repo>",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:<owner>/<repo>` fetches sources and runs the package's `prepare` script with the locally installed TypeScript compiler; pnpm ≥ 10 refuses to run the script until you allow it — `dsh` prints the exact `allowBuilds` key for the profile's `pnpm-workspace.yaml`.",
+          "profile": "web",
+          "spec": "github:<owner>/<repo>",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-garmin-connect",
+          "profile": "web",
+          "spec": "dsh-plugin-garmin-connect",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-plugin-garmin-connect",
+          "profile": "web",
+          "spec": "dsh-plugin-garmin-connect",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-plugin-garmin-connect@0.1.9",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "lilei0311/dsh-plugin-modality-fallback",
       "packageName": "dsh-plugin-modality-fallback",
       "version": "0.1.0",
@@ -28550,67 +28711,6 @@
         ],
         "runtimeArtifactsCommitted": true,
         "reviewReasons": []
-      }
-    },
-    {
-      "repository": "linkbag/dsh-swarm-orchestrator",
-      "packageName": "dsh-swarm-orchestrator",
-      "version": "0.6.22",
-      "verifiedCommit": "aa7a0d053641789ec6cd98f0a90b07b8c483eec5",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add github:linkbag/dsh-swarm-orchestrator",
-          "profile": "web",
-          "spec": "github:linkbag/dsh-swarm-orchestrator",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
-          "profile": "web",
-          "spec": "dsh-swarm-orchestrator",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
-          "profile": "web",
-          "spec": "dsh-swarm-orchestrator",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-swarm-orchestrator",
-          "profile": "web",
-          "spec": "dsh-swarm-orchestrator",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-swarm-orchestrator@0.6.22",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
       }
     },
     {
@@ -43426,15 +43526,15 @@
     {
       "repository": "sdegongzuo/dsh-webops-plugin",
       "packageName": "dsh-webops-plugin",
-      "version": "0.2.8",
-      "verifiedCommit": "e399b8e6b52af0fc22042adb60f8260d552a698f",
+      "version": "0.2.9",
+      "verifiedCommit": "e18399d725d6093af69a90b24e301301f10f3fc6",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-webops-plugin@0.2.8",
+        "spec": "dsh-webops-plugin@0.2.9",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -43732,6 +43832,68 @@
         ],
         "runtimeArtifactsCommitted": true,
         "reviewReasons": []
+      }
+    },
+    {
+      "repository": "SFLAQiu/dsh-waker",
+      "packageName": "dsh-waker",
+      "version": "0.1.0",
+      "verifiedCommit": "a14b11daa9db402dc304c84b11b561a68f0cde0f",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:sflyq/dsh-waker#v0.1.0",
+          "profile": "web",
+          "spec": "github:sflyq/dsh-waker#v0.1.0",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-waker`。",
+          "profile": "web",
+          "spec": "dsh-waker",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-waker`。",
+          "profile": "web",
+          "spec": "dsh-waker",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-waker`。",
+          "profile": "web",
+          "spec": "dsh-waker",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-waker@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": [
+          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install",
+          "readme-github-repository-owner-does-not-resolve-to-this-candidate"
+        ]
       }
     },
     {
@@ -49772,6 +49934,65 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "toddpan/dsh-feyagate",
+      "packageName": "@dsh-external/dsh-feyagate-gateway",
+      "version": "0.3.2",
+      "verifiedCommit": "0f83b21707e0dfc78e39369fb313788ec06965c3",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <profile> add @dsh-external/dsh-feyagate-gateway",
+          "profile": "<profile>",
+          "spec": "@dsh-external/dsh-feyagate-gateway",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin add <本地路径>` 用 `link:` 语义、不会触发它）。npm 安装的正式包自带 `lib/`，不受影响 |",
+          "profile": null,
+          "spec": "<本地路径>",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile <profile> add @dsh-external/dsh-feyagate-gateway",
+          "profile": "<profile>",
+          "spec": "@dsh-external/dsh-feyagate-gateway",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile <profile> add @dsh-external/dsh-feyagate-gateway",
+          "profile": "<profile>",
+          "spec": "@dsh-external/dsh-feyagate-gateway",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@dsh-external/dsh-feyagate-gateway@0.3.2",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
