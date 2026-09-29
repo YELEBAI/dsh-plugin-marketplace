@@ -6,7 +6,7 @@
 import { spawn } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
 import { closeSync, openSync, readFileSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
-import { basename, dirname, isAbsolute, join, resolve, win32 } from 'node:path'
+import { isAbsolute, join, resolve, win32 } from 'node:path'
 import type {
   MarketplaceJobKind,
   MarketplaceJobPhase,
@@ -27,13 +27,6 @@ function resolveStoreDir(dir: string, storeDir: string): string {
   return isAbsolute(normalized) || WINDOWS_ABSOLUTE_PATH.test(normalized)
     ? normalized
     : resolve(dir, normalized)
-}
-
-/** `.modules.yaml` 记录的是实际版本目录；pnpm 配置应接收其 Store 根目录。 */
-function configuredStoreDir(storeDir: string): string {
-  const leaf = WINDOWS_ABSOLUTE_PATH.test(storeDir) ? win32.basename(storeDir) : basename(storeDir)
-  if (!/^v\d+$/i.test(leaf)) return storeDir
-  return WINDOWS_ABSOLUTE_PATH.test(storeDir) ? win32.dirname(storeDir) : dirname(storeDir)
 }
 
 export interface JobOutcome {
@@ -299,7 +292,8 @@ export function pnpmArgsFor(
 ): { args: string[]; storeDir: string | null } {
   const storeDir = linkedPnpmStore(dir) ?? (fallbackStoreDir === null ? null : resolveStoreDir(dir, fallbackStoreDir))
   return {
-    args: storeDir === null ? args : [...args, '--config.store-dir=' + configuredStoreDir(storeDir)],
+    // pnpm 会识别已带版本后缀的实际路径；去掉后缀会切换到另一个 Store。
+    args: storeDir === null ? args : [...args, '--config.store-dir=' + storeDir],
     storeDir,
   }
 }
@@ -320,7 +314,12 @@ export function runPnpmJob(
   fallbackStoreDir: string | null = null,
 ): Promise<number | null> {
   return new Promise((resolve) => {
-    const { args: pnpmArgs, storeDir } = pnpmArgsFor(args, dir, fallbackStoreDir)
+    // 后台安装与回滚没有 TTY；CI 允许 pnpm 重建依赖目录。
+    // 同时保留普通 install 更新锁文件的语义，避免 CI 默认冻结锁文件。
+    const jobArgs = args[0] === 'install' && !args.some(arg => /^(?:--(?:no-)?frozen-lockfile|--config\.frozen-lockfile)(?:=|$)/.test(arg))
+      ? [...args, '--no-frozen-lockfile']
+      : args
+    const { args: pnpmArgs, storeDir } = pnpmArgsFor(jobArgs, dir, fallbackStoreDir)
     table.append(job, '$ pnpm ' + pnpmArgs.map((arg) => /\s/.test(arg) ? JSON.stringify(arg) : arg).join(' ') + '\n')
     if (storeDir !== null) table.append(job, 'Using profile-linked pnpm store: ' + storeDir + '\n')
     const child = spawn('pnpm', pnpmArgs, {
@@ -328,6 +327,7 @@ export function runPnpmJob(
       shell: process.platform === 'win32',
       stdio: ['ignore', 'pipe', 'pipe'],
       windowsHide: true,
+      env: { ...process.env, CI: 'true' },
     })
     child.stdout?.on('data', (chunk: Buffer) => { table.append(job, chunk.toString()) })
     child.stderr?.on('data', (chunk: Buffer) => { table.append(job, chunk.toString()) })

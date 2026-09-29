@@ -17,6 +17,7 @@ import type { MarketplaceResult } from '../types.ts'
 import { TYPERT_REMOTE } from '../remote.ts'
 import { MarketplaceTab, type MarketplaceTabInjected } from './MarketplaceTab.tsx'
 import { createGuidedAgentWorkspace } from './agent-workspace.ts'
+import { createGuidedAgentSession } from './agent-session.ts'
 import { pickCompatibleDirectory } from './directory-picker.ts'
 import { en, zh, type PluginMarketplaceLocaleKey } from './locales.ts'
 
@@ -70,15 +71,7 @@ export async function apply(ctx: ClientContext): Promise<void> {
           throw new Error(t('agentWorkspaceRequired') + ': ' + (error instanceof Error ? error.message : String(error)))
         }
 
-        // ClientSessions 使用部署配置的默认 composition，并在本地 binding 可寻址后才返回。
-        // 不直接依赖可选的 agentPresets Remote，避免只有 Sessions、没有 preset roster 的
-        // 部署在启动引导更新时失败。
-        const sessionId = await scope.sessions.create({ workspaceId: target.workspaceId })
-        const binding = await waitForBinding(scope, sessionId)
-        await binding.session.rename(task.title)
-        const prompted = await binding.session.prompt([{ type: 'text', text: task.prompt }], 'queue')
-        if (!prompted.ok) throw new Error(prompted.error.message)
-        scope.sessions.open(sessionId)
+        await createGuidedAgentSession(scope, target.workspaceId, task)
       },
       install: async (repo, ref) => unwrapMarketplace(await scope.remote.marketplace.installPlugin({ repo, ref }), t).jobId,
       manualInstall: async (command) => unwrapMarketplace(await scope.remote.marketplace.manualInstall({ command }), t),
@@ -121,25 +114,6 @@ export async function apply(ctx: ClientContext): Promise<void> {
       locale: NS,
       inject: injected,
     }, MarketplaceTab))
-  })
-}
-
-/** Wait for the runtime's Host stream to project a directly-created Agent session. */
-function waitForBinding(ctx: ClientContext, sessionId: Parameters<ClientContext['sessions']['open']>[0]) {
-  const ready = ctx.sessions.binding(sessionId)
-  if (ready !== undefined) return Promise.resolve(ready)
-  return new Promise<NonNullable<ReturnType<ClientContext['sessions']['binding']>>>((resolve, reject) => {
-    const timeout = window.setTimeout(() => {
-      unsubscribe()
-      reject(new Error('The Agent session was created, but it did not appear in the client before the timeout.'))
-    }, 10_000)
-    const unsubscribe = ctx.sessions.list.subscribe(() => {
-      const binding = ctx.sessions.binding(sessionId)
-      if (binding === undefined) return
-      window.clearTimeout(timeout)
-      unsubscribe()
-      resolve(binding)
-    })
   })
 }
 

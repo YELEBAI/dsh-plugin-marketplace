@@ -3,26 +3,15 @@
  *  Emits runtime entries in lib/ and owned declarations in lib/types/.
  */
 import { createRequire } from 'node:module'
-import { existsSync, readdirSync } from 'node:fs'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildDeclarations } from './build-declarations.mjs'
+import { checkout, packageRoot, resolveTool } from './dsh-environment.mjs'
 
 const require = createRequire(import.meta.url)
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)))
-const checkout = process.env.DSH_CHECKOUT ?? 'D:/DSH/deepseek-harness'
-/** Resolve esbuild from the checkout's pnpm store (newest version wins). */
-function resolveEsbuild(checkout) {
-  const pnpmDir = path.join(checkout, 'node_modules', '.pnpm')
-  const candidates = readdirSync(pnpmDir).filter((name) => name.startsWith('esbuild@')).sort().reverse()
-  for (const name of candidates) {
-    const main = path.join(pnpmDir, name, 'node_modules', 'esbuild', 'lib', 'main.js')
-    if (existsSync(main)) return main
-  }
-  throw new Error('esbuild not found under ' + pnpmDir)
-}
-
-const esbuild = require(resolveEsbuild(checkout))
+const esbuild = require(resolveTool('esbuild'))
 const zod = path.join(root, 'node_modules', 'zod')
 if (!existsSync(path.join(zod, 'package.json'))) throw new Error('zod is not installed under the plugin workspace')
 
@@ -54,10 +43,11 @@ await esbuild.build({
   platform: 'node',
   format: 'esm',
   target: 'es2024',
+  tsconfigRaw: { compilerOptions: { alwaysStrict: true } },
   outfile: 'lib/index.js',
   external: ['@deepseek-ai/*', 'zod'],
   logLevel: 'info',
-  nodePaths: [path.join(checkout, 'node_modules')],
+  nodePaths: [path.join(packageRoot ?? checkout, 'node_modules')],
 })
 
 await esbuild.build({
@@ -67,6 +57,7 @@ await esbuild.build({
   platform: 'node',
   format: 'esm',
   target: 'es2024',
+  tsconfigRaw: { compilerOptions: { alwaysStrict: true } },
   outfile: 'lib/typert.js',
   preserveSymlinks: true,
   alias: { zod },
@@ -79,6 +70,7 @@ await esbuild.build({
   platform: 'node',
   format: 'esm',
   target: 'es2024',
+  tsconfigRaw: { compilerOptions: { alwaysStrict: true } },
   outfile: 'lib/remote.js',
   preserveSymlinks: true,
   alias: { zod },
@@ -113,6 +105,6 @@ await esbuild.build({
   banner: { js: '// Generated from src/types.ts. Type-only declarations have no runtime values.' },
   footer: { js: 'export {};' },
 })
-buildDeclarations(root, checkout)
+buildDeclarations(root)
 
 console.log('build complete: host, client, wire artifacts and public declarations')

@@ -16,9 +16,9 @@ assert(clientScopeInject, 'marketplace client scope inject list must be discover
 for (const service of ['sessions', 'workspaces']) {
   assert(clientScopeInject.includes(`'${service}'`), `marketplace client scope must inject ${service}`)
 }
-assert.doesNotMatch(clientScopeInject, /uiWorkspace/, '市场入口不应等待只存在于旧版 DSH 的 uiWorkspace 服务')
+assert.doesNotMatch(clientScopeInject, /uiWorkspace/, '市场入口不应把可选导航服务作为硬依赖')
 assert.doesNotMatch(clientScopeInject, /remote\.agentPresets|remote\.session/, '引导 Agent 不应依赖可选的 preset/session Remote namespace')
-assert.match(clientSource, /scope\.sessions\.create\(\{ workspaceId: target\.workspaceId \}\)/, '引导 Agent 必须通过 ClientSessions 使用默认 composition')
+assert.match(clientSource, /createGuidedAgentSession\(scope, target\.workspaceId, task\)/, '引导 Agent 必须通过兼容会话生命周期提交任务')
 assert.doesNotMatch(clientSource, /agentPresets\.list\(/, '引导 Agent 不应读取可选 preset roster')
 
 let currentPickerCalls = 0

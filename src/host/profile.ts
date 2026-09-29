@@ -57,8 +57,13 @@ export function profileLocation(ctx: Context): ProfileLocation {
 export function ensureProfile(dir: string, name: string): void {
   if (!existsSync(join(dir, 'package.json'))) {
     const template = PROFILE_TEMPLATES[name]
-    if (template === undefined) initProfile(dir, DEFAULT_PROFILE_BUNDLES)
-    else initProfile(dir, template.bundles, template.patchReload)
+    const bundles = Array.isArray(template) ? template : template?.bundles ?? DEFAULT_PROFILE_BUNDLES
+    if (template !== undefined && 'patchReload' in template && typeof template.patchReload === 'boolean') {
+      // 旧版模板用第三个参数控制重载；0.1.7 已移除该字段和参数。
+      Reflect.apply(initProfile, undefined, [dir, bundles, template.patchReload])
+    } else {
+      initProfile(dir, bundles)
+    }
   }
 }
 

@@ -1,10 +1,13 @@
 import { createRoot } from 'react-dom/client'
 import { MarketplaceTab, type MarketplaceTabProps } from '../src/client/MarketplaceTab.tsx'
 import { zh, en, type PluginMarketplaceLocaleKey } from '../src/client/locales.ts'
+import type { MarketplaceInstallLocation, MarketplaceJobStatus } from '../src/types.ts'
 import themeCss from '@dsh-fixture/theme.css'
 
 const now = '2026-09-01T08:00:00.000Z'
 const rate = { limit: 0, remaining: 0, reset: 0, source: 'core' as const }
+const params = new URLSearchParams(window.location.search)
+const scenario = params.get('scenario')
 
 const catalog = [
   {
@@ -51,11 +54,58 @@ const installedEntries = [
   },
 ] as const
 
-const fixtureState = { installs: 0, uninstalls: 0, searches: 0, uninstallBatches: [] as string[][] }
+// 用显式释放的 Promise 控制失败恢复和响应顺序，不依赖机器速度或固定延时。
+function deferred<T>() {
+  let resolve!: (value: T) => void
+  let reject!: (reason: Error) => void
+  const promise = new Promise<T>((resolvePromise, rejectPromise) => {
+    resolve = resolvePromise
+    reject = rejectPromise
+  })
+  return { promise, resolve, reject }
+}
+
+const profileRetry = deferred<MarketplaceInstallLocation>()
+const restoredJobs = deferred<MarketplaceJobStatus[]>()
+const jobStatusGate = deferred<void>()
+const agentRequest = deferred<void>()
+const linkedPackages = new Set<string>(installedEntries.filter(entry => entry.linked).map(entry => entry.packageName))
+let installJob: MarketplaceJobStatus | null = null
+
+function profileLocation(): MarketplaceInstallLocation {
+  return { profile: 'web', packageNames: [...linkedPackages], installDir: 'C:/Users/demo/.dsh/plugins', installDirCustom: false }
+}
+
+function finishInstall() {
+  if (installJob === null) throw new Error('fixture: 尚未创建安装任务')
+  const version = previewCatalog.find(item => item.packageName === installJob?.packageName)?.version ?? '1.0.0'
+  installJob = {
+    ...installJob, phase: 'done', finishedAt: Date.now(), exitCode: 0,
+    outcome: { packageName: installJob.packageName, version, requiresRestart: true },
+  }
+  linkedPackages.add(installJob.packageName)
+}
+
+const fixtureState = {
+  installs: 0, uninstalls: 0, searches: 0, uninstallBatches: [] as string[][],
+  installRequests: [] as Array<{ repo: string; ref: string }>,
+  installLocationCalls: 0, installedCalls: 0, jobsCalls: 0, jobStatusCalls: [] as string[], agentCalls: 0,
+  releaseProfile: () => { profileRetry.resolve(profileLocation()) },
+  releaseStaleProfile: () => { profileRetry.resolve({ ...profileLocation(), profile: 'stale', packageNames: [] }) },
+  failProfile: () => { profileRetry.reject(new Error('fixture: 迟到的 Profile 错误')) },
+  releaseJobs: (snapshot: 'empty' | 'stale' = 'empty') => {
+    restoredJobs.resolve(snapshot === 'stale' && installJob !== null
+      ? [{ ...installJob, phase: 'queued', log: '', finishedAt: null, outcome: null, failure: null }]
+      : [])
+  },
+  releaseJobStatus: () => { jobStatusGate.resolve() },
+  finishInstall,
+  failAgent: () => { agentRequest.reject(new Error('fixture: Agent 创建失败')) },
+}
 ;(window as unknown as { __marketplaceFixture?: typeof fixtureState }).__marketplaceFixture = fixtureState
 
 // 密度回归用多行插件，避免只有三个样本时漏掉滚动距离问题。
-const previewCatalog = new URLSearchParams(window.location.search).has('density')
+const previewCatalog = params.has('density')
   ? Array.from({ length: 12 }, (_, index) => {
       const item = catalog[index % catalog.length]!
       const repo = `${item.repo}-${index + 1}`
@@ -68,7 +118,7 @@ function search(query: string, _page: number, _sort: string, category: string) {
   const needle = query.trim().toLocaleLowerCase()
   const items = previewCatalog.filter((item) => {
     const matchQuery = needle === '' || [item.repo, item.owner, item.description, ...item.topics].some((value) => value.toLocaleLowerCase().includes(needle))
-    const matchCategory = category === 'all' || item.categories.includes(category as (typeof item.categories)[number])
+    const matchCategory = category === 'all' || item.categories.some(value => value === category)
     return matchQuery && matchCategory
   })
   return Promise.resolve({ totalCount: items.length, items, rate })
@@ -77,8 +127,19 @@ function search(query: string, _page: number, _sort: string, category: string) {
 const mockInjected = {
   search,
   details: (repo: string, ref: string) => Promise.resolve({ repo, ref, resolvedRef: ref, manifest: { name: repo, version: '1.0.0', description: '', license: 'MIT', bundlePatch: './cordis.patch.yml', hasClient: true, entry: 'src/index.ts' }, patch: 'bundle: fixture', entrySource: 'export default {}', readmeUrl: 'https://github.com/', rate }),
-  guidedAgent: async () => undefined,
-  install: async () => { fixtureState.installs += 1; return 'fixture-install' },
+  guidedAgent: async () => {
+    fixtureState.agentCalls += 1
+    if (scenario === 'agent-failure') await agentRequest.promise
+  },
+  install: async (repo: string, ref: string) => {
+    fixtureState.installs += 1
+    fixtureState.installRequests.push({ repo, ref })
+    installJob = {
+      jobId: 'fixture-install', kind: 'install', packageName: previewCatalog.find(item => item.fullName === repo)?.packageName ?? repo,
+      phase: 'running', log: '', exitCode: null, startedAt: Date.now(), finishedAt: null, outcome: null, failure: null,
+    }
+    return installJob.jobId
+  },
   manualInstall: async () => ({ jobId: 'fixture-manual', operation: 'install' as const, packageName: '@dsh/manual', repository: 'dsh/manual', verifiedCommit: 'd'.repeat(40) }),
   update: async () => 'fixture-update',
   updateBatch: async () => ({ jobs: [], failures: [] }),
@@ -86,21 +147,42 @@ const mockInjected = {
   uninstallBatch: async (names: string[]) => { fixtureState.uninstallBatches.push(names); return { jobs: [], failures: [] } },
   setEnabled: async (packageName: string, enabled: boolean) => ({ packageName, enabled, requiresRestart: false }),
   setEnabledBatch: async () => ({ results: [], failures: [], requiresRestart: false }),
-  installLocation: async () => ({ profile: 'web', packageNames: ['@dsh/focus-panel', '@dsh/old-theme'], installDir: 'C:/Users/demo/.dsh/plugins', installDirCustom: false }),
+  installLocation: async () => {
+    fixtureState.installLocationCalls += 1
+    if (scenario === 'profile-late') return profileRetry.promise
+    if (scenario === 'profile-retry') {
+      if (fixtureState.installLocationCalls === 1) throw new Error('fixture: Profile 暂时不可用')
+      return profileRetry.promise
+    }
+    return profileLocation()
+  },
   setInstallDir: async (installDir: string) => ({ profile: 'web', packageNames: ['@dsh/focus-panel', '@dsh/old-theme'], installDir, installDirCustom: installDir !== '' }),
   chooseInstallDir: async () => null,
   agentWorkspace: async () => ({ workspaceDir: 'C:/Users/demo/.dsh/marketplace-agent', workspaceDirCustom: false }),
   setAgentWorkspaceDir: async (workspaceDir: string) => ({ workspaceDir, workspaceDirCustom: workspaceDir !== '' }),
   chooseAgentWorkspaceDir: async () => null,
   diagnoseConflicts: async () => ({ conflicts: [], scannedAt: Date.now() }),
-  jobStatus: async (jobId: string) => ({ jobId, kind: 'install' as const, packageName: '@dsh/focus-panel', phase: 'done' as const, log: '', exitCode: 0, startedAt: Date.now(), finishedAt: Date.now(), outcome: { packageName: '@dsh/focus-panel', version: '1.4.0', requiresRestart: true }, failure: null }),
-  jobs: async () => [],
-  installed: async () => ({ profile: 'web', installDir: 'C:/Users/demo/.dsh/plugins', installDirCustom: false, conflicts: [], entries: installedEntries }),
+  jobStatus: async (jobId: string): Promise<MarketplaceJobStatus> => {
+    fixtureState.jobStatusCalls.push(jobId)
+    if (scenario === 'jobs-race') await jobStatusGate.promise
+    if (installJob !== null && installJob.jobId === jobId) {
+      if (scenario !== 'jobs-race' && installJob.finishedAt === null) finishInstall()
+      return { ...installJob }
+    }
+    return { jobId, kind: 'install', packageName: '@dsh/focus-panel', phase: 'done', log: '', exitCode: 0, startedAt: Date.now(), finishedAt: Date.now(), outcome: { packageName: '@dsh/focus-panel', version: '1.4.0', requiresRestart: true }, failure: null }
+  },
+  jobs: async () => {
+    fixtureState.jobsCalls += 1
+    return scenario === 'jobs-race' ? restoredJobs.promise : []
+  },
+  installed: async () => {
+    fixtureState.installedCalls += 1
+    return { ...profileLocation(), conflicts: [], entries: installedEntries.map(entry => ({ ...entry, linked: linkedPackages.has(entry.packageName) })) }
+  },
   restart: async () => ({ accepted: true as const, profile: 'web' }),
 }
 
 function Preview() {
-  const params = new URLSearchParams(window.location.search)
   const lang = params.get('lang') === 'en' ? 'en' : 'zh'
   const locale = lang === 'en' ? en : zh
   const t = (key: PluginMarketplaceLocaleKey) => locale[key]

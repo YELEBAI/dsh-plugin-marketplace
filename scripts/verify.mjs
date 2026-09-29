@@ -6,33 +6,28 @@
  *     requires only name platform modules.
  */
 import { createRequire } from 'node:module'
-import { existsSync, readdirSync, readFileSync, unlinkSync } from 'node:fs'
+import { existsSync, readFileSync, unlinkSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { checkout, packageRoot, resolveDsh, resolveTool } from './dsh-environment.mjs'
 import { assertPackageContract } from './package-contract.mjs'
 
 const require = createRequire(import.meta.url)
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)))
-const checkout = process.env.DSH_CHECKOUT ?? 'D:/DSH/deepseek-harness'
 const registryOnly = process.argv.includes('--registry-only')
-/** Resolve esbuild from the checkout's pnpm store (newest version wins). */
-function resolveEsbuild(checkout) {
-  const pnpmDir = path.join(checkout, 'node_modules', '.pnpm')
-  const candidates = readdirSync(pnpmDir).filter((name) => name.startsWith('esbuild@')).sort().reverse()
-  for (const name of candidates) {
-    const main = path.join(pnpmDir, name, 'node_modules', 'esbuild', 'lib', 'main.js')
-    if (existsSync(main)) return main
-  }
-  throw new Error('esbuild not found under ' + pnpmDir)
-}
-
-const esbuild = registryOnly ? undefined : require(resolveEsbuild(checkout))
 
 const PKG = 'dsh-plugin-marketplace'
 
 // ── 1. typert manifest validation (the exact loader code path) ────────────
 if (!registryOnly) {
 const manifestUrl = pathToFileURL(path.join(root, 'lib', 'typert.js')).href
+if (packageRoot !== undefined) {
+  const { validateTypertManifest } = await import(pathToFileURL(resolveDsh('@deepseek-ai/dsh-typert-loader')).href)
+  const mod = await import(manifestUrl)
+  const result = validateTypertManifest(PKG, mod.TYPERT)
+  console.log('published DSH typert manifest valid: ' + result.invocations.length + ' invocations, package ' + result.package)
+} else {
+const esbuild = require(resolveTool('esbuild'))
 const entry = `
 import { validateTypertManifest } from '@deepseek-ai/dsh-typert-loader'
 const mod = await import('${manifestUrl}')
@@ -56,6 +51,7 @@ try {
   await import(pathToFileURL(probePath).href)
 } finally {
   if (existsSync(probePath)) unlinkSync(probePath)
+}
 }
 }
 

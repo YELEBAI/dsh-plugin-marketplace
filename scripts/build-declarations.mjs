@@ -1,20 +1,11 @@
 /** Emit package-owned declarations; the separate typecheck command validates the full DSH graph. */
 import ts from 'typescript'
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
+import { typeConfig } from './dsh-environment.mjs'
 
-export function buildDeclarations(root, checkout) {
-  const config = JSON.parse(readFileSync(path.join(root, 'tsconfig.json'), 'utf8'))
-  const originalBase = path.posix.dirname(config.extends.replaceAll('\\', '/'))
-  const checkoutPath = path.resolve(checkout).replaceAll('\\', '/')
-  config.extends = checkoutPath + '/tsconfig.base.json'
-  for (const [name, targets] of Object.entries(config.compilerOptions.paths)) {
-    config.compilerOptions.paths[name] = targets.map(target => {
-      const normalized = target.replaceAll('\\', '/')
-      if (!normalized.startsWith(originalBase + '/')) throw new Error('Unexpected DSH type path: ' + target)
-      return checkoutPath + normalized.slice(originalBase.length)
-    })
-  }
+export function buildDeclarations(root) {
+  const config = typeConfig()
   const parsed = ts.parseJsonConfigFileContent(config, ts.sys, root)
   const sourceDir = path.join(root, 'src')
   const outputDir = path.join(root, 'lib', 'types')

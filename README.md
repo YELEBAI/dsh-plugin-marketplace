@@ -159,7 +159,7 @@ npm 包内附带构建后的 `lib/` 和发布时的 Registry 快照。因此远�
 
 ## 安装位置、Agent 工作区与冲突诊断
 
-默认情况下，插件实体由 pnpm 直接安装在当前 Profile 的 `node_modules` 中，所有 pnpm 任务都复用该 Profile 已绑定的 store，避免出现 `ERR_PNPM_UNEXPECTED_STORE`。市场会归一化旧 Profile 中被重复放大的 Windows 分隔符，并把 `.modules.yaml` 记录的实际 `vN` 目录转换回 pnpm Store 根目录，防止生成嵌套 Store。
+默认情况下，插件实体由 pnpm 直接安装在当前 Profile 的 `node_modules` 中，所有 pnpm 任务都复用该 Profile 已绑定的 store，避免出现 `ERR_PNPM_UNEXPECTED_STORE`。市场会归一化 Windows 路径分隔符，并原样传递 `.modules.yaml` 记录的实际 Store 路径，保留 `vN` 后缀和已有嵌套目录。后台 pnpm 使用非交互模式，安装与回滚可以重建依赖目录并更新锁文件；调用方显式要求冻结锁文件时保留该要求。
 
 安装位置面板允许把后续安装切换到自定义目录（通过 DSH 的目录选择器）：
 
@@ -322,7 +322,9 @@ README 中错误的迁移地址只作为审计信息。如果当前仓库的精�
 
 ## 开发
 
-要求：Node.js、pnpm，以及可用的 DSH checkout。构建默认读取 `D:/DSH/deepseek-harness`，也可以通过 `DSH_CHECKOUT` 指定其他位置。
+要求：Node.js、仓库指定版本的 pnpm，以及已构建的 DSH checkout 或已安装的 DSH npm 包。当前兼容基线为 **DSH 0.1.7-rc.2**；源码模式默认读取 `D:/DSH/deepseek-harness`，可通过 `DSH_CHECKOUT` 指定其他位置。
+
+也可设置 `DSH_PACKAGE_ROOT` 指向已安装的 `@deepseek-ai/dsh` 包目录（其中包含 `package.json`）。依赖可以嵌套在包内，也可以由 npm 提升到上级目录；脚本按 Node 的查找顺序解析。此模式直接读取该版本的公开类型、Typert 加载器和 UI 组件，不需要重建上游仓库。`MARKETPLACE_TOOLS_DIR` 可指向已有 `esbuild`、`playwright` 的独立工具目录；脚本只解析现有依赖，不自动安装。运行检查前设置 `pnpm_config_verify_deps_before_run=false`，避免 pnpm 自动改写开发依赖。
 
 ```powershell
 pnpm install
@@ -339,11 +341,27 @@ pnpm package:test
 pnpm typecheck
 ```
 
-界面回归使用 DSH checkout 中已有的 `esbuild`、React、Playwright 和本机 Chromium，不会自动下载依赖。
+界面回归使用现有 `esbuild`、React、Playwright、本机 Chromium，以及 DSH checkout 或发布包提供的真实组件，不会自动下载依赖。
 执行 `pnpm ui:test` 可检查明暗主题、窄窗口、中英文、筛选与批量选择、安装/卸载确认，并更新
 [`docs/screenshots/marketplace-refresh-light.png`](./docs/screenshots/marketplace-refresh-light.png) 等预览。
 若浏览器不在 Playwright 默认位置，可设置 `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`。测试使用模拟数据和
 隔离页面，不会操作真实 Profile 或安装插件；真实宿主集成仍需在 DSH 中验证。
+
+失败恢复回归覆盖安装条件读取失败后的原页重试、未关联插件重新安装、延迟任务快照与新任务的合并，以及 Agent 创建失败后的状态恢复。`pnpm guided-agent:test` 另外覆盖新版会话引用释放、命名/提交/导航失败和旧版会话入口；测试不会发送真实模型请求。
+
+发布包的 UI 模块还会引用其清单中的第三方开发依赖。需要准备独立工具目录时，可显式安装以下依赖；`DSH_PACKAGE_ROOT` 应先设置好，`MARKETPLACE_TOOLS_DIR` 不要指向 DSH 主程序或活动 Profile。CI 使用相同方式，并固定 esbuild 版本以检查 `lib/` 是否可重现。
+
+```powershell
+npm install --prefix "$env:MARKETPLACE_TOOLS_DIR" --save-exact --ignore-scripts esbuild@0.28.2 playwright@1.62.1
+$uiTools = @(node scripts/ui-tool-dependencies.mjs)
+if ($LASTEXITCODE -ne 0) { throw '无法读取 DSH UI 依赖' }
+npm install --prefix "$env:MARKETPLACE_TOOLS_DIR" --save-exact --ignore-scripts @uiTools
+pnpm ui:test
+# 除默认开发依赖回归外，使用目标发布版本的真实运行接口检查临时 Profile。
+node --import ./scripts/use-installed-dsh.mjs --experimental-strip-types scripts/profile-test.ts
+```
+
+本机可复用现有 Chromium/Edge；CI 明确安装 Playwright Chromium。上述安装命令只用于准备工具，普通 `build`、`typecheck` 和 `ui:test` 不会下载依赖或浏览器。
 
 发布前需要更新版本、重新生成 Registry、构建 `lib/`，然后提交产物并创建版本标签。
 
