@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T13:33:43.047Z",
-  "total": 1323,
+  "generatedAt": "2026-10-01T19:48:44.743Z",
+  "total": 1322,
   "groups": {
-    "remote-command-found": 459,
+    "remote-command-found": 457,
     "local-or-unparsed-command-only": 642,
-    "no-install-command-found": 222
+    "no-install-command-found": 223
   },
   "rows": [
     {
@@ -2341,43 +2341,6 @@
       "assessment": {
         "outcome": "guided-npm-unverified",
         "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "9931666/dsh-plugin-roundtable",
-      "packageName": "@huanlin/dsh-plugin-roundtable",
-      "version": "1.0.0-rc.2",
-      "verifiedCommit": "d931c3ff4c18036d68150c71ee4e93e7e987f7c4",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin add <包名>` 这条路走不通。",
-          "profile": null,
-          "spec": "<包名>",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@huanlin/dsh-plugin-roundtable@1.0.0-rc.2",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
@@ -11319,7 +11282,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "b7800ffbea3281c5b1c14a8f3c3b1f1cb6eaf78c",
+      "verifiedCommit": "ffc682919c8505877bf4143e2f8feeb32393d6c7",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14837,101 +14800,6 @@
       }
     },
     {
-      "repository": "dingminhua/dsh-connect-workbuddy",
-      "packageName": "dsh-connect-workbuddy",
-      "version": "3.2.0",
-      "verifiedCommit": "a2a4e55979be3cb50cb968168801b25424e390b4",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy",
-          "profile": "desktop",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-connect-workbuddy     # Web",
-          "profile": "web",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile dsh-tui add dsh-connect-workbuddy # TUI",
-          "profile": "dsh-tui",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add /Users/dmh2002/DshProject/dsh-connect-workbuddy",
-          "profile": "desktop",
-          "spec": "/Users/dmh2002/DshProject/dsh-connect-workbuddy",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy",
-          "profile": "desktop",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-connect-workbuddy     # Web",
-          "profile": "web",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile dsh-tui add dsh-connect-workbuddy # TUI",
-          "profile": "dsh-tui",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy",
-          "profile": "desktop",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-connect-workbuddy     # Web",
-          "profile": "web",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile dsh-tui add dsh-connect-workbuddy # TUI",
-          "profile": "dsh-tui",
-          "spec": "dsh-connect-workbuddy",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-connect-workbuddy@3.2.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "desktop",
-          "dsh-tui",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "DingTalk-Real-AI/dsh-dingtalk",
       "packageName": "@dingtalk-real-ai/dsh-dingtalk",
       "version": "0.0.0-development",
@@ -15333,59 +15201,6 @@
       "assessment": {
         "outcome": "guided-no-matching-remote-command",
         "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "domitor-syh/dsh-rollback",
-      "packageName": "@domitor-syh/dsh-rollback",
-      "version": "0.4.0",
-      "verifiedCommit": "440374b0655f7df2a21a5518738f81f592b46daf",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add @domitor-syh/dsh-rollback",
-          "profile": "web",
-          "spec": "@domitor-syh/dsh-rollback",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add @domitor-syh/dsh-rollback",
-          "profile": "web",
-          "spec": "@domitor-syh/dsh-rollback",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add @domitor-syh/dsh-rollback",
-          "profile": "web",
-          "spec": "@domitor-syh/dsh-rollback",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@domitor-syh/dsh-rollback@0.4.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
       },
       "auditErrors": [],
       "current": {
@@ -17494,7 +17309,7 @@
       "repository": "fly3366/dsh-o11y-plugin",
       "packageName": "dsh-o11y-plugin",
       "version": "0.2.0",
-      "verifiedCommit": "4c293aa8ba282e78ad96e6dc4336dc7d89c00d71",
+      "verifiedCommit": "ac279bd8c55c4b4341c146bb77d1418fd801550a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -20258,7 +20073,7 @@
       "repository": "hancao97/hanai-investment-dsh",
       "packageName": "hanai-investment-dsh",
       "version": "0.1.0",
-      "verifiedCommit": "b45a25cad98c49b9c7db9eddc36f136db3227a6e",
+      "verifiedCommit": "de3aca4fdc173b2f23bfdddfc7ae5e9ecdb05cd2",
       "readmePath": "README.md",
       "commands": [
         {
@@ -25346,8 +25161,8 @@
     {
       "repository": "JoblessJoe/smart-compaction",
       "packageName": "smart-compaction",
-      "version": "0.2.12",
-      "verifiedCommit": "d53e2289f208b5de6289ac37b8a8c832023ad9da",
+      "version": "0.3.1",
+      "verifiedCommit": "264c6105b671cc678431b37ab9f3815b6253481d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -25375,12 +25190,13 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "smart-compaction@0.2.12",
-        "reason": "npm-version-not-published"
+        "spec": "smart-compaction@0.3.1",
+        "reason": "npm-hard-lifecycle-scripts",
+        "detail": "postinstall"
       },
       "assessment": {
         "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
+        "reason": "npm-hard-lifecycle-scripts"
       },
       "auditErrors": [],
       "current": {
@@ -26576,8 +26392,8 @@
     {
       "repository": "JularDepick/dsh-system-monitor-plugin",
       "packageName": "dsh-system-monitor-plugin",
-      "version": "0.1.1",
-      "verifiedCommit": "b7f29eeecaf98dd147b082d036e4a2985264a4f9",
+      "version": "0.1.2",
+      "verifiedCommit": "373abd8498fa6beade7ad938132174800560426e",
       "readmePath": "README.md",
       "commands": [
         {
@@ -26587,9 +26403,9 @@
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile <name> add dsh-system-monitor-plugin-0.1.1.tgz",
+          "raw": "dsh plugin --profile <name> add dsh-system-monitor-plugin-0.1.2.tgz",
           "profile": "<name>",
-          "spec": "dsh-system-monitor-plugin-0.1.1.tgz",
+          "spec": "dsh-system-monitor-plugin-0.1.2.tgz",
           "source": "npm"
         }
       ],
@@ -26611,7 +26427,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-system-monitor-plugin@0.1.1",
+        "spec": "dsh-system-monitor-plugin@0.1.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -26635,8 +26451,8 @@
     {
       "repository": "JularDepick/dsh-wakatime-plugin",
       "packageName": "dsh-wakatime-plugin",
-      "version": "0.1.2",
-      "verifiedCommit": "74bcc2a8883fcc71bda426de48119e139b80757a",
+      "version": "0.1.3",
+      "verifiedCommit": "e61983b2af647d4860397d43a16f4d64ec79440c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -26652,9 +26468,9 @@
           "source": "unknown"
         },
         {
-          "raw": "dsh plugin --profile <name> add release/dsh-wakatime-plugin-0.1.2.tgz",
+          "raw": "dsh plugin --profile <name> add release/dsh-wakatime-plugin-0.1.3.tgz",
           "profile": "<name>",
-          "spec": "release/dsh-wakatime-plugin-0.1.2.tgz",
+          "spec": "release/dsh-wakatime-plugin-0.1.3.tgz",
           "source": "github"
         },
         {
@@ -26682,7 +26498,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-wakatime-plugin@0.1.2",
+        "spec": "dsh-wakatime-plugin@0.1.3",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -28720,6 +28536,36 @@
       }
     },
     {
+      "repository": "Leawind/dsh-carrot-on-a-stick",
+      "packageName": "dsh-carrot-on-a-stick",
+      "version": "0.1.0-rc.1",
+      "verifiedCommit": "8d85c82061b377e81053c1822b9d66aa16342843",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-carrot-on-a-stick@0.1.0-rc.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "Lee-mx/dsh-cool-ui",
       "packageName": "@dsh-cool-ui/plugin",
       "version": "0.1.0",
@@ -30549,32 +30395,20 @@
     {
       "repository": "liqiming-whu/dsh-status-card",
       "packageName": "dsh-status-card",
-      "version": "0.2.1",
-      "verifiedCommit": "30f11393750647286b4f8f1bb646e8f0b80d040f",
+      "version": "0.3.1",
+      "verifiedCommit": "d71ec87c160a9fd33fef1f486a98a308a84b44af",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add \"git+https://github.com/omdsh-dev/dsh-genui.git\"",
+          "raw": "dsh plugin --profile web add @changfenhuang/dsh-genui",
           "profile": "web",
-          "spec": "git+https://github.com/omdsh-dev/dsh-genui.git",
-          "source": "unknown"
+          "spec": "@changfenhuang/dsh-genui",
+          "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add \"git+https://github.com/liqiming-whu/dsh-status-card.git#v0.2.1\"",
+          "raw": "dsh plugin --profile web add ./dsh-status-card-0.3.1.tgz",
           "profile": "web",
-          "spec": "git+https://github.com/liqiming-whu/dsh-status-card.git#v0.2.1",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add \"git+https://github.com/liqiming-whu/dsh-status-card.git\"",
-          "profile": "web",
-          "spec": "git+https://github.com/liqiming-whu/dsh-status-card.git",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add ./dsh-status-card-0.2.1.tgz",
-          "profile": "web",
-          "spec": "./dsh-status-card-0.2.1.tgz",
+          "spec": "./dsh-status-card-0.3.1.tgz",
           "source": "local"
         }
       ],
@@ -30582,7 +30416,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-status-card@0.2.1",
+        "spec": "dsh-status-card@0.3.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -30600,9 +30434,7 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
+        "reviewReasons": []
       }
     },
     {
@@ -33768,51 +33600,6 @@
       }
     },
     {
-      "repository": "martinkot9336299-cell/dsh-session-atlas",
-      "packageName": "dsh-session-atlas",
-      "version": "0.2.0",
-      "verifiedCommit": "fbcc23f42ab7d0a2cf7568df21b689194cabc8d1",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add github:martinkot9336299-cell/dsh-session-atlas",
-          "profile": "web",
-          "spec": "github:martinkot9336299-cell/dsh-session-atlas",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add /path/to/dsh-session-atlas`）",
-          "profile": "web",
-          "spec": "/path/to/dsh-session-atlas",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-session-atlas@0.2.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "marvin9551/dynamic-schulte-dsh",
       "packageName": "dynamic-schulte-dsh",
       "version": "0.1.0",
@@ -33998,6 +33785,92 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "MCviseron/dsh-eda-mcp",
+      "packageName": "dsh-eda-mcp",
+      "version": "0.5.1",
+      "verifiedCommit": "f448a37bc65d8ab14f4d45132010d2204ad24cb7",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add \"github:MCviseron/dsh-eda-mcp\"",
+          "profile": "web",
+          "spec": "github:MCviseron/dsh-eda-mcp",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add \"link:$PWD\"",
+          "profile": "web",
+          "spec": "link:$PWD",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-eda-mcp@0.5.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
+      "repository": "MCviseron/dsh-email-notify",
+      "packageName": "dsh-email-notify",
+      "version": "0.4.0",
+      "verifiedCommit": "604380326f7041d9c19369821a25a74186790355",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add \"$PWD\"",
+          "profile": "web",
+          "spec": "$PWD",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-email-notify@0.4.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -36299,8 +36172,8 @@
     {
       "repository": "moonbowterfly/dsh-bio-genie",
       "packageName": "@dsh-bio/dsh-bio-genie",
-      "version": "0.6.38",
-      "verifiedCommit": "6aaad94da714e5543d96b4115beb0894d457b5b3",
+      "version": "0.6.39",
+      "verifiedCommit": "4aaaebe2531a7ea79ff4ef56669a18f10334a9cd",
       "readmePath": "README.md",
       "commands": [
         {
@@ -36358,7 +36231,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@dsh-bio/dsh-bio-genie@0.6.38",
+        "spec": "@dsh-bio/dsh-bio-genie@0.6.39",
         "reason": "npm-hard-lifecycle-scripts",
         "detail": "postinstall"
       },
@@ -45241,7 +45114,7 @@
       "repository": "sdegongzuo/dsh-webops-plugin",
       "packageName": "dsh-webops-plugin",
       "version": "0.2.12",
-      "verifiedCommit": "900d6a967be65ccedea88a65078c88cceacf90c6",
+      "verifiedCommit": "619fffeec6479f5d1dbaa90f775a1a2e6a57bb9f",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -45817,36 +45690,36 @@
     {
       "repository": "ShikangPang/jizuo-creator-account",
       "packageName": "@jizuo/account-plugin",
-      "version": "0.3.19",
-      "verifiedCommit": "78ae0b02ba7d5991a86e1d3a4a9b548e8450b9a6",
+      "version": "0.3.20",
+      "verifiedCommit": "5aa6bb2b2c51888c4007f1d64b6e5ef6011d9bee",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.19/jizuo-account-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.20/jizuo-account-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.19/jizuo-account-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.20/jizuo-account-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.19/jizuo-account-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.20/jizuo-account-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.19/jizuo-account-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.20/jizuo-account-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.19/jizuo-account-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.20/jizuo-account-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.19/jizuo-account-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-account/releases/download/v0.3.20/jizuo-account-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@jizuo/account-plugin@0.3.19",
+        "spec": "@jizuo/account-plugin@0.3.20",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -45868,36 +45741,36 @@
     {
       "repository": "ShikangPang/jizuo-creator-media-models",
       "packageName": "@jizuo/media-models-plugin",
-      "version": "0.3.19",
-      "verifiedCommit": "c68da9052f3cb4cb10e02ab599dd0c9356349ff7",
+      "version": "0.3.20",
+      "verifiedCommit": "fb272e93e03c34e995daf17797c7bd9abb060870",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.19/jizuo-media-models-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.20/jizuo-media-models-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.19/jizuo-media-models-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.20/jizuo-media-models-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.19/jizuo-media-models-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.20/jizuo-media-models-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.19/jizuo-media-models-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.20/jizuo-media-models-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.19/jizuo-media-models-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.20/jizuo-media-models-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.19/jizuo-media-models-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-media-models/releases/download/v0.3.20/jizuo-media-models-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@jizuo/media-models-plugin@0.3.19",
+        "spec": "@jizuo/media-models-plugin@0.3.20",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -45919,36 +45792,36 @@
     {
       "repository": "ShikangPang/jizuo-creator-memory",
       "packageName": "@jizuo/memory-plugin",
-      "version": "0.3.19",
-      "verifiedCommit": "9d60542ba68ff80fbcef2c1dc638eea9248aefe7",
+      "version": "0.3.20",
+      "verifiedCommit": "88afe1abafa73ba3e25e602559c9253a6d579ee9",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.19/jizuo-memory-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.20/jizuo-memory-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.19/jizuo-memory-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.20/jizuo-memory-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.19/jizuo-memory-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.20/jizuo-memory-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.19/jizuo-memory-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.20/jizuo-memory-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.19/jizuo-memory-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.20/jizuo-memory-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.19/jizuo-memory-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-memory/releases/download/v0.3.20/jizuo-memory-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@jizuo/memory-plugin@0.3.19",
+        "spec": "@jizuo/memory-plugin@0.3.20",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -45970,36 +45843,36 @@
     {
       "repository": "ShikangPang/jizuo-creator-video",
       "packageName": "@jizuo/video-plugin",
-      "version": "0.3.19",
-      "verifiedCommit": "ee238d8e7f1cf2c2fdb752421ae60d2a98b24b15",
+      "version": "0.3.20",
+      "verifiedCommit": "89d40694ae24a71cb48a1482ab0714301d30b9e8",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.19/jizuo-video-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.20/jizuo-video-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.19/jizuo-video-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.20/jizuo-video-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.19/jizuo-video-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.20/jizuo-video-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.19/jizuo-video-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.20/jizuo-video-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.19/jizuo-video-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.20/jizuo-video-plugin-0.3.20.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.19/jizuo-video-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-video/releases/download/v0.3.20/jizuo-video-plugin-0.3.20.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@jizuo/video-plugin@0.3.19",
+        "spec": "@jizuo/video-plugin@0.3.20",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -46021,36 +45894,36 @@
     {
       "repository": "ShikangPang/jizuo-creator-writing",
       "packageName": "@jizuo/writing-plugin",
-      "version": "0.3.19",
-      "verifiedCommit": "7ba821b9bb1f98c36685f50b7cfda343beecff5e",
+      "version": "0.3.21",
+      "verifiedCommit": "9249e4445320b14596b544fd69f2aacc943f5a00",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.19/jizuo-writing-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.21/jizuo-writing-plugin-0.3.21.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.19/jizuo-writing-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.21/jizuo-writing-plugin-0.3.21.tgz",
           "source": "tarball"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.19/jizuo-writing-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.21/jizuo-writing-plugin-0.3.21.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.19/jizuo-writing-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.21/jizuo-writing-plugin-0.3.21.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.19/jizuo-writing-plugin-0.3.19.tgz",
+          "raw": "dsh plugin --profile desktop add https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.21/jizuo-writing-plugin-0.3.21.tgz",
           "profile": "desktop",
-          "spec": "https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.19/jizuo-writing-plugin-0.3.19.tgz",
+          "spec": "https://github.com/ShikangPang/jizuo-creator-writing/releases/download/v0.3.21/jizuo-writing-plugin-0.3.21.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@jizuo/writing-plugin@0.3.19",
+        "spec": "@jizuo/writing-plugin@0.3.21",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -49131,7 +49004,7 @@
       "repository": "studyzy/dsh-lazy-tools",
       "packageName": "@deepseek-ai/dsh-lazy-tools",
       "version": "0.0.1",
-      "verifiedCommit": "7e598f1a0c02f2a65fd4f32986b75a0d907ca7a1",
+      "verifiedCommit": "1606d842828c16eb5791917cffad238ddfe96b75",
       "readmePath": "README.md",
       "commands": [
         {
@@ -49161,7 +49034,6 @@
       "auditErrors": [],
       "current": {
         "profiles": [
-          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
@@ -49175,7 +49047,7 @@
       "repository": "studyzy/dsh-suggest-prompt",
       "packageName": "@studyzy/dsh-suggest-prompt",
       "version": "1.1.0",
-      "verifiedCommit": "fe54c0000017a0309517c671551f8c87984c4a4b",
+      "verifiedCommit": "767d1a11b4ab08ff95f7f83052e386d6b6156455",
       "readmePath": "README.md",
       "commands": [
         {
