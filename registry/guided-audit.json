@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T19:48:44.743Z",
-  "total": 1322,
+  "generatedAt": "2026-10-02T00:08:10.671Z",
+  "total": 1323,
   "groups": {
     "remote-command-found": 457,
-    "local-or-unparsed-command-only": 642,
+    "local-or-unparsed-command-only": 643,
     "no-install-command-found": 223
   },
   "rows": [
@@ -1030,13 +1030,13 @@
       "repository": "121212165/dsh-plugin-task-forge",
       "packageName": "dsh-plugin-task-forge",
       "version": "0.1.0",
-      "verifiedCommit": "6fc1cf4b030cdea623629610e4df84d039d4e38c",
+      "verifiedCommit": "c459547c9fd79880e634cc994f79715485249d4b",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile <你的profile> add <本仓库克隆路径>",
-          "profile": "<你的profile>",
-          "spec": "<本仓库克隆路径>",
+          "raw": "dsh plugin --profile web add github:121212165/dsh-plugin-task-forge",
+          "profile": "web",
+          "spec": "github:121212165/dsh-plugin-task-forge",
           "source": "unknown"
         }
       ],
@@ -1054,7 +1054,6 @@
       "auditErrors": [],
       "current": {
         "profiles": [
-          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
@@ -1063,7 +1062,9 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
       }
     },
     {
@@ -11282,7 +11283,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "ffc682919c8505877bf4143e2f8feeb32393d6c7",
+      "verifiedCommit": "3a67ba2d50642f0b4da157ddc78aa9d1576af96c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12980,7 +12981,7 @@
       "repository": "cup113/personal-track",
       "packageName": "personal-track",
       "version": "0.1.0",
-      "verifiedCommit": "70dda6564f35cb247bc17f5444374d9a06b9c785",
+      "verifiedCommit": "f65b46ed968a662a71681d73471564f602b0fca1",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15018,7 +15019,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "5e652f893f79bbdaee138fd56946aae92293429a",
+      "verifiedCommit": "4b42204cfc647cf5f6959a0996d98b95d71e2f90",
       "readmePath": "README.md",
       "commands": [
         {
@@ -30355,7 +30356,7 @@
       "repository": "liqiming-whu/dsh-environment-context",
       "packageName": "dsh-environment-context",
       "version": "0.3.4",
-      "verifiedCommit": "90e9f835e0ce58d76d5bc3a7deefe510a8a24980",
+      "verifiedCommit": "cb146356839a5f47d41c004d224594f1a1a1c5fe",
       "readmePath": "README.md",
       "commands": [
         {
@@ -36173,7 +36174,7 @@
       "repository": "moonbowterfly/dsh-bio-genie",
       "packageName": "@dsh-bio/dsh-bio-genie",
       "version": "0.6.39",
-      "verifiedCommit": "4aaaebe2531a7ea79ff4ef56669a18f10334a9cd",
+      "verifiedCommit": "59b9a9da725f74d1724a91b4eed39bb897cf5478",
       "readmePath": "README.md",
       "commands": [
         {
@@ -50448,7 +50449,7 @@
       "repository": "tanweiping1012-source/PhotoFilterAgent",
       "packageName": "@photo-filter-agent/dsh-photo-filter-v4",
       "version": "0.4.0-rc.1",
-      "verifiedCommit": "02c6aaa613c25ca8c3bc6bbb784fb765c7efd66d",
+      "verifiedCommit": "5b256240b513a48ece91031c49939022605e0515",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -50548,7 +50549,7 @@
       "repository": "TARS-snail/dsh-notify",
       "packageName": "dsh-notify",
       "version": "0.2.0",
-      "verifiedCommit": "19c86ea6c4910d3537847a723afa09f152e66355",
+      "verifiedCommit": "91ae9531f741f9c53edde80df89b2847e0721478",
       "readmePath": "README.md",
       "commands": [
         {
@@ -51365,8 +51366,8 @@
     {
       "repository": "TikaFlow/dsh-model-fix",
       "packageName": "dsh-model-fix",
-      "version": "0.18.8",
-      "verifiedCommit": "038efd86db5d1bc548275e5e48cffdda65fc9eac",
+      "version": "0.18.15",
+      "verifiedCommit": "b7b19e4a33f70290bd0230257f73a22e3d8b5626",
       "readmePath": "README.md",
       "commands": [
         {
@@ -51400,7 +51401,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-model-fix@0.18.8",
+        "spec": "dsh-model-fix@0.18.15",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -53492,6 +53493,94 @@
       }
     },
     {
+      "repository": "TZDXF/dsh-wait-minute",
+      "packageName": "dsh-wait-minute",
+      "version": "1.0.2",
+      "verifiedCommit": "385dbe7409b885f5ad64520a000155699c0972c7",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <配置名> <参数...>` 会把参数原样转发给该配置目录里的 pnpm，因此 `add`、`remove`、`install`、`why` 都可用。把下面命令里的 `desktop` 换成 `web`，就是给浏览器版安装。",
+          "profile": "<配置名>",
+          "spec": "、",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "profile": "desktop",
+          "spec": "https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "source": "tarball"
+        },
+        {
+          "raw": "dsh plugin --profile web     add https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "profile": "web",
+          "spec": "https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "source": "tarball"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add \"file:$env:LOCALAPPDATA\\dsh-wait-minute\\dsh-wait-minute-1.0.2.tgz\"",
+          "profile": "desktop",
+          "spec": "file:$env:LOCALAPPDATA\\dsh-wait-minute\\dsh-wait-minute-1.0.2.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add C:\\code\\wait-minute",
+          "profile": "desktop",
+          "spec": "C:\\code\\wait-minute",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "profile": "desktop",
+          "spec": "https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "source": "tarball"
+        },
+        {
+          "raw": "dsh plugin --profile web     add https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "profile": "web",
+          "spec": "https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "source": "tarball"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "profile": "desktop",
+          "spec": "https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "source": "tarball"
+        },
+        {
+          "raw": "dsh plugin --profile web     add https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "profile": "web",
+          "spec": "https://github.com/TZDXF/dsh-wait-minute/releases/download/v1.0.2/dsh-wait-minute-1.0.2.tgz",
+          "source": "tarball"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-wait-minute@1.0.2",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-tarball-unverified",
+        "reason": "release-tarball-not-statically-verified"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "u9521/dsh-advanced-model-editor",
       "packageName": "@local/dsh-advanced-model-editor",
       "version": "0.1.0",
@@ -53816,59 +53905,27 @@
     {
       "repository": "Ultmebius/universal-plugin-hub",
       "packageName": "universal-plugin-hub",
-      "version": "1.0.0-preview",
-      "verifiedCommit": "acfa5ad942198afe82a2e8a34f7f6053b9649888",
+      "version": "1.0.2",
+      "verifiedCommit": "a3c1ecb9c344f692b047f89bcf57d90f5d244814",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin add universal-plugin-hub`) runs a `postinstall` script that pre-provisions the 5 LSP/hook host packages into the DSH installation — versions are resolved to match the running DSH release, and a provisioning failure fails the hub install outright. After that, plugins declaring LSP servers or Claude/Codex hooks register as a single `cordis.patch.yml` write each (DSH HMR picks them up within ~1s).",
+          "raw": "dsh plugin add https://github.com/Ultmebius/universal-plugin-hub.git",
           "profile": null,
-          "spec": "universal-plugin-hub",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin add universal-plugin-hub",
-          "profile": null,
-          "spec": "universal-plugin-hub",
-          "source": "npm"
+          "spec": "https://github.com/Ultmebius/universal-plugin-hub.git",
+          "source": "unknown"
         }
       ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin add universal-plugin-hub`) runs a `postinstall` script that pre-provisions the 5 LSP/hook host packages into the DSH installation — versions are resolved to match the running DSH release, and a provisioning failure fails the hub install outright. After that, plugins declaring LSP servers or Claude/Codex hooks register as a single `cordis.patch.yml` write each (DSH HMR picks them up within ~1s).",
-          "profile": null,
-          "spec": "universal-plugin-hub",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin add universal-plugin-hub",
-          "profile": null,
-          "spec": "universal-plugin-hub",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin add universal-plugin-hub`) runs a `postinstall` script that pre-provisions the 5 LSP/hook host packages into the DSH installation — versions are resolved to match the running DSH release, and a provisioning failure fails the hub install outright. After that, plugins declaring LSP servers or Claude/Codex hooks register as a single `cordis.patch.yml` write each (DSH HMR picks them up within ~1s).",
-          "profile": null,
-          "spec": "universal-plugin-hub",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin add universal-plugin-hub",
-          "profile": null,
-          "spec": "universal-plugin-hub",
-          "source": "npm"
-        }
-      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "universal-plugin-hub@1.0.0-preview",
+        "spec": "universal-plugin-hub@1.0.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
