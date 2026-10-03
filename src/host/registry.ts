@@ -352,7 +352,7 @@ export class RegistryClient {
     const discovery = this.loadDiscovery(source)
     if (url.protocol === 'file:') {
       raw = JSON.parse(await readFile(url, 'utf8')) as unknown
-    } else if (url.protocol === 'https:' || url.protocol === 'http:') {
+    } else if (url.protocol === 'https:') {
       const headers: Record<string, string> = { accept: 'application/json' }
       if (this.cache?.source === source && this.cache.etag !== null) headers['if-none-match'] = this.cache.etag
       const response = await fetch(url, { headers, signal: AbortSignal.timeout(this.timeoutMs) })
@@ -411,7 +411,7 @@ export class RegistryClient {
   /** Read one Registry companion JSON document with the configured timeout. */
   private async readJson(url: URL): Promise<unknown> {
     if (url.protocol === 'file:') return JSON.parse(await readFile(url, 'utf8')) as unknown
-    if (url.protocol !== 'https:' && url.protocol !== 'http:') {
+    if (url.protocol !== 'https:') {
       throw new Error(`Unsupported Registry URL protocol ${JSON.stringify(url.protocol)}`)
     }
     const response = await fetch(url, {
