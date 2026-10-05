@@ -105,6 +105,7 @@ try {
     'install',
     '--lockfile-only',
     '--ignore-scripts',
+    '--ignore-workspace',
     '--config.store-dir=' + store,
   ])
   ok('pnpm accepts the generated local dependency spec', () => {

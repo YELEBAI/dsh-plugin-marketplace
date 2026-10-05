@@ -56,6 +56,7 @@ let remoteStars = 1
 let growth = 1
 let discoveryAvailable = true
 let lastEtag: string | undefined
+let originalFetch: typeof globalThis.fetch | undefined
 const server = createServer((request, response) => {
   response.setHeader('content-type', 'application/json')
   if (request.url === '/plugins.json') {
@@ -94,7 +95,25 @@ await once(server, 'listening')
 try {
   const address = server.address()
   if (address === null || typeof address === 'string') throw new Error('测试 HTTP 服务未取得端口')
-  const source = `http://127.0.0.1:${String(address.port)}/plugins.json`
+  // Keep the fixture local while exercising the production HTTPS-only gate.
+  const source = 'https://registry.test/plugins.json'
+  originalFetch = globalThis.fetch
+  globalThis.fetch = (input, init) => {
+    const url = new URL(String(input))
+    if (url.hostname === 'registry.test') {
+      return originalFetch!(`http://127.0.0.1:${String(address.port)}${url.pathname}`, init)
+    }
+    return originalFetch!(input, init)
+  }
+  const insecureSource = `http://127.0.0.1:${String(address.port)}/plugins.json`
+  const insecure = new RegistryClient(insecureSource, insecureSource, 60_000, 5_000)
+  await assert.rejects(
+    insecure.search('', 1, 'stars', 'all'),
+    error => error instanceof Error
+      && 'details' in error
+      && (error as { details?: { cause?: string } }).details?.cause === 'Unsupported Registry URL protocol "http:"',
+    '明文 HTTP Registry 必须在发起请求前拒绝',
+  )
   const registry = new RegistryClient(source, source, 60_000, 5_000)
   const results = await Promise.all([
     registry.search('', 1, 'stars', 'all'),
@@ -151,6 +170,7 @@ try {
   assert.equal((await bundledFirst.find(plugin.fullName))?.stars, 99, '显式刷新等待后台读取并最终使用远端快照')
   console.log('registry client tests passed: 10')
 } finally {
+  if (originalFetch !== undefined) globalThis.fetch = originalFetch
   server.close()
   await once(server, 'close')
 }
