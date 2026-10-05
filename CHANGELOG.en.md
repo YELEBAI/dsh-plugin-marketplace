@@ -8,7 +8,14 @@ Registry refresh commits are grouped instead of listed individually.
 
 ## [Unreleased]
 
-No unreleased changes yet.
+### Fixed and security
+
+- Remote Registry reads now require HTTPS and reject cleartext HTTP before making a request.
+- Pinned the transitive `js-yaml` dependency to `4.3.2`, covering the older parser pulled in by the DSH toolchain.
+
+### Tests
+
+- Added an HTTPS-only Registry regression that verifies HTTP sources fail before any request; local `file:` Registries remain supported.
 
 ## [0.9.5] - 2026-10-05
 
