@@ -293,19 +293,33 @@ function resultSchema<T extends z.ZodTypeAny>(value: T) {
   ])
 }
 
-type Codec = { mode: 'strict'; typeSymbol: string; schema: z.ZodTypeAny }
+type Codec = {
+  mode: 'strict'
+  typeSymbol: string
+  schema: z.ZodTypeAny
+  create: () => { parse: (value: unknown) => unknown }
+}
+
+function codec(schema: z.ZodTypeAny, typeSymbol: string): Codec {
+  return {
+    mode: 'strict',
+    typeSymbol,
+    schema,
+    create: () => ({ parse: (value) => schema.parse(value) }),
+  }
+}
 
 function param(name: string, schema: z.ZodTypeAny, typeSymbol: string) {
   return {
     name,
     wire: name,
     source: 'json' as const,
-    codec: { mode: 'strict' as const, typeSymbol, schema } satisfies Codec,
+    codec: codec(schema, typeSymbol),
   }
 }
 
 function result(schema: z.ZodTypeAny, typeSymbol: string) {
-  return { mode: 'strict' as const, typeSymbol, schema } satisfies Codec
+  return codec(schema, typeSymbol)
 }
 
 const PKG = 'dsh-plugin-marketplace'

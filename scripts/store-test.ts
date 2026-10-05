@@ -85,8 +85,8 @@ try {
   }
 
   const versionedStore = pnpmArgsFor(['add', 'x'], repeatedDir, null)
-  ok('versioned .modules store path is passed back as its pnpm store root', () => {
-    assert.deepEqual(versionedStore.args, ['add', 'x', '--config.store-dir=D:\\DeepSeekHarness\\.pnpm-store'])
+  ok('versioned .modules store path is preserved exactly', () => {
+    assert.deepEqual(versionedStore.args, ['add', 'x', '--config.store-dir=D:\\DeepSeekHarness\\.pnpm-store\\v11'])
     assert.equal(versionedStore.storeDir, 'D:\\DeepSeekHarness\\.pnpm-store\\v11')
   })
 
@@ -99,7 +99,7 @@ try {
   // pnpmArgsFor: linked store wins over the fallback.
   const linkedWins = pnpmArgsFor(['remove', 'x'], yamlDir, 'C:/fallback-store')
   ok('linked store wins over fallback', () => {
-    assert.deepEqual(linkedWins.args, ['remove', 'x', '--config.store-dir=C:\\pnpm store'])
+    assert.deepEqual(linkedWins.args, ['remove', 'x', '--config.store-dir=C:\\pnpm store\\v9'])
     assert.equal(linkedWins.storeDir, 'C:\\pnpm store\\v9')
   })
 

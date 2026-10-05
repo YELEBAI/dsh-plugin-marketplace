@@ -163,7 +163,7 @@ The package includes the built `lib/` files and a Registry snapshot from the rel
 
 ## Install location, Agent workspace, and conflict diagnostics
 
-By default, plugin entities are installed by pnpm directly into the current Profile's `node_modules`, and every pnpm job reuses the store the Profile is bound to, avoiding `ERR_PNPM_UNEXPECTED_STORE`. Repeated Windows separators in legacy Profile metadata are collapsed, and the actual `vN` directory recorded by `.modules.yaml` is converted back to the pnpm Store root so nested Stores are not created.
+By default, plugin entities are installed by pnpm directly into the current Profile's `node_modules`, and every pnpm job reuses the store the Profile is bound to, avoiding `ERR_PNPM_UNEXPECTED_STORE`. Windows path separators are normalized, then the actual Store path recorded by `.modules.yaml` is passed unchanged, including its `vN` suffix and existing nested directories. Background pnpm jobs run non-interactively; installs and rollbacks can recreate dependencies and update the lockfile, while explicit frozen-lockfile requests remain enforced.
 
 The install-location panel can switch subsequent installs to a custom directory through DSH's directory picker:
 
@@ -328,7 +328,9 @@ The central Registry may also use [`policy/install-overrides.json`](./policy/ins
 
 ## Development
 
-Requirements: Node.js, pnpm, and an available DSH checkout. Builds use `D:/DSH/deepseek-harness` by default; set `DSH_CHECKOUT` to use another location.
+Requirements: Node.js, the repository's pinned pnpm, and either a built DSH checkout or an installed DSH npm package. The compatibility baseline is **DSH 0.1.7-rc.2**. Source mode defaults to `D:/DSH/deepseek-harness`; set `DSH_CHECKOUT` to override it.
+
+Alternatively, set `DSH_PACKAGE_ROOT` to the installed `@deepseek-ai/dsh` package directory containing `package.json`. Dependencies may be nested or hoisted by npm; scripts follow Node's search order. This uses that release's public types, Typert loader and UI components without rebuilding upstream. `MARKETPLACE_TOOLS_DIR` may point to an existing standalone tool directory providing `esbuild` and `playwright`; scripts never install them automatically. Set `pnpm_config_verify_deps_before_run=false` before checks to prevent implicit dependency changes.
 
 ```powershell
 pnpm install
@@ -345,12 +347,28 @@ pnpm package:test
 pnpm typecheck
 ```
 
-Run `pnpm ui:test` with an existing DSH checkout containing esbuild, React and Playwright, plus a local Chromium.
+Run `pnpm ui:test` with existing esbuild, React, Playwright and local Chromium, using real components from a DSH checkout or installed release.
 It checks light/dark themes, narrow layouts, Chinese/English labels, filters, batch selection and confirmation flows,
 and refreshes the previews in [`docs/screenshots`](./docs/screenshots). Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`
 if the browser is outside Playwright's default location. The test does not download dependencies and uses an isolated
 page with mock data; it does not modify real Profiles or install plugins. Integration with the actual DSH host still
 requires verification in DSH.
+
+Failure recovery checks cover retrying Profile reads in place, installing unlinked entries, merging delayed job snapshots, and recovering after guided Agent creation fails. `pnpm guided-agent:test` also checks session reference release, rename/submission/navigation failures, and older session APIs without sending real model requests.
+
+Published UI modules also reference third-party development dependencies from their manifests. To prepare a separate tool directory explicitly, set `DSH_PACKAGE_ROOT` first and keep `MARKETPLACE_TOOLS_DIR` outside the DSH installation and active Profile. CI follows the same approach and pins esbuild to verify reproducible `lib/` artifacts.
+
+```powershell
+npm install --prefix "$env:MARKETPLACE_TOOLS_DIR" --save-exact --ignore-scripts esbuild@0.28.2 playwright@1.62.1
+$uiTools = @(node scripts/ui-tool-dependencies.mjs)
+if ($LASTEXITCODE -ne 0) { throw 'Could not read DSH UI dependencies' }
+npm install --prefix "$env:MARKETPLACE_TOOLS_DIR" --save-exact --ignore-scripts @uiTools
+pnpm ui:test
+# In addition to default development dependencies, check temporary Profiles against the target runtime.
+node --import ./scripts/use-installed-dsh.mjs --experimental-strip-types scripts/profile-test.ts
+```
+
+Local checks can reuse Chromium/Edge; CI explicitly installs Playwright Chromium. These installation commands only prepare tools. Regular `build`, `typecheck`, and `ui:test` never download dependencies or browsers.
 
 Before a release, update the version, regenerate the Registry, rebuild `lib/`, commit the generated artifacts, and create a version tag.
 

@@ -10,6 +10,12 @@ Registry refresh commits are grouped instead of listed individually.
 
 ### Fixed and improved
 
+- Support the DSH 0.1.7-rc.2 session lifecycle: retain guided-install sessions until submission and workspace navigation complete, release on all failure paths, and preserve the older automatic-binding/open API.
+- Adapt Profile initialization, Typert codec factories, and icon exports to current DSH while preserving older array templates, template reload options, and Windows Store/non-interactive rollback behavior.
+- Add persistent Profile-loading feedback and retry, ignoring stale reads after recovery; merge delayed job snapshots with current tasks; align unlinked-plugin install eligibility; clear misleading progress after guided Agent creation fails.
+- Allow builds, type checks, and loader verification against an installed DSH package's public contracts, retain source-checkout support, and pin CI compatibility to DSH 0.1.7-rc.2.
+- Tighten secondary card-link spacing so Agent actions do not wrap unnecessarily with Linux fonts in narrow panels; preserve browser screenshots and layout diagnostics in CI.
+
 - Fixed package export defects reported in DSH Store #716: generate and ship real declarations, correct Host/Typert/Remote type entries and the `./types` JS entry, and export the guided-task result type referenced by the wire contract.
 - Declared the Node.js runtime range and documented distribution, DSH peers, and required capabilities; retained the legitimate `zod` runtime dependency without claiming external security certification.
 - Increased catalog density: two columns from 490px of content width, no fixed minimum card height, and tighter card/filter spacing. A 12-plugin fixture checks that at least four plugins fit fully in a 794px-high viewport.
@@ -23,6 +29,7 @@ Registry refresh commits are grouped instead of listed individually.
 
 ### Tests
 
+- Added eight guided-session lifecycle tests and real-browser regressions for Profile retries, unlinked installs, delayed job snapshots, and Agent failure recovery. CI uses a pinned DSH release to verify types, runtime interfaces, and UI, with tools installed independently of any active Profile.
 - Added real npm tarball export/declaration-closure checks, public entry imports, TypeScript consumption of 31 Typert types, and missing-file/manifest regressions; CI covers Node 22.19.0 and 24.
 - Added browser regressions using real React/DSH components and mock data for layouts, themes, filters, selections, and confirmations, without touching a real Profile.
 - Added regression coverage for conditional requests, offline recovery, concurrent refreshes, automatic ref pinning, encapsulated manifests, and Windows cleanup failures.

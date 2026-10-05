@@ -81,17 +81,17 @@
     "restart:test": "node --experimental-strip-types scripts/restart-test.ts",
     "self-update:test": "node --experimental-strip-types scripts/self-update-test.ts",
     "install-spec:test": "node --experimental-strip-types scripts/install-spec-test.ts",
-    "guided-agent:test": "node --experimental-strip-types scripts/guided-agent-test.ts",
+    "guided-agent:test": "node --experimental-strip-types scripts/guided-agent-test.ts && node --experimental-strip-types --test scripts/agent-session-test.ts",
     "typecheck": "node scripts/typecheck.mjs",
-    "test": "node --experimental-strip-types scripts/store-test.ts && node --experimental-strip-types scripts/registry-client-test.ts && node --experimental-strip-types scripts/github-timeout-test.ts && node --experimental-strip-types scripts/conflicts-test.ts && node --experimental-strip-types scripts/install-location-test.ts && node --experimental-strip-types scripts/install-location-integration-test.ts && node --experimental-strip-types scripts/profile-entries-test.ts && node --experimental-strip-types scripts/manual-install-test.ts && node --experimental-strip-types scripts/install-spec-test.ts && node --experimental-strip-types scripts/operation-queue-test.ts && node --experimental-strip-types scripts/typert-test.ts"
+    "test": "node --experimental-strip-types scripts/store-test.ts && node --experimental-strip-types scripts/store-integration-test.ts && node --experimental-strip-types scripts/registry-client-test.ts && node --experimental-strip-types scripts/github-timeout-test.ts && node --experimental-strip-types scripts/conflicts-test.ts && node --experimental-strip-types scripts/install-location-test.ts && node --experimental-strip-types scripts/install-location-integration-test.ts && node --experimental-strip-types scripts/profile-entries-test.ts && node --experimental-strip-types scripts/manual-install-test.ts && node --experimental-strip-types scripts/install-spec-test.ts && node --experimental-strip-types scripts/operation-queue-test.ts && node --experimental-strip-types scripts/typert-test.ts"
   },
   "dependencies": {
     "zod": "^4.4.3"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
-    "@deepseek-ai/dsh-app-boot": "^0.1.0-rc.5",
-    "@deepseek-ai/dsh-typert-protocol": "^0.1.0-rc.5"
+    "@deepseek-ai/dsh-app-boot": "^0.1.0-rc.5 || ^0.1.7-alpha.2",
+    "@deepseek-ai/dsh-typert-protocol": "^0.1.0-rc.5 || ^0.1.7-alpha.2"
   },
   "devDependencies": {
     "@types/node": "^22.20.0",

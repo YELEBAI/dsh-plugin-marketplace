@@ -6,6 +6,14 @@
  *  therefore carry the wire contract, not just the TypeScript types.
  */
 import { z } from 'zod';
+type Codec = {
+    mode: 'strict';
+    typeSymbol: string;
+    schema: z.ZodTypeAny;
+    create: () => {
+        parse: (value: unknown) => unknown;
+    };
+};
 /** Host-face manifest registered by @deepseek-ai/dsh-typert-loader. */
 export declare const TYPERT: {
     package: string;
@@ -16,17 +24,9 @@ export declare const TYPERT: {
             name: string;
             wire: string;
             source: "json";
-            codec: {
-                mode: "strict";
-                typeSymbol: string;
-                schema: z.ZodType<unknown, unknown, z.core.$ZodTypeInternals<unknown, unknown>>;
-            };
+            codec: Codec;
         }[];
-        result: {
-            mode: "strict";
-            typeSymbol: string;
-            schema: z.ZodType<unknown, unknown, z.core.$ZodTypeInternals<unknown, unknown>>;
-        };
+        result: Codec;
         implementation?: string;
         id: string;
         service: string;
@@ -50,17 +50,9 @@ export declare const TYPERT_REMOTE: {
             name: string;
             wire: string;
             source: "json";
-            codec: {
-                mode: "strict";
-                typeSymbol: string;
-                schema: z.ZodType<unknown, unknown, z.core.$ZodTypeInternals<unknown, unknown>>;
-            };
+            codec: Codec;
         }[];
-        result: {
-            mode: "strict";
-            typeSymbol: string;
-            schema: z.ZodType<unknown, unknown, z.core.$ZodTypeInternals<unknown, unknown>>;
-        };
+        result: Codec;
         implementation?: string;
         id: string;
         service: string;

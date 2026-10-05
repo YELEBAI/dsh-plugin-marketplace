@@ -1,36 +1,20 @@
-/** 用本机 DSH checkout 的依赖验证真实界面；只调用模拟 Remote，不操作 Profile。 */
+/** 用真实 DSH 组件验证界面；只调用模拟 Remote，不操作 Profile。 */
 import assert from 'node:assert/strict'
 import { createServer } from 'node:http'
 import { once } from 'node:events'
-import { mkdtemp, readFile, readdir, rm, mkdir } from 'node:fs/promises'
+import { mkdtemp, readFile, rm, mkdir } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { checkout, packageRoot, resolveDsh, resolveTool } from './dsh-environment.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const checkout = resolve(process.env.DSH_CHECKOUT || 'D:/DSH/deepseek-harness')
 const require = createRequire(import.meta.url)
-async function checkoutDependency(name) {
-  const checkoutRequire = createRequire(join(checkout, 'package.json'))
-  try { return checkoutRequire(name) } catch (error) {
-    if (error.code !== 'MODULE_NOT_FOUND') throw error
-  }
-  const store = join(checkout, 'node_modules', '.pnpm')
-  for (const entry of (await readdir(store)).filter(entry => entry.startsWith(name + '@')).sort().reverse()) {
-    try { return require(join(store, entry, 'node_modules', name)) } catch (error) {
-      if (error.code !== 'MODULE_NOT_FOUND') throw error
-    }
-  }
-  throw new Error(`DSH checkout 未安装 ${name}；此脚本不会自动下载依赖。`)
-}
-const esbuild = await checkoutDependency('esbuild')
-const { chromium } = await checkoutDependency('playwright')
+const esbuild = require(resolveTool('esbuild'))
+const { chromium } = require(resolveTool('playwright'))
 async function reactPackage(name) {
-  const store = join(checkout, 'node_modules', '.pnpm')
-  const entry = (await readdir(store)).filter(entry => entry.startsWith(name + '@')).sort().reverse()[0]
-  if (entry) return join(store, entry, 'node_modules', name)
-  return dirname(require.resolve(name + '/package.json'))
+  return dirname(require.resolve(name + '/package.json', { paths: [root] }))
 }
 const react = await reactPackage('react')
 const reactDom = await reactPackage('react-dom')
@@ -48,17 +32,30 @@ try {
     alias: {
       react,
       'react-dom': reactDom,
-      '@deepseek-ai/dsh-client-ui-primitives': join(root, 'scripts/ui-primitives.tsx'),
+      '@deepseek-ai/dsh-client-ui-primitives': packageRoot === undefined
+        ? join(root, 'scripts/ui-primitives.tsx')
+        : resolveDsh('@deepseek-ai/dsh-client-ui-primitives'),
     },
+    nodePaths: [join(packageRoot ?? checkout, 'node_modules'), ...(process.env.MARKETPLACE_TOOLS_DIR ? [join(process.env.MARKETPLACE_TOOLS_DIR, 'node_modules')] : [])],
+    loader: { '.module.css': 'local-css', '.woff2': 'dataurl', '.woff': 'dataurl', '.ttf': 'dataurl' },
     plugins: [{
       name: 'dsh-fixture',
       setup(build) {
         build.onResolve({ filter: /^@dsh-fixture\// }, ({ path }) => {
           const name = path.slice('@dsh-fixture/'.length)
-          if (name === 'theme.css') return { path: join(checkout, 'packages/client/ui-theme/src/styles/design-platform.css'), namespace: 'theme-text' }
+          if (name === 'theme.css') return { path: packageRoot === undefined
+            ? join(checkout, 'packages/client/ui-theme/src/styles/design-platform.css')
+            : resolveDsh('@deepseek-ai/dsh-client-ui-theme/client'), namespace: 'theme-text' }
           return { path: join(primitives, name === 'icons' ? 'icons/index.tsx' : name + '.tsx') }
         })
-        build.onLoad({ filter: /.*/, namespace: 'theme-text' }, async ({ path }) => ({ contents: await readFile(path, 'utf8'), loader: 'text' }))
+        build.onLoad({ filter: /.*/, namespace: 'theme-text' }, async ({ path }) => {
+          const source = await readFile(path, 'utf8')
+          if (packageRoot === undefined) return { contents: source, loader: 'text' }
+          // 发布包将官方 design-platform.css 内联为字符串；不执行整个主题插件。
+          const inline = source.match(/var design_platform_css_default = ("(?:\\.|[^"\\])*");/)
+          if (!inline) throw new Error('Published DSH theme has no recognizable design-platform CSS; use DSH_CHECKOUT for this release')
+          return { contents: JSON.parse(inline[1]), loader: 'text' }
+        })
       },
     }],
   })
@@ -173,9 +170,10 @@ try {
       const { x, y, bottom, height } = element.getBoundingClientRect()
       return { x, y, bottom, height }
     }))
+    await page.screenshot({ path: join(screenshots, 'marketplace-refresh-density.png'), animations: 'disabled' })
     assert.equal(cards[0].y, cards[1].y, width + 'px 应显示两列')
     assert.ok(cards[1].x > cards[0].x)
-    assert.ok(cards.every(card => card.height <= 220), '默认卡片无需大块留白')
+    assert.ok(cards.every(card => card.height <= 220), '默认卡片无需大块留白：' + JSON.stringify(cards))
     const visibleCount = cards.filter(card => card.y >= 0 && card.bottom <= 794).length
     assert.ok(visibleCount >= 4, width + 'px 首屏应至少完整显示四个插件')
     console.log(`内容区 ${width}px：双列，卡片 ${cards[0].height}px，首屏完整显示 ${visibleCount} 个插件`)
@@ -188,8 +186,129 @@ try {
   await page.setViewportSize({ width: 522, height: 794 })
   await page.locator('.mkt-card').nth(11).waitFor()
   await noOverflow('English dense catalog 490')
+
+  const dataLens = page.locator('.mkt-card').filter({ has: page.getByText('data-lens', { exact: true }) })
+  async function confirmDataLensInstall() {
+    await dataLens.getByRole('button', { name: '安装', exact: true }).click()
+    await dialog.waitFor()
+    await dialog.getByRole('checkbox').check()
+    await dialog.locator('button').last().click()
+    await page.waitForFunction(() => window.__marketplaceFixture.installs === 1)
+  }
+  async function settleFixtureRender() {
+    // 等待被显式释放的 Promise 及 React 渲染提交，不猜测 Remote 的耗时。
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))))
+  }
+
+  // 目录残留条目不是当前 Profile 的已安装插件；访问已安装页不应改变安装行为。
+  await page.goto(url)
+  await page.getByRole('button', { name: '已安装插件', exact: true }).click()
+  await page.getByText('目录中存在，但未关联当前 Profile', { exact: true }).waitFor()
+  await page.getByRole('button', { name: '插件市场', exact: true }).click()
+  await confirmDataLensInstall()
+  assert.deepEqual(await page.evaluate(() => window.__marketplaceFixture.installRequests), [
+    { repo: 'dsh-labs/data-lens', ref: 'b'.repeat(40) },
+  ], '未关联条目应通过确认并以该插件的精确来源安装')
+  await dataLens.getByRole('button', { name: '已安装', exact: true }).waitFor()
+  assert.equal(await page.getByText('该插件已安装。', { exact: true }).count(), 0)
+
+  // Profile 独立失败时保持目录可浏览；原页重试应保留筛选并恢复安装能力。
+  for (const copy of [
+    { lang: 'zh', retry: '重试安装检查', unavailable: '无法确认安装条件', checking: '正在检查安装条件…', install: '安装', category: '插件分类' },
+    { lang: 'en', retry: 'Retry install check', unavailable: 'Install requirements unavailable', checking: 'Checking install requirements…', install: 'Install', category: 'Plugin category' },
+  ]) {
+    await page.goto(url + '/?scenario=profile-retry&lang=' + copy.lang)
+    const profileError = page.locator('.mkt-profile-error')
+    await profileError.getByRole('alert').waitFor()
+    if (copy.lang === 'zh') await page.screenshot({ path: join(screenshots, 'marketplace-profile-retry.png'), fullPage: true, animations: 'disabled' })
+    assert.equal(await dataLens.getByRole('button', { name: copy.unavailable, exact: true }).isDisabled(), true)
+    await page.getByRole('searchbox').fill('data-lens')
+    await page.getByRole('combobox', { name: copy.category }).selectOption('data')
+    await noOverflow(copy.lang + ' profile retry')
+    await profileError.getByRole('button', { name: copy.retry, exact: true }).click()
+    await page.waitForFunction(() => window.__marketplaceFixture.installLocationCalls === 2)
+    assert.equal(await profileError.getByRole('button', { name: copy.checking, exact: true }).isDisabled(), true, '请求未完成时应禁止重复重试')
+    assert.equal(await dataLens.getByRole('button', { name: copy.checking, exact: true }).isDisabled(), true)
+    await page.evaluate(() => window.__marketplaceFixture.releaseProfile())
+    await profileError.waitFor({ state: 'detached' })
+    await dataLens.getByRole('button', { name: copy.install, exact: true }).waitFor()
+    assert.equal(await dataLens.getByRole('button', { name: copy.install, exact: true }).isEnabled(), true)
+    assert.equal(await page.getByRole('searchbox').inputValue(), 'data-lens')
+    assert.equal(await page.getByRole('combobox', { name: copy.category }).inputValue(), 'data')
+    assert.deepEqual(await page.evaluate(() => ({
+      profile: window.__marketplaceFixture.installLocationCalls,
+      installed: window.__marketplaceFixture.installedCalls,
+      installs: window.__marketplaceFixture.installs,
+    })), { profile: 2, installed: 0, installs: 0 }, '重试只重读安装信息，不切换到已安装页或提交安装')
+  }
+
+  // 已安装列表成功后，早先的安装信息读取无论成功或失败都不得回退有效状态。
+  for (const outcome of ['success', 'failure']) {
+    await page.goto(url + '/?scenario=profile-late')
+    await page.getByRole('button', { name: '已安装插件', exact: true }).click()
+    await page.locator('.mkt-installed-card').first().waitFor()
+    await page.getByRole('button', { name: '插件市场', exact: true }).click()
+    await dataLens.getByRole('button', { name: '安装', exact: true }).waitFor()
+    assert.equal(await dataLens.getByRole('button', { name: '安装', exact: true }).isEnabled(), true, '完整列表成功后无需等待旧请求即可安装')
+    await page.evaluate(outcome => {
+      if (outcome === 'success') window.__marketplaceFixture.releaseStaleProfile()
+      else window.__marketplaceFixture.failProfile()
+    }, outcome)
+    await settleFixtureRender()
+    assert.equal(await page.locator('.mkt-profile-error').count(), 0)
+    assert.equal(await page.getByText('当前 Profile：web', { exact: true }).isVisible(), true)
+    assert.equal(await dataLens.getByRole('button', { name: '安装', exact: true }).isEnabled(), true)
+    assert.equal(await page.locator('.mkt-card').filter({ has: page.getByText('focus-panel', { exact: true }) }).getByRole('button', { name: '已安装', exact: true }).isVisible(), true, '旧快照不得清除已关联状态')
+  }
+
+  // 初始空快照迟到时保留新任务；阻塞状态响应，避免在途轮询掩盖任务被清空的问题。
+  await page.goto(url + '/?scenario=jobs-race')
+  await confirmDataLensInstall()
+  await dataLens.getByRole('button', { name: '正在安装…', exact: true }).waitFor()
+  await page.evaluate(() => window.__marketplaceFixture.releaseJobs())
+  await settleFixtureRender()
+  assert.equal(await dataLens.getByRole('button', { name: '正在安装…', exact: true }).isDisabled(), true, '初始空快照不能移除本页的新任务')
+  await page.evaluate(() => window.__marketplaceFixture.releaseJobStatus())
+  await page.waitForFunction(() => window.__marketplaceFixture.jobStatusCalls.includes('fixture-install'))
+  const pollsAfterRestore = await page.evaluate(() => window.__marketplaceFixture.jobStatusCalls.length)
+  await page.waitForFunction(previous => window.__marketplaceFixture.jobStatusCalls.length > previous, pollsAfterRestore)
+  assert.equal(await dataLens.getByRole('button', { name: '正在安装…', exact: true }).isDisabled(), true, '恢复后应继续轮询且防止重复安装')
+  await page.screenshot({ path: join(screenshots, 'marketplace-task-progress.png'), fullPage: true, animations: 'disabled' })
+  await page.evaluate(() => window.__marketplaceFixture.finishInstall())
+  await dataLens.getByRole('button', { name: '已安装', exact: true }).waitFor()
+  await dataLens.getByText('安装中 — 完成 (@dsh/data-lens@0.8.2)', { exact: true }).waitFor()
+  assert.equal(await page.evaluate(() => window.__marketplaceFixture.installs), 1)
+
+  // 同 ID 的旧快照也不能把本页已经完成的任务退回排队状态。
+  await page.goto(url + '/?scenario=jobs-race')
+  await confirmDataLensInstall()
+  await page.evaluate(() => {
+    window.__marketplaceFixture.finishInstall()
+    window.__marketplaceFixture.releaseJobStatus()
+  })
+  await dataLens.getByText('安装中 — 完成 (@dsh/data-lens@0.8.2)', { exact: true }).waitFor()
+  await page.evaluate(() => window.__marketplaceFixture.releaseJobs('stale'))
+  await settleFixtureRender()
+  assert.equal(await dataLens.getByText('安装中 — 完成 (@dsh/data-lens@0.8.2)', { exact: true }).isVisible(), true)
+  assert.equal(await dataLens.getByRole('button', { name: '已安装', exact: true }).isVisible(), true)
+  assert.equal(await dataLens.getByText('安装中 — 等待前序插件完成', { exact: true }).count(), 0)
+
+  // Agent 创建失败必须撤销进行中横幅，同时恢复操作并显示失败原因。
+  await page.goto(url + '/?scenario=agent-failure')
+  await page.getByRole('button', { name: 'Agent 安装', exact: true }).click()
+  await page.getByText('正在创建安装 Agent…', { exact: true }).waitFor()
+  assert.equal(await page.getByRole('button', { name: '创建中…', exact: true }).isDisabled(), true)
+  await page.evaluate(() => window.__marketplaceFixture.failAgent())
+  await page.getByRole('alert').filter({ hasText: 'fixture: Agent 创建失败' }).waitFor()
+  await page.getByText('正在创建安装 Agent…', { exact: true }).waitFor({ state: 'detached' })
+  await page.getByRole('button', { name: 'Agent 安装', exact: true }).waitFor()
+  assert.equal(await page.getByRole('button', { name: 'Agent 安装', exact: true }).isEnabled(), true)
+  assert.equal(await page.evaluate(() => window.__marketplaceFixture.agentCalls), 1)
+  await page.getByRole('alert').filter({ hasText: 'fixture: Agent 创建失败' }).getByRole('button', { name: '关闭', exact: true }).click()
+  assert.equal(await page.getByText('正在创建安装 Agent…', { exact: true }).count(), 0, '关闭错误通知后仍不应显示虚假的进行中状态')
+
   assert.deepEqual(pageErrors, [], '浏览器不应出现未捕获异常')
-  console.log('UI 回归通过：明暗主题、不同面板宽度与展示密度、中英文、筛选重置、跨筛选选择和安装/卸载确认。')
+  console.log('UI 回归通过：明暗主题、不同面板宽度与展示密度、中英文、筛选重置、跨筛选选择、安装/卸载确认、未关联插件安装、Profile 重试、任务快照合并和 Agent 失败恢复。')
 } finally {
   await browser?.close()
   if (server?.listening) await new Promise(resolve => server.close(resolve))

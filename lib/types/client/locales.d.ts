@@ -46,6 +46,8 @@ export declare const zh: {
     install: string;
     checkingInstall: string;
     installUnavailable: string;
+    installCheckFailed: string;
+    retryInstallCheck: string;
     installGuide: string;
     agentInstall: string;
     agentUpdate: string;
@@ -271,6 +273,8 @@ export declare const en: {
     install: string;
     checkingInstall: string;
     installUnavailable: string;
+    installCheckFailed: string;
+    retryInstallCheck: string;
     installGuide: string;
     agentInstall: string;
     agentUpdate: string;
