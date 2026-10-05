@@ -8,6 +8,10 @@ Registry refresh commits are grouped instead of listed individually.
 
 ## [Unreleased]
 
+No unreleased changes yet.
+
+## [0.9.5] - 2026-10-05
+
 ### Fixed and improved
 
 - Support the DSH 0.1.7-rc.2 session lifecycle: retain guided-install sessions until submission and workspace navigation complete, release on all failure paths, and preserve the older automatic-binding/open API.
