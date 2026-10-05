@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T23:25:38.038Z",
-  "total": 1336,
+  "generatedAt": "2026-10-05T05:52:33.613Z",
+  "total": 1333,
   "groups": {
-    "remote-command-found": 455,
+    "remote-command-found": 453,
     "local-or-unparsed-command-only": 649,
-    "no-install-command-found": 232
+    "no-install-command-found": 231
   },
   "rows": [
     {
@@ -19056,77 +19056,6 @@
       }
     },
     {
-      "repository": "godv61/dsh-task-engine",
-      "packageName": "@godv61/dsh-task-engine",
-      "version": "0.30.0",
-      "verifiedCommit": "9c64b0a0e742b3e205712a3b598f12e5b8b823c4",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add @godv61/dsh-task-engine",
-          "profile": "web",
-          "spec": "@godv61/dsh-task-engine",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add @godv61/dsh-task-engine`，再运行 `pnpm dsh web --no-open`。重启后，侧边栏应出现“工程任务”，新会话应能选择“工程化开发引擎”。普通会话不会因为某个项目配置了流程而自动进入该流程。",
-          "profile": "web",
-          "spec": "@godv61/dsh-task-engine",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add @godv61/dsh-task-engine",
-          "profile": "web",
-          "spec": "@godv61/dsh-task-engine",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add @godv61/dsh-task-engine`，再运行 `pnpm dsh web --no-open`。重启后，侧边栏应出现“工程任务”，新会话应能选择“工程化开发引擎”。普通会话不会因为某个项目配置了流程而自动进入该流程。",
-          "profile": "web",
-          "spec": "@godv61/dsh-task-engine",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add @godv61/dsh-task-engine",
-          "profile": "web",
-          "spec": "@godv61/dsh-task-engine",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add @godv61/dsh-task-engine`，再运行 `pnpm dsh web --no-open`。重启后，侧边栏应出现“工程任务”，新会话应能选择“工程化开发引擎”。普通会话不会因为某个项目配置了流程而自动进入该流程。",
-          "profile": "web",
-          "spec": "@godv61/dsh-task-engine",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@godv61/dsh-task-engine@0.30.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "GongYuanCaiJi/dsh-baoyu-skills",
       "packageName": "dsh-baoyu-skills",
       "version": "0.1.0",
@@ -29369,36 +29298,6 @@
       "current": {
         "profiles": [
           "headless"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "lemonxiny55/dsh-composition-doctor",
-      "packageName": "dsh-composition-doctor",
-      "version": "0.4.0",
-      "verifiedCommit": "8cd296eb018e1e3b0c03a570bf9fb37239c80163",
-      "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-composition-doctor@0.4.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
         ],
         "requiresBuildApproval": true,
         "manualSteps": true,
@@ -52795,100 +52694,6 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
-      }
-    },
-    {
-      "repository": "Totoro-qaq/dsh-jot",
-      "packageName": "dsh-jot",
-      "version": "0.2.5",
-      "verifiedCommit": "a65d00e5fc3c4ecca59dda34df05fff2ea774c3d",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-jot",
-          "profile": "desktop",
-          "spec": "dsh-jot",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-jot",
-          "profile": "web",
-          "spec": "dsh-jot",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add dsh-jot@latest`，然后重启 Host。**卸载：** `dsh plugin --profile desktop remove dsh-jot`；笔记数据不会随插件删除。Web 把 `desktop` 换成 `web`。",
-          "profile": "desktop",
-          "spec": "dsh-jot@latest",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add \"$PWD/artifacts/dsh-jot-<版本>.tgz\"",
-          "profile": "desktop",
-          "spec": "$PWD/artifacts/dsh-jot-<版本>.tgz",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-jot",
-          "profile": "desktop",
-          "spec": "dsh-jot",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-jot",
-          "profile": "web",
-          "spec": "dsh-jot",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add dsh-jot@latest`，然后重启 Host。**卸载：** `dsh plugin --profile desktop remove dsh-jot`；笔记数据不会随插件删除。Web 把 `desktop` 换成 `web`。",
-          "profile": "desktop",
-          "spec": "dsh-jot@latest",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile desktop add dsh-jot",
-          "profile": "desktop",
-          "spec": "dsh-jot",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-jot",
-          "profile": "web",
-          "spec": "dsh-jot",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add dsh-jot@latest`，然后重启 Host。**卸载：** `dsh plugin --profile desktop remove dsh-jot`；笔记数据不会随插件删除。Web 把 `desktop` 换成 `web`。",
-          "profile": "desktop",
-          "spec": "dsh-jot@latest",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-jot@0.2.5",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "desktop",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
       }
     },
     {
