@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T21:15:59.909Z",
-  "total": 1341,
+  "generatedAt": "2026-10-07T01:49:54.942Z",
+  "total": 1340,
   "groups": {
     "remote-command-found": 457,
-    "local-or-unparsed-command-only": 648,
+    "local-or-unparsed-command-only": 647,
     "no-install-command-found": 236
   },
   "rows": [
@@ -644,7 +644,7 @@
       "repository": "121212165/dsh-plugin-fact-vault",
       "packageName": "dsh-plugin-fact-vault",
       "version": "0.1.0",
-      "verifiedCommit": "72b329096dfa60d28ab2ac01704a2f511cdae50d",
+      "verifiedCommit": "8023391fe416e914223ad188535855bdc36e707d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -726,7 +726,7 @@
       "repository": "121212165/dsh-plugin-ide-hub",
       "packageName": "dsh-plugin-ide-hub",
       "version": "0.7.0",
-      "verifiedCommit": "ae670d79ace3899452f0008d108cd460ae436e40",
+      "verifiedCommit": "5ad3f1df385b8a282832f75810d5812b5635e30e",
       "readmePath": "README.md",
       "commands": [
         {
@@ -861,7 +861,7 @@
       "repository": "121212165/dsh-plugin-price-aware",
       "packageName": "dsh-plugin-price-aware",
       "version": "0.1.0",
-      "verifiedCommit": "1bd3951e60861510e1e595a1308d91d203da0613",
+      "verifiedCommit": "7f7684e55c8c80def4bf9ed9cfee21c1e48b6f5e",
       "readmePath": "README.md",
       "commands": [
         {
@@ -960,7 +960,7 @@
       "repository": "121212165/dsh-plugin-quota",
       "packageName": "dsh-plugin-quota",
       "version": "0.2.0",
-      "verifiedCommit": "eefb7cdbde66860bff97f6fe8b434f3aab532bef",
+      "verifiedCommit": "f77a02efc60a32cc19a28713744ca6a0b2d28a3d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -1089,7 +1089,7 @@
       "repository": "121212165/dsh-plugin-task-forge",
       "packageName": "dsh-plugin-task-forge",
       "version": "0.2.0",
-      "verifiedCommit": "bc208e3b15e11ac4aee486126cfbf44267727cc3",
+      "verifiedCommit": "d003f31a147946461622e4c2be178d8f5639a59e",
       "readmePath": "README.md",
       "commands": [
         {
@@ -1177,7 +1177,7 @@
       "repository": "121212165/dsh-plugin-transcript",
       "packageName": "dsh-plugin-transcript",
       "version": "0.1.0",
-      "verifiedCommit": "8e018e68693496eba49003a4ff6a1d67e42260ac",
+      "verifiedCommit": "6fc182ecf549729a3352cba8fd291da24cfbdd88",
       "readmePath": "README.md",
       "commands": [
         {
@@ -1218,7 +1218,7 @@
       "repository": "121212165/dsh-plugin-transcript-search",
       "packageName": "dsh-plugin-transcript-search",
       "version": "0.1.0",
-      "verifiedCommit": "bb40f8698f8d3ed67040a14f10b612b630a29e8e",
+      "verifiedCommit": "047f71d13ab96ee2112c728462e4e4695eae4e6a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11766,7 +11766,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "faeb8fb77fb6e5acf0f43106deee3c8e45a3cc9c",
+      "verifiedCommit": "b9bb499d7e69d354f3360b1900c1421051131270",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15637,7 +15637,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "4836b7ade631e10079ce76196236671fa3448375",
+      "verifiedCommit": "1ff992fe2526eb5aa0b36e3f4407365eb92b0c3d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15734,6 +15734,59 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "diqierjia/StrataGate-AgentMemory",
+      "packageName": "stratagate-dsh",
+      "version": "0.3.2",
+      "verifiedCommit": "1e5bc832329bea05b5a72d37a41bb87ae9c621dc",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add stratagate-dsh",
+          "profile": "web",
+          "spec": "stratagate-dsh",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add stratagate-dsh",
+          "profile": "web",
+          "spec": "stratagate-dsh",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add stratagate-dsh",
+          "profile": "web",
+          "spec": "stratagate-dsh",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "stratagate-dsh@0.3.2",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -16366,15 +16419,15 @@
     {
       "repository": "EIGHTfs/dsh-session-conductor",
       "packageName": "dsh-session-conductor",
-      "version": "1.0.2",
-      "verifiedCommit": "5afb5120f2e291ddfa4e9428c658209033724349",
+      "version": "1.0.3",
+      "verifiedCommit": "778ec9c9e842c52d55e398846a7d5858ef6d1b83",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-session-conductor@1.0.2",
+        "spec": "dsh-session-conductor@1.0.3",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -16426,8 +16479,8 @@
     {
       "repository": "Elec11/dsh-trello",
       "packageName": "dsh-trello",
-      "version": "0.1.0",
-      "verifiedCommit": "bb4a9413b822738226e26afc26eda39db5e58983",
+      "version": "0.2.0",
+      "verifiedCommit": "7ddb96ea0298684ed52533311426b0e84b0582b9",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16441,7 +16494,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-trello@0.1.0",
+        "spec": "dsh-trello@0.2.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -18345,43 +18398,6 @@
       "npmVerification": {
         "verified": false,
         "spec": "dsh-develop-ui@0.1.6",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "Fourteenth-Night/dsh-aoci",
-      "packageName": "dsh-aoci",
-      "version": "0.1.8",
-      "verifiedCommit": "877ff304b1f9810bcd56bb59c910399ac02bf8ab",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-aoci-<version>.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-aoci-<version>.tgz",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-aoci@0.1.8",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -24410,7 +24426,7 @@
       "repository": "jazhu/dsh-hillstone-cli-ops",
       "packageName": "dsh-hillstone-cli-ops",
       "version": "1.0.0",
-      "verifiedCommit": "8ade3a11c9ecfd5b4ae339a4e2a5a3c78f196150",
+      "verifiedCommit": "e212b2fb33721cd08c5b744ec23402ab75037b3c",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -41488,7 +41504,7 @@
       "repository": "orangeofcarl0-sys/dsh-epistemic-fold",
       "packageName": "dsh-epistemic-fold",
       "version": "0.1.0",
-      "verifiedCommit": "165025bc537289055ee1daf57b43166707d589a6",
+      "verifiedCommit": "093c5d2216b383c58142571faa6a394761f42c99",
       "readmePath": "README.md",
       "commands": [
         {
@@ -52278,8 +52294,8 @@
     {
       "repository": "TikaFlow/dsh-model-fix",
       "packageName": "dsh-model-fix",
-      "version": "0.22.21",
-      "verifiedCommit": "67cce130b7c834c7cf6b3e6696a56799ac08c769",
+      "version": "0.23.72",
+      "verifiedCommit": "c33a2f776a1d6cfbf1944dae0d33dade2ecdfd69",
       "readmePath": "README.md",
       "commands": [
         {
@@ -52313,7 +52329,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-model-fix@0.22.21",
+        "spec": "dsh-model-fix@0.23.72",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -52766,7 +52782,7 @@
       "repository": "toddpan/dsh-feyagate",
       "packageName": "@dsh-external/dsh-feyagate-gateway",
       "version": "0.3.2",
-      "verifiedCommit": "0f83b21707e0dfc78e39369fb313788ec06965c3",
+      "verifiedCommit": "74a18b494f2c3dedc309d7f09901c0dbfaf2f6ab",
       "readmePath": "README.md",
       "commands": [
         {
@@ -52817,81 +52833,6 @@
         "lifecycleScripts": [
           "prepare"
         ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "toddpan/dsh-webapi",
-      "packageName": "@dsh-external/dsh-web-service",
-      "version": "0.3.0",
-      "verifiedCommit": "77175030de0bb7f536ed18d99a5e88688df5daf1",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add  https://github.com/toddpan/dsh-webapi/releases/latest/download/dsh-web-service.tgz",
-          "profile": "web",
-          "spec": "https://github.com/toddpan/dsh-webapi/releases/latest/download/dsh-web-service.tgz",
-          "source": "tarball"
-        },
-        {
-          "raw": "dsh plugin --profile web add https://github.com/toddpan/dsh-webapi/releases/download/v0.1.11/dsh-web-service-0.1.11.tgz **Option 2: build from source** (needs a DSH source checkout)",
-          "profile": "web",
-          "spec": "https://github.com/toddpan/dsh-webapi/releases/download/v0.1.11/dsh-web-service-0.1.11.tgz",
-          "source": "tarball"
-        },
-        {
-          "raw": "dsh plugin --profile web add \"$PWD\"",
-          "profile": "web",
-          "spec": "$PWD",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add  https://github.com/toddpan/dsh-webapi/releases/latest/download/dsh-web-service.tgz",
-          "profile": "web",
-          "spec": "https://github.com/toddpan/dsh-webapi/releases/latest/download/dsh-web-service.tgz",
-          "source": "tarball"
-        },
-        {
-          "raw": "dsh plugin --profile web add https://github.com/toddpan/dsh-webapi/releases/download/v0.1.11/dsh-web-service-0.1.11.tgz **Option 2: build from source** (needs a DSH source checkout)",
-          "profile": "web",
-          "spec": "https://github.com/toddpan/dsh-webapi/releases/download/v0.1.11/dsh-web-service-0.1.11.tgz",
-          "source": "tarball"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add  https://github.com/toddpan/dsh-webapi/releases/latest/download/dsh-web-service.tgz",
-          "profile": "web",
-          "spec": "https://github.com/toddpan/dsh-webapi/releases/latest/download/dsh-web-service.tgz",
-          "source": "tarball"
-        },
-        {
-          "raw": "dsh plugin --profile web add https://github.com/toddpan/dsh-webapi/releases/download/v0.1.11/dsh-web-service-0.1.11.tgz **Option 2: build from source** (needs a DSH source checkout)",
-          "profile": "web",
-          "spec": "https://github.com/toddpan/dsh-webapi/releases/download/v0.1.11/dsh-web-service-0.1.11.tgz",
-          "source": "tarball"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@dsh-external/dsh-web-service@0.3.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-tarball-unverified",
-        "reason": "release-tarball-not-statically-verified"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
