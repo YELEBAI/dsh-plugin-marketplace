@@ -19,7 +19,7 @@ try {
   const manifest = { name: 'profile', private: true, dependencies: { fixture: 'file:./fixture' } }
   writeFileSync(join(profile, 'package.json'), JSON.stringify(manifest))
   writeFileSync(join(profile, 'pnpm-workspace.yaml'), 'nodeLinker: hoisted\nautoInstallPeers: false\n')
-  await run(['install', '--offline', '--ignore-scripts'], join(root, 'store', 'v11', 'v11'))
+  await run(['install', '--offline', '--ignore-scripts'], join(root, 'store with spaces', 'v11', 'v11'))
   const store = linkedPnpmStore(profile)
   assert.ok(store)
   await run(['remove', 'fixture'])

@@ -353,8 +353,24 @@ try {
   assert.equal(await page.locator('.mkt-card').count(), 2)
   await noOverflow('English Desktop filtered catalog')
 
+  // 返回 Web 后，不能遗留 Desktop 的过滤、目录限制或重启说明。
+  await page.goto(url)
+  await page.getByText('当前 Profile：web', { exact: true }).waitFor()
+  await page.getByText('找到 3 个插件', { exact: true }).waitFor()
+  assert.equal(await dataLens.count(), 1, 'Web-only 插件在 Web 列表仍可见')
+  assert.equal(await page.getByText('仅显示明确支持桌面端的插件', { exact: true }).count(), 0)
+  await page.getByRole('button', { name: '管理与诊断', exact: true }).click()
+  assert.equal(await page.getByRole('button', { name: '选择文件夹', exact: true }).first().isEnabled(), true, 'Web 仍可选择插件安装目录')
+  await page.getByRole('button', { name: '重启 DSH', exact: true }).click()
+  await dialog.waitFor()
+  assert.doesNotMatch(await dialog.innerText(), /托盘/)
+  assert.equal(await dialog.locator('button').last().isDisabled(), true)
+  await dialog.getByRole('checkbox').check()
+  await dialog.locator('button').last().click()
+  await page.waitForFunction(() => window.__marketplaceFixture.restarts === 1)
+
   assert.deepEqual(pageErrors, [], '浏览器不应出现未捕获异常')
-  console.log('UI 回归通过：明暗主题、不同面板宽度与展示密度、中英文、筛选与批量选择、安装/卸载确认、Profile 重试、任务快照、Agent 失败恢复、Desktop 列表过滤/标记/安装边界/重启说明。')
+  console.log('UI 回归通过：明暗主题、不同面板宽度与展示密度、中英文、筛选与批量选择、安装/卸载确认、Profile 重试、任务快照、Agent 失败恢复、Desktop 列表过滤/标记/安装边界/重启说明；Web 列表、目录选择与重启确认保持可用。')
 } finally {
   await browser?.close()
   if (server?.listening) await new Promise(resolve => server.close(resolve))

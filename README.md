@@ -351,6 +351,7 @@ pnpm discovery:test
 pnpm profile:test
 pnpm restart:test
 pnpm desktop:test
+pnpm web:runtime-test
 pnpm self-update:test
 pnpm guided-agent:test
 pnpm build
@@ -366,6 +367,8 @@ pnpm typecheck
 隔离页面，不会操作真实 Profile 或安装插件；真实宿主集成仍需在 DSH 中验证。
 
 可用 `MARKETPLACE_SCREENSHOTS_DIR` 指定截图输出目录。设置 `DSH_DESKTOP_ROOT` 为已有桌面端安装目录后，执行 `pnpm desktop:runtime-test`：它使用 Electron Node 模式和内置 pnpm，在临时 Profile 中离线安装、更新、卸载本地测试包，并验证 Host/RPC、版本检查、共享锁和重启保护；不启动 GUI、不修改用户 Profile、不下载 DSH 或第三方插件。这不等同于桌面窗口实机交互验收。
+
+`pnpm web:runtime-test` 使用真实 Cordis Host、市场服务和 pnpm，在独立进程的临时 `DSH_HOME` 中验证旧版默认目录与新版自定义目录、Web 列表、安装/更新/卸载、冲突拒绝以及停用状态保留。仅使用本地测试压缩包并禁用生命周期脚本，不读取用户凭据、不写用户 Profile；浏览器回归另外确认 Web 不继承桌面端筛选、目录限制或重启说明。CI 对两个 DSH 发布版本重复运行。
 
 失败恢复回归覆盖安装条件读取失败后的原页重试、未关联插件重新安装、延迟任务快照与新任务的合并，以及 Agent 创建失败后的状态恢复。`pnpm guided-agent:test` 另外覆盖新版会话引用释放、命名/提交/导航失败和旧版会话入口；测试不会发送真实模型请求。
 

@@ -18,11 +18,13 @@ Registry refresh commits are grouped instead of listed individually.
 
 ### Fixed and security
 
+- Launch standard Windows npm/Corepack pnpm through its Node entry to preserve local install sources and Store arguments containing spaces; Desktop continues using its bundled package manager.
 - Remote Registry reads now require HTTPS and reject cleartext HTTP before making a request.
 - Pinned the transitive `js-yaml` dependency to `4.3.2`, covering the older parser pulled in by the DSH toolchain.
 
 ### Tests
 
+- Added isolated real Web Host/pnpm regressions for default/custom directories, install/update/conflict rejection/uninstall and preservation of disabled state and unrelated Bundle order. Added Windows shim/space-containing Store coverage and browser assertions for unchanged Web catalogs, directory selection and restart confirmation, without touching user credentials or Profiles.
 - Added an HTTPS-only Registry regression that verifies HTTP sources fail before any request; local `file:` Registries remain supported.
 
 ## [0.9.5] - 2026-10-05

@@ -356,6 +356,8 @@ pnpm registry:discovery
 pnpm discovery:test
 pnpm profile:test
 pnpm restart:test
+pnpm desktop:test
+pnpm web:runtime-test
 pnpm self-update:test
 pnpm guided-agent:test
 pnpm build
@@ -370,6 +372,10 @@ and refreshes the previews in [`docs/screenshots`](./docs/screenshots). Set `PLA
 if the browser is outside Playwright's default location. The test does not download dependencies and uses an isolated
 page with mock data; it does not modify real Profiles or install plugins. Integration with the actual DSH host still
 requires verification in DSH.
+
+Use `MARKETPLACE_SCREENSHOTS_DIR` to redirect screenshots. With an existing Desktop installation selected by `DSH_DESKTOP_ROOT`, `pnpm desktop:runtime-test` checks the real Host/RPC and bundled pnpm in an isolated offline Profile, without starting the GUI or changing user Profiles.
+
+`pnpm web:runtime-test` uses the real Cordis Host, marketplace service and pnpm in a separate process with a temporary `DSH_HOME`. It checks legacy default and current custom directories, Web catalogs, install/update/uninstall, conflict rejection and preservation of disabled state. All fixtures are local archives with lifecycle scripts disabled; no user credentials or Profiles are read or modified. Browser regressions also verify that Desktop filtering, directory restrictions and restart guidance do not leak into Web. CI repeats the checks against both supported published DSH runtimes.
 
 Failure recovery checks cover retrying Profile reads in place, installing unlinked entries, merging delayed job snapshots, and recovering after guided Agent creation fails. `pnpm guided-agent:test` also checks session reference release, rename/submission/navigation failures, and older session APIs without sending real model requests.
 

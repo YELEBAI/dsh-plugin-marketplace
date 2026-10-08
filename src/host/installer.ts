@@ -5,8 +5,8 @@
 
 import { spawn } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
-import { closeSync, openSync, readFileSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
-import { isAbsolute, join, resolve, win32 } from 'node:path'
+import { closeSync, existsSync, openSync, readFileSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
+import { delimiter, isAbsolute, join, resolve, win32 } from 'node:path'
 import type {
   MarketplaceJobKind,
   MarketplaceJobPhase,
@@ -305,13 +305,33 @@ export function pnpmArgsFor(
   }
 }
 
+/** 标准 Windows npm/Corepack shim 改用 Node 入口，避免 shell 拆开含空格参数。 */
+export function systemPnpmRuntime(env: NodeJS.ProcessEnv = process.env, platform = process.platform): PackageManagerRuntime | undefined {
+  if (platform !== 'win32') return undefined
+  const searchPath = Object.entries(env).find(([key]) => key.toLowerCase() === 'path')?.[1] ?? ''
+  for (const entry of searchPath.split(platform === process.platform ? delimiter : ';')) {
+    const directory = entry.trim().replace(/^"|"$/g, '')
+    if (directory === '') continue
+    const executable = join(directory, 'pnpm.exe')
+    if (existsSync(executable)) return { command: executable }
+    // 保持 PATH 优先级：未知的自定义 shim 继续沿用原有系统调用，而不跳到后续目录。
+    if (!existsSync(join(directory, 'pnpm.cmd')) && !existsSync(join(directory, 'pnpm.bat'))) continue
+    for (const relative of ['node_modules/pnpm/bin/pnpm.cjs', 'node_modules/pnpm/bin/pnpm.mjs', 'node_modules/corepack/dist/pnpm.js']) {
+      const script = join(directory, relative)
+      if (existsSync(script)) return { command: process.execPath, args: [script] }
+    }
+    return undefined
+  }
+  return undefined
+}
+
 /**
  * Run one pnpm invocation in the working directory, streaming stdout and
  * stderr into the job log. When the directory is bound to a pnpm store (or
  * the caller supplies a Profile-linked store as fallback), the same store is
  * forwarded through --config.store-dir so staging, plugin and Profile jobs
  * never drift onto another store. Mirrors the CLI's Windows shell forwarding
- * (pnpm resolves through its .cmd shim).
+ * (unknown custom pnpm shims retain the legacy fallback).
  */
 export function runPnpmJob(
   job: JobRecord,
@@ -329,7 +349,7 @@ export function runPnpmJob(
     const { args: pnpmArgs, storeDir } = pnpmArgsFor(jobArgs, dir, fallbackStoreDir)
     table.append(job, '$ pnpm ' + pnpmArgs.map((arg) => /\s/.test(arg) ? JSON.stringify(arg) : arg).join(' ') + '\n')
     if (storeDir !== null) table.append(job, 'Using profile-linked pnpm store: ' + storeDir + '\n')
-    const runtime = table.runtime
+    const runtime = table.runtime ?? systemPnpmRuntime()
     const child = spawn(runtime?.command ?? 'pnpm', [...(runtime?.args ?? []), ...pnpmArgs], {
       cwd: dir,
       shell: runtime === undefined && process.platform === 'win32',

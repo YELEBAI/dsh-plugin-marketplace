@@ -18,11 +18,13 @@
 
 ### 修复与安全
 
+- 标准 Windows npm/Corepack 的 pnpm 启动改用 Node 入口，避免含空格的本地安装来源和 Store 参数被 shell 拆开；桌面端仍使用其内置包管理器。
 - Registry 远程读取仅允许 HTTPS，拒绝明文 HTTP，避免通过不加密连接加载插件目录。
 - 将传递依赖 `js-yaml` 固定到 `4.3.2`，覆盖 DSH 工具链中旧版本的解析依赖。
 
 ### 测试
 
+- 新增真实 Web Host/pnpm 的临时默认与自定义目录安装、更新、冲突拒绝、卸载回归，验证停用状态和其他 Bundle 顺序保留；补充 Windows shim/含空格 Store，以及浏览器中 Web 列表、目录选择和重启确认的用例。测试不操作用户凭据或 Profile。
 - 增加 HTTPS-only Registry 回归，验证 HTTP 地址在发起请求前失败；保留本地 `file:` Registry 支持。
 
 ## [0.9.5] - 2026-10-05

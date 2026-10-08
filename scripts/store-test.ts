@@ -7,7 +7,7 @@ import { strict as assert } from 'node:assert'
 import { existsSync, mkdirSync, mkdtempSync, rmSync, unlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { JobTable, MutationQueue, linkedPnpmStore, pnpmArgsFor, removeStaleProfileLock, withProfileMutationLock } from '../src/host/installer.ts'
+import { JobTable, MutationQueue, linkedPnpmStore, pnpmArgsFor, removeStaleProfileLock, systemPnpmRuntime, withProfileMutationLock } from '../src/host/installer.ts'
 
 let passed = 0
 function ok(name: string, fn: () => void): void {
@@ -18,6 +18,32 @@ function ok(name: string, fn: () => void): void {
 
 const tmp = mkdtempSync(join(tmpdir(), 'mkt-store-test-'))
 try {
+  // 标准 Windows shim 不经 shell，PATH 中的空格、优先级和自定义入口保持可预测。
+  for (const relative of ['node_modules/pnpm/bin/pnpm.cjs', 'node_modules/pnpm/bin/pnpm.mjs', 'node_modules/corepack/dist/pnpm.js']) {
+    const directory = join(tmp, 'runtime with spaces', relative.replaceAll('/', '-'))
+    const script = join(directory, relative)
+    mkdirSync(join(script, '..'), { recursive: true })
+    writeFileSync(join(directory, 'pnpm.cmd'), '@echo off')
+    writeFileSync(script, '')
+    ok('Windows shim resolves shell-free entry ' + relative, () => {
+      assert.deepEqual(systemPnpmRuntime({ Path: '"' + directory + '"' }, 'win32'), { command: process.execPath, args: [script] })
+    })
+  }
+  const executableDir = join(tmp, 'standalone')
+  mkdirSync(executableDir)
+  writeFileSync(join(executableDir, 'pnpm.exe'), '')
+  ok('Windows standalone pnpm uses its executable directly', () => {
+    assert.deepEqual(systemPnpmRuntime({ PATH: executableDir }, 'win32'), { command: join(executableDir, 'pnpm.exe') })
+  })
+  const customShim = join(tmp, 'custom-shim')
+  mkdirSync(customShim)
+  writeFileSync(join(customShim, 'pnpm.cmd'), '@echo off')
+  ok('unknown first shim does not fall through to a different PATH entry', () => {
+    assert.equal(systemPnpmRuntime({ PATH: customShim + ';' + executableDir }, 'win32'), undefined)
+  })
+  ok('non-Windows pnpm lookup is unchanged', () => {
+    assert.equal(systemPnpmRuntime({ PATH: executableDir }, 'linux'), undefined)
+  })
   // JSON form with a space in the path.
   const jsonDir = join(tmp, 'json')
   mkdirSync(join(jsonDir, 'node_modules'), { recursive: true })

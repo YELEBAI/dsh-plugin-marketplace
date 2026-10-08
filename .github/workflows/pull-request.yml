@@ -58,6 +58,8 @@ jobs:
           node --import ./scripts/use-installed-dsh.mjs --experimental-strip-types scripts/typert-test.ts
       - run: pnpm restart:test
       - run: pnpm desktop:test
+      - name: Web Host and offline package-manager regressions
+        run: pnpm web:runtime-test
       - run: pnpm self-update:test
       - run: pnpm guided-agent:test
       - name: Browser regressions with published DSH components

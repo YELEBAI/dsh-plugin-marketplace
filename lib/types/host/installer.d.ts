@@ -71,13 +71,15 @@ export declare function pnpmArgsFor(args: string[], dir: string, fallbackStoreDi
     args: string[];
     storeDir: string | null;
 };
+/** 标准 Windows npm/Corepack shim 改用 Node 入口，避免 shell 拆开含空格参数。 */
+export declare function systemPnpmRuntime(env?: NodeJS.ProcessEnv, platform?: NodeJS.Platform): PackageManagerRuntime | undefined;
 /**
  * Run one pnpm invocation in the working directory, streaming stdout and
  * stderr into the job log. When the directory is bound to a pnpm store (or
  * the caller supplies a Profile-linked store as fallback), the same store is
  * forwarded through --config.store-dir so staging, plugin and Profile jobs
  * never drift onto another store. Mirrors the CLI's Windows shell forwarding
- * (pnpm resolves through its .cmd shim).
+ * (unknown custom pnpm shims retain the legacy fallback).
  */
 export declare function runPnpmJob(job: JobRecord, args: string[], dir: string, table: JobTable, fallbackStoreDir?: string | null): Promise<number | null>;
 /** Profile 写入失败时做有界重试，覆盖 Windows 短暂文件占用与 lockfile 竞争。 */
