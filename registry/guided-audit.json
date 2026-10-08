@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T23:20:55.748Z",
-  "total": 1388,
+  "generatedAt": "2026-10-08T06:21:45.538Z",
+  "total": 1335,
   "groups": {
-    "remote-command-found": 452,
-    "local-or-unparsed-command-only": 697,
-    "no-install-command-found": 239
+    "remote-command-found": 453,
+    "local-or-unparsed-command-only": 644,
+    "no-install-command-found": 238
   },
   "rows": [
     {
@@ -3767,206 +3767,6 @@
       }
     },
     {
-      "repository": "ai-eks/dsh-auth-tunnel",
-      "packageName": "dsh-auth-tunnel",
-      "version": "0.2.0-rc.2",
-      "verifiedCommit": "8ce6300b09c4aa2fecbbdd6efed85e99a4492200",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@next",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@next",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add github:ai-eks/dsh-auth-tunnel",
-          "profile": "web",
-          "spec": "github:ai-eks/dsh-auth-tunnel",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add 'github:ai-eks/dsh-auth-tunnel#6e521da3a4899849937411dd1c341369205c96d6' # Harness 0.1.7-rc.2",
-          "profile": "web",
-          "spec": "github:ai-eks/dsh-auth-tunnel#6e521da3a4899849937411dd1c341369205c96d6",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.7-rc.1 # Harness 0.1.7-rc.1",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.7-rc.1",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.5-rc.1 # Harness 0.1.2-rc.1 / 0.1.3-alpha.2 / 0.1.5-rc.1",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.5-rc.1",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.1-rc.2.1 # Harness 0.1.1-rc.2",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.1-rc.2.1",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add 'github:ai-eks/dsh-auth-tunnel#v0.1.0-rc.8' # Harness rc.8",
-          "profile": "web",
-          "spec": "github:ai-eks/dsh-auth-tunnel#v0.1.0-rc.8",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add 'github:ai-eks/dsh-auth-tunnel#b4baea7c47f5c245da789d3553d41938df89b311' # Harness rc.7",
-          "profile": "web",
-          "spec": "github:ai-eks/dsh-auth-tunnel#b4baea7c47f5c245da789d3553d41938df89b311",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add 'github:ai-eks/dsh-auth-tunnel#v0.1.0-rc.6' # Harness rc.6",
-          "profile": "web",
-          "spec": "github:ai-eks/dsh-auth-tunnel#v0.1.0-rc.6",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@next",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@next",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.7-rc.1 # Harness 0.1.7-rc.1",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.7-rc.1",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.5-rc.1 # Harness 0.1.2-rc.1 / 0.1.3-alpha.2 / 0.1.5-rc.1",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.5-rc.1",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.1-rc.2.1 # Harness 0.1.1-rc.2",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.1-rc.2.1",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@next",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@next",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.7-rc.1 # Harness 0.1.7-rc.1",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.7-rc.1",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.5-rc.1 # Harness 0.1.2-rc.1 / 0.1.3-alpha.2 / 0.1.5-rc.1",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.5-rc.1",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-auth-tunnel@0.1.1-rc.2.1 # Harness 0.1.1-rc.2",
-          "profile": "web",
-          "spec": "dsh-auth-tunnel@0.1.1-rc.2.1",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-auth-tunnel@0.2.0-rc.2",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
-      }
-    },
-    {
-      "repository": "ai-eks/dsh-docking-layout",
-      "packageName": "@ai-eks/dsh-docking-layout",
-      "version": "0.2.0-rc.2",
-      "verifiedCommit": "2eff4ef32674d70b8ac2be5a8fe2ad4c7cca7578",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add @ai-eks/dsh-docking-layout@latest",
-          "profile": "web",
-          "spec": "@ai-eks/dsh-docking-layout@latest",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add github:ai-eks/dsh-docking-layout",
-          "profile": "web",
-          "spec": "github:ai-eks/dsh-docking-layout",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add @ai-eks/dsh-docking-layout@latest",
-          "profile": "web",
-          "spec": "@ai-eks/dsh-docking-layout@latest",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add @ai-eks/dsh-docking-layout@latest",
-          "profile": "web",
-          "spec": "@ai-eks/dsh-docking-layout@latest",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@ai-eks/dsh-docking-layout@0.2.0-rc.2",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
-      }
-    },
-    {
       "repository": "ailreth/xiaoxiao-persona-core",
       "packageName": "xiaoxiao-persona-core",
       "version": "0.1.0",
@@ -4339,7 +4139,7 @@
       "repository": "AliceSaikawa/dsh-webui-m3e",
       "packageName": "dsh-webui-m3e",
       "version": "0.0.8",
-      "verifiedCommit": "1f4f409cb2de3fe09a04b76c1bebb1fc328c6b2c",
+      "verifiedCommit": "cd99f273f9582729475272e48722d7ec850d6857",
       "readmePath": "README.md",
       "commands": [
         {
@@ -4616,57 +4416,6 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
-      }
-    },
-    {
-      "repository": "Alphainfix/wechat-clawbot",
-      "packageName": "wechat-clawbot",
-      "version": "0.9.9",
-      "verifiedCommit": "c159a2582c5480de7dfff989c3350aef1dd29a6c",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add wechat-clawbot",
-          "profile": "web",
-          "spec": "wechat-clawbot",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add wechat-clawbot",
-          "profile": "web",
-          "spec": "wechat-clawbot",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add wechat-clawbot",
-          "profile": "web",
-          "spec": "wechat-clawbot",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "wechat-clawbot@0.9.9",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
       }
     },
     {
@@ -5780,7 +5529,7 @@
       "repository": "asymptotee/dsh-terminal",
       "packageName": "dsh-terminal",
       "version": "0.1.0-dev.0",
-      "verifiedCommit": "ad4a0061e15a7e72fd77e7298a07337910ae7dad",
+      "verifiedCommit": "ae3bed8dfc5802669d7c651363abe8a1f74569e6",
       "readmePath": "README.md",
       "commands": [
         {
@@ -7887,47 +7636,6 @@
       }
     },
     {
-      "repository": "Bingtang1019/dsh-ppt-fusion",
-      "packageName": "dsh-ppt-flashmade",
-      "version": "0.7.0",
-      "verifiedCommit": "2993e10d471bd1a143df0d7c2339a42e8188dd58",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin add` 带 `-w`；PS 5.1 下生成文件用 Node 写（无 BOM）；`[Content_Types].xml` 路径必须 `-LiteralPath`；子进程管道可用但大产物走文件契约。",
-          "profile": null,
-          "spec": "带",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-ppt-flashmade@0.7.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": [
-          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
-        ]
-      }
-    },
-    {
       "repository": "Biogod2020/dsh-article-review",
       "packageName": "@deepseek-ai/dsh-experimental-paper-review",
       "version": "0.2.0-rc.2",
@@ -8075,32 +7783,63 @@
     {
       "repository": "blauerberg/dsh-subagent-concurrency-limit",
       "packageName": "dsh-subagent-concurrency-limit",
-      "version": "0.1.0",
-      "verifiedCommit": "4e4a469dec98feaae05d914a84812e3dcd1c9281",
+      "version": "0.1.1",
+      "verifiedCommit": "e5188b467c41a8200b496cf08321cf013f930b74",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add  github:blauerberg/dsh-subagent-concurrency-limit#01182275695067510a187cb05b46df49e5fe812c",
+          "raw": "dsh plugin --profile web add dsh-subagent-concurrency-limit",
           "profile": "web",
-          "spec": "github:blauerberg/dsh-subagent-concurrency-limit#01182275695067510a187cb05b46df49e5fe812c",
-          "source": "unknown"
+          "spec": "dsh-subagent-concurrency-limit",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-subagent-concurrency-limit@latest",
+          "profile": "web",
+          "spec": "dsh-subagent-concurrency-limit@latest",
+          "source": "npm"
         }
       ],
-      "targetedCommands": [],
-      "remoteCommands": [],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-subagent-concurrency-limit",
+          "profile": "web",
+          "spec": "dsh-subagent-concurrency-limit",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-subagent-concurrency-limit@latest",
+          "profile": "web",
+          "spec": "dsh-subagent-concurrency-limit@latest",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-subagent-concurrency-limit",
+          "profile": "web",
+          "spec": "dsh-subagent-concurrency-limit",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-subagent-concurrency-limit@latest",
+          "profile": "web",
+          "spec": "dsh-subagent-concurrency-limit@latest",
+          "source": "npm"
+        }
+      ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-subagent-concurrency-limit@0.1.0",
+        "spec": "dsh-subagent-concurrency-limit@0.1.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
       },
       "auditErrors": [],
       "current": {
         "profiles": [
-          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
@@ -11817,7 +11556,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "b1b0341a685fbba186436fd196266346e8ab90a3",
+      "verifiedCommit": "e80bd7898a9fe556afd5600862defbcf42bee401",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12272,6 +12011,131 @@
       "auditErrors": [],
       "current": {
         "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "ckanner/dsh-plugin-chatgpt",
+      "packageName": "dsh-plugin-chatgpt",
+      "version": "0.1.9",
+      "verifiedCommit": "141322af347dc33a8791806cceb17df29a6fa42f",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-plugin-chatgpt",
+          "profile": "<name>",
+          "spec": "dsh-plugin-chatgpt",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add https://github.com/ckanner/dsh-plugin-chatgpt/releases/latest/download/dsh-plugin-chatgpt.tgz",
+          "profile": "<name>",
+          "spec": "https://github.com/ckanner/dsh-plugin-chatgpt/releases/latest/download/dsh-plugin-chatgpt.tgz",
+          "source": "tarball"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-plugin-chatgpt",
+          "profile": "<name>",
+          "spec": "dsh-plugin-chatgpt",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add https://github.com/ckanner/dsh-plugin-chatgpt/releases/latest/download/dsh-plugin-chatgpt.tgz",
+          "profile": "<name>",
+          "spec": "https://github.com/ckanner/dsh-plugin-chatgpt/releases/latest/download/dsh-plugin-chatgpt.tgz",
+          "source": "tarball"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-plugin-chatgpt",
+          "profile": "<name>",
+          "spec": "dsh-plugin-chatgpt",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add https://github.com/ckanner/dsh-plugin-chatgpt/releases/latest/download/dsh-plugin-chatgpt.tgz",
+          "profile": "<name>",
+          "spec": "https://github.com/ckanner/dsh-plugin-chatgpt/releases/latest/download/dsh-plugin-chatgpt.tgz",
+          "source": "tarball"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-plugin-chatgpt@0.1.9",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "ckanner/dsh-plugin-lcu",
+      "packageName": "dsh-plugin-lcu",
+      "version": "0.3.3",
+      "verifiedCommit": "3465af4db687c20e23d1d5c8ef80b077afc39d66",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <profile> add dsh-plugin-lcu",
+          "profile": "<profile>",
+          "spec": "dsh-plugin-lcu",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile <profile> add dsh-plugin-lcu",
+          "profile": "<profile>",
+          "spec": "dsh-plugin-lcu",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile <profile> add dsh-plugin-lcu",
+          "profile": "<profile>",
+          "spec": "dsh-plugin-lcu",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-plugin-lcu@0.3.3",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
@@ -13471,7 +13335,7 @@
       "repository": "cslkkl/dsh-web-annotator",
       "packageName": "dsh-web-annotator",
       "version": "0.2.0-alpha.10",
-      "verifiedCommit": "0ca38670c9975ee6219fa4e1c4dbb2c383caeb45",
+      "verifiedCommit": "312973768334a333d7c9b70d60c92bfcde361e1e",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13561,7 +13425,7 @@
       "repository": "cup113/personal-track",
       "packageName": "personal-track",
       "version": "0.1.0",
-      "verifiedCommit": "5e7c2ebf3fff3d679d6c38e80c35b0e5e23be918",
+      "verifiedCommit": "654d13368e3e3bdd08b4be235a3edd94c995e2d4",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15631,7 +15495,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "edcb38fcfa437dcfd8ced4c209cdbda8f4c14152",
+      "verifiedCommit": "163abdb658ca2c213049be564d73fd2de0101294",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16069,7 +15933,7 @@
       "repository": "dream-num/dsh-univer-office",
       "packageName": "dsh-univer-office",
       "version": "0.3.6",
-      "verifiedCommit": "60cbf5a398f8ba8a6d69396a73eead383a652b6b",
+      "verifiedCommit": "3341826d7f24f1d8f4ee3f01f5ad82ff09157723",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17317,8 +17181,8 @@
     {
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
-      "version": "1.7.46",
-      "verifiedCommit": "de74041d22b57c0037ae94f578cf9b87bdb78d3d",
+      "version": "1.7.47",
+      "verifiedCommit": "85d2ee38b791fd36925d7f0b41c23f7935890e6d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17334,15 +17198,15 @@
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.7.46 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.7.47 --registry https://registry.npmjs.org",
           "profile": "web",
-          "spec": "dsh-mattpocock-skills-deck@1.7.46",
+          "spec": "dsh-mattpocock-skills-deck@1.7.47",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.7.46 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.7.47 --registry https://registry.npmjs.org",
           "profile": "desktop",
-          "spec": "dsh-mattpocock-skills-deck@1.7.46",
+          "spec": "dsh-mattpocock-skills-deck@1.7.47",
           "source": "npm"
         },
         {
@@ -17372,15 +17236,15 @@
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.7.46 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.7.47 --registry https://registry.npmjs.org",
           "profile": "web",
-          "spec": "dsh-mattpocock-skills-deck@1.7.46",
+          "spec": "dsh-mattpocock-skills-deck@1.7.47",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.7.46 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.7.47 --registry https://registry.npmjs.org",
           "profile": "desktop",
-          "spec": "dsh-mattpocock-skills-deck@1.7.46",
+          "spec": "dsh-mattpocock-skills-deck@1.7.47",
           "source": "npm"
         },
         {
@@ -17410,15 +17274,15 @@
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.7.46 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.7.47 --registry https://registry.npmjs.org",
           "profile": "web",
-          "spec": "dsh-mattpocock-skills-deck@1.7.46",
+          "spec": "dsh-mattpocock-skills-deck@1.7.47",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.7.46 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.7.47 --registry https://registry.npmjs.org",
           "profile": "desktop",
-          "spec": "dsh-mattpocock-skills-deck@1.7.46",
+          "spec": "dsh-mattpocock-skills-deck@1.7.47",
           "source": "npm"
         },
         {
@@ -17436,7 +17300,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-mattpocock-skills-deck@1.7.46",
+        "spec": "dsh-mattpocock-skills-deck@1.7.47",
         "reason": "npm-bundle-patch-mismatch"
       },
       "assessment": {
@@ -18792,36 +18656,6 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
-      }
-    },
-    {
-      "repository": "GaoHu1997/dsh-git-branch",
-      "packageName": "dsh-git-branch",
-      "version": "1.0.1",
-      "verifiedCommit": "f33dbcf7dad46c16252dd0fc5e3bd3db56c67402",
-      "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-git-branch@1.0.1",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
       }
     },
     {
@@ -23378,6 +23212,73 @@
         "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
+      }
+    },
+    {
+      "repository": "hyperion2144/dsh-hashline-edittool",
+      "packageName": "dsh-hashline-edittool",
+      "version": "0.10.1",
+      "verifiedCommit": "b51a8c793cc6121d621554747d016b95949fb123",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:hyperion2144/dsh-hashline-edittool   # from github",
+          "profile": "web",
+          "spec": "github:hyperion2144/dsh-hashline-edittool",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-hashline-edittool                       # from npm",
+          "profile": "web",
+          "spec": "dsh-hashline-edittool",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add /path/to/dsh-hashline-edittool              # local checkout",
+          "profile": "web",
+          "spec": "/path/to/dsh-hashline-edittool",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-hashline-edittool                       # from npm",
+          "profile": "web",
+          "spec": "dsh-hashline-edittool",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-hashline-edittool                       # from npm",
+          "profile": "web",
+          "spec": "dsh-hashline-edittool",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-hashline-edittool@0.10.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
       }
     },
     {
@@ -28493,13 +28394,13 @@
       "repository": "lakeofsky347/dsh-meihua",
       "packageName": "dsh-meihua",
       "version": "0.6.0",
-      "verifiedCommit": "ace86c5c5880b432a128199594ed46935a2819a1",
+      "verifiedCommit": "f6df87652622338a17c5f2cdcab1e49b408111bb",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin add \"/absolute/path/dsh-meihua-0.6.0-frontend-20261007.tgz\" --profile desktop",
+          "raw": "dsh plugin add \"/absolute/path/dsh-meihua-0.6.0-environment-20261007.tgz\" --profile desktop",
           "profile": "desktop",
-          "spec": "/absolute/path/dsh-meihua-0.6.0-frontend-20261007.tgz",
+          "spec": "/absolute/path/dsh-meihua-0.6.0-environment-20261007.tgz",
           "source": "local"
         }
       ],
@@ -28530,7 +28431,7 @@
       "repository": "lakeofsky347/dsh-video-studio",
       "packageName": "dsh-video-studio",
       "version": "0.4.0",
-      "verifiedCommit": "8a3eebe3e9dfa074f3c4e96515c7a0999a3b4f5d",
+      "verifiedCommit": "fa55b89d4454b6aacc1df514f1c6f1742b62e838",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -29941,7 +29842,7 @@
       "repository": "Leshm0321/dsh-plugin-local-agent-bridge",
       "packageName": "dsh-plugin-local-agent-bridge",
       "version": "0.1.0",
-      "verifiedCommit": "c525e85115938ee5a17f6c5ef03492cfe15e9e56",
+      "verifiedCommit": "9f5bbd477f9552169226efc146c0f23775e042b1",
       "readmePath": "README.md",
       "commands": [
         {
@@ -32482,7 +32383,7 @@
       "repository": "lsmax-72/dsh-rsi",
       "packageName": "dsh-rsi",
       "version": "0.0.1",
-      "verifiedCommit": "efa4b2cd42217d77791fea1ac4a4d7aa216e72b9",
+      "verifiedCommit": "6c10c7d21a635d309600517df42367dc7863be7c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -35603,6 +35504,65 @@
       }
     },
     {
+      "repository": "minivv/dsh-agent-skills",
+      "packageName": "dsh-agent-skills",
+      "version": "0.1.13",
+      "verifiedCommit": "a3378a841980be69553aa8eba5ae5da4bcbda3e1",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-agent-skills",
+          "profile": "web",
+          "spec": "dsh-agent-skills",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:minivv/dsh-agent-skills",
+          "profile": "web",
+          "spec": "github:minivv/dsh-agent-skills",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-agent-skills",
+          "profile": "web",
+          "spec": "dsh-agent-skills",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-agent-skills",
+          "profile": "web",
+          "spec": "dsh-agent-skills",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-agent-skills@0.1.13",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "minyang-chen/dsh-stock-lookup",
       "packageName": "dsh-stock-lookup",
       "version": "0.2.0",
@@ -37816,10 +37776,55 @@
       }
     },
     {
+      "repository": "NaivG/dsh-network",
+      "packageName": "dsh-network",
+      "version": "1.0.0",
+      "verifiedCommit": "523e5d1790413b2a1e31fc90c32cc7261afed54e",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:NaivG/dsh-network",
+          "profile": "web",
+          "spec": "github:NaivG/dsh-network",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:<path-to-this-checkout>",
+          "profile": "web",
+          "spec": "link:<path-to-this-checkout>",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-network@1.0.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "Nalleyer/dsh-enter-send",
       "packageName": "dsh-enter-send",
-      "version": "0.1.2",
-      "verifiedCommit": "f8a8ebaa445df122890a877bc666dc646f2e8451",
+      "version": "0.2.0",
+      "verifiedCommit": "206f793fab8a4fcffa6a4cb38e46e78854117b07",
       "readmePath": "README.md",
       "commands": [
         {
@@ -37827,44 +37832,18 @@
           "profile": "web",
           "spec": "github:Nalleyer/dsh-enter-send",
           "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add ./dsh-enter-send-0.1.0.tgz",
-          "profile": "web",
-          "spec": "./dsh-enter-send-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin --profile web add dsh-enter-send",
-          "profile": "web",
-          "spec": "dsh-enter-send",
-          "source": "npm"
         }
       ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-enter-send",
-          "profile": "web",
-          "spec": "dsh-enter-send",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-enter-send",
-          "profile": "web",
-          "spec": "dsh-enter-send",
-          "source": "npm"
-        }
-      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-enter-send@0.1.2",
+        "spec": "dsh-enter-send@0.2.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
@@ -42060,2398 +42039,6 @@
       }
     },
     {
-      "repository": "PerryLink/dsh-aqua-input-check",
-      "packageName": "dsh-aqua-input-check",
-      "version": "0.1.0",
-      "verifiedCommit": "2277e93b9f96c372f72ee4bf2b2d494ae522689c",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-aqua-input-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-aqua-input-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-aqua-input-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-bid-ca-precheck",
-      "packageName": "dsh-bid-ca-precheck",
-      "version": "0.1.0",
-      "verifiedCommit": "35a13fa732045362071928de24c73a3cf126431a",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-bid-ca-precheck-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-bid-ca-precheck-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-bid-ca-precheck@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-bid-qual-check",
-      "packageName": "dsh-bid-qual-check",
-      "version": "0.1.0",
-      "verifiedCommit": "e2820e5e6f2ea5fe5f00fe0adf4662dcbb27e760",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-bid-qual-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-bid-qual-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-bid-qual-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-contract-stance",
-      "packageName": "dsh-contract-stance",
-      "version": "0.1.0",
-      "verifiedCommit": "67446be0b79090bd441956ec67bacb5064d4532e",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-contract-stance-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-contract-stance-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-contract-stance@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-customs-doc-check",
-      "packageName": "dsh-customs-doc-check",
-      "version": "0.1.0",
-      "verifiedCommit": "9ab0c6f22aca75981c9f9da0ef0816ce51e00034",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-customs-doc-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-customs-doc-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-customs-doc-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-demurrage-ledger",
-      "packageName": "dsh-demurrage-ledger",
-      "version": "0.1.0",
-      "verifiedCommit": "f037f2e6f9809a9b6ff00765aacbead1b5ffd97f",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-demurrage-ledger-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-demurrage-ledger-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-demurrage-ledger@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-drill-script-check",
-      "packageName": "dsh-drill-script-check",
-      "version": "0.1.0",
-      "verifiedCommit": "ba87a84abd37e6eb6451bbe35df154973215eec7",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-drill-script-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-drill-script-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-drill-script-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-eia-guide-check",
-      "packageName": "dsh-eia-guide-check",
-      "version": "0.1.0",
-      "verifiedCommit": "4e7aaaf96334ed92a1645cf8e73f9b653bd83fd8",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-eia-guide-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-eia-guide-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-eia-guide-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-emergency-plan",
-      "packageName": "dsh-emergency-plan",
-      "version": "0.1.0",
-      "verifiedCommit": "3ce3f1d0b51363f283768f8dff95d5397ffbfb71",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-emergency-plan-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-emergency-plan-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`;",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-emergency-plan@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-essay-rubric-check",
-      "packageName": "dsh-essay-rubric-check",
-      "version": "0.1.0",
-      "verifiedCommit": "1f293319d24d8044e4963a091e2f049bab5d3e4d",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-essay-rubric-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-essay-rubric-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-essay-rubric-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-evidence-check",
-      "packageName": "dsh-evidence-check",
-      "version": "0.1.0",
-      "verifiedCommit": "c0b39581add178f02a8b5f7e5bee9eff9bec9d62",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-evidence-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-evidence-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-evidence-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-export-ctl-check",
-      "packageName": "dsh-export-ctl-check",
-      "version": "0.1.0",
-      "verifiedCommit": "0bbcd54fbfd9287c725713c1fa376cc584193637",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-export-ctl-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-export-ctl-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-export-ctl-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-fmea-table-check",
-      "packageName": "dsh-fmea-table-check",
-      "version": "0.1.0",
-      "verifiedCommit": "cd44d18e7fd9c1fa97b86e156b4b9cbc15081dfe",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-fmea-table-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-fmea-table-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-fmea-table-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-forecast-penalty",
-      "packageName": "dsh-forecast-penalty",
-      "version": "0.1.0",
-      "verifiedCommit": "48276e8c54b77de09bd0f4b37581734af2cf63a9",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-forecast-penalty-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-forecast-penalty-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-forecast-penalty@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-gongwen-flow-check",
-      "packageName": "dsh-gongwen-flow-check",
-      "version": "0.1.0",
-      "verifiedCommit": "bf0ba2fd4989bc09c4b5064b874b654f8725d17f",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-gongwen-flow-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-gongwen-flow-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-gongwen-flow-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-gongwen-word-check",
-      "packageName": "dsh-gongwen-word-check",
-      "version": "0.1.0",
-      "verifiedCommit": "f376ceaff07ad705455266ad71344e53df8b99de",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-gongwen-word-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-gongwen-word-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-gongwen-word-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-guard-plan-qc",
-      "packageName": "dsh-guard-plan-qc",
-      "version": "0.1.0",
-      "verifiedCommit": "8b5601f66542fe7f451b99ded50c924d3441ba1d",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-guard-plan-qc-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-guard-plan-qc-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-guard-plan-qc@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-hazchem-check",
-      "packageName": "dsh-hazchem-check",
-      "version": "0.1.0",
-      "verifiedCommit": "0e1eb08a4f3a561bae17261fec0e4bde7fd91bc7",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-hazchem-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-hazchem-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-hazchem-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-hazplan-check",
-      "packageName": "dsh-hazplan-check",
-      "version": "0.1.0",
-      "verifiedCommit": "003d0a570b7ad8df2d44b2e413e181d1483b7173",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-hazplan-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-hazplan-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-hazplan-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-hidden-risk-map",
-      "packageName": "dsh-hidden-risk-map",
-      "version": "0.1.0",
-      "verifiedCommit": "ae3dc77f3a67d0d79587f42cb9768d2d609fb5b4",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-hidden-risk-map-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-hidden-risk-map-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`;",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-hidden-risk-map@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-hs-classify",
-      "packageName": "dsh-hs-classify",
-      "version": "0.1.0",
-      "verifiedCommit": "c4ca03ec29093c1e1978a3a6ef68f47f1b9c0afd",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-hs-classify-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-hs-classify-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-hs-classify@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-icd-rule-check",
-      "packageName": "dsh-icd-rule-check",
-      "version": "0.1.0",
-      "verifiedCommit": "b613a3954647baae317ab3f6f02556767bbaa61b",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-icd-rule-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-icd-rule-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`;",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-icd-rule-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-lawcite-adapter",
-      "packageName": "dsh-lawcite-adapter",
-      "version": "0.1.0",
-      "verifiedCommit": "cacf8fa49f210c7767f6e67ada9656a84e78aac6",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-lawcite-adapter-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-lawcite-adapter-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-lawcite-adapter@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-lc-doc-check",
-      "packageName": "dsh-lc-doc-check",
-      "version": "0.1.0",
-      "verifiedCommit": "b7461a6308116dd57dca86fa68ff79b23953f1d4",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-lc-doc-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-lc-doc-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-lc-doc-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-learning-gap-check",
-      "packageName": "dsh-learning-gap-check",
-      "version": "0.1.0",
-      "verifiedCommit": "712f5586290462e0c610b1c04031095e1be17086",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-learning-gap-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-learning-gap-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-learning-gap-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-medrec-qc",
-      "packageName": "dsh-medrec-qc",
-      "version": "0.1.0",
-      "verifiedCommit": "f62aa91b8553e633962f4602308629d06b0b40c4",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-medrec-qc-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-medrec-qc-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`;",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-medrec-qc@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-nsfc-form-check",
-      "packageName": "dsh-nsfc-form-check",
-      "version": "0.1.0",
-      "verifiedCommit": "dd26e75d6df63abde12365b91a39caddd9013e46",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-nsfc-form-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-nsfc-form-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`;",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-nsfc-form-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-nurse-record-check",
-      "packageName": "dsh-nurse-record-check",
-      "version": "0.1.0",
-      "verifiedCommit": "f66b98fe894a2819ba39d8959474a4993e9a1b1e",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-nurse-record-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-nurse-record-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-nurse-record-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-origin-rvc-check",
-      "packageName": "dsh-origin-rvc-check",
-      "version": "0.1.0",
-      "verifiedCommit": "e9a87d7b05ea3f73771baa60924e292c81ccb4a9",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-origin-rvc-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-origin-rvc-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-origin-rvc-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-ota-review-check",
-      "packageName": "dsh-ota-review-check",
-      "version": "0.1.0",
-      "verifiedCommit": "f7dfa9dcb4d52818e8b71b8a317285fed2266c07",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-ota-review-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-ota-review-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-ota-review-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-paper-doc-adapter",
-      "packageName": "dsh-paper-doc-adapter",
-      "version": "0.1.0",
-      "verifiedCommit": "a6c734f2e78b39b9607d885778e3abde64a28314",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-paper-doc-adapter-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-paper-doc-adapter-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-paper-doc-adapter@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-permit-report-check",
-      "packageName": "dsh-permit-report-check",
-      "version": "0.1.0",
-      "verifiedCommit": "f2d2e474da600ae7d44be5387aa7d280f9114a0b",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-permit-report-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-permit-report-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-permit-report-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-pipeline-check",
-      "packageName": "dsh-pipeline-check",
-      "version": "0.1.0",
-      "verifiedCommit": "179eea17499c60101a48ad3c75ef557e27f70066",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-pipeline-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-pipeline-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-pipeline-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-pleading-draft",
-      "packageName": "dsh-pleading-draft",
-      "version": "0.1.0",
-      "verifiedCommit": "0c28ac5072a00c87d1bacd038b3242af047e5b3a",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-pleading-draft-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-pleading-draft-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-pleading-draft@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-policy-brief-draft",
-      "packageName": "dsh-policy-brief-draft",
-      "version": "0.1.0",
-      "verifiedCommit": "65738d55bcead734a3370eede0caed682a662043",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-policy-brief-draft-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-policy-brief-draft-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-policy-brief-draft@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-power-loss-split",
-      "packageName": "dsh-power-loss-split",
-      "version": "0.1.0",
-      "verifiedCommit": "16833ecfcefa3043377106ad96e45a151ea0c1a0",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-power-loss-split-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-power-loss-split-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`;",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-power-loss-split@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-power-ticket-check",
-      "packageName": "dsh-power-ticket-check",
-      "version": "0.1.0",
-      "verifiedCommit": "95ce21d9c2af27721bcdd47cedb8f5590efaf85f",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-power-ticket-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-power-ticket-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`;",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-power-ticket-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-ppap-check",
-      "packageName": "dsh-ppap-check",
-      "version": "0.1.0",
-      "verifiedCommit": "01547d1016c1d63555c09921b302db0df7c1870b",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-ppap-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-ppap-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-ppap-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-protest-deadline",
-      "packageName": "dsh-protest-deadline",
-      "version": "0.1.0",
-      "verifiedCommit": "fb6a7c52916bbdfdca5fa57b9d291316c8aec8e4",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-protest-deadline-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-protest-deadline-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-protest-deadline@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-railway-window",
-      "packageName": "dsh-railway-window",
-      "version": "0.1.0",
-      "verifiedCommit": "d1ac09713046f13be56b743c595aba3f21435730",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-railway-window-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-railway-window-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-railway-window@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-repair-order-qc",
-      "packageName": "dsh-repair-order-qc",
-      "version": "0.1.0",
-      "verifiedCommit": "9fc28288d2c3d7e2f3e68f6a5fdb445b7284fea4",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-repair-order-qc-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-repair-order-qc-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-repair-order-qc@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-review-reply-check",
-      "packageName": "dsh-review-reply-check",
-      "version": "0.1.0",
-      "verifiedCommit": "0bcacfd3ba8f1d6fc03c48c6460f2c5ea6d06aca",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-review-reply-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-review-reply-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-review-reply-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-rulefile-check",
-      "packageName": "dsh-rulefile-check",
-      "version": "0.1.0",
-      "verifiedCommit": "3412d62f48bd97450c8b45872b6d827aa7835fef",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-rulefile-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-rulefile-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-rulefile-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-safety-brief-check",
-      "packageName": "dsh-safety-brief-check",
-      "version": "0.1.0",
-      "verifiedCommit": "d4ffd5a014090c33320b466ff536b1248172b691",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-safety-brief-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-safety-brief-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-safety-brief-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-site-log-check",
-      "packageName": "dsh-site-log-check",
-      "version": "0.1.0",
-      "verifiedCommit": "89528a9be035dbfea8a734d07e1c6bd6888c90c8",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-site-log-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-site-log-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`;",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-site-log-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-soe-decision-check",
-      "packageName": "dsh-soe-decision-check",
-      "version": "0.1.0",
-      "verifiedCommit": "eec9e2d5ae7fcc16c5f53bf6473f4c2f17b40d58",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-soe-decision-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-soe-decision-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-soe-decision-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-soilwater-check",
-      "packageName": "dsh-soilwater-check",
-      "version": "0.1.0",
-      "verifiedCommit": "78fbca9e49fe660cf3d69e68eff420adb072e1f6",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-soilwater-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-soilwater-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-soilwater-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-sop-sync-check",
-      "packageName": "dsh-sop-sync-check",
-      "version": "0.1.0",
-      "verifiedCommit": "d74a85e74ed1d7073fd4b63f2b6f12f14f08b164",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-sop-sync-check-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-sop-sync-check-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-sop-sync-check@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-spc-gbt-adapter",
-      "packageName": "dsh-spc-gbt-adapter",
-      "version": "0.1.0",
-      "verifiedCommit": "46854f2e380bbc6c2b4952fc191a30dd72d9dfb9",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-spc-gbt-adapter-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-spc-gbt-adapter-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-spc-gbt-adapter@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-tender-extract",
-      "packageName": "dsh-tender-extract",
-      "version": "0.1.0",
-      "verifiedCommit": "7691561a8d10d246e5eb0e209d0f6920d5007db7",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-tender-extract-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-tender-extract-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-tender-extract@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-tender-matrix",
-      "packageName": "dsh-tender-matrix",
-      "version": "0.1.0",
-      "verifiedCommit": "f70949f0a4b7707cf05435ca6be63ae16004c3ab",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-tender-matrix-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-tender-matrix-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-tender-matrix@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PerryLink/dsh-warranty-calc",
-      "packageName": "dsh-warranty-calc",
-      "version": "0.1.0",
-      "verifiedCommit": "33fbdb1c6aae284e4bd87c7e915f656dc9eb43ef",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <name> add ./dsh-warranty-calc-0.1.0.tgz",
-          "profile": "<name>",
-          "spec": "./dsh-warranty-calc-0.1.0.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` refuses the package as incompatible.** The peer range covers `0.1.x` and `0.2.x`; if",
-          "profile": null,
-          "spec": "refuses",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-warranty-calc@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "pharaohnie/dsh-rtk-tools",
       "packageName": "dsh-rtk-tools",
       "version": "0.1.0",
@@ -46664,7 +44251,7 @@
       "repository": "redfox-data/redfox-community-dsh",
       "packageName": "redfox-community-dsh",
       "version": "0.1.0",
-      "verifiedCommit": "f60e49a55612d15b1906eb7bae7ed8fcc1400359",
+      "verifiedCommit": "b834c707f106f51ebdcb18cb8a144bc33117ff2c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -48164,15 +45751,15 @@
     {
       "repository": "sdegongzuo/dsh-webops-plugin",
       "packageName": "dsh-webops-plugin",
-      "version": "0.2.13",
-      "verifiedCommit": "369f12cce254e15f2b9da96abc47fe096882ef37",
+      "version": "0.2.14",
+      "verifiedCommit": "99c6d8e6b30a9b43178eb78f454cacfe408fad33",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-webops-plugin@0.2.13",
+        "spec": "dsh-webops-plugin@0.2.14",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -53723,44 +51310,6 @@
         "lifecycleScripts": [
           "prepare"
         ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "Tazio7/dsh-web-search-glm",
-      "packageName": "web-search-glm",
-      "version": "0.0.1",
-      "verifiedCommit": "42ae55e360ac9217d854fd51eb5e4f95a3323155",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile <profile-name> add dsh-zai-web-search",
-          "profile": "<profile-name>",
-          "spec": "dsh-zai-web-search",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "web-search-glm@0.0.1",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
