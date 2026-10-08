@@ -15,6 +15,7 @@ const { MarketplaceService } = await import('../lib/index.js')
 const { isDesktopHost, packageManagerFor, assertDesktopPluginCompatibility } = await import('../src/host/runtime.ts')
 const { installLocation, marketplaceSettingsPath } = await import('../src/host/install-location.ts')
 const { profileLocation } = await import('../src/host/profile.ts')
+const { linkedPnpmStore } = await import('../src/host/installer.ts')
 assert.equal(isDesktopHost(), false, 'Web 不能错误套用 Desktop 运行模式')
 assert.equal(existsSync(join(process.env.DSH_HOME, '.credentials.yaml')), false, '隔离环境不带入用户登录数据')
 
@@ -112,6 +113,7 @@ for (const mode of ['legacy-default', 'current-custom']) {
       if (version === 3) assert.match(job.failure.message, /bundle id .*more than once/i, '冲突更新必须被安全拒绝')
       assert.equal(JSON.parse(readFileSync(join(target, 'package.json'), 'utf8')).version, (version === 1 ? 1 : 2) + '.0.0')
       assert.deepEqual(readProfile().dsh.profile.bundles, version === 1 ? [kept, packageName] : beforeState, '更新/失败不能重启用已停用插件或更改其他 Bundle 顺序')
+      if (!location.custom) assert(linkedPnpmStore(profileDir)?.startsWith(fixture), 'pnpm Store 必须位于本次临时目录: ' + linkedPnpmStore(profileDir))
       for (const name of [kept, disabled]) assert.equal(readProfile().dependencies[name], fixedDependencies[name])
     }
     const installed = await market.installed({ refresh: false })
