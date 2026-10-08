@@ -20,6 +20,7 @@ import {
 } from '@deepseek-ai/dsh-app-boot'
 import type { MarketplaceInstalledEntry } from '../types.ts'
 import { reconcileBundleName, toggleBundleName } from './bundle-state.ts'
+import { activeProfileRuntime } from './runtime.ts'
 
 const NAME = 'dsh'
 
@@ -37,6 +38,8 @@ export interface ProfileLocation {
  * else falls back to the standard `web` profile location.
  */
 export function profileLocation(ctx: Context): ProfileLocation {
+  const runtime = activeProfileRuntime(ctx)
+  if (runtime !== undefined) return { dir: runtime.dir, name: runtime.name ?? basename(runtime.dir) }
   const baseUrl = ctx.baseUrl
   if (baseUrl !== undefined) {
     let raw: string
@@ -57,12 +60,13 @@ export function profileLocation(ctx: Context): ProfileLocation {
 export function ensureProfile(dir: string, name: string): void {
   if (!existsSync(join(dir, 'package.json'))) {
     const template = PROFILE_TEMPLATES[name]
-    const bundles = Array.isArray(template) ? template : template?.bundles ?? DEFAULT_PROFILE_BUNDLES
+    // Array.isArray 不会缩窄旧版公开类型中的 readonly 数组。
+    const bundles = Array.isArray(template) ? template : (template as { bundles?: readonly string[] } | undefined)?.bundles ?? DEFAULT_PROFILE_BUNDLES
     if (template !== undefined && 'patchReload' in template && typeof template.patchReload === 'boolean') {
       // 旧版模板用第三个参数控制重载；0.1.7 已移除该字段和参数。
       Reflect.apply(initProfile, undefined, [dir, bundles, template.patchReload])
     } else {
-      initProfile(dir, bundles)
+      initProfile(dir, [...bundles])
     }
   }
 }

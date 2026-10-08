@@ -8,6 +8,7 @@
 [![Registry Scan](https://github.com/YELEBAI/dsh-plugin-marketplace/actions/workflows/daily-registry-scan.yml/badge.svg)](https://github.com/YELEBAI/dsh-plugin-marketplace/actions/workflows/daily-registry-scan.yml)
 [![License](https://img.shields.io/github/license/YELEBAI/dsh-plugin-marketplace?style=flat-square)](./LICENSE)
 ![DSH Web](https://img.shields.io/badge/DSH-Web-4f46e5?style=flat-square)
+![DSH Desktop](https://img.shields.io/badge/DSH-Desktop-0f766e?style=flat-square)
 
 **简体中文** · [English](./README.en.md) · [更新日志](./CHANGELOG.md)
 
@@ -37,6 +38,7 @@
 ### 运行要求与分发说明
 
 - **Node.js**：`^22.19.0 || >=24.0.0`；使用 DSH 的 **web** Profile。
+- **桌面端**：当前开发版本适配 DSH Desktop **0.2.0-rc.2** 的 `desktop` Profile，复用桌面端内置 Node/pnpm；不要使用 npm 安装的 DSH CLI 管理桌面端。
 - **DSH 依赖**：`@deepseek-ai/cordis ^4.0.1`、`dsh-app-boot` 和 `dsh-typert-protocol ^0.1.0-rc.5`，由 `peerDependencies` 声明。版本范围不代表每个 DSH Release 都经过独立运行时认证。
 - 安装包包含编译后的 Host、Web Client、Typert 入口及对应类型声明；安装本插件无需执行构建或生命周期脚本。
 - `zod` 是参数和远程协议校验所需的运行依赖，并非安装脚本。市场会访问 Registry/GitHub；用户发起安装或更新时还会调用包管理器并访问对应包源，读写当前 Profile 与选定的插件目录；Agent 任务使用独立工作区。这些权限不能等同于“无权限插件”或安全认证。
@@ -59,6 +61,20 @@ dsh plugin --profile web add D:/path/to/dsh_Market
 ```sh
 dsh --profile web
 ```
+
+### 桌面端安装（当前开发版本）
+
+先启动桌面端一次以初始化 `desktop` Profile，随后保存工作并**从托盘完全退出**。构建本仓库后，使用桌面端附带的命令安装本地目录，例如在 PowerShell 中：
+
+```powershell
+& '<DSH 安装目录>\resources\runtime\cli\bin\dsh.cmd' plugin --profile desktop add 'D:\path\to\dsh_Market' --ignore-scripts
+```
+
+重新打开 DSH Desktop，再进入 **设置 → 插件 → 插件市场**。这部分适配尚未包含在已发布的 `v0.9.5` 标签中，不能用旧标签代替开发版本。桌面端由 Electron 管理 Host，不要执行 `dsh --profile desktop` 来启动或单独重启 Host。
+
+桌面端市场列表只显示 Registry 的 Profile 列表明确包含 `desktop` 的插件，暂时隐藏仅支持 Web 或未明确声明桌面端支持的条目；搜索、分类、排序、结果计数及分页均在该范围内进行。明确支持 Desktop 的引导安装仍保留，已安装页面不受此发现筛选影响，仍可管理现有插件。卡片展示**桌面端**标记；明确命令或 manifest 声明可以被扫描，只有“支持桌面端”等宣传文本不会触发推断。该标记不是逐个插件的运行时或安全认证，不放宽原有自动安装/更新验证。
+
+桌面端操作使用当前 Profile 的默认安装目录，不继承 Web 的自定义插件目录；写入与官方插件管理器共用锁。安装前还会使用桌面端自身的版本兼容检查，不自动授予版本豁免。**重启按钮在 Desktop 中只展示退出与重新启动说明**；Web 端保留现有重启行为。
 
 ### 3. 打开市场
 
@@ -334,6 +350,7 @@ pnpm registry:discovery
 pnpm discovery:test
 pnpm profile:test
 pnpm restart:test
+pnpm desktop:test
 pnpm self-update:test
 pnpm guided-agent:test
 pnpm build
@@ -347,6 +364,8 @@ pnpm typecheck
 [`docs/screenshots/marketplace-refresh-light.png`](./docs/screenshots/marketplace-refresh-light.png) 等预览。
 若浏览器不在 Playwright 默认位置，可设置 `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`。测试使用模拟数据和
 隔离页面，不会操作真实 Profile 或安装插件；真实宿主集成仍需在 DSH 中验证。
+
+可用 `MARKETPLACE_SCREENSHOTS_DIR` 指定截图输出目录。设置 `DSH_DESKTOP_ROOT` 为已有桌面端安装目录后，执行 `pnpm desktop:runtime-test`：它使用 Electron Node 模式和内置 pnpm，在临时 Profile 中离线安装、更新、卸载本地测试包，并验证 Host/RPC、版本检查、共享锁和重启保护；不启动 GUI、不修改用户 Profile、不下载 DSH 或第三方插件。这不等同于桌面窗口实机交互验收。
 
 失败恢复回归覆盖安装条件读取失败后的原页重试、未关联插件重新安装、延迟任务快照与新任务的合并，以及 Agent 创建失败后的状态恢复。`pnpm guided-agent:test` 另外覆盖新版会话引用释放、命名/提交/导航失败和旧版会话入口；测试不会发送真实模型请求。
 

@@ -12,6 +12,7 @@ import type {
   MarketplaceJobPhase,
   MarketplaceJobStatus,
 } from '../types.ts'
+import type { PackageManagerRuntime } from './runtime.ts'
 
 const MAX_LOG_CHARS = 65536
 const MAX_ACTIVE_JOBS = 50
@@ -56,6 +57,12 @@ export interface JobRecord {
 export class JobTable {
   private readonly jobs = new Map<string, JobRecord>()
   private seq = 0
+
+  readonly runtime: PackageManagerRuntime | undefined
+
+  constructor(runtime?: PackageManagerRuntime) {
+    this.runtime = runtime
+  }
 
   create(
     kind: MarketplaceJobKind,
@@ -322,12 +329,13 @@ export function runPnpmJob(
     const { args: pnpmArgs, storeDir } = pnpmArgsFor(jobArgs, dir, fallbackStoreDir)
     table.append(job, '$ pnpm ' + pnpmArgs.map((arg) => /\s/.test(arg) ? JSON.stringify(arg) : arg).join(' ') + '\n')
     if (storeDir !== null) table.append(job, 'Using profile-linked pnpm store: ' + storeDir + '\n')
-    const child = spawn('pnpm', pnpmArgs, {
+    const runtime = table.runtime
+    const child = spawn(runtime?.command ?? 'pnpm', [...(runtime?.args ?? []), ...pnpmArgs], {
       cwd: dir,
-      shell: process.platform === 'win32',
+      shell: runtime === undefined && process.platform === 'win32',
       stdio: ['ignore', 'pipe', 'pipe'],
       windowsHide: true,
-      env: { ...process.env, CI: 'true' },
+      env: { ...process.env, ...runtime?.env, CI: 'true' },
     })
     child.stdout?.on('data', (chunk: Buffer) => { table.append(job, chunk.toString()) })
     child.stderr?.on('data', (chunk: Buffer) => { table.append(job, chunk.toString()) })

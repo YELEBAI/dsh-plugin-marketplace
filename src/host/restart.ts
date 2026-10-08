@@ -7,6 +7,7 @@
  */
 
 import { spawn } from 'node:child_process'
+import { isDesktopHost } from './runtime.ts'
 
 const ENV_PARENT = 'DSH_MARKETPLACE_RESTART_PARENT'
 const ENV_EXECUTABLE = 'DSH_MARKETPLACE_RESTART_EXECUTABLE'
@@ -125,6 +126,7 @@ export async function launchRestartHelper(target: RestartTarget): Promise<void> 
  * after the Remote response has had time to reach the browser.
  */
 export async function scheduleProcessRestart(shutdownDelayMs = 750): Promise<void> {
+  if (isDesktopHost()) throw new Error('Desktop restart is owned by Electron; do not relaunch the Host process.')
   await launchRestartHelper(currentRestartTarget())
   const timer = setTimeout(() => {
     if (process.platform === 'win32') {

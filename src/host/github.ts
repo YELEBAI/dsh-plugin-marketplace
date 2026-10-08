@@ -211,6 +211,8 @@ export class GitHubClient {
         const dsh = pkg.dsh as Record<string, unknown> | undefined
         const bundle = dsh?.bundle as Record<string, unknown> | undefined
         const client = dsh?.client as Record<string, unknown> | undefined
+        const marketplace = dsh?.marketplace as Record<string, unknown> | undefined
+        const profiles = marketplace?.profiles
         const declaredPatch = bundle?.patch
         const exportsRoot = pkg.exports
         let entry: string | null = null
@@ -230,6 +232,9 @@ export class GitHubClient {
           bundlePatch: typeof declaredPatch === 'string' && isSafePatchPath(declaredPatch) ? declaredPatch : null,
           hasClient: client !== undefined && typeof client === 'object',
           entry: typeof entry === 'string' && isSafePatchPath(entry) ? entry : null,
+          ...(Array.isArray(profiles) && profiles.length > 0 && profiles.length <= 8
+            && profiles.every(value => typeof value === 'string' && /^[a-z0-9][a-z0-9._-]{0,63}$/.test(value))
+            && new Set(profiles).size === profiles.length ? { profiles: profiles as string[] } : {}),
         }
         if (manifest.name === '') {
           throw new GitHubError('bad-manifest', owner + '/' + repo + ' package.json has no name field.')

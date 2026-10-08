@@ -1,6 +1,7 @@
 /** Regression tests for direct repository self-update metadata. */
 
 import assert from 'node:assert/strict'
+import { TYPERT } from '../src/wire.ts'
 import type { MarketplaceInstalledEntry, MarketplacePluginDetails } from '../src/types.ts'
 import {
   SELF_PACKAGE,
@@ -44,6 +45,12 @@ const installed: MarketplaceInstalledEntry = {
 }
 
 const target = selfUpdateTarget(details)
+const desktopTarget = selfUpdateTarget({ ...details, manifest: { ...details.manifest!, profiles: ['web', 'desktop'] } })
+const detailsCodec = TYPERT.invocations.find(item => item.method === 'details')!.result.create()
+const wireDetails = detailsCodec.parse({ ok: true, value: { ...details, manifest: { ...details.manifest, profiles: ['web', 'desktop'] } } }) as { value: { manifest: { profiles: string[] } } }
+assert.deepEqual(wireDetails.value.manifest.profiles, ['web', 'desktop'], 'Profile 声明必须经过 Remote codec 完整传输')
+assert.equal(applySelfUpdate(installed, desktopTarget, 'desktop').canUpdate, true)
+assert.equal(applySelfUpdate(installed, target, 'desktop').canUpdate, false, '旧版自更新来源不能凭空声明桌面端支持')
 assert.equal(target.install.spec, 'github:' + SELF_REPOSITORY + '#' + commit)
 assert.equal(target.version, '0.5.0')
 assert.deepEqual(applySelfUpdate(installed, target, 'web'), {

@@ -3,6 +3,7 @@
  *  client polls jobStatus(), so a long pnpm run never blocks the wire.
  */
 import type { MarketplaceJobKind, MarketplaceJobPhase, MarketplaceJobStatus } from "../types.js";
+import type { PackageManagerRuntime } from "./runtime.js";
 export interface JobOutcome {
     packageName: string;
     version: string;
@@ -27,6 +28,8 @@ export interface JobRecord {
 export declare class JobTable {
     private readonly jobs;
     private seq;
+    readonly runtime: PackageManagerRuntime | undefined;
+    constructor(runtime?: PackageManagerRuntime);
     create(kind: MarketplaceJobKind, packageName: string, phase?: MarketplaceJobPhase): JobRecord;
     get(jobId: string): JobRecord | undefined;
     list(): MarketplaceJobStatus[];

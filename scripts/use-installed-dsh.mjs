@@ -4,10 +4,14 @@ import { pathToFileURL } from 'node:url'
 import { packageRoot, resolveDsh } from './dsh-environment.mjs'
 
 if (packageRoot === undefined) throw new Error('DSH_PACKAGE_ROOT is required')
+let resolving = false
 registerHooks({
   resolve(specifier, context, nextResolve) {
-    if (specifier.startsWith('@deepseek-ai/')) {
-      return { url: pathToFileURL(resolveDsh(specifier)).href, shortCircuit: true }
+    if (specifier.startsWith('@deepseek-ai/') && !resolving) {
+      // Node 24 的 createRequire.resolve 也进入同步 hooks，不能递归调用自身。
+      resolving = true
+      try { return { url: pathToFileURL(resolveDsh(specifier)).href, shortCircuit: true } }
+      finally { resolving = false }
     }
     return nextResolve(specifier, context)
   },

@@ -28,7 +28,7 @@ export const marketplaceStyles = `
 .dsh-marketplace .mkt-search > span { display: flex; width: 100%; height: 38px; }
 .dsh-marketplace .mkt-search input { width: 100%; font-size: 13px; }
 .dsh-marketplace input::placeholder { color: var(--dsw-alias-label-tertiary); }
-.dsh-marketplace .mkt-results { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 24px; margin-top: -8px; font-size: 12px; color: var(--dsw-alias-label-secondary); }
+.dsh-marketplace .mkt-results { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; min-height: 24px; margin-top: -8px; font-size: 12px; color: var(--dsw-alias-label-secondary); }
 .dsh-marketplace .mkt-sort-group { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .dsh-marketplace .mkt-select { max-width: 100%; min-height: 34px; padding: 5px 26px 5px 10px; margin-right: 5px; border: 1px solid var(--dsw-alias-border-l2); border-radius: 8px; background: var(--dsw-alias-bg-layer-2); color: var(--dsw-alias-label-secondary); font: inherit; font-size: 12px; cursor: pointer; }
 .dsh-marketplace .mkt-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); align-items: start; gap: 10px; margin: 0; padding: 0; list-style: none; }
@@ -41,6 +41,7 @@ export const marketplaceStyles = `
 .dsh-marketplace .mkt-card-name p { margin: 0; }
 .dsh-marketplace .mkt-card-icon { width: 28px; height: 28px; flex: none; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--dsw-alias-state-business-primary) 16%, transparent); border-radius: 8px; color: var(--dsw-alias-state-business-primary); background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 8%, transparent); }
 .dsh-marketplace .mkt-card-icon svg { width: 18px; height: 18px; }
+.dsh-marketplace .mkt-platform-tag { display: inline-flex; align-items: center; padding: 1px 6px; border: 1px solid var(--dsw-alias-border-l2); border-radius: 5px; color: var(--dsw-alias-label-secondary); font-size: 11px; line-height: 16px; }
 .dsh-marketplace .mkt-card-actions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 2px; padding-top: 6px; border-top: 1px solid var(--dsw-alias-border-l2); }
 .dsh-marketplace .mkt-card-actions > button { min-width: 64px; padding-inline: 9px; }
 .dsh-marketplace .mkt-detail-toggle { display: inline-flex; align-items: center; gap: 5px; min-height: 32px; padding: 4px 6px; color: var(--dsw-alias-label-secondary); background: transparent; border: 0; border-radius: 6px; cursor: pointer; font: inherit; font-size: 12px; }

@@ -29,6 +29,7 @@ import type { Context } from '@deepseek-ai/cordis'
 import type { ProfileManifest } from '@deepseek-ai/dsh-app-boot'
 import { linkedPnpmStore } from './installer.ts'
 import { profileLocation } from './profile.ts'
+import { isDesktopHost } from './runtime.ts'
 import type { RegistryConfig } from './registry.ts'
 
 /** Resolved install location for the running Profile. */
@@ -125,6 +126,10 @@ export function persistAgentWorkspace(requestedDir: string): { workspaceDir: str
 /** Resolve the running Profile and the directory that holds plugin entities. */
 export function installLocation(ctx: Context, config: RegistryConfig): ProfileInstallLocation {
   const base = profileLocation(ctx)
+  // ASAR 中的 Host peers 由桌面端解析器提供，不能像 Web 一样链接到外部实体目录。
+  if (base.name === 'desktop' || isDesktopHost()) return {
+    ...base, custom: false, pluginDir: defaultPluginRoot(base.dir), storeDir: linkedPnpmStore(base.dir),
+  }
   const override = (config?.installDir ?? '').trim()
     || (process.env.DSH_PLUGIN_INSTALL_DIR ?? '').trim()
     || readMarketplaceSettings().installDir
@@ -195,6 +200,7 @@ export function installedPluginTarget(profile: ProfileInstallLocation, packageNa
 
 /** Roots the marketplace is allowed to manage, including previously chosen ones. */
 export function knownPluginRoots(profile: ProfileInstallLocation): string[] {
+  if (profile.name === 'desktop' || isDesktopHost()) return [resolve(defaultPluginRoot(profile.dir)).toLocaleLowerCase()]
   return [...new Set([
     defaultPluginRoot(profile.dir),
     profile.pluginDir,

@@ -71,6 +71,7 @@ const manifestSchema = z.object({
   license: z.union([z.string(), z.null()]),
   bundlePatch: z.union([z.string(), z.null()]),
   hasClient: z.boolean(),
+  profiles: z.array(z.string()).optional(),
 })
 
 const detailsValueSchema = z.object({

@@ -70,10 +70,11 @@ const restoredJobs = deferred<MarketplaceJobStatus[]>()
 const jobStatusGate = deferred<void>()
 const agentRequest = deferred<void>()
 const linkedPackages = new Set<string>(installedEntries.filter(entry => entry.linked).map(entry => entry.packageName))
+if (scenario === 'desktop') linkedPackages.delete('@dsh/focus-panel')
 let installJob: MarketplaceJobStatus | null = null
 
 function profileLocation(): MarketplaceInstallLocation {
-  return { profile: 'web', packageNames: [...linkedPackages], installDir: 'C:/Users/demo/.dsh/plugins', installDirCustom: false }
+  return { profile: scenario === 'desktop' ? 'desktop' : 'web', packageNames: [...linkedPackages], installDir: 'C:/Users/demo/.dsh/plugins', installDirCustom: false }
 }
 
 function finishInstall() {
@@ -87,7 +88,7 @@ function finishInstall() {
 }
 
 const fixtureState = {
-  installs: 0, uninstalls: 0, searches: 0, uninstallBatches: [] as string[][],
+  installs: 0, uninstalls: 0, searches: 0, restarts: 0, uninstallBatches: [] as string[][],
   installRequests: [] as Array<{ repo: string; ref: string }>,
   installLocationCalls: 0, installedCalls: 0, jobsCalls: 0, jobStatusCalls: [] as string[], agentCalls: 0,
   releaseProfile: () => { profileRetry.resolve(profileLocation()) },
@@ -111,12 +112,15 @@ const previewCatalog = params.has('density')
       const repo = `${item.repo}-${index + 1}`
       return { ...item, repo, fullName: `${item.owner}/${repo}`, packageName: `@dsh/${repo}` }
     })
-  : catalog
+  : scenario === 'desktop'
+    ? catalog.map((item, index) => ({ ...item, install: { ...item.install, profiles: index === 1 ? ['web'] : ['web', 'desktop'] } }))
+    : catalog
 
 function search(query: string, _page: number, _sort: string, category: string) {
   fixtureState.searches += 1
   const needle = query.trim().toLocaleLowerCase()
   const items = previewCatalog.filter((item) => {
+    if (scenario === 'desktop' && !(item.install.profiles as readonly string[]).includes('desktop')) return false
     const matchQuery = needle === '' || [item.repo, item.owner, item.description, ...item.topics].some((value) => value.toLocaleLowerCase().includes(needle))
     const matchCategory = category === 'all' || item.categories.some(value => value === category)
     return matchQuery && matchCategory
@@ -179,7 +183,7 @@ const mockInjected = {
     fixtureState.installedCalls += 1
     return { ...profileLocation(), conflicts: [], entries: installedEntries.map(entry => ({ ...entry, linked: linkedPackages.has(entry.packageName) })) }
   },
-  restart: async () => ({ accepted: true as const, profile: 'web' }),
+  restart: async () => { fixtureState.restarts += 1; return { accepted: true as const, profile: profileLocation().profile } },
 }
 
 function Preview() {

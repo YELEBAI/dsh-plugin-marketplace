@@ -33,7 +33,7 @@ export declare class RegistryClient {
     private readonly preferBundledFirst;
     constructor(source: string, bundledSource: string, cacheMs: number, timeoutMs: number, preferBundledFirst?: boolean);
     /** Search only centrally verified entries. */
-    search(query: string, page: number, sort: 'stars' | 'updated' | 'trending', category: MarketplacePluginCategory | 'all'): Promise<MarketplaceSearchPage>;
+    search(query: string, page: number, sort: 'stars' | 'updated' | 'trending', category: MarketplacePluginCategory | 'all', targetProfile?: string): Promise<MarketplaceSearchPage>;
     /** Find one currently verified repository, case-insensitively. */
     find(repo: string): Promise<MarketplaceRegistryPlugin | undefined>;
     /** Find the Registry owner of one installed npm package name. */

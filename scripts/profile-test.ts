@@ -5,10 +5,14 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { reconcileBundleName, toggleBundleName } from '../src/host/bundle-state.ts'
-import { ensureProfile, mergeProfileDependency } from '../src/host/profile.ts'
+import { ensureProfile, mergeProfileDependency, profileLocation } from '../src/host/profile.ts'
+import type { Context } from '@deepseek-ai/cordis'
 
 const fixture = mkdtempSync(join(tmpdir(), 'mkt-profile-init-'))
 try {
+  const desktopDir = join(fixture, 'custom-desktop-directory')
+  assert.deepEqual(profileLocation({ baseUrl: new URL('file:///different/web/'), get: () => ({ dir: desktopDir, name: 'desktop' }) } as unknown as Context),
+    { dir: desktopDir, name: 'desktop' }, '真实 Profile 上下文优先于 Loader 路径；Profile 名称不能从目录猜测')
   const profile = join(fixture, 'web')
   ensureProfile(profile, 'web')
   const manifestPath = join(profile, 'package.json')

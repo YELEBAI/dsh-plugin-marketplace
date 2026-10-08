@@ -22,7 +22,11 @@ import {
 
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)))
 
-const identity = validateManifest(await readFile(path.join(root, 'package.json'), 'utf8'))
+const ownPackage = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'))
+assert.deepEqual(validateManifest(JSON.stringify(ownPackage)).installHints.declaredProfiles, ['web', 'desktop'])
+// 既有分类用例继续使用未声明 Profile 的 fixture，覆盖 Web/Headless 默认行为。
+const { marketplace: _marketplace, ...fixtureDsh } = ownPackage.dsh
+const identity = validateManifest(JSON.stringify({ ...ownPackage, dsh: fixtureDsh }))
 assert.equal(identity.packageName, 'dsh-plugin-marketplace')
 assert.equal(identity.bundlePatch, './cordis.patch.yml')
 assert.equal(identity.hasClient, true)
@@ -303,6 +307,12 @@ const anyProfile = classifyInstall(
 assert.equal(anyProfile.inspection.readme.anyProfile, true)
 assert.deepEqual(anyProfile.identity.installHints.profiles, ['headless', 'web'])
 assert.equal(anyProfile.identity.installHints.manualSteps, false)
+
+const explicitDesktop = classifyInstall(identity, 'owner/repo', ['lib/index.js', 'lib/client.js'],
+  'dsh plugin --profile desktop add github:owner/repo')
+assert.deepEqual(explicitDesktop.identity.installHints.profiles, ['desktop'], '明确安装命令才收录 desktop')
+const vagueDesktop = classifyInstall(identity, 'owner/repo', ['lib/index.js', 'lib/client.js'], '支持桌面端 / supports desktop')
+assert.equal(vagueDesktop.identity.installHints.profiles.includes('desktop'), false, '不把普通宣传文本推断为 Profile 支持')
 
 const prosePlaceholder = classifyInstall(
   validateManifest(JSON.stringify({

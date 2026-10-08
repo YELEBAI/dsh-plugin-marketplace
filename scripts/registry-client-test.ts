@@ -57,6 +57,7 @@ let growth = 1
 let discoveryAvailable = true
 let lastEtag: string | undefined
 let originalFetch: typeof globalThis.fetch | undefined
+let searchPlugins: typeof plugin[] | undefined
 const server = createServer((request, response) => {
   response.setHeader('content-type', 'application/json')
   if (request.url === '/plugins.json') {
@@ -64,7 +65,7 @@ const server = createServer((request, response) => {
     lastEtag = request.headers['if-none-match'] as string | undefined
     response.statusCode = remoteStatus === 304 && lastEtag === undefined ? 200 : remoteStatus
     response.setHeader('etag', '"registry-v1"')
-    response.end(JSON.stringify({ schemaVersion: 2, generatedAt: '2026-08-21T00:00:00.000Z', plugins: [{ ...plugin, stars: remoteStars }] }))
+    response.end(JSON.stringify({ schemaVersion: 2, generatedAt: '2026-08-21T00:00:00.000Z', plugins: searchPlugins ?? [{ ...plugin, stars: remoteStars }] }))
     return
   }
   if (request.url === '/discovery.json') {
@@ -78,7 +79,8 @@ const server = createServer((request, response) => {
       schemaVersion: 1,
       generatedAt: '2026-08-21T00:00:00.000Z',
       windowDays: 7,
-      plugins: [{ fullName: plugin.fullName, categories: ['developer-tools'], starGrowth7d: growth }],
+      plugins: searchPlugins?.map(item => ({ fullName: item.fullName, categories: [item.install.profiles.includes('desktop') ? 'ui' : 'data'], starGrowth7d: item.stars }))
+        ?? [{ fullName: plugin.fullName, categories: ['developer-tools'], starGrowth7d: growth }],
     }))
     return
   }
@@ -168,7 +170,46 @@ try {
   assert.equal((await bundledFirst.find(plugin.fullName))?.stars, 1, '首屏先返回包内快照')
   await bundledFirst.refresh()
   assert.equal((await bundledFirst.find(plugin.fullName))?.stars, 99, '显式刷新等待后台读取并最终使用远端快照')
-  console.log('registry client tests passed: 10')
+  // 高 Star 的 Web 条目超过一页，防止实现只隐藏当前页而丢掉后面的桌面端条目。
+  function searchFixture(repo: string, profiles: string[], stars: number, mode: 'automatic' | 'guided' = 'automatic') {
+    const fullName = 'owner/' + repo
+    return {
+      ...plugin, repo, fullName, stars, packageName: 'fixture-' + repo,
+      htmlUrl: 'https://github.com/' + fullName,
+      install: {
+        ...plugin.install, profiles, mode,
+        spec: mode === 'automatic' ? 'github:' + fullName + '#' + plugin.verifiedCommit : '',
+        requiresBuildApproval: mode === 'guided', manualSteps: mode === 'guided',
+        instructionsUrl: 'https://github.com/' + fullName + '#readme',
+      },
+    }
+  }
+  searchPlugins = [
+    ...Array.from({ length: 55 }, (_, index) => searchFixture('web-' + index, ['web'], 5_000 + index)),
+    ...Array.from({ length: 35 }, (_, index) => searchFixture('desktop-' + index, index % 2 === 0 ? ['desktop'] : ['web', 'desktop'], 1_000 - index)),
+    searchFixture('dual-guided', ['web', 'desktop'], 1, 'guided'),
+    searchFixture('unknown', [], 3_000, 'guided'),
+    searchFixture('headless-only', ['headless'], 3_000),
+    { ...searchFixture('desktop-prose-only', ['web'], 3_000), description: 'Supports desktop! 支持桌面端' },
+  ]
+  const scoped = new RegistryClient(source, source, 60_000, 5_000)
+  const desktopFirst = await scoped.search('', 1, 'stars', 'all', 'desktop')
+  const desktopSecond = await scoped.search('', 2, 'stars', 'all', 'desktop')
+  assert.equal(desktopFirst.totalCount, 36, '计数仅包含明确支持 Desktop 的插件')
+  assert.equal(desktopFirst.items.length, 30, 'Desktop 条目必须先过滤再分页，不能留下空首页')
+  assert.equal(desktopSecond.items.length, 6)
+  assert.equal(new Set([...desktopFirst.items, ...desktopSecond.items].map(item => item.fullName)).size, 36)
+  assert([...desktopFirst.items, ...desktopSecond.items].every(item => item.install.profiles.includes('desktop')))
+  assert.equal(desktopFirst.items[0]?.repo, 'desktop-0', '排序应基于兼容条目而不是过滤前的第一页')
+  assert(desktopSecond.items.some(item => item.install.mode === 'guided'), '桌面端引导安装仍保留')
+  assert.equal((await scoped.search('', 3, 'stars', 'all', 'desktop')).items.length, 0)
+  assert.equal((await scoped.search('web-', 1, 'stars', 'all', 'desktop')).totalCount, 0, '搜索不能恢复 Web-only 条目')
+  assert.equal((await scoped.search('desktop', 1, 'stars', 'all', 'desktop')).totalCount, 35, '宣传文案不能代替明确的 Profile')
+  assert.equal((await scoped.search('', 1, 'trending', 'ui', 'desktop')).totalCount, 36)
+  assert.equal((await scoped.search('', 1, 'updated', 'data', 'desktop')).totalCount, 0)
+  assert.equal((await scoped.search('', 1, 'stars', 'all')).totalCount, searchPlugins.length, '不指定目标时保留原来的 Web 市场范围')
+  assert.equal((await scoped.findByPackage('fixture-web-0'))?.repo, 'web-0', '发现过滤不能污染已安装包查找索引')
+  console.log('registry client tests passed: cache/refresh/offline recovery and Desktop scope/search/category/sort/pagination/index isolation')
 } finally {
   if (originalFetch !== undefined) globalThis.fetch = originalFetch
   server.close()

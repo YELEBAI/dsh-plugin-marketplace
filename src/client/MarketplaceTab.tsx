@@ -344,6 +344,8 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
   const installedRefreshForce = useRef(false)
   const profileRequestId = useRef(0)
   const updateScrollY = useRef<number | null>(null)
+  const desktop = installedProfile === 'desktop' || window.location.protocol === 'dsh-app:'
+  const restartLabel = desktop ? t('desktopRestartGuide') : t('restart')
 
   const notify = useCallback((message: string, tone: 'error' | 'info' = 'error') => {
     setNotice({ id: Date.now(), message, tone })
@@ -640,6 +642,10 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
     setAcknowledged(false)
     const request = confirm
     if (request.mode === 'restart') {
+      if (desktop) {
+        notify(t('desktopRestartDescription'), 'info')
+        return
+      }
       setRestartState('requesting')
       setBanner(t('restarting'))
       void restart().then(() => {
@@ -923,7 +929,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
           ? t('emptyUpdateInstalled')
           : t('emptyInstalled')
   const confirmCount = confirm?.updates?.length ?? 0
-  const confirmationTitle = confirm?.mode === 'restart' ? t('confirmRestartTitle')
+  const confirmationTitle = confirm?.mode === 'restart' ? desktop ? t('desktopRestartGuide') : t('confirmRestartTitle')
     : confirm?.mode === 'uninstall' ? t('confirmUninstallTitle')
       : isBatchUninstall ? t('confirmBatchUninstallTitle')
         : isBatchEnable ? t('confirmBatchEnableTitle')
@@ -932,7 +938,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
               : isManualInstall ? t('confirmManualInstallTitle')
                 : isSelfUpdate ? t('confirmSelfUpdateTitle')
                   : confirm?.mode === 'update' ? t('confirmUpdateTitle') : t('confirmTitle')
-  const confirmationDescription = confirm?.mode === 'restart' ? t('confirmRestartDescription')
+  const confirmationDescription = confirm?.mode === 'restart' ? desktop ? t('desktopRestartDescription') : t('confirmRestartDescription')
     : confirm?.mode === 'uninstall' ? t('confirmUninstallDescription')
       : isBatchUninstall ? fmt(t, 'confirmBatchUninstallDescription', { count: confirmCount })
         : isBatchEnable ? fmt(t, 'confirmBatchEnableDescription', { count: confirmCount })
@@ -941,7 +947,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
               : isManualInstall ? t('confirmManualInstallDescription')
                 : isSelfUpdate ? t('confirmSelfUpdateDescription')
                   : confirm?.mode === 'update' ? t('confirmUpdateDescription') : t('confirmDescription')
-  const confirmationLabel = confirm?.mode === 'restart' ? t('confirmRestart')
+  const confirmationLabel = confirm?.mode === 'restart' ? desktop ? t('desktopRestartAcknowledge') : t('confirmRestart')
     : confirm?.mode === 'uninstall' ? t('confirmUninstall')
       : isBatchUninstall ? t('confirmBatchUninstall')
         : isBatchEnable ? t('confirmBatchEnable')
@@ -962,7 +968,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
         <div style={s.banner} role={banner === t('restartBanner') || restartState !== 'idle' ? 'status' : 'alert'}>
           <span style={s.bannerText}>{banner}</span>
           {banner === t('restartBanner') ? (
-            <Button variant='outline' size='sm' disabled={restartDisabled} onClick={openRestartConfirm}>{t('restart')}</Button>
+            <Button variant='outline' size='sm' disabled={restartDisabled} onClick={openRestartConfirm}>{restartLabel}</Button>
           ) : null}
         </div>
       ) : null}
@@ -976,7 +982,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
           {installedProfile !== '' ? <span className='mkt-profile'>{fmt(t, 'currentProfile', { profile: installedProfile })}</span> : null}
           {subpage !== 'catalog' ? (
             <Button variant='outline' size='sm' disabled={restartDisabled} onClick={openRestartConfirm}>
-              {restartState === 'idle' ? t('restart') : t('restarting')}
+              {restartState === 'idle' ? restartLabel : t('restarting')}
             </Button>
           ) : null}
         </div>
@@ -1029,6 +1035,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
           </div>
           <div className='mkt-results'>
             <span role='status'>{ready !== null ? fmt(t, 'resultCount', { count: ready.totalCount }) : view.status === 'loading' ? t('loading') : ''}</span>
+            {desktop ? <span>{t('desktopCatalogFilter')}</span> : null}
             {query !== '' || category !== 'all' || sort !== 'stars' ? (
               <Button variant='ghost' size='sm' onClick={() => { setQuery(''); setDebouncedQuery(''); setCategory('all'); setSort('stars'); setPage(1) }}>{t('resetFilters')}</Button>
             ) : null}
@@ -1186,6 +1193,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
             t={t}
           />
           <InstallDirField
+            desktop={desktop}
             installDir={installDir}
             installDirCustom={installDirCustom}
             onChoose={chooseInstallLocation}
@@ -1215,7 +1223,7 @@ export function MarketplaceTab({ search, details, guidedAgent, install, manualIn
         open={confirm !== null}
         title={confirmationTitle}
         description={confirmationDescription}
-        acknowledgeLabel={confirm?.mode === 'restart' ? t('acknowledgeRestart') : confirm?.mode === 'uninstall' || isBatchUninstall ? t('acknowledgeUninstall') : isManualInstall ? t('acknowledgeManualInstall') : t('acknowledge')}
+        acknowledgeLabel={confirm?.mode === 'restart' ? desktop ? t('desktopRestartRead') : t('acknowledgeRestart') : confirm?.mode === 'uninstall' || isBatchUninstall ? t('acknowledgeUninstall') : isManualInstall ? t('acknowledgeManualInstall') : t('acknowledge')}
         cancelLabel={t('cancel')}
         closeLabel={t('dismiss')}
         confirmLabel={confirmationLabel}
@@ -1286,6 +1294,8 @@ function CardRow({ item, t, currentProfile, profileLoading, profileAvailable, is
           {item.updatedAt !== '' ? <span style={s.updatedCompact} title={t('updated') + ' ' + new Date(item.updatedAt).toLocaleDateString()}>{compactDate(item.updatedAt)}</span> : null}
         </div>
         <div style={s.chipRow}>
+          {item.install.profiles.includes('desktop') ? <span className='mkt-platform-tag' title={t('profileDeclared')}>{t('platformDesktop')}</span> : null}
+          {item.install.profiles.includes('desktop') && item.install.profiles.includes('web') ? <span className='mkt-platform-tag' title={t('profileDeclared')}>Web</span> : null}
           {item.categories.slice(0, 2).map((category) => <span key={category} style={s.chip}>{categoryLabel(category, t)}</span>)}
         </div>
         <div className='mkt-card-actions'>
@@ -1590,7 +1600,8 @@ function ManualInstallPanel({ command, profile, busy, job, onCommandChange, onIn
   )
 }
 
-function InstallDirField({ installDir, installDirCustom, onChoose, onReset, busy, t }: {
+function InstallDirField({ desktop, installDir, installDirCustom, onChoose, onReset, busy, t }: {
+  desktop: boolean
   installDir: string
   installDirCustom: boolean
   onChoose: () => void
@@ -1607,14 +1618,14 @@ function InstallDirField({ installDir, installDirCustom, onChoose, onReset, busy
         : <p style={s.fieldMeta}>{fmt(t, 'installDirDefaultHint', { dir: displayDir })}</p>}
       <input style={s.directoryPath} value={displayDir} readOnly title={displayDir} aria-label={t('installDirPathLabel')} />
       <div style={s.fieldActions}>
-        <Button variant='primary' size='sm' disabled={busy} onClick={onChoose}>
+        <Button variant='primary' size='sm' disabled={busy || desktop} onClick={onChoose}>
           {busy ? t('installDirChoosing') : t('installDirChoose')}
         </Button>
         {installDirCustom ? (
           <Button variant='outline' size='sm' disabled={busy} onClick={onReset}>{t('installDirResetAction')}</Button>
         ) : null}
       </div>
-      <p style={s.fieldMeta}>{t('installDirResetHint')}</p>
+      <p style={s.fieldMeta}>{desktop ? t('desktopInstallDirHint') : t('installDirResetHint')}</p>
     </div>
   )
 }
