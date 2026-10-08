@@ -39,6 +39,13 @@ Stop if a fact is absent or if the checked-out package disagrees. Never replace 
 9. If installation or verification fails, restore only the target dependency, its previous bundle position/state, and its saved configuration. Preserve concurrent unrelated Profile edits. Report a failed rollback explicitly.
 10. Delete the operation directory only after verification or rollback. Do not delete a durable local package directory used by the installed dependency.
 
+## Desktop Profile
+
+- When the target is the running `desktop` Profile, first discover whether this Host actually exposes an official plugin-management tool with native approval and control over lifecycle scripts. Do not assume a `plugin_manager` name or an ignore-scripts parameter exists. Step 7 may use that tool only after confirming these capabilities; never use an external CLI or direct pnpm mutation against running Desktop. Preserve the existing enabled state and never approve dependency scripts implicitly. If a required tool or capability is absent, stop and provide the desktop-bundled CLI steps for the user to run after fully quitting the app.
+- Do not use an npm-installed `dsh` command to manage Desktop. The desktop-bundled command may manage its already initialized Profile only while the application is fully quit.
+- For inspection, isolated builds and packing, prefer `load_workspace_dependencies` to obtain the bundled Node and pnpm paths. Keep these operations inside the task's dedicated Workspace and retain explicit script approvals.
+- Desktop owns its Host lifecycle. Report startup as reopening DSH Desktop after fully quitting it, including the system tray. Never launch `dsh --profile desktop`, signal the Host, or spawn a replacement Host.
+
 ## Update rules
 
 - Compare the installed identity and source with Registry evidence before updating.

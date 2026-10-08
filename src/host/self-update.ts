@@ -49,7 +49,7 @@ export function selfUpdateTarget(details: MarketplacePluginDetails): SelfUpdateT
       mode: 'automatic',
       source: 'github',
       spec: 'github:' + SELF_REPOSITORY + '#' + commit,
-      profiles: ['web'],
+      profiles: manifest.profiles ?? ['web'],
       requiresBuildApproval: false,
       requiresRestart: true,
       manualSteps: false,

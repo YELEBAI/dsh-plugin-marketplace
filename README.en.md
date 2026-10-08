@@ -8,6 +8,7 @@
 [![Registry Scan](https://github.com/YELEBAI/dsh-plugin-marketplace/actions/workflows/daily-registry-scan.yml/badge.svg)](https://github.com/YELEBAI/dsh-plugin-marketplace/actions/workflows/daily-registry-scan.yml)
 [![License](https://img.shields.io/github/license/YELEBAI/dsh-plugin-marketplace?style=flat-square)](./LICENSE)
 ![DSH Web](https://img.shields.io/badge/DSH-Web-4f46e5?style=flat-square)
+![DSH Desktop](https://img.shields.io/badge/DSH-Desktop-0f766e?style=flat-square)
 
 [简体中文](./README.md) · **English** · [Changelog](./CHANGELOG.en.md)
 
@@ -37,6 +38,7 @@
 ### Requirements and distribution
 
 - **Node.js**: `^22.19.0 || >=24.0.0`; use DSH's **web** Profile.
+- **Desktop**: the current development build supports DSH Desktop **0.2.0-rc.2** and its `desktop` Profile, using bundled Node/pnpm. Do not manage Desktop with an npm-installed DSH CLI.
 - **DSH peers**: `@deepseek-ai/cordis ^4.0.1`, and `dsh-app-boot` / `dsh-typert-protocol ^0.1.0-rc.5`, declared in `peerDependencies`. These ranges do not certify every DSH release as independently runtime-tested.
 - The package includes compiled Host, Web Client and Typert entries with their declarations. Installing this plugin requires no build or lifecycle scripts.
 - `zod` is a runtime dependency for input and remote-protocol validation, not an install script. The marketplace accesses the Registry/GitHub; user-requested installs and updates also run a package manager and access package sources, modifying the active Profile and selected plugin directory. Agent tasks use a dedicated workspace. These capabilities are not a permission-free or security-certified execution model.
@@ -59,6 +61,20 @@ dsh plugin --profile web add D:/path/to/dsh_Market
 ```sh
 dsh --profile web
 ```
+
+### Desktop installation (development build)
+
+Launch Desktop once to initialize its Profile, save your work, and **fully quit it, including the system tray**. Build this repository, then install the local checkout through the desktop-bundled command in PowerShell:
+
+```powershell
+& '<DSH installation>\resources\runtime\cli\bin\dsh.cmd' plugin --profile desktop add 'D:\path\to\dsh_Market' --ignore-scripts
+```
+
+Reopen Desktop and go to **Settings → Plugins → Plugin Marketplace**. This adaptation is not in the published `v0.9.5` tag. Do not start or relaunch its Host with `dsh --profile desktop`; Electron owns that lifecycle.
+
+The Desktop catalog only shows entries whose Registry Profile metadata explicitly includes `desktop`, hiding Web-only and undeclared entries before search, category filtering, sorting, counting and pagination. Desktop-compatible guided installs remain visible, and the installed page still lists existing plugins for management. Cards show a **Desktop** badge; vague prose is not inferred, and the badge is not runtime or security certification or a relaxation of automatic-install/update checks. Desktop uses its own default Profile directory, shares the official manager's writer lock, and checks peer compatibility before installation without granting version exemptions. Its restart button shows quit/reopen instructions; Web restart behavior is unchanged.
+
+With an existing installation, set `DSH_DESKTOP_ROOT` and run `pnpm desktop:runtime-test`. The test uses Electron Node mode and bundled pnpm with an isolated temporary Profile and offline fixture packages; it does not launch the GUI, touch user Profiles, or download DSH/plugins. Browser fixtures remain distinct from live Desktop window acceptance. `MARKETPLACE_SCREENSHOTS_DIR` can redirect browser evidence.
 
 ### 3. Open the marketplace
 
@@ -340,6 +356,8 @@ pnpm registry:discovery
 pnpm discovery:test
 pnpm profile:test
 pnpm restart:test
+pnpm desktop:test
+pnpm web:runtime-test
 pnpm self-update:test
 pnpm guided-agent:test
 pnpm build
@@ -354,6 +372,10 @@ and refreshes the previews in [`docs/screenshots`](./docs/screenshots). Set `PLA
 if the browser is outside Playwright's default location. The test does not download dependencies and uses an isolated
 page with mock data; it does not modify real Profiles or install plugins. Integration with the actual DSH host still
 requires verification in DSH.
+
+Use `MARKETPLACE_SCREENSHOTS_DIR` to redirect screenshots. With an existing Desktop installation selected by `DSH_DESKTOP_ROOT`, `pnpm desktop:runtime-test` checks the real Host/RPC and bundled pnpm in an isolated offline Profile, without starting the GUI or changing user Profiles.
+
+`pnpm web:runtime-test` uses the real Cordis Host, marketplace service and pnpm in a separate process with a temporary `DSH_HOME`. It checks legacy default and current custom directories, Web catalogs, install/update/uninstall, conflict rejection and preservation of disabled state. All fixtures are local archives with lifecycle scripts disabled; no user credentials or Profiles are read or modified. Browser regressions also verify that Desktop filtering, directory restrictions and restart guidance do not leak into Web. CI repeats the checks against both supported published DSH runtimes.
 
 Failure recovery checks cover retrying Profile reads in place, installing unlinked entries, merging delayed job snapshots, and recovering after guided Agent creation fails. `pnpm guided-agent:test` also checks session reference release, rename/submission/navigation failures, and older session APIs without sending real model requests.
 

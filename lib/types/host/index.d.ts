@@ -73,6 +73,7 @@ export declare class MarketplaceService extends TypertRemoteService {
     private runInstallJob;
     private startUninstallJob;
     private failPreparedJob;
+    private withMutationLock;
     private profileMutationBusy;
     private enqueueMutation;
     /** Read main/package.json directly, then freeze the update to its resolved commit. */

@@ -69,7 +69,9 @@ export function buildGuidedAgentTask(
     '3. 先只读检查该 commit 的 package.json、dsh.bundle.patch、patch 文件、安装说明、构建脚本和运行入口，再向用户说明计划。',
     '4. 不执行 curl|shell、远程脚本、未审计的复制命令，也不关闭 pnpm/DSH 的构建审批。任何 install/build/prepare/postinstall 等会执行代码的步骤，都必须通过 DSH 原生审批向用户逐项确认。',
     '5. 当前会话已经绑定市场专用 Workspace。所有 clone、依赖、构建、打包、日志和临时文件只能写入该 Workspace 下本任务新建的唯一子目录；不得切换、扫描或写入其他 DSH Workspace。',
-    '6. 优先使用官方 `dsh plugin --profile <profile> add <spec>` 流程。唯一允许的 Workspace 外写入是经审批后由官方 DSH 命令修改上面指定的目标 Profile，以及作者明确要求的该插件自身配置。',
+    profile === 'desktop'
+      ? '6. 当前目标是正在运行的桌面端 desktop Profile。先发现当前 Host 是否实际提供官方插件管理工具及其审批/脚本控制能力，不要假定 plugin_manager 工具名或忽略脚本参数一定存在。只有工具真实可用、具备原生审批且可禁止未经批准的生命周期脚本时，才安装精确来源或已审计的本地包；保持插件原有启停选择。不得调用 npm 安装的 dsh、外部 dsh CLI 或直接 pnpm 修改 desktop Profile，也不得单独重启 Host。工具或能力不可用时停止，说明需要用户完全退出桌面端后使用桌面端自带 CLI 安装。'
+      : '6. 优先使用官方 `dsh plugin --profile <profile> add <spec>` 流程。唯一允许的 Workspace 外写入是经审批后由官方 DSH 命令修改上面指定的目标 Profile，以及作者明确要求的该插件自身配置。',
     '7. 执行任何 `dsh plugin` 或 pnpm 命令前，记录目标 Profile 当前 `dsh.profile.bundles` 的完整顺序；命令完成后必须保留所有既有插件原来的启用/停用状态，不得重新加入此前已停用的无关插件。',
     '8. 如果无法证明安装源、包身份、Profile 兼容性或运行产物安全，就停止并解释缺失证据，不要猜测或绕过 Registry。',
     '',

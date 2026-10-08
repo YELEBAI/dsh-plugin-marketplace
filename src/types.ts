@@ -121,6 +121,8 @@ export interface MarketplacePluginManifest {
   hasClient: boolean
   /** Host entry source path derived from exports['.'] / exports.default / main. */
   entry: string | null
+  /** 明确声明的 Profile；缺省不推断桌面端支持。 */
+  profiles?: string[]
 }
 
 /** details() outcome: manifest + bundle patch text for pre-install review. */

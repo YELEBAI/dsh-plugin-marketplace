@@ -81,12 +81,13 @@ try {
       if (url.endsWith('/package.json')) {
         return new Response(JSON.stringify({
           name: 'fixture-plugin', version: '1.0.0', main: './lib/index.js',
-          dsh: { bundle: { patch: './cordis.patch.yml' } },
+          dsh: { bundle: { patch: './cordis.patch.yml' }, marketplace: { profiles: ['web', 'desktop'] } },
         }))
       }
       return new Response('fixture')
     }
     const details = await new GitHubClient().details('owner/repo', '')
+    assert.deepEqual(details.manifest?.profiles, ['web', 'desktop'], '仓库详情保留明确的 Profile 声明用于市场自更新')
     assert.equal(details.resolvedRef, commit, '自动选择的 tag/分支必须解析为精确 commit')
     const fileRequests = requests.filter(url => url.startsWith('https://raw.githubusercontent.com/'))
     assert.equal(fileRequests.length, 3)

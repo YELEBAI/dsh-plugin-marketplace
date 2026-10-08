@@ -15,6 +15,10 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        dsh: ['0.1.7-rc.2', '0.2.0-rc.2']
     env:
       pnpm_config_verify_deps_before_run: 'false'
     steps:
@@ -32,7 +36,7 @@ jobs:
           echo "DSH_PACKAGE_ROOT=$RUNNER_TEMP/marketplace-tools/node_modules/@deepseek-ai/dsh" >> "$GITHUB_ENV"
       - name: Install published DSH and isolated build tools
         run: |
-          npm install --prefix "$MARKETPLACE_TOOLS_DIR" --save-exact --ignore-scripts @deepseek-ai/dsh@0.1.7-rc.2 esbuild@0.28.2 playwright@1.62.1
+          npm install --prefix "$MARKETPLACE_TOOLS_DIR" --save-exact --ignore-scripts @deepseek-ai/dsh@${{ matrix.dsh }} esbuild@0.28.2 playwright@1.62.1
           node scripts/ui-tool-dependencies.mjs > "$RUNNER_TEMP/marketplace-ui-tools.txt"
           mapfile -t ui_tools < "$RUNNER_TEMP/marketplace-ui-tools.txt"
           npm install --prefix "$MARKETPLACE_TOOLS_DIR" --save-exact --ignore-scripts "${ui_tools[@]}"
@@ -53,6 +57,9 @@ jobs:
           node --import ./scripts/use-installed-dsh.mjs --experimental-strip-types scripts/profile-test.ts
           node --import ./scripts/use-installed-dsh.mjs --experimental-strip-types scripts/typert-test.ts
       - run: pnpm restart:test
+      - run: pnpm desktop:test
+      - name: Web Host and offline package-manager regressions
+        run: pnpm web:runtime-test
       - run: pnpm self-update:test
       - run: pnpm guided-agent:test
       - name: Browser regressions with published DSH components
@@ -61,7 +68,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: marketplace-browser-screenshots
+          name: marketplace-browser-screenshots-${{ matrix.dsh }}
           path: docs/screenshots/marketplace-*.png
           retention-days: 7
       - name: Build plugin

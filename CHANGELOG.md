@@ -7,13 +7,24 @@
 
 ## [未发布]
 
+### 桌面端适配
+
+- 明确声明 `web`/`desktop` Profile；适配 Desktop 0.2.0-rc.2 的活动 Profile、内置包管理器与官方 Profile 写入锁，保留 Web 兼容和 FIFO 事务。
+- 安装前使用桌面端版本兼容检查，不暗中授予豁免；桌面端固定使用自身默认安装目录，避免继承 Web 自定义目录。
+- 卡片为明确支持的插件展示桌面端标记；桌面端重启改为退出托盘后重新启动的说明，阻止只重启 Host。
+- 桌面端市场在搜索、计数及分页前筛选明确支持 `desktop` 的插件，隐藏仅支持 Web 和 Profile 未知的条目；保留桌面端引导安装及已安装管理，不改变 Web 列表。
+- 引导安装 Agent/Skill 使用当前桌面端官方管理工具与原生审批；市场自更新遵循仓库 manifest 的 Profile 声明。
+- 增加桌面端单元、浏览器及已安装 Electron/内置 pnpm 的临时离线 Profile 回归；CI 增加 0.1.7/0.2.0 发布包矩阵。
+
 ### 修复与安全
 
+- 标准 Windows npm/Corepack 的 pnpm 启动改用 Node 入口，避免含空格的本地安装来源和 Store 参数被 shell 拆开；桌面端仍使用其内置包管理器。
 - Registry 远程读取仅允许 HTTPS，拒绝明文 HTTP，避免通过不加密连接加载插件目录。
 - 将传递依赖 `js-yaml` 固定到 `4.3.2`，覆盖 DSH 工具链中旧版本的解析依赖。
 
 ### 测试
 
+- 新增真实 Web Host/pnpm 的临时默认与自定义目录安装、更新、冲突拒绝、卸载回归，验证停用状态和其他 Bundle 顺序保留；补充 Windows shim/含空格 Store，以及浏览器中 Web 列表、目录选择和重启确认的用例。测试不操作用户凭据或 Profile。
 - 增加 HTTPS-only Registry 回归，验证 HTTP 地址在发起请求前失败；保留本地 `file:` Registry 支持。
 
 ## [0.9.5] - 2026-10-05

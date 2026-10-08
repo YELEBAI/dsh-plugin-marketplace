@@ -8,13 +8,23 @@ Registry refresh commits are grouped instead of listed individually.
 
 ## [Unreleased]
 
+### Desktop adaptation
+
+- Declare Web/Desktop support and adapt to Desktop 0.2.0-rc.2's active Profile, bundled package-manager runtime and official writer lock while preserving Web behavior and FIFO transactions.
+- Check Desktop peer compatibility without granting exemptions; use its default Profile directory instead of inheriting custom Web storage.
+- Show Desktop badges for explicit Profile metadata, replace Desktop Host-only restart with quit/reopen instructions, and update guided Agent/Skill and self-update Profile handling.
+- Filter the Desktop catalog to explicit `desktop` support before search, counting and pagination; hide Web-only/unknown entries while retaining Desktop guided installs and installed-plugin management. Web catalogs are unchanged.
+- Add unit/browser regressions, isolated offline tests with installed Electron and bundled pnpm, and a 0.1.7/0.2.0 published-runtime CI matrix.
+
 ### Fixed and security
 
+- Launch standard Windows npm/Corepack pnpm through its Node entry to preserve local install sources and Store arguments containing spaces; Desktop continues using its bundled package manager.
 - Remote Registry reads now require HTTPS and reject cleartext HTTP before making a request.
 - Pinned the transitive `js-yaml` dependency to `4.3.2`, covering the older parser pulled in by the DSH toolchain.
 
 ### Tests
 
+- Added isolated real Web Host/pnpm regressions for default/custom directories, install/update/conflict rejection/uninstall and preservation of disabled state and unrelated Bundle order. Added Windows shim/space-containing Store coverage and browser assertions for unchanged Web catalogs, directory selection and restart confirmation, without touching user credentials or Profiles.
 - Added an HTTPS-only Registry regression that verifies HTTP sources fail before any request; local `file:` Registries remain supported.
 
 ## [0.9.5] - 2026-10-05

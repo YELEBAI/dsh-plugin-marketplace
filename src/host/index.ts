@@ -60,6 +60,7 @@ import { loadInstallSkill, type MarketplaceSkillRegistration } from './install-s
 import { JobTable, MutationQueue, runPnpmJob, runProfilePnpmJob, withProfileMutationLock, type JobRecord } from './installer.ts'
 import { parseManualInstall } from './manual-install.ts'
 import { scheduleProcessRestart } from './restart.ts'
+import { packageManagerFor, isDesktopHost, withDesktopProfileLock, assertDesktopPluginCompatibility } from './runtime.ts'
 import {
   SELF_BRANCH,
   SELF_PACKAGE,
@@ -164,7 +165,7 @@ export class MarketplaceService extends TypertRemoteService {
 
   private readonly github: GitHubClient
   private readonly registry: RegistryClient
-  private readonly jobs = new JobTable()
+  private readonly jobs: JobTable
   private readonly config: RegistryConfig
   private selfUpdateCache: { details: MarketplacePluginDetails; target: SelfUpdateTarget; expiresAt: number } | undefined
   private pendingInstallResolution = 0
@@ -176,6 +177,7 @@ export class MarketplaceService extends TypertRemoteService {
     super(ctx, 'marketplace')
     ;(ctx as Context & { skills: { register: (skill: MarketplaceSkillRegistration) => () => void } }).skills.register(loadInstallSkill())
     this.config = config
+    this.jobs = new JobTable(packageManagerFor(ctx))
     this.github = new GitHubClient(config.registryRequestTimeoutMs)
     const source = config.registryUrl ?? process.env.DSH_PLUGIN_REGISTRY_URL?.trim() ?? DEFAULT_REGISTRY_URL
     // Fail a self-contained URL misconfiguration while the plugin is loading.
@@ -195,7 +197,9 @@ export class MarketplaceService extends TypertRemoteService {
       const page = Number.isInteger(request.page) && request.page >= 1 ? request.page : 1
       const sort = request.sort === 'updated' || request.sort === 'trending' ? request.sort : 'stars'
       const category = request.category === 'all' ? 'all' : request.category as MarketplacePluginCategory
-      return ok(await this.registry.search(request.query, page, sort, category))
+      // 由可信运行环境决定筛选范围；不让客户端把 Web 支持当作 Desktop 支持。
+      const targetProfile = isDesktopHost() || profileLocation(this.ctx).name === 'desktop' ? 'desktop' : undefined
+      return ok(await this.registry.search(request.query, page, sort, category, targetProfile))
     } catch (error) {
       return toFailure(error)
     }
@@ -305,7 +309,7 @@ export class MarketplaceService extends TypertRemoteService {
       this.enqueueMutation(async () => {
         this.jobs.phase(job, 'spawning')
         try {
-          await withProfileMutationLock(profile.dir, async () => {
+          await this.withMutationLock(profile.dir, async () => {
             // The Profile may have changed in another DSH process while this
             // request was resolving GitHub or waiting for the file lock.
             const before = readProfileManifest(NAME, profile.dir)
@@ -436,16 +440,26 @@ export class MarketplaceService extends TypertRemoteService {
       ensureProfile(profile.dir, profile.name)
       const packageNames = uniquePackageNames(request.packageNames)
       if (packageNames.length === 0) return fail('empty-batch', 'Choose at least one plugin to change.')
-      return await withProfileMutationLock(profile.dir, async () => {
+      return await this.withMutationLock(profile.dir, async () => {
         const manifest = readProfileManifest(NAME, profile.dir)
         const failures: Array<{ packageName: string; message: string }> = []
-        const accepted = packageNames.filter((packageName) => {
+        const accepted: string[] = []
+        for (const packageName of packageNames) {
           if (!validPackageName(packageName) || manifest.dependencies?.[packageName] === undefined || !exportsPatch(packageName, profile.dir)) {
             failures.push({ packageName, message: packageName + ' is not an installed DSH bundle in profile ' + profile.name + '.' })
-            return false
+            continue
           }
-          return true
-        })
+          try {
+            if (request.enabled && isDesktopHost()) {
+              const manifestPath = packageManifestPath(packageName, profile.dir)
+              if (manifestPath === null) throw new Error('Installed package manifest is unavailable.')
+              await assertDesktopPluginCompatibility(this.ctx, JSON.parse(readFileSync(manifestPath, 'utf8')))
+            }
+            accepted.push(packageName)
+          } catch (error) {
+            failures.push({ packageName, message: error instanceof Error ? error.message : String(error) })
+          }
+        }
         if (accepted.length === 0) return ok({ results: [], failures, requiresRestart: false })
         let bundles = manifest.dsh?.profile?.bundles ?? []
         for (const packageName of accepted) bundles = toggleBundleName(bundles, packageName, request.enabled)
@@ -589,6 +603,10 @@ export class MarketplaceService extends TypertRemoteService {
       const value = typeof request.installDir === 'string' ? request.installDir.trim() : ''
       const profile = profileLocation(this.ctx)
       ensureProfile(profile.dir, profile.name)
+      if (profile.name === 'desktop' || isDesktopHost()) {
+        if (value !== '') return fail('desktop-owned-install-dir', 'Desktop plugins must use the active Desktop Profile directory; custom external directories are not supported.')
+        return this.installLocation()
+      }
       const location = persistInstallLocation(profile.dir, value)
       const manifest = readProfileManifest(NAME, profile.dir)
       return ok({ profile: profile.name, packageNames: Object.keys(manifest.dependencies ?? {}), ...location })
@@ -638,6 +656,9 @@ export class MarketplaceService extends TypertRemoteService {
         return fail('job-running', 'Wait for all plugin install, update, or uninstall jobs to finish before restarting DSH.')
       }
       const profile = profileLocation(this.ctx)
+      if (profile.name === 'desktop' || isDesktopHost()) {
+        return fail('desktop-restart-required', 'Fully quit DSH Desktop, including its system tray, then reopen the application. The marketplace cannot restart Electron by relaunching its Host.')
+      }
       this.restartPending = true
       try {
         await scheduleProcessRestart()
@@ -748,7 +769,7 @@ export class MarketplaceService extends TypertRemoteService {
     const packageName = manifest.name
     const profile = installLocation(this.ctx, this.config)
     ensureProfile(profile.dir, profile.name)
-    await withProfileMutationLock(profile.dir, async () => {
+    await this.withMutationLock(profile.dir, async () => {
       if (registered.install.mode !== 'automatic'
         || !registered.install.profiles.includes(profile.name)
         || registered.install.spec === '') {
@@ -813,7 +834,7 @@ export class MarketplaceService extends TypertRemoteService {
       try {
         const profile = installLocation(this.ctx, this.config)
         ensureProfile(profile.dir, profile.name)
-        await withProfileMutationLock(profile.dir, async () => {
+        await this.withMutationLock(profile.dir, async () => {
           const before = readProfileManifest(NAME, profile.dir)
           if (before.dependencies?.[packageName] === undefined) {
             throw new Error(packageName + ' is not installed in profile ' + profile.name + '.')
@@ -832,6 +853,10 @@ export class MarketplaceService extends TypertRemoteService {
     const failure = toFailure(error).error
     this.jobs.append(job, 'Operation preparation failed: ' + failure.message + '\n')
     this.jobs.fail(job, { code: failure.code, message: failure.message })
+  }
+
+  private withMutationLock<T>(dir: string, work: () => Promise<T>): Promise<T> {
+    return withProfileMutationLock(dir, () => withDesktopProfileLock(this.ctx, dir, work))
   }
 
   private profileMutationBusy(): boolean {
@@ -885,6 +910,7 @@ export class MarketplaceService extends TypertRemoteService {
       if (stagedManifest === null) throw new Error('Downloaded package ' + job.packageName + ' could not be found in staging.')
       const conflict = stagedInstallConflict(job.packageName, stageDir, before, profile.dir)
       if (conflict !== null) throw new Error(conflict.message)
+      await assertDesktopPluginCompatibility(this.ctx, JSON.parse(readFileSync(stagedManifest, 'utf8')))
       mkdirSync(dirname(target), { recursive: true })
       if (existsSync(target)) {
         renameSync(target, backup)
@@ -959,6 +985,7 @@ export class MarketplaceService extends TypertRemoteService {
       if (stagedManifest === null) throw new Error('Downloaded package ' + job.packageName + ' could not be found in staging.')
       const conflict = stagedInstallConflict(job.packageName, stageDir, before, profile.dir)
       if (conflict !== null) throw new Error(conflict.message)
+      await assertDesktopPluginCompatibility(this.ctx, JSON.parse(readFileSync(stagedManifest, 'utf8')))
       profileAttempted = true
       code = await runProfilePnpmJob(job, ['add', spec, '--ignore-scripts', '--config.auto-install-peers=false'], profile.dir, this.jobs, profile.storeDir)
       if (code !== 0) throw new Error(code === null ? 'pnpm could not be spawned — is pnpm on PATH?' : 'Profile install failed: pnpm exited with code ' + String(code) + '.')
@@ -1037,7 +1064,7 @@ export class MarketplaceService extends TypertRemoteService {
   ): Promise<void> {
     try {
       this.jobs.phase(job, 'running')
-      const code = await runProfilePnpmJob(job, ['remove', job.packageName], profile.dir, this.jobs, profile.storeDir)
+      const code = await runProfilePnpmJob(job, ['remove', job.packageName, '--config.ignore-scripts=true'], profile.dir, this.jobs, profile.storeDir)
       if (code !== 0) throw new Error(code === null ? 'pnpm could not be spawned — is pnpm on PATH?' : 'Profile uninstall failed: pnpm exited with code ' + String(code) + '.')
       this.jobs.phase(job, 'reconciling')
       reconcileBundle(before, beforeDeclaresBundle, job.packageName, profile.dir)

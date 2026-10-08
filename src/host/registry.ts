@@ -201,10 +201,13 @@ export class RegistryClient {
     page: number,
     sort: 'stars' | 'updated' | 'trending',
     category: MarketplacePluginCategory | 'all',
+    targetProfile?: string,
   ): Promise<MarketplaceSearchPage> {
     const registry = await this.load()
     const terms = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean)
     const filtered = registry.plugins.filter((plugin) => {
+      // 在计数、排序和分页之前筛选，未知 Profile 不推断为兼容。
+      if (targetProfile !== undefined && !plugin.install.profiles.includes(targetProfile)) return false
       if (category !== 'all' && !plugin.categories.includes(category)) return false
       if (terms.length === 0) return true
       const text = [

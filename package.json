@@ -53,6 +53,9 @@
     "bundle": {
       "patch": "./cordis.patch.yml"
     },
+    "marketplace": {
+      "profiles": ["web", "desktop"]
+    },
     "client": {
       "platform": "web",
       "inject": [
@@ -79,6 +82,9 @@
     "discovery:test": "node --experimental-strip-types scripts/discovery-client-test.ts",
     "profile:test": "node --experimental-strip-types scripts/profile-test.ts",
     "restart:test": "node --experimental-strip-types scripts/restart-test.ts",
+    "desktop:test": "node --experimental-strip-types scripts/desktop-test.ts",
+    "desktop:runtime-test": "node scripts/desktop-runtime-test.mjs",
+    "web:runtime-test": "node scripts/web-runtime-test.mjs",
     "self-update:test": "node --experimental-strip-types scripts/self-update-test.ts",
     "install-spec:test": "node --experimental-strip-types scripts/install-spec-test.ts",
     "guided-agent:test": "node --experimental-strip-types scripts/guided-agent-test.ts && node --experimental-strip-types --test scripts/agent-session-test.ts",
@@ -90,8 +96,8 @@
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
-    "@deepseek-ai/dsh-app-boot": "^0.1.0-rc.5 || ^0.1.7-alpha.2",
-    "@deepseek-ai/dsh-typert-protocol": "^0.1.0-rc.5 || ^0.1.7-alpha.2"
+    "@deepseek-ai/dsh-app-boot": "^0.1.0-rc.5 || ^0.1.7-alpha.2 || ^0.2.0-rc.2",
+    "@deepseek-ai/dsh-typert-protocol": "^0.1.0-rc.5 || ^0.1.7-alpha.2 || ^0.2.0-rc.2"
   },
   "devDependencies": {
     "@types/node": "^22.20.0",
