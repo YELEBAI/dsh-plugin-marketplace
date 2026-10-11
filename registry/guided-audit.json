@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-11T19:11:11.042Z",
-  "total": 1348,
+  "generatedAt": "2026-10-11T23:56:18.402Z",
+  "total": 1349,
   "groups": {
-    "remote-command-found": 458,
-    "local-or-unparsed-command-only": 651,
-    "no-install-command-found": 239
+    "remote-command-found": 459,
+    "local-or-unparsed-command-only": 654,
+    "no-install-command-found": 236
   },
   "rows": [
     {
@@ -11991,7 +11991,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "d3ca1b2965867e91740ffecbf5264ddec923c2c0",
+      "verifiedCommit": "a785410cb7dfb879aee65850920695aecf6e2d76",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15588,7 +15588,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "d6b24dbe8c4cd6892ab757ae5dc621d35834a16f",
+      "verifiedCommit": "6b28f93b8bebed301bf7cf7a94fc6161133ef860",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16370,41 +16370,27 @@
     {
       "repository": "EIGHTfs/dsh-git-push",
       "packageName": "dsh-git-push",
-      "version": "2.6.8",
-      "verifiedCommit": "cac4c1351b76439085b972750511ee6ae7dfbdc4",
+      "version": "2.6.9",
+      "verifiedCommit": "97a0cbbd4667aee5224da5f8592bb3108a1ddff4",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin add EIGHTfs/dsh-git-push`（仓库已声明 `dsh.bundle`，可安装）",
-          "profile": null,
-          "spec": "EIGHTfs/dsh-git-push",
-          "source": "github"
+          "raw": "dsh plugin --profile <名> add …` 当前实测**会挂死且零输出**（两次都以 timeout 结束、日志为空）⇒",
+          "profile": "<名>",
+          "spec": "…",
+          "source": "unknown"
         }
       ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin add EIGHTfs/dsh-git-push`（仓库已声明 `dsh.bundle`，可安装）",
-          "profile": null,
-          "spec": "EIGHTfs/dsh-git-push",
-          "source": "github"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin add EIGHTfs/dsh-git-push`（仓库已声明 `dsh.bundle`，可安装）",
-          "profile": null,
-          "spec": "EIGHTfs/dsh-git-push",
-          "source": "github"
-        }
-      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-git-push@2.6.8",
+        "spec": "dsh-git-push@2.6.9",
         "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-build-required",
-        "reason": "github-source-requires-install-time-build-or-lifecycle-script"
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
@@ -16423,15 +16409,28 @@
     {
       "repository": "EIGHTfs/dsh-session-conductor",
       "packageName": "dsh-session-conductor",
-      "version": "1.0.7",
-      "verifiedCommit": "6cda78251e816fc9b5480dd98df05e9cd61a0fec",
+      "version": "1.0.8",
+      "verifiedCommit": "ce1a30f52e471adffac98b0a7357d97b7991b1cf",
       "readmePath": "README.md",
-      "commands": [],
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <profile> add file:local-plugins/dsh-session-conductor",
+          "profile": "<profile>",
+          "spec": "file:local-plugins/dsh-session-conductor",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile <名> add …` 当前实测会挂死且零输出**（两次都以 timeout 结束、日志为空）⇒",
+          "profile": "<名>",
+          "spec": "…",
+          "source": "unknown"
+        }
+      ],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-session-conductor@1.0.7",
+        "spec": "dsh-session-conductor@1.0.8",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -16454,9 +16453,16 @@
       "repository": "EIGHTfs/dsh-skill-scoreboard",
       "packageName": "dsh-skill-scoreboard",
       "version": "1.1.0",
-      "verifiedCommit": "e7eb18a6d8c164f0cbd4e659f8813f2417fa5be4",
+      "verifiedCommit": "d73a7bcb15c5506a4c1bd8d66e294ed2e38a382b",
       "readmePath": "README.md",
-      "commands": [],
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <名> add …` 当前实测**会挂死且零输出**（两次都以 timeout 结束、日志为空）⇒",
+          "profile": "<名>",
+          "spec": "…",
+          "source": "unknown"
+        }
+      ],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
@@ -16515,8 +16521,8 @@
     {
       "repository": "Elec11/dsh-trello",
       "packageName": "dsh-trello",
-      "version": "0.2.0",
-      "verifiedCommit": "7ddb96ea0298684ed52533311426b0e84b0582b9",
+      "version": "0.1.1",
+      "verifiedCommit": "0c1b5b2fe1ae333355d3648f3378ded203d258c4",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16530,7 +16536,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-trello@0.2.0",
+        "spec": "dsh-trello@0.1.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -16540,7 +16546,6 @@
       "auditErrors": [],
       "current": {
         "profiles": [
-          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
@@ -17496,7 +17501,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.8.0-rc.7",
-      "verifiedCommit": "ac2e39a4ead99b535918f4305b0b9b614eab9bf1",
+      "verifiedCommit": "6a5aecfd8837001eece69921d2894e5f6b51600a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -49458,27 +49463,71 @@
       }
     },
     {
-      "repository": "snylonue/dsh-spawn",
-      "packageName": "dsh-spawn",
-      "version": "1.0.0",
-      "verifiedCommit": "001511e811b4f130e8e280e45920680bf1c2f453",
+      "repository": "snnh/dsh-llm-service-lite",
+      "packageName": "@snnh/dsh-llm-service-lite",
+      "version": "0.1.0",
+      "verifiedCommit": "ce0899c40d97b5a88234dc437b006d3b0721fe42",
       "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add @snnh/dsh-llm-service-lite",
+          "profile": "web",
+          "spec": "@snnh/dsh-llm-service-lite",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:snnh/dsh-llm-service-lite",
+          "profile": "web",
+          "spec": "github:snnh/dsh-llm-service-lite",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add -D @snnh/dsh-llm-service-lite`) and",
+          "profile": "web",
+          "spec": "@snnh/dsh-llm-service-lite",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add @snnh/dsh-llm-service-lite",
+          "profile": "web",
+          "spec": "@snnh/dsh-llm-service-lite",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add -D @snnh/dsh-llm-service-lite`) and",
+          "profile": "web",
+          "spec": "@snnh/dsh-llm-service-lite",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add @snnh/dsh-llm-service-lite",
+          "profile": "web",
+          "spec": "@snnh/dsh-llm-service-lite",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add -D @snnh/dsh-llm-service-lite`) and",
+          "profile": "web",
+          "spec": "@snnh/dsh-llm-service-lite",
+          "source": "npm"
+        }
+      ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-spawn@1.0.0",
+        "spec": "@snnh/dsh-llm-service-lite@0.1.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
       },
       "auditErrors": [],
       "current": {
         "profiles": [
-          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
@@ -49487,7 +49536,9 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
       }
     },
     {
@@ -50543,6 +50594,85 @@
         "runtimeArtifactsCommitted": true,
         "reviewReasons": [
           "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
+        ]
+      }
+    },
+    {
+      "repository": "subisle/dsh-prompt-optimizer",
+      "packageName": "dsh-composer-prompt-optimizer",
+      "version": "0.1.0",
+      "verifiedCommit": "bb748d01c1e22f11df1c171a3d1943e2490c1907",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-composer-prompt-optimizer",
+          "profile": "<name>",
+          "spec": "dsh-composer-prompt-optimizer",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add ./dsh-composer-prompt-optimizer-0.1.0.tgz",
+          "profile": "<name>",
+          "spec": "./dsh-composer-prompt-optimizer-0.1.0.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add /path/to/prompt-optimizer",
+          "profile": "<name>",
+          "spec": "/path/to/prompt-optimizer",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add github:subisle/dsh-prompt-optimizer",
+          "profile": "<name>",
+          "spec": "github:subisle/dsh-prompt-optimizer",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile <p> add <tgz>` → 依赖登记 + 组合包自动选入 + `--dump-config` 出现 `# == dsh-prompt-optimizer - ✅ **git 源码路径**：删除 `lib/` 后 `npm install` 由 `prepare` 自动重建产物",
+          "profile": "<p>",
+          "spec": "<tgz>",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-composer-prompt-optimizer",
+          "profile": "<name>",
+          "spec": "dsh-composer-prompt-optimizer",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile <name> add dsh-composer-prompt-optimizer",
+          "profile": "<name>",
+          "spec": "dsh-composer-prompt-optimizer",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-composer-prompt-optimizer@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
       }
     },
