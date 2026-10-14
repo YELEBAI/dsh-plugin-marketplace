@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T21:34:54.301Z",
+  "generatedAt": "2026-10-14T01:28:49.468Z",
   "total": 1341,
   "groups": {
-    "remote-command-found": 454,
+    "remote-command-found": 453,
     "local-or-unparsed-command-only": 647,
-    "no-install-command-found": 240
+    "no-install-command-found": 241
   },
   "rows": [
     {
@@ -11876,7 +11876,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "550be939c9ba4ff5115954db4aa645dbe514112b",
+      "verifiedCommit": "0df2b158b47250edd465526e21ec0edde7e11c15",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15440,7 +15440,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "c4ce2a616d6a0dda5151cb8dfd0c70ab2b7c16ca",
+      "verifiedCommit": "52026def430d3be1f3f635d08ee4ac6b3eda5acd",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16222,8 +16222,8 @@
     {
       "repository": "EIGHTfs/dsh-git-push",
       "packageName": "dsh-git-push",
-      "version": "2.8.2",
-      "verifiedCommit": "7eaa1a7f3494e2d64a15b32f720b53f6081c1871",
+      "version": "2.8.3",
+      "verifiedCommit": "b8f75f47dd0a07cc5196587a5a384db355155aa6",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16237,7 +16237,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-git-push@2.8.2",
+        "spec": "dsh-git-push@2.8.3",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -44063,15 +44063,15 @@
     {
       "repository": "QuantumKuba/dsh-webstack",
       "packageName": "dsh-webstack",
-      "version": "0.1.0",
-      "verifiedCommit": "4c7d726e505c98fb026d69c1f2cc5a46b582a129",
+      "version": "0.1.1",
+      "verifiedCommit": "459a2719aa1aaa5300130f0712bb201ca932ac8e",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-webstack@0.1.0",
+        "spec": "dsh-webstack@0.1.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -49729,6 +49729,36 @@
       }
     },
     {
+      "repository": "Songyanglin-curious/dsh-sift",
+      "packageName": "@songyanglin/dsh-sift",
+      "version": "0.3.0",
+      "verifiedCommit": "ef8c4a89151bfcb6e0cc8290977a4fe492e4e377",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@songyanglin/dsh-sift@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "sperictao/dsh-auth-tailscale",
       "packageName": "@dsh-external/dsh-auth-tailscale",
       "version": "0.1.7-alpha.1-auth.1",
@@ -50031,7 +50061,7 @@
       "repository": "sskkde/dsh-oh-my-agent",
       "packageName": "@dsh-external/dsh-oh-my-agent",
       "version": "0.1.0",
-      "verifiedCommit": "0ddc4b01269dadc9c1b4a9b39a6513c20ea4743b",
+      "verifiedCommit": "469b35efb9ea4b1cb4892a3d430b7f99b335e3b1",
       "readmePath": null,
       "commands": [],
       "targetedCommands": [],
@@ -50406,90 +50436,10 @@
       }
     },
     {
-      "repository": "stushansusu/dsh-web-start-ui",
-      "packageName": "@linxin666/dsh-web-start-ui",
-      "version": "0.4.5",
-      "verifiedCommit": "65f7917981c1984975a9ff15df62837ad30079fb",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add @linxin666/dsh-web-start-ui",
-          "profile": "web",
-          "spec": "@linxin666/dsh-web-start-ui",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add @linxin666/dsh-web-start-ui",
-          "profile": "desktop",
-          "spec": "@linxin666/dsh-web-start-ui",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add link:<path to this package>",
-          "profile": "web",
-          "spec": "link:<path",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add @linxin666/dsh-web-start-ui",
-          "profile": "web",
-          "spec": "@linxin666/dsh-web-start-ui",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add @linxin666/dsh-web-start-ui",
-          "profile": "desktop",
-          "spec": "@linxin666/dsh-web-start-ui",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add @linxin666/dsh-web-start-ui",
-          "profile": "web",
-          "spec": "@linxin666/dsh-web-start-ui",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add @linxin666/dsh-web-start-ui",
-          "profile": "desktop",
-          "spec": "@linxin666/dsh-web-start-ui",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@linxin666/dsh-web-start-ui@0.4.5",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "desktop",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": [
-          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
-        ]
-      }
-    },
-    {
       "repository": "subisle/dsh-prompt-optimizer",
       "packageName": "dsh-composer-prompt-optimizer",
-      "version": "0.1.0",
-      "verifiedCommit": "bb748d01c1e22f11df1c171a3d1943e2490c1907",
+      "version": "0.2.0",
+      "verifiedCommit": "4668f1e72c5c1a1a5ff757584d3bbf7aa3ed9625",
       "readmePath": "README.md",
       "commands": [
         {
@@ -50499,9 +50449,9 @@
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile <name> add ./dsh-composer-prompt-optimizer-0.1.0.tgz",
+          "raw": "dsh plugin --profile <name> add ./dsh-composer-prompt-optimizer-0.2.0.tgz",
           "profile": "<name>",
-          "spec": "./dsh-composer-prompt-optimizer-0.1.0.tgz",
+          "spec": "./dsh-composer-prompt-optimizer-0.2.0.tgz",
           "source": "local"
         },
         {
@@ -50515,12 +50465,6 @@
           "profile": "<name>",
           "spec": "github:subisle/dsh-prompt-optimizer",
           "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile <p> add <tgz>` → 依赖登记 + 组合包自动选入 + `--dump-config` 出现 `# == dsh-prompt-optimizer - ✅ **git 源码路径**：删除 `lib/` 后 `npm install` 由 `prepare` 自动重建产物",
-          "profile": "<p>",
-          "spec": "<tgz>",
-          "source": "unknown"
         }
       ],
       "targetedCommands": [
@@ -50541,7 +50485,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-composer-prompt-optimizer@0.1.0",
+        "spec": "dsh-composer-prompt-optimizer@0.2.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
