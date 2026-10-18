@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-18T18:54:32.555Z",
-  "total": 1383,
+  "generatedAt": "2026-10-18T22:41:35.795Z",
+  "total": 1385,
   "groups": {
     "remote-command-found": 457,
-    "local-or-unparsed-command-only": 661,
-    "no-install-command-found": 265
+    "local-or-unparsed-command-only": 662,
+    "no-install-command-found": 266
   },
   "rows": [
     {
@@ -12004,7 +12004,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "48382afb964e17ba063119724814c1e39815f5c2",
+      "verifiedCommit": "c46bfae5c2c6c683b1d592d2c4a2eebff1c6074b",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14388,6 +14388,43 @@
       }
     },
     {
+      "repository": "DavidCarliez/ds-cover",
+      "packageName": "ds-cover",
+      "version": "0.1.0",
+      "verifiedCommit": "0a348cfa02487c953483cc63219d17b9d04aea4f",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add \"link:$PWD\"",
+          "profile": "web",
+          "spec": "link:$PWD",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "ds-cover@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "DaXYao/dsh-plugin-fluffy-yard",
       "packageName": "dsh-plugin-fluffy-yard",
       "version": "0.1.0",
@@ -15443,7 +15480,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "5b784fc1343e754f4fcc09333e0bc454ac1857ba",
+      "verifiedCommit": "5145cb25f81a5dabed3156635168981847a51e0c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17382,7 +17419,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.9.0-beta.5",
-      "verifiedCommit": "95c30fff3633b81ddba7f03b43729fa25a7a57e8",
+      "verifiedCommit": "490dc8646dc2c7b4baf36606f455133d8535decb",
       "readmePath": "README.md",
       "commands": [
         {
@@ -26365,7 +26402,7 @@
       "repository": "jingchangzhao-gif/dsh-errkb",
       "packageName": "dsh-errkb",
       "version": "0.0.0",
-      "verifiedCommit": "46851010a431327318523f5dcaf470db40ba5774",
+      "verifiedCommit": "17c282960cf052ca20a56e0eabe10edcde9e34bb",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -29090,6 +29127,37 @@
       }
     },
     {
+      "repository": "kobubu/Rag-Coding",
+      "packageName": "dsh-plugin-code-memory",
+      "version": "0.9.0",
+      "verifiedCommit": "ad79e685354fb5f94bf468d7d731c1a2bfd5ad3d",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-plugin-code-memory@0.9.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "kolawong/dsh-plugin-model-dispatch",
       "packageName": "dsh-plugin-model-dispatch",
       "version": "1.2.0",
@@ -31299,8 +31367,8 @@
     {
       "repository": "liang-today/dsh-liangxiang",
       "packageName": "dsh-liangxiang",
-      "version": "1.2.0-rc.2",
-      "verifiedCommit": "40442accfae43cfc04af2710fa3c48751e46d895",
+      "version": "1.2.0-rc.8",
+      "verifiedCommit": "9b24315c8e91c5e61cc370a1252124d03a56a3fd",
       "readmePath": "README.md",
       "commands": [
         {
@@ -31308,12 +31376,6 @@
           "profile": "web",
           "spec": "dsh-liangxiang",
           "source": "npm"
-        },
-        {
-          "raw": "dsh plugin add` 用的。",
-          "profile": null,
-          "spec": "用的。",
-          "source": "unknown"
         }
       ],
       "targetedCommands": [
@@ -31334,7 +31396,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-liangxiang@1.2.0-rc.2",
+        "spec": "dsh-liangxiang@1.2.0-rc.8",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -48437,7 +48499,7 @@
       "repository": "sdegongzuo/dsh-webops-plugin",
       "packageName": "dsh-webops-plugin",
       "version": "0.2.19",
-      "verifiedCommit": "31aa1f5412fa486308a6a8358acb519971cad5b7",
+      "verifiedCommit": "7c0f1b37211f70dcaf74ae2bec8243246fa24d4b",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -48928,42 +48990,42 @@
     {
       "repository": "shenjackyuanjie/dsh-openrouter-service-tier",
       "packageName": "@shenjackyuanjie/dsh-openrouter-service-tier",
-      "version": "0.3.0",
-      "verifiedCommit": "b5e191fdf71dde461e04828264d15ab131693af2",
+      "version": "0.3.1",
+      "verifiedCommit": "f8d8815f6954819b7263b4f3dc34e9ea4b849d36",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add @shenjackyuanjie/dsh-openrouter-service-tier@0.3.0 --ignore-scripts",
+          "raw": "dsh plugin --profile web add @shenjackyuanjie/dsh-openrouter-service-tier@0.3.1 --ignore-scripts",
           "profile": "web",
-          "spec": "@shenjackyuanjie/dsh-openrouter-service-tier@0.3.0",
+          "spec": "@shenjackyuanjie/dsh-openrouter-service-tier@0.3.1",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add D:\\path\\shenjackyuanjie-dsh-openrouter-service-tier-0.3.0.tgz --ignore-scripts",
+          "raw": "dsh plugin --profile web add D:\\path\\shenjackyuanjie-dsh-openrouter-service-tier-0.3.1.tgz --ignore-scripts",
           "profile": "web",
-          "spec": "D:\\path\\shenjackyuanjie-dsh-openrouter-service-tier-0.3.0.tgz",
+          "spec": "D:\\path\\shenjackyuanjie-dsh-openrouter-service-tier-0.3.1.tgz",
           "source": "local"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile web add @shenjackyuanjie/dsh-openrouter-service-tier@0.3.0 --ignore-scripts",
+          "raw": "dsh plugin --profile web add @shenjackyuanjie/dsh-openrouter-service-tier@0.3.1 --ignore-scripts",
           "profile": "web",
-          "spec": "@shenjackyuanjie/dsh-openrouter-service-tier@0.3.0",
+          "spec": "@shenjackyuanjie/dsh-openrouter-service-tier@0.3.1",
           "source": "npm"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile web add @shenjackyuanjie/dsh-openrouter-service-tier@0.3.0 --ignore-scripts",
+          "raw": "dsh plugin --profile web add @shenjackyuanjie/dsh-openrouter-service-tier@0.3.1 --ignore-scripts",
           "profile": "web",
-          "spec": "@shenjackyuanjie/dsh-openrouter-service-tier@0.3.0",
+          "spec": "@shenjackyuanjie/dsh-openrouter-service-tier@0.3.1",
           "source": "npm"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@shenjackyuanjie/dsh-openrouter-service-tier@0.3.0",
+        "spec": "@shenjackyuanjie/dsh-openrouter-service-tier@0.3.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -49712,7 +49774,7 @@
       "repository": "Shuffle-1992/dsh-browser-kit",
       "packageName": "dsh-browser-kit",
       "version": "0.2.0",
-      "verifiedCommit": "3d08801b157bcc32612178d0fc3634e9dab2b054",
+      "verifiedCommit": "d62372b425d10cb8dc281014613fd00925ffc441",
       "readmePath": "README.md",
       "commands": [
         {
