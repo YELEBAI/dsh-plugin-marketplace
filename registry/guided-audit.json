@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T21:56:00.228Z",
-  "total": 1400,
+  "generatedAt": "2026-10-21T00:54:40.993Z",
+  "total": 1402,
   "groups": {
-    "remote-command-found": 465,
+    "remote-command-found": 467,
     "local-or-unparsed-command-only": 670,
     "no-install-command-found": 265
   },
@@ -4560,7 +4560,7 @@
       "repository": "AliceSaikawa/dsh-webui-m3e",
       "packageName": "dsh-webui-m3e",
       "version": "0.0.8",
-      "verifiedCommit": "4f28deef49de0afe4d94e7783120aacf2784de4f",
+      "verifiedCommit": "3afffe435587092b481381245066fa5ef847381c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12438,7 +12438,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "b8dead0753ab61d0d54fa4c146cfbdadf063f5e8",
+      "verifiedCommit": "4ce12fdaef08534e3e253ce51fb4ebd3a1124764",
       "readmePath": "README.md",
       "commands": [
         {
@@ -31098,9 +31098,9 @@
     },
     {
       "repository": "Leawind/dsh-carrot-on-a-stick",
-      "packageName": "dsh-carrot-on-a-stick",
+      "packageName": "dsh-rice-on-a-stick",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "533c1fc1df5674e19b1429d71b591b9727728203",
+      "verifiedCommit": "8ad73b8cc5e9b7088cbe9ac672c8cd0c65694be7",
       "readmePath": "README.md",
       "commands": [
         {
@@ -31114,7 +31114,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-carrot-on-a-stick@0.1.0-rc.1",
+        "spec": "dsh-rice-on-a-stick@0.1.0-rc.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -38639,7 +38639,7 @@
       "repository": "Mlte0907/dsh-teams-x",
       "packageName": "dsh-teams-x",
       "version": "0.11.5",
-      "verifiedCommit": "1b4dd5bc1acb371a6e15895dc7ecfa2e224fbbc1",
+      "verifiedCommit": "9c56100810bdfbabb03477c882ad1612b8138668",
       "readmePath": "README.md",
       "commands": [
         {
@@ -39523,8 +39523,8 @@
     {
       "repository": "moyu-good/dsh-lark-bridge",
       "packageName": "@moyu-good/dsh-lark-bridge",
-      "version": "0.9.5",
-      "verifiedCommit": "699d9388f66c72fcd7e5be8d3347b98327a9cafd",
+      "version": "0.9.6",
+      "verifiedCommit": "fcf392b29b3bb8696080e8ff719e65797433fb68",
       "readmePath": "README.md",
       "commands": [
         {
@@ -39552,7 +39552,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@moyu-good/dsh-lark-bridge@0.9.5",
+        "spec": "@moyu-good/dsh-lark-bridge@0.9.6",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -45660,6 +45660,63 @@
       }
     },
     {
+      "repository": "PrismScopes/dsh-aide",
+      "packageName": "dsh-aide",
+      "version": "0.3.7",
+      "verifiedCommit": "a2deb55f6f5ce845e1649a399de24c5033239ac0",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-aide",
+          "profile": "web",
+          "spec": "dsh-aide",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin ... add` 可能显示 `Ignored build scripts` 并以失败结束；这是预期的安全检查，插件依赖已经写入 profile。在 DSH 所在机器执行：",
+          "profile": null,
+          "spec": "可能显示",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-aide",
+          "profile": "web",
+          "spec": "dsh-aide",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-aide",
+          "profile": "web",
+          "spec": "dsh-aide",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-aide@0.3.7",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "Proton1917/dsh-live-stats",
       "packageName": "@proton1917/dsh-live-stats",
       "version": "0.1.0",
@@ -48901,36 +48958,36 @@
     {
       "repository": "ruisenbai/dsh-annotation",
       "packageName": "dsh-annotation",
-      "version": "1.1.2",
-      "verifiedCommit": "e3fd14f3cc19b3735f73ad277f956b1a174366e9",
+      "version": "1.1.3",
+      "verifiedCommit": "5b7f85e0bdf44156d4ad3dd779eebf3019209f03",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.2/dsh-annotation.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.3/dsh-annotation.tgz",
           "profile": "web",
-          "spec": "https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.2/dsh-annotation.tgz",
+          "spec": "https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.3/dsh-annotation.tgz",
           "source": "tarball"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.2/dsh-annotation.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.3/dsh-annotation.tgz",
           "profile": "web",
-          "spec": "https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.2/dsh-annotation.tgz",
+          "spec": "https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.3/dsh-annotation.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.2/dsh-annotation.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.3/dsh-annotation.tgz",
           "profile": "web",
-          "spec": "https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.2/dsh-annotation.tgz",
+          "spec": "https://github.com/ruisenbai/dsh-annotation/releases/download/v1.1.3/dsh-annotation.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-annotation@1.1.2",
+        "spec": "dsh-annotation@1.1.3",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -50120,6 +50177,83 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "shetengteng/dsh-lumina-tarot",
+      "packageName": "dsh-lumina-tarot",
+      "version": "0.1.4",
+      "verifiedCommit": "ab45e116e01ea0558e6665bf2d7797e1135909f7",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-lumina-tarot",
+          "profile": "web",
+          "spec": "dsh-lumina-tarot",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-lumina-tarot`    | **安装**。从 npm 拉取并装进 `web` 这个 profile            |",
+          "profile": "web",
+          "spec": "dsh-lumina-tarot",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add github:shetengteng/dsh-lumina-tarot",
+          "profile": "web",
+          "spec": "github:shetengteng/dsh-lumina-tarot",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-lumina-tarot",
+          "profile": "web",
+          "spec": "dsh-lumina-tarot",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-lumina-tarot`    | **安装**。从 npm 拉取并装进 `web` 这个 profile            |",
+          "profile": "web",
+          "spec": "dsh-lumina-tarot",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-lumina-tarot",
+          "profile": "web",
+          "spec": "dsh-lumina-tarot",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-lumina-tarot`    | **安装**。从 npm 拉取并装进 `web` 这个 profile            |",
+          "profile": "web",
+          "spec": "dsh-lumina-tarot",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-lumina-tarot@0.1.4",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": []
       }
     },
     {
