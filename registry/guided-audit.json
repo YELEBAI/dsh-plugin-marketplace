@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T16:15:11.342Z",
-  "total": 1263,
+  "generatedAt": "2026-10-24T19:05:47.849Z",
+  "total": 1266,
   "groups": {
-    "remote-command-found": 423,
+    "remote-command-found": 424,
     "local-or-unparsed-command-only": 588,
-    "no-install-command-found": 252
+    "no-install-command-found": 254
   },
   "rows": [
     {
@@ -2889,6 +2889,36 @@
       "assessment": {
         "outcome": "guided-npm-unverified",
         "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "a961282799-crypto/dsh-region-edit",
+      "packageName": "dsh-region-edit",
+      "version": "0.3.4",
+      "verifiedCommit": "6bbcee79c67a9626f4c22536d2e0d0337c47017d",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-region-edit@0.3.4",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
@@ -12572,7 +12602,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "8d0a6becbaf4fa3c059fd1e9e31048e631e99874",
+      "verifiedCommit": "540fc7a18a1fe20f2e1b8f6289eb39fe7388c38a",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17972,6 +18002,85 @@
       }
     },
     {
+      "repository": "EternalNight996/memory-eternal",
+      "packageName": "memory-eternal",
+      "version": "0.16.0",
+      "verifiedCommit": "507ed38783f1f248c567f134a9f7b5b48176d5ac",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add memory-eternal</code></sub></p>",
+          "profile": "desktop",
+          "spec": "memory-eternal</code></sub></p>",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add memory-eternal",
+          "profile": "desktop",
+          "spec": "memory-eternal",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add memory-eternal",
+          "profile": "desktop",
+          "spec": "memory-eternal",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add memory-eternal",
+          "profile": "desktop",
+          "spec": "memory-eternal",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": true,
+        "reason": "exact-npm-tarball-verified",
+        "spec": "memory-eternal@0.16.0",
+        "integrity": "sha512-PWp2yn2gYf4n/mVkz7wjr5WrpUNNsJrxMwV1Ct3WFsqwUPt4QGt2nH1A/+kCYHGpNP3LBvSL5XCFmyE+zm6nlw==",
+        "tarball": "https://registry.npmjs.org/memory-eternal/-/memory-eternal-0.16.0.tgz",
+        "gitHead": "9799097d8ceae43fb37ef64bba4bdbb8d9a1f162",
+        "artifactGroups": [
+          {
+            "label": "host",
+            "paths": [
+              "index.js"
+            ],
+            "found": "index.js"
+          },
+          {
+            "label": "client",
+            "paths": [
+              "lib/client.js"
+            ],
+            "found": "lib/client.js"
+          }
+        ]
+      },
+      "assessment": {
+        "outcome": "guided-conflicting-evidence",
+        "reason": "readme-profiles-conflict-with-dsh-marketplace-profiles"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web",
+          "desktop"
+        ],
+        "requiresBuildApproval": false,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": true,
+        "reviewReasons": [
+          "readme-profiles-conflict-with-dsh-marketplace-profiles"
+        ]
+      }
+    },
+    {
       "repository": "eurt-nano/dsh-cache-cost-monitor",
       "packageName": "dsh-cache-cost-monitor",
       "version": "0.3.1",
@@ -18397,8 +18506,8 @@
     {
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
-      "version": "1.9.0-beta.16",
-      "verifiedCommit": "6c657bfa36e85526bc191a1953afd7261646a9e6",
+      "version": "1.9.0-beta.17",
+      "verifiedCommit": "f38dd545d3b769cd5529448590e1252961acfca2",
       "readmePath": "README.md",
       "commands": [
         {
@@ -18414,15 +18523,15 @@
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.9.0-beta.16 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.9.0-beta.17 --registry https://registry.npmjs.org",
           "profile": "web",
-          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.16",
+          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.17",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.9.0-beta.16 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.9.0-beta.17 --registry https://registry.npmjs.org",
           "profile": "desktop",
-          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.16",
+          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.17",
           "source": "npm"
         }
       ],
@@ -18440,15 +18549,15 @@
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.9.0-beta.16 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.9.0-beta.17 --registry https://registry.npmjs.org",
           "profile": "web",
-          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.16",
+          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.17",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.9.0-beta.16 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.9.0-beta.17 --registry https://registry.npmjs.org",
           "profile": "desktop",
-          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.16",
+          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.17",
           "source": "npm"
         }
       ],
@@ -18466,21 +18575,21 @@
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.9.0-beta.16 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile web add dsh-mattpocock-skills-deck@1.9.0-beta.17 --registry https://registry.npmjs.org",
           "profile": "web",
-          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.16",
+          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.17",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.9.0-beta.16 --registry https://registry.npmjs.org",
+          "raw": "dsh plugin --profile desktop add dsh-mattpocock-skills-deck@1.9.0-beta.17 --registry https://registry.npmjs.org",
           "profile": "desktop",
-          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.16",
+          "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.17",
           "source": "npm"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.16",
+        "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.17",
         "reason": "npm-bundle-patch-mismatch"
       },
       "assessment": {
@@ -25738,7 +25847,7 @@
       "repository": "iJetLi/dsh-providers-hub",
       "packageName": "dsh-providers-hub",
       "version": "0.2.1-rc.2",
-      "verifiedCommit": "213649af477d6a5c2a94cf602660afdbca535b83",
+      "verifiedCommit": "5c428605c8a5dc7d08acf114cb2411921a2acdb0",
       "readmePath": "README.md",
       "commands": [
         {
@@ -47027,6 +47136,37 @@
       "auditErrors": [],
       "current": {
         "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "qiuyiwu1989-star/dsh-k12-substrate",
+      "packageName": "dsh-k12-substrate",
+      "version": "0.1.0",
+      "verifiedCommit": "099073ef31ffb73a75988b674d3453c65bfe6b3e",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-k12-substrate@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
