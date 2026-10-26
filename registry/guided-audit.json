@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-25T21:10:25.206Z",
-  "total": 1279,
+  "generatedAt": "2026-10-26T00:41:16.421Z",
+  "total": 1281,
   "groups": {
-    "remote-command-found": 439,
-    "local-or-unparsed-command-only": 588,
+    "remote-command-found": 440,
+    "local-or-unparsed-command-only": 589,
     "no-install-command-found": 252
   },
   "rows": [
@@ -12555,7 +12555,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "752c5c87e4357fa7b5636664719e45b7be4ec30b",
+      "verifiedCommit": "911044d01ddb484ab10c1ebc30a3cecd7172061d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -18568,7 +18568,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.9.0-beta.20",
-      "verifiedCommit": "127b737aa24cf3fd23ac5b7f0df06a778d9935ab",
+      "verifiedCommit": "e9f6e8962b65101cdf519e546aaa16eb86a6b96d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -18651,11 +18651,11 @@
       "npmVerification": {
         "verified": false,
         "spec": "dsh-mattpocock-skills-deck@1.9.0-beta.20",
-        "reason": "npm-version-not-published"
+        "reason": "npm-bundle-patch-mismatch"
       },
       "assessment": {
         "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
+        "reason": "npm-bundle-patch-mismatch"
       },
       "auditErrors": [],
       "current": {
@@ -20302,6 +20302,38 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "GaoHu1997/dsh-model-think-level",
+      "packageName": "dsh-model-think-level",
+      "version": "2.0.1",
+      "verifiedCommit": "b2e667f932f50a62c3a2d65b7ae7b8a77344d4fb",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-model-think-level@2.0.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -27883,40 +27915,6 @@
       }
     },
     {
-      "repository": "jfanfly/bil-yet-next",
-      "packageName": "bil-yet",
-      "version": "0.9.1",
-      "verifiedCommit": "62c82f7b6714d47e709a841b65c5cdbb7bf99769",
-      "readmePath": null,
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "bil-yet@0.9.1",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": [
-          "prepare-and-prebuilt-runtime-found-but-readme-does-not-confirm-github-install"
-        ]
-      }
-    },
-    {
       "repository": "Jian-Sparrow/dsh-plugin-mission-control",
       "packageName": "dsh-plugin-mission-control",
       "version": "0.3.1",
@@ -28804,7 +28802,7 @@
       "repository": "Johnly1986/AmberFlow",
       "packageName": "amberflow",
       "version": "1.0.0",
-      "verifiedCommit": "095bd0d9c960b256b7abeb18702f730ed6366d9b",
+      "verifiedCommit": "a0b950596e1c9e22afe8d432e814401d4bd997f1",
       "readmePath": "README.md",
       "commands": [
         {
@@ -49417,10 +49415,49 @@
       }
     },
     {
+      "repository": "RedreamR/dsh-remote-access",
+      "packageName": "dsh-remote-access",
+      "version": "0.2.0",
+      "verifiedCommit": "41c3c7e8821d8fa0a22da323a405f26822980973",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:RedreamR/dsh-remote-access  --dangerously-allow-all-builds",
+          "profile": "web",
+          "spec": "github:RedreamR/dsh-remote-access",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-remote-access@0.2.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "reviso-si/reviso-dsh",
       "packageName": "dsh-reviso",
       "version": "0.1.0",
-      "verifiedCommit": "23cc7d27155f5954acd4fd84faf26e4412f33543",
+      "verifiedCommit": "f18a2b4635fc6b4a0a13aedb05664f2ccd2993c9",
       "readmePath": "README.md",
       "commands": [
         {
@@ -49687,6 +49724,73 @@
         ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
+      }
+    },
+    {
+      "repository": "rizkirmdhnnn/dsh-tool-notify",
+      "packageName": "dsh-tool-notify",
+      "version": "0.1.0",
+      "verifiedCommit": "663a7e120cb4a30856f2689d46c05692ca9f702e",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile demo add dsh-tool-notify",
+          "profile": "demo",
+          "spec": "dsh-tool-notify",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile demo add github:rizkirmdhn/dsh-tool-notify#<commit-sha>",
+          "profile": "demo",
+          "spec": "github:rizkirmdhn/dsh-tool-notify#<commit-sha>",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile demo add ./dsh-tool-notify-0.1.0.tgz",
+          "profile": "demo",
+          "spec": "./dsh-tool-notify-0.1.0.tgz",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile demo add dsh-tool-notify",
+          "profile": "demo",
+          "spec": "dsh-tool-notify",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile demo add dsh-tool-notify",
+          "profile": "demo",
+          "spec": "dsh-tool-notify",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-tool-notify@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "demo"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-github-repository-owner-does-not-resolve-to-this-candidate"
+        ]
       }
     },
     {
