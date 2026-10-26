@@ -17,6 +17,7 @@ import {
   refreshPluginMetadata,
   inspectDshStdManifest,
   mergeInstallOverrides,
+  preserveManualInstallRestriction,
   validateBundlePatch,
   validateManifest,
   verifiedPlugin,
@@ -135,12 +136,13 @@ async function processCandidate(candidate) {
       // verified plugin. Keep its last known-good immutable commit and old
       // fingerprint so the next daily run retries the new candidate state.
       if (old !== undefined && old.status === 'verified' && plainObject(old.plugin)) {
+        const retained = preserveManualInstallRestriction(old.plugin, old.inspection, installOverride)
         next[key] = {
           ...stateRow(candidate, old.fingerprint, 'verified', null, old),
           checkedAt: old.checkedAt,
           commit: old.commit,
-          plugin: refreshPluginMetadata(old.plugin, candidate),
-          inspection: old.inspection,
+          plugin: refreshPluginMetadata(retained.plugin, candidate),
+          inspection: retained.inspection,
           lastAttemptAt: now,
           lastAttemptReason: error.message,
         }

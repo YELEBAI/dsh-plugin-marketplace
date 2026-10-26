@@ -10,6 +10,7 @@ import {
   encodeRawPath,
   inspectDshStdManifest,
   mergeInstallOverrides,
+  preserveManualInstallRestriction,
   safePatchPath,
   validateBundlePatch,
   validateManifest,
@@ -277,6 +278,20 @@ assert.throws(() => promoteExactNpm(heldNpmRow, { inspection: holdInspection }, 
 const normalNpmPromotion = promoteExactNpm(heldNpmRow, { inspection: { reviewReasons: [], resolvedReasons: [] } }, npmProof)
 assert.equal(normalNpmPromotion.plugin.install.mode, 'automatic', '未设置人工限制的合法 npm 第二轮晋级保持可用')
 assert.equal(heldNpmRow.install.mode, 'guided', '晋级函数不能修改原有条目')
+const previousAutomatic = {
+  ...heldNpmRow,
+  install: { ...heldNpmRow.install, mode: 'automatic', source: 'github', spec: 'github:jcs130/dsh-minecraft-agent#' + 'c'.repeat(40), profiles: ['web'], manualSteps: false },
+}
+const retainedAfterNetworkError = preserveManualInstallRestriction(previousAutomatic, { reviewReasons: [] }, minecraftPolicy)
+assert.equal(retainedAfterNetworkError.plugin.install.mode, 'guided', '网络失败回退不得恢复旧的自动安装许可')
+assert.equal(retainedAfterNetworkError.plugin.install.source, 'github', '失败回退不能声称新的 npm 来源已经通过验证')
+assert.equal(retainedAfterNetworkError.plugin.install.spec, previousAutomatic.install.spec)
+assert.deepEqual(retainedAfterNetworkError.plugin.install.profiles, ['web'], '失败回退不能扩大旧快照的兼容范围')
+assert.equal(retainedAfterNetworkError.plugin.install.instructionsUrl, minecraftPolicy.instructionsUrl)
+assert.equal(previousAutomatic.install.mode, 'automatic', '限制回退不能改写原始快照')
+assert.equal(assessGuidedInstall(retainedAfterNetworkError.plugin, retainedAfterNetworkError.inspection, [], npmProof).outcome, 'guided-conflicting-evidence')
+assert.equal(preserveManualInstallRestriction(previousAutomatic, holdInspection, undefined).plugin, previousAutomatic, '其他插件的网络恢复策略不变')
+assert.deepEqual(preserveManualInstallRestriction(retainedAfterNetworkError.plugin, retainedAfterNetworkError.inspection, minecraftPolicy).inspection.reviewReasons, holdInspection.reviewReasons, '重复失败不能累积重复限制')
 assert.equal(verifiedPlugin({
   full_name: 'jcs130/dsh-minecraft-agent', name: 'dsh-minecraft-agent', default_branch: 'main',
   html_url: 'https://github.com/jcs130/dsh-minecraft-agent', updated_at: '2026-10-26T00:00:00Z',

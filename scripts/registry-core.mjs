@@ -645,6 +645,29 @@ export function mergeInstallOverrides(discoveredNpmOverride, installOverride) {
     : { ...discoveredNpmOverride, ...installOverride }
 }
 
+/** 临时网络失败可以保留旧的精确来源，但不能保留已被新人工策略撤销的自动安装许可。 */
+export function preserveManualInstallRestriction(plugin, inspection, installOverride) {
+  if (installOverride?.manualSteps !== true) return { plugin, inspection }
+  return {
+    plugin: {
+      ...plugin,
+      install: {
+        ...plugin.install,
+        mode: 'guided',
+        manualSteps: true,
+        instructionsUrl: installOverride.instructionsUrl ?? plugin.install.instructionsUrl,
+      },
+    },
+    inspection: {
+      ...inspection,
+      reviewReasons: [...new Set([
+        ...(Array.isArray(inspection?.reviewReasons) ? inspection.reviewReasons : []),
+        'registry-install-policy-requires-manual-steps',
+      ])],
+    },
+  }
+}
+
 /** Construct the public Registry row after both files passed. */
 export function verifiedPlugin(candidate, commit, identity, verifiedAt, installOverride = undefined) {
   const license = plainObject(candidate.license) && typeof candidate.license.spdx_id === 'string'
