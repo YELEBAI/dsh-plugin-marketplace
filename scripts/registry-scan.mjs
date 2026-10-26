@@ -16,6 +16,7 @@ import {
   readmeGitHubRepositories,
   refreshPluginMetadata,
   inspectDshStdManifest,
+  mergeInstallOverrides,
   validateBundlePatch,
   validateManifest,
   verifiedPlugin,
@@ -324,9 +325,7 @@ async function validateCandidate(candidate, installOverride) {
       }
     }
   }
-  const effectiveOverride = discoveredNpmOverride === undefined
-    ? installOverride
-    : { ...discoveredNpmOverride, ...installOverride }
+  const effectiveOverride = mergeInstallOverrides(discoveredNpmOverride, installOverride)
   const npmResolved = npmRelease?.verified === true
     && npmReviewReasons.length === 0
   return {

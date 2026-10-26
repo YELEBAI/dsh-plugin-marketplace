@@ -638,6 +638,13 @@ export function validateBundlePatch(text, packageName) {
   }
 }
 
+/** npm 验证只提供安装候选；维护者的人工限制始终最后合并，不能被验证结果解除。 */
+export function mergeInstallOverrides(discoveredNpmOverride, installOverride) {
+  return discoveredNpmOverride === undefined
+    ? installOverride
+    : { ...discoveredNpmOverride, ...installOverride }
+}
+
 /** Construct the public Registry row after both files passed. */
 export function verifiedPlugin(candidate, commit, identity, verifiedAt, installOverride = undefined) {
   const license = plainObject(candidate.license) && typeof candidate.license.spdx_id === 'string'
