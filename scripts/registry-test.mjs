@@ -9,6 +9,8 @@ import {
   classifyInstall,
   encodeRawPath,
   inspectDshStdManifest,
+  mergeInstallOverrides,
+  preserveManualInstallRestriction,
   safePatchPath,
   validateBundlePatch,
   validateManifest,
@@ -19,6 +21,7 @@ import {
   starGrowth7d,
   updateStarHistory,
 } from './discovery-core.mjs'
+import { assessGuidedInstall, promoteExactNpm } from './guided-audit-core.mjs'
 
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)))
 
@@ -234,6 +237,65 @@ const npmRow = verifiedPlugin({
 })
 assert.equal(npmRow.install.mode, 'automatic')
 assert.equal(npmRow.install.source, 'npm')
+
+// PR #34：精确 npm 结构校验成功不等于依赖漏洞已修复；必须保留人工安全限制。
+const installPolicy = JSON.parse(await readFile(path.join(root, 'policy', 'install-overrides.json'), 'utf8'))
+const minecraftPolicy = installPolicy.repositories['jcs130/dsh-minecraft-agent']
+assert.deepEqual(minecraftPolicy.profiles, ['web', 'desktop'])
+assert.equal(minecraftPolicy.manualSteps, true)
+assert.equal(minecraftPolicy.requiresBuildApproval, undefined, '策略不能私自关闭构建审批')
+assert.equal(minecraftPolicy.spec, undefined, '策略不能绕过扫描器硬编码安装版本')
+assert.match(minecraftPolicy.instructionsUrl, /YELEBAI\/dsh-plugin-marketplace\/blob\/main\/docs\/security\/minecraft-agent\.md$/)
+const securityNotice = await readFile(path.join(root, 'docs', 'security', 'minecraft-agent.md'), 'utf8')
+assert.match(securityNotice, /GHSA-mrhx-c7xc-m3w5/)
+assert.match(securityNotice, /4\.6\.6/)
+const verifiedNpmOverride = {
+  source: 'npm', spec: '@jcs130/dsh-minecraft-agent@0.3.0-rc.22',
+  profiles: ['web'], requiresBuildApproval: false, manualSteps: false,
+}
+const minecraftIdentity = classifyInstall(validateManifest(JSON.stringify({
+  name: '@jcs130/dsh-minecraft-agent', version: '0.3.0-rc.22', main: './lib/index.js',
+  exports: { '.': './lib/index.js', './client': './lib/client.js' },
+  dsh: { bundle: { patch: './cordis.patch.yml' }, client: { platform: 'web' } },
+})), 'jcs130/dsh-minecraft-agent', ['lib/index.js', 'lib/client.js'], null).identity
+const maintainedOverride = mergeInstallOverrides(verifiedNpmOverride, minecraftPolicy)
+const heldNpmRow = verifiedPlugin({
+  full_name: 'jcs130/dsh-minecraft-agent', name: 'dsh-minecraft-agent', default_branch: 'main',
+  html_url: 'https://github.com/jcs130/dsh-minecraft-agent', updated_at: '2026-10-26T00:00:00Z',
+}, 'c'.repeat(40), minecraftIdentity, '2026-10-26T00:00:00Z', maintainedOverride)
+assert.equal(heldNpmRow.install.mode, 'guided', '已验证 npm 不能解除维护者的人工安全限制')
+assert.equal(heldNpmRow.install.manualSteps, true)
+assert.equal(heldNpmRow.install.spec, verifiedNpmOverride.spec, '保留扫描器验证过的精确安装来源')
+assert.deepEqual(heldNpmRow.install.profiles, ['web', 'desktop'])
+assert.equal(verifiedNpmOverride.manualSteps, false, '合并不能修改共享的 npm 验证结果')
+assert.equal(mergeInstallOverrides(undefined, minecraftPolicy), minecraftPolicy, 'npm 未验证时也保留限制')
+assert.equal(mergeInstallOverrides(verifiedNpmOverride, undefined).manualSteps, false, '无人工策略的其他插件行为不变')
+assert.equal(mergeInstallOverrides(verifiedNpmOverride, { requiresBuildApproval: true }).requiresBuildApproval, true)
+const holdInspection = { reviewReasons: ['registry-install-policy-requires-manual-steps'] }
+const npmProof = { verified: true, spec: verifiedNpmOverride.spec, reason: 'exact-npm-tarball-verified' }
+assert.equal(assessGuidedInstall(heldNpmRow, holdInspection, [], npmProof).outcome, 'guided-conflicting-evidence', '每日第二轮审计不得解除人工安全限制')
+assert.throws(() => promoteExactNpm(heldNpmRow, { inspection: holdInspection }, npmProof), /unresolved manual review/, '即使直接调用晋级入口也不能解除人工安全限制')
+const normalNpmPromotion = promoteExactNpm(heldNpmRow, { inspection: { reviewReasons: [], resolvedReasons: [] } }, npmProof)
+assert.equal(normalNpmPromotion.plugin.install.mode, 'automatic', '未设置人工限制的合法 npm 第二轮晋级保持可用')
+assert.equal(heldNpmRow.install.mode, 'guided', '晋级函数不能修改原有条目')
+const previousAutomatic = {
+  ...heldNpmRow,
+  install: { ...heldNpmRow.install, mode: 'automatic', source: 'github', spec: 'github:jcs130/dsh-minecraft-agent#' + 'c'.repeat(40), profiles: ['web'], manualSteps: false },
+}
+const retainedAfterNetworkError = preserveManualInstallRestriction(previousAutomatic, { reviewReasons: [] }, minecraftPolicy)
+assert.equal(retainedAfterNetworkError.plugin.install.mode, 'guided', '网络失败回退不得恢复旧的自动安装许可')
+assert.equal(retainedAfterNetworkError.plugin.install.source, 'github', '失败回退不能声称新的 npm 来源已经通过验证')
+assert.equal(retainedAfterNetworkError.plugin.install.spec, previousAutomatic.install.spec)
+assert.deepEqual(retainedAfterNetworkError.plugin.install.profiles, ['web'], '失败回退不能扩大旧快照的兼容范围')
+assert.equal(retainedAfterNetworkError.plugin.install.instructionsUrl, minecraftPolicy.instructionsUrl)
+assert.equal(previousAutomatic.install.mode, 'automatic', '限制回退不能改写原始快照')
+assert.equal(assessGuidedInstall(retainedAfterNetworkError.plugin, retainedAfterNetworkError.inspection, [], npmProof).outcome, 'guided-conflicting-evidence')
+assert.equal(preserveManualInstallRestriction(previousAutomatic, holdInspection, undefined).plugin, previousAutomatic, '其他插件的网络恢复策略不变')
+assert.deepEqual(preserveManualInstallRestriction(retainedAfterNetworkError.plugin, retainedAfterNetworkError.inspection, minecraftPolicy).inspection.reviewReasons, holdInspection.reviewReasons, '重复失败不能累积重复限制')
+assert.equal(verifiedPlugin({
+  full_name: 'jcs130/dsh-minecraft-agent', name: 'dsh-minecraft-agent', default_branch: 'main',
+  html_url: 'https://github.com/jcs130/dsh-minecraft-agent', updated_at: '2026-10-26T00:00:00Z',
+}, 'c'.repeat(40), minecraftIdentity, '2026-10-26T00:00:00Z', minecraftPolicy).install.mode, 'guided', '未发布或被拒绝的 npm 不得自动安装')
 
 const prepareManifest = validateManifest(JSON.stringify({
   name: '@dsh-external/dsh-side-panel',

@@ -53,6 +53,11 @@ export function promoteExactNpm(plugin, stateRow, npmVerification) {
   if (!Array.isArray(plugin.install?.profiles) || plugin.install.profiles.length === 0) {
     throw new Error('cannot promote npm release without compatible profiles')
   }
+  // 晋级入口自身也校验人工限制，不能只依赖调用方过滤候选。
+  const assessment = assessGuidedInstall(plugin, stateRow?.inspection, [], npmVerification)
+  if (assessment.outcome !== 'automatic-npm-candidate') {
+    throw new Error('cannot promote npm release with unresolved manual review: ' + assessment.reason)
+  }
   const resolvedReasons = [...new Set([
     ...(Array.isArray(stateRow?.inspection?.resolvedReasons) ? stateRow.inspection.resolvedReasons : []),
     'exact-npm-tarball-verified-for-automatic-install',

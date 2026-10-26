@@ -18,6 +18,7 @@
 
 ### 修复与安全
 
+- Minecraft Agent 保留 Web/Desktop 收录和精确 npm 校验，但因其核心依赖命中 Zod 漏洞暂时要求人工安全复核；补充风险说明，防止 npm 验证结果覆盖人工安装限制。此措施不冒充上游依赖已经修复。
 - 标准 Windows npm/Corepack 的 pnpm 启动改用 Node 入口，避免含空格的本地安装来源和 Store 参数被 shell 拆开；桌面端仍使用其内置包管理器。
 - Registry 远程读取仅允许 HTTPS，拒绝明文 HTTP，避免通过不加密连接加载插件目录。
 - 将传递依赖 `js-yaml` 固定到 `4.3.2`，覆盖 DSH 工具链中旧版本的解析依赖。

@@ -18,6 +18,7 @@ Registry refresh commits are grouped instead of listed individually.
 
 ### Fixed and security
 
+- Retain Minecraft Agent Web/Desktop discovery and exact npm verification, but require manual security review while its core pins an affected Zod version. Add a security notice and regression coverage preventing verified npm results from clearing maintainer restrictions. This does not claim to fix the publisher's dependency.
 - Launch standard Windows npm/Corepack pnpm through its Node entry to preserve local install sources and Store arguments containing spaces; Desktop continues using its bundled package manager.
 - Remote Registry reads now require HTTPS and reject cleartext HTTP before making a request.
 - Pinned the transitive `js-yaml` dependency to `4.3.2`, covering the older parser pulled in by the DSH toolchain.
