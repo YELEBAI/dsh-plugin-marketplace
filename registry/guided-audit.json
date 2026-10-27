@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T21:21:03.191Z",
-  "total": 1283,
+  "generatedAt": "2026-10-27T01:48:46.248Z",
+  "total": 1285,
   "groups": {
-    "remote-command-found": 441,
+    "remote-command-found": 443,
     "local-or-unparsed-command-only": 589,
     "no-install-command-found": 253
   },
@@ -3267,7 +3267,7 @@
       "repository": "adithyanraj03/dsh-graft-plugin",
       "packageName": "dsh-graft-plugin",
       "version": "0.3.2",
-      "verifiedCommit": "5108f8b9418b36ff349009cf9b955ee8965e57a7",
+      "verifiedCommit": "949894a4ea9e4a4756b63b871caed9aefa145250",
       "readmePath": "README.md",
       "commands": [
         {
@@ -12570,7 +12570,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "7c1886ab9d73d18a1b1245f9f8d437f4f961af5c",
+      "verifiedCommit": "a665b8720d8934534c9e589fa1378743135c1348",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15342,6 +15342,47 @@
       }
     },
     {
+      "repository": "ddtcorex/maestro-skills",
+      "packageName": "@ddtcorex/maestro-skills",
+      "version": "3.0.0",
+      "verifiedCommit": "110116197d25d22687391b45806b8c297fc4243d",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add github:ddtcorex/maestro-skills",
+          "profile": "web",
+          "spec": "github:ddtcorex/maestro-skills",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@ddtcorex/maestro-skills@3.0.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
+      }
+    },
+    {
       "repository": "deathbook/dsh-think-phrases",
       "packageName": "dsh-think-phrases",
       "version": "0.1.0",
@@ -16229,7 +16270,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "7aa5adbe9411c1decdc49ed1b2f90981eea586f4",
+      "verifiedCommit": "19ca2dd3e9a5b2b5d0d3a4f07ba8f6d606e3f74b",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17332,8 +17373,8 @@
     {
       "repository": "elegant01/dsh-honey-guard",
       "packageName": "dsh-honey-guard",
-      "version": "0.1.1",
-      "verifiedCommit": "cb5695be9592e6c6d8b337e85e76d3c233ebe84b",
+      "version": "0.1.2",
+      "verifiedCommit": "49c5a79656a93bb5c768a15b6e704a19c3d406ba",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17347,7 +17388,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-honey-guard@0.1.1",
+        "spec": "dsh-honey-guard@0.1.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -19144,41 +19185,6 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "FlameTN7/dsh-tui-browser-use",
-      "packageName": "dsh-tui-browser-use",
-      "version": "0.2.0",
-      "verifiedCommit": "f3c5d4ae9ab51906e29214f560e6e48582193c7c",
-      "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-tui-browser-use@0.2.0",
-        "reason": "npm-hard-lifecycle-scripts",
-        "detail": "postinstall"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "headless",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "postinstall",
           "prepare"
         ],
         "runtimeArtifactsCommitted": false,
@@ -47037,40 +47043,54 @@
     },
     {
       "repository": "poliucode/dsh-balance",
-      "packageName": "dsh-balance",
-      "version": "0.3.2",
-      "verifiedCommit": "99f07a6e0966e408b08c64606c25bd8fbd13e9f7",
+      "packageName": "dsh-balance-hud",
+      "version": "0.4.1",
+      "verifiedCommit": "eaf85559f6404bc740b56e2dd0c640a57992e80e",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile <名字> add ./dsh-balance-0.1.0.tgz",
-          "profile": "<名字>",
-          "spec": "./dsh-balance-0.1.0.tgz",
-          "source": "local"
+          "raw": "dsh plugin --profile web add dsh-balance-hud",
+          "profile": "web",
+          "spec": "dsh-balance-hud",
+          "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile <名字> add ./dsh-balance-x.y.z.tgz`。",
-          "profile": "<名字>",
-          "spec": "./dsh-balance-x.y.z.tgz",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin --profile <名字> add github:<owner>/dsh-balance",
-          "profile": "<名字>",
-          "spec": "github:<owner>/dsh-balance",
+          "raw": "dsh plugin --profile web add github:poliucode/dsh-balance",
+          "profile": "web",
+          "spec": "github:poliucode/dsh-balance",
           "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile web add ./dsh-balance-hud-0.4.0.tgz",
+          "profile": "web",
+          "spec": "./dsh-balance-hud-0.4.0.tgz",
+          "source": "local"
         }
       ],
-      "targetedCommands": [],
-      "remoteCommands": [],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-balance-hud",
+          "profile": "web",
+          "spec": "dsh-balance-hud",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-balance-hud",
+          "profile": "web",
+          "spec": "dsh-balance-hud",
+          "source": "npm"
+        }
+      ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-balance@0.3.2",
+        "spec": "dsh-balance-hud@0.4.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
       },
       "auditErrors": [],
       "current": {
@@ -47083,7 +47103,9 @@
           "prepare"
         ],
         "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
+        "reviewReasons": [
+          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
+        ]
       }
     },
     {
@@ -47682,6 +47704,112 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "QiangXian/notix-dsh",
+      "packageName": "notix-dsh",
+      "version": "0.3.0",
+      "verifiedCommit": "3b0eed39a28417a05678d4abbc6f9c9a4356ba95",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile <name> add <package>` forwards the remaining arguments to pnpm in the profile directory and installs the package. Because `notix-dsh` declares `dsh.bundle`, DSH also reconciles the profile's `dsh.profile.bundles` list and adds `notix-dsh` to it, so the next start composes its patch layer.",
+          "profile": "<name>",
+          "spec": "<package>",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add notix-dsh",
+          "profile": "desktop",
+          "spec": "notix-dsh",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add notix-dsh",
+          "profile": "web",
+          "spec": "notix-dsh",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add link:/absolute/path/to/notix-dsh",
+          "profile": "web",
+          "spec": "link:/absolute/path/to/notix-dsh",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add notix-dsh@latest`, then restart the instance.",
+          "profile": "<name>",
+          "spec": "notix-dsh@latest",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin add` on the packed tarball reconciles the bundle list, and `dsh --dump-config` composes the `notix` entry.",
+          "profile": null,
+          "spec": "on",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add notix-dsh",
+          "profile": "desktop",
+          "spec": "notix-dsh",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add notix-dsh",
+          "profile": "web",
+          "spec": "notix-dsh",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add notix-dsh@latest`, then restart the instance.",
+          "profile": "<name>",
+          "spec": "notix-dsh@latest",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add notix-dsh",
+          "profile": "desktop",
+          "spec": "notix-dsh",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add notix-dsh",
+          "profile": "web",
+          "spec": "notix-dsh",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile <name> add notix-dsh@latest`, then restart the instance.",
+          "profile": "<name>",
+          "spec": "notix-dsh@latest",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "notix-dsh@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -48348,6 +48476,37 @@
       "auditErrors": [],
       "current": {
         "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "QwQBiG/dsh-re-lab",
+      "packageName": "dsh-re-lab",
+      "version": "0.1.0-alpha.1",
+      "verifiedCommit": "957c33893f0196ccf547d791419c869640eac31f",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-re-lab@0.1.0-alpha.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
