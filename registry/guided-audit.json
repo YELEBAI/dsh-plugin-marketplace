@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T19:46:11.549Z",
-  "total": 1321,
+  "generatedAt": "2026-10-31T00:08:47.756Z",
+  "total": 1318,
   "groups": {
-    "remote-command-found": 456,
-    "local-or-unparsed-command-only": 606,
-    "no-install-command-found": 259
+    "remote-command-found": 455,
+    "local-or-unparsed-command-only": 605,
+    "no-install-command-found": 258
   },
   "rows": [
     {
@@ -5786,45 +5786,6 @@
       }
     },
     {
-      "repository": "Animal2404/dsh-axia-cachebilling",
-      "packageName": "dsh-axia-cachebilling",
-      "version": "0.6.3",
-      "verifiedCommit": "8e1543fbc87ec983482dde7094eb73a4bae8c7f9",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add github:Animal2404/dsh-axia-cachebilling",
-          "profile": "web",
-          "spec": "github:Animal2404/dsh-axia-cachebilling",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-axia-cachebilling@0.6.3",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "ANOKO1122/dsh-checkpoints",
       "packageName": "dsh-checkpoints",
       "version": "0.2.5",
@@ -8340,7 +8301,7 @@
       "repository": "bennett-dsh/dsh-plugin-usage",
       "packageName": "dsh-plugin-usage",
       "version": "0.5.0",
-      "verifiedCommit": "664dca40cb922641143f4f0fac610a0947b32149",
+      "verifiedCommit": "90b804ae4729147e595c7b08d1c2af43345a2899",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13032,7 +12993,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "c387fe4d077c3178b42b378c6e37ed0ecfbd97f1",
+      "verifiedCommit": "4ae76a00bf56e8142c24c84b196efeaf84c00724",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16625,88 +16586,6 @@
       }
     },
     {
-      "repository": "dingminhua/dsh-connect-qoder",
-      "packageName": "@dmh2002/dsh-connect-qoder",
-      "version": "1.16.4",
-      "verifiedCommit": "b882df4a5b4d5748f2d99265b106e68280e58e47",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile desktop add @dmh2002/dsh-connect-qoder   # Desktop",
-          "profile": "desktop",
-          "spec": "@dmh2002/dsh-connect-qoder",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add @dmh2002/dsh-connect-qoder       # Web",
-          "profile": "web",
-          "spec": "@dmh2002/dsh-connect-qoder",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile desktop add /Users/dmh2002/DshProject/dsh-connect-qoder",
-          "profile": "desktop",
-          "spec": "/Users/dmh2002/DshProject/dsh-connect-qoder",
-          "source": "local"
-        },
-        {
-          "raw": "dsh plugin add` 安装。社区市场通常从 [Awesome DSH Plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 注册表同步条目；仓库内的提交草稿位于 [`awesome-dsh-plugin-submission/dingminhua__dsh-connect-qoder.yml`](awesome-dsh-plugin-submission/dingminhua__dsh-connect-qoder.yml)。",
-          "profile": null,
-          "spec": "安装。社区市场通常从",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile desktop add @dmh2002/dsh-connect-qoder   # Desktop",
-          "profile": "desktop",
-          "spec": "@dmh2002/dsh-connect-qoder",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add @dmh2002/dsh-connect-qoder       # Web",
-          "profile": "web",
-          "spec": "@dmh2002/dsh-connect-qoder",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile desktop add @dmh2002/dsh-connect-qoder   # Desktop",
-          "profile": "desktop",
-          "spec": "@dmh2002/dsh-connect-qoder",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add @dmh2002/dsh-connect-qoder       # Web",
-          "profile": "web",
-          "spec": "@dmh2002/dsh-connect-qoder",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "@dmh2002/dsh-connect-qoder@1.16.4",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "desktop",
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "DingTalk-Real-AI/dsh-dingtalk",
       "packageName": "@dingtalk-real-ai/dsh-dingtalk",
       "version": "0.0.0-development",
@@ -16833,7 +16712,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "f689dd68694fdcf5a5efd6559ab1694930e87d78",
+      "verifiedCommit": "d2a23556b76eefddd807a606b75b69b3b687cb92",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17974,38 +17853,6 @@
       "assessment": {
         "outcome": "guided-npm-unverified",
         "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "EIGHTfs/dsh-git-push",
-      "packageName": "dsh-git-push",
-      "version": "2.13.1",
-      "verifiedCommit": "3b06883c9e1ccb65bbfb842292c38313628fd5e4",
-      "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-git-push@2.13.1",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
@@ -19305,7 +19152,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.9.0-beta.32",
-      "verifiedCommit": "9a09d986a6466fc1fef3064898b2b86973b8f695",
+      "verifiedCommit": "ad4c53e4280997b5002375b2b6064b5e5d600932",
       "readmePath": "README.md",
       "commands": [
         {
@@ -31654,15 +31501,15 @@
     {
       "repository": "kexijiang/dsh-harmony",
       "packageName": "dsh-plugin-harmony",
-      "version": "0.3.3",
-      "verifiedCommit": "63b451392c9a93ff3f51305424d0be31f93929c1",
+      "version": "0.4.1",
+      "verifiedCommit": "b30ef149ca8337d626ed3400d803b58806c19c14",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-plugin-harmony@0.3.3",
+        "spec": "dsh-plugin-harmony@0.4.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -47001,7 +46848,7 @@
       "repository": "P-JIANGH/dsh-enhance",
       "packageName": "@p-jiangh/dsh-enhance",
       "version": "0.1.3",
-      "verifiedCommit": "93ac6917a530e41cd3d9706c5b85da6a65c5e45a",
+      "verifiedCommit": "5806ee40226637e4aac8cb5d6b0f9acb8748199e",
       "readmePath": "README.md",
       "commands": [
         {
