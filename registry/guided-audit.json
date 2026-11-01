@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-01T13:47:05.648Z",
-  "total": 1325,
+  "generatedAt": "2026-11-01T19:16:19.521Z",
+  "total": 1328,
   "groups": {
-    "remote-command-found": 447,
-    "local-or-unparsed-command-only": 616,
+    "remote-command-found": 449,
+    "local-or-unparsed-command-only": 617,
     "no-install-command-found": 262
   },
   "rows": [
@@ -3480,8 +3480,8 @@
     {
       "repository": "AdRainty/dsh-vocechat-bridge",
       "packageName": "dsh-vocechat-bridge",
-      "version": "0.4.7",
-      "verifiedCommit": "0e0c4988f740cbdc08a335ba8f51d06954be7a0f",
+      "version": "0.4.9",
+      "verifiedCommit": "c3c70e189e62feaf2b6defcd7d77697e8caed499",
       "readmePath": "README.md",
       "commands": [
         {
@@ -3495,7 +3495,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-vocechat-bridge@0.4.7",
+        "spec": "dsh-vocechat-bridge@0.4.9",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -10711,7 +10711,7 @@
       "repository": "CAT0998/dsh-ai-cursor",
       "packageName": "dsh-ai-cursor",
       "version": "0.12.0",
-      "verifiedCommit": "bc206df3dafc096585df7ab225a19da9d817e594",
+      "verifiedCommit": "548113eb3c31e161fe4107df786e26ee36165171",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13035,7 +13035,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "21ecbe0d27c3e86b0f642803f4ed3c6e3fbc62e6",
+      "verifiedCommit": "5de5db42bf5c55ca8c4936010cb027a0bdf54a3d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16582,6 +16582,332 @@
       }
     },
     {
+      "repository": "dingminhua/dsh-connect-qoder",
+      "packageName": "@dmh2002/dsh-connect-qoder",
+      "version": "1.17.0",
+      "verifiedCommit": "073e22292e9c2fc3b6e688720c575401fac2b76c",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add @dmh2002/dsh-connect-qoder   # Desktop",
+          "profile": "desktop",
+          "spec": "@dmh2002/dsh-connect-qoder",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add @dmh2002/dsh-connect-qoder       # Web",
+          "profile": "web",
+          "spec": "@dmh2002/dsh-connect-qoder",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add /Users/dmh2002/DshProject/dsh-connect-qoder",
+          "profile": "desktop",
+          "spec": "/Users/dmh2002/DshProject/dsh-connect-qoder",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin add` 安装。社区市场通常从 [Awesome DSH Plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 注册表同步条目；仓库内的提交草稿位于 [`awesome-dsh-plugin-submission/dingminhua__dsh-connect-qoder.yml`](awesome-dsh-plugin-submission/dingminhua__dsh-connect-qoder.yml)。",
+          "profile": null,
+          "spec": "安装。社区市场通常从",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add @dmh2002/dsh-connect-qoder   # Desktop",
+          "profile": "desktop",
+          "spec": "@dmh2002/dsh-connect-qoder",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add @dmh2002/dsh-connect-qoder       # Web",
+          "profile": "web",
+          "spec": "@dmh2002/dsh-connect-qoder",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add @dmh2002/dsh-connect-qoder   # Desktop",
+          "profile": "desktop",
+          "spec": "@dmh2002/dsh-connect-qoder",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add @dmh2002/dsh-connect-qoder       # Web",
+          "profile": "web",
+          "spec": "@dmh2002/dsh-connect-qoder",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@dmh2002/dsh-connect-qoder@1.17.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "dingminhua/dsh-connect-trae",
+      "packageName": "dsh-connect-trae",
+      "version": "4.7.0",
+      "verifiedCommit": "d0f2a0006fd4c203b4253e12778b5e84411b6ac1",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add /path/to/dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "/path/to/dsh-connect-trae",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-trae",
+          "profile": "desktop",
+          "spec": "dsh-connect-trae",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-connect-trae@4.7.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "dingminhua/dsh-connect-workbuddy",
+      "packageName": "dsh-connect-workbuddy",
+      "version": "5.18.0",
+      "verifiedCommit": "06006e41c6b9dfb5d112b7630747b4d74ec4045c",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1`（原因见下方「刚发布的版本请写精确版本号」那条）。",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1`；若被等待期拒绝，见 [`docs/PINNED-UPGRADE-LAG.md`](docs/PINNED-UPGRADE-LAG.md) §2 的两条路（等窗口过去，或加那行 exclude）。过了等待期之后，浮动范围会自然跟上。",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-connect-workbuddy     # Web",
+          "profile": "web",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile dsh-tui add dsh-connect-workbuddy # TUI",
+          "profile": "dsh-tui",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@<上一步得到的版本>`；",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@<上一步得到的版本>",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add /Users/dmh2002/DshProject/dsh-connect-workbuddy",
+          "profile": "desktop",
+          "spec": "/Users/dmh2002/DshProject/dsh-connect-workbuddy",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin add dsh-connect-workbuddy`）不需要这一步：发布包里 `lib/` 已经在，",
+          "profile": null,
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1`（原因见下方「刚发布的版本请写精确版本号」那条）。",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1`；若被等待期拒绝，见 [`docs/PINNED-UPGRADE-LAG.md`](docs/PINNED-UPGRADE-LAG.md) §2 的两条路（等窗口过去，或加那行 exclude）。过了等待期之后，浮动范围会自然跟上。",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-connect-workbuddy     # Web",
+          "profile": "web",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile dsh-tui add dsh-connect-workbuddy # TUI",
+          "profile": "dsh-tui",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@<上一步得到的版本>`；",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@<上一步得到的版本>",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin add dsh-connect-workbuddy`）不需要这一步：发布包里 `lib/` 已经在，",
+          "profile": null,
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1`（原因见下方「刚发布的版本请写精确版本号」那条）。",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1`；若被等待期拒绝，见 [`docs/PINNED-UPGRADE-LAG.md`](docs/PINNED-UPGRADE-LAG.md) §2 的两条路（等窗口过去，或加那行 exclude）。过了等待期之后，浮动范围会自然跟上。",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-connect-workbuddy     # Web",
+          "profile": "web",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile dsh-tui add dsh-connect-workbuddy # TUI",
+          "profile": "dsh-tui",
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@5.15.1",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@5.15.1",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add dsh-connect-workbuddy@<上一步得到的版本>`；",
+          "profile": "desktop",
+          "spec": "dsh-connect-workbuddy@<上一步得到的版本>",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin add dsh-connect-workbuddy`）不需要这一步：发布包里 `lib/` 已经在，",
+          "profile": null,
+          "spec": "dsh-connect-workbuddy",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-connect-workbuddy@5.18.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop",
+          "dsh-tui",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "DingTalk-Real-AI/dsh-dingtalk",
       "packageName": "@dingtalk-real-ai/dsh-dingtalk",
       "version": "0.0.0-development",
@@ -17865,49 +18191,17 @@
       }
     },
     {
-      "repository": "EIGHTfs/dsh-git-push",
-      "packageName": "dsh-git-push",
-      "version": "2.15.3",
-      "verifiedCommit": "1e90a21c87f9152eee3aedb10c7b4ab5c3e7962e",
-      "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-git-push@2.15.3",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "EIGHTfs/dsh-session-conductor",
       "packageName": "dsh-session-conductor",
-      "version": "1.4.8",
-      "verifiedCommit": "2eace5abfd9d120ad3bc4f7d8abf3ddaba4944df",
+      "version": "1.4.9",
+      "verifiedCommit": "64962c8eaf00453b4a95bb251af70eeac6c5ba1c",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-session-conductor@1.4.8",
+        "spec": "dsh-session-conductor@1.4.9",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -19242,8 +19536,8 @@
     {
       "repository": "fan56/dsh-tui-pi",
       "packageName": "@aiwayds/dsh-tui-pi",
-      "version": "2.34.0",
-      "verifiedCommit": "bf163633de00cbf403d1bb806ceeabb6c90b86ab",
+      "version": "2.35.0",
+      "verifiedCommit": "011a15094fa3607ba64d3c6035ac953fe8cbc7d9",
       "readmePath": "README.md",
       "commands": [
         {
@@ -19277,7 +19571,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@aiwayds/dsh-tui-pi@2.34.0",
+        "spec": "@aiwayds/dsh-tui-pi@2.35.0",
         "reason": "npm-hard-lifecycle-scripts",
         "detail": "postinstall"
       },
@@ -19370,7 +19664,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.9.0-beta.34",
-      "verifiedCommit": "fee29b94fec7473708ba897b4ae158988629edbf",
+      "verifiedCommit": "4cccaf878e7f06f864f75aede9c3b6398454b6fc",
       "readmePath": "README.md",
       "commands": [
         {
@@ -21240,20 +21534,20 @@
     {
       "repository": "geekjourneyx/dsh-md2wechat",
       "packageName": "@geekjourneyx/dsh-md2wechat",
-      "version": "2.0.0-rc.4",
-      "verifiedCommit": "b4c6ece2de8b4e68243e670d1b79fcef07dede25",
+      "version": "2.0.0-rc.5",
+      "verifiedCommit": "63b96244a3f786e820f81b95afefdc12345e9459",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add ./geekjourneyx-dsh-md2wechat-2.0.0-rc.4.tgz",
+          "raw": "dsh plugin --profile web add ./geekjourneyx-dsh-md2wechat-2.0.0-rc.5.tgz",
           "profile": "web",
-          "spec": "./geekjourneyx-dsh-md2wechat-2.0.0-rc.4.tgz",
+          "spec": "./geekjourneyx-dsh-md2wechat-2.0.0-rc.5.tgz",
           "source": "local"
         },
         {
-          "raw": "dsh plugin --profile web add ./dist/geekjourneyx-dsh-md2wechat-2.0.0-rc.4.tgz",
+          "raw": "dsh plugin --profile web add ./dist/geekjourneyx-dsh-md2wechat-2.0.0-rc.5.tgz",
           "profile": "web",
-          "spec": "./dist/geekjourneyx-dsh-md2wechat-2.0.0-rc.4.tgz",
+          "spec": "./dist/geekjourneyx-dsh-md2wechat-2.0.0-rc.5.tgz",
           "source": "local"
         },
         {
@@ -21281,7 +21575,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@geekjourneyx/dsh-md2wechat@2.0.0-rc.4",
+        "spec": "@geekjourneyx/dsh-md2wechat@2.0.0-rc.5",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -23207,8 +23501,8 @@
     {
       "repository": "hairyf/dsh-office-kit",
       "packageName": "dsh-office-kit",
-      "version": "0.4.6",
-      "verifiedCommit": "418ab105be7a3c7c0bb5e9824ba6a6c4797bef96",
+      "version": "0.4.7",
+      "verifiedCommit": "178c4839194eabe131b088fdc8decfb8bb9a851c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -23236,7 +23530,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-office-kit@0.4.6",
+        "spec": "dsh-office-kit@0.4.7",
         "reason": "npm-hard-lifecycle-scripts",
         "detail": "postinstall"
       },
@@ -29451,8 +29745,8 @@
     {
       "repository": "Jisiyong-A/dsh-plugin-background-compaction",
       "packageName": "dsh-plugin-background-compaction",
-      "version": "2.0.0",
-      "verifiedCommit": "f0bfb6f5f4feba3ae137a8e04fd4964f8c2a99d9",
+      "version": "2.0.1",
+      "verifiedCommit": "92d3bc38ec53b6ed5e645515a59c181e16573426",
       "readmePath": "README.md",
       "commands": [
         {
@@ -29466,7 +29760,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-plugin-background-compaction@2.0.0",
+        "spec": "dsh-plugin-background-compaction@2.0.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -29984,7 +30278,7 @@
       "repository": "Johnly1986/AmberFlow",
       "packageName": "amberflow",
       "version": "2.0.0",
-      "verifiedCommit": "b394f2c3eefac7539b933f09d8eca73481446e0d",
+      "verifiedCommit": "ebf605ac25b08c4127803cb5fb291a66bb799a76",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -36867,65 +37161,6 @@
       }
     },
     {
-      "repository": "loguhan/dsh-workshop",
-      "packageName": "dsh-workshop",
-      "version": "0.1.0",
-      "verifiedCommit": "cf36f61f708100d9f2c67db3a1722a8b85b53757",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-workshop",
-          "profile": "web",
-          "spec": "dsh-workshop",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add github:loguhan/dsh-workshop",
-          "profile": "web",
-          "spec": "github:loguhan/dsh-workshop",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-workshop",
-          "profile": "web",
-          "spec": "dsh-workshop",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-workshop",
-          "profile": "web",
-          "spec": "dsh-workshop",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-workshop@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": true,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "lonelymoon87/dsh-guardian",
       "packageName": "dsh-guardian",
       "version": "0.1.3",
@@ -39546,6 +39781,49 @@
       }
     },
     {
+      "repository": "measureer/dsh-overleaf-sync",
+      "packageName": "dsh-overleaf-sync",
+      "version": "0.1.0",
+      "verifiedCommit": "5b8376cf2115c7aedebc8cc836254384144fb2f3",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin add ./dsh-overleaf-sync-0.1.0.tgz      # 或 dsh plugin --profile desktop add <absolute-path>.tgz",
+          "profile": "desktop",
+          "spec": "./dsh-overleaf-sync-0.1.0.tgz",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin --profile desktop add link:C:/code/dsh-overleaf-sync",
+          "profile": "desktop",
+          "spec": "link:C:/code/dsh-overleaf-sync",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-overleaf-sync@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "meat-daemon-404/dsh-cost-overlay",
       "packageName": "dsh-cost-overlay",
       "version": "0.1.2",
@@ -40584,6 +40862,36 @@
       "npmVerification": {
         "verified": false,
         "spec": "dsh-wanxiang-knowledge@0.2.0-alpha.10",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "MingoYung/dsh-session-concurrency",
+      "packageName": "@local/session-concurrency",
+      "version": "0.1.0",
+      "verifiedCommit": "a3437712a4b36273d0cff7d8ba304c12db71ab95",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@local/session-concurrency@0.1.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -42696,15 +43004,15 @@
     {
       "repository": "Mulibaixi/dsh-translation-plugin",
       "packageName": "dsh-translation-plugin",
-      "version": "0.26.8",
-      "verifiedCommit": "7a9b3184507a3e508aa68adbd628e23dd6d071fa",
+      "version": "0.26.9",
+      "verifiedCommit": "0d8677adfd119d1cb8748a708a7b1743c1a7dfc5",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-translation-plugin@0.26.8",
+        "spec": "dsh-translation-plugin@0.26.9",
         "reason": "npm-version-not-published"
       },
       "assessment": {
