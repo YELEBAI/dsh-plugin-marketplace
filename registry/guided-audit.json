@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-01T19:16:19.521Z",
+  "generatedAt": "2026-11-01T23:56:36.081Z",
   "total": 1328,
   "groups": {
     "remote-command-found": 449,
@@ -5711,8 +5711,8 @@
     {
       "repository": "anyi-520/dsh-lazy-toolbox",
       "packageName": "dsh-lazy-toolbox",
-      "version": "0.7.1",
-      "verifiedCommit": "8dbf8d5600aa44c4fc3ec161c40ea436447f5f8a",
+      "version": "0.7.3",
+      "verifiedCommit": "c902227911af36b815e74b5e395d310f16e11320",
       "readmePath": "README.md",
       "commands": [
         {
@@ -5740,7 +5740,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-lazy-toolbox@0.7.1",
+        "spec": "dsh-lazy-toolbox@0.7.3",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -13035,7 +13035,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "5de5db42bf5c55ca8c4936010cb027a0bdf54a3d",
+      "verifiedCommit": "8adc3523d8017680afb1e812ef031a4be5023604",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16585,7 +16585,7 @@
       "repository": "dingminhua/dsh-connect-qoder",
       "packageName": "@dmh2002/dsh-connect-qoder",
       "version": "1.17.0",
-      "verifiedCommit": "073e22292e9c2fc3b6e688720c575401fac2b76c",
+      "verifiedCommit": "5060ea94da48d37234d404d22abe3462e0b981af",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16667,7 +16667,7 @@
       "repository": "dingminhua/dsh-connect-trae",
       "packageName": "dsh-connect-trae",
       "version": "4.7.0",
-      "verifiedCommit": "d0f2a0006fd4c203b4253e12778b5e84411b6ac1",
+      "verifiedCommit": "4516d2b925b8cd063efd28d8b8cc0117e654399b",
       "readmePath": "README.md",
       "commands": [
         {
@@ -16724,7 +16724,7 @@
       "repository": "dingminhua/dsh-connect-workbuddy",
       "packageName": "dsh-connect-workbuddy",
       "version": "5.18.0",
-      "verifiedCommit": "06006e41c6b9dfb5d112b7630747b4d74ec4045c",
+      "verifiedCommit": "3f993ee8dee40a28c85a9a2579d24634b94970a0",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17034,7 +17034,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "dfd5bed7003b9591c04c7e4ff3aef56ff562981c",
+      "verifiedCommit": "a8f58c4e166a1f7864b8d3cc419e2af7e457a688",
       "readmePath": "README.md",
       "commands": [
         {
@@ -19664,7 +19664,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.9.0-beta.34",
-      "verifiedCommit": "4cccaf878e7f06f864f75aede9c3b6398454b6fc",
+      "verifiedCommit": "bdc3bd8f0b3405d726ec152881d80216667103a7",
       "readmePath": "README.md",
       "commands": [
         {
@@ -28406,20 +28406,39 @@
     {
       "repository": "jcs130/dsh-minecraft-agent",
       "packageName": "@jcs130/dsh-minecraft-agent",
-      "version": "0.3.0-rc.25-preview.69",
-      "verifiedCommit": "d608c048cb28d57a3ffeb13fa239c8d81e8ce191",
+      "version": "0.3.0-rc.26",
+      "verifiedCommit": "6c526667f8402872992f9bcfb050c8eaa96cf7b5",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
-        "verified": false,
-        "spec": "@jcs130/dsh-minecraft-agent@0.3.0-rc.25-preview.69",
-        "reason": "npm-version-not-published"
+        "verified": true,
+        "reason": "exact-npm-tarball-verified",
+        "spec": "@jcs130/dsh-minecraft-agent@0.3.0-rc.26",
+        "integrity": "sha512-PPyf5hEi40HR1mbxP2t0Tb/V9j+MZKtTYDUnVWyJMFbZw4i5yCck1Ticu5EwiTHNkm38sxLjkAcWKlIeK/iF7Q==",
+        "tarball": "https://registry.npmjs.org/@jcs130/dsh-minecraft-agent/-/dsh-minecraft-agent-0.3.0-rc.26.tgz",
+        "gitHead": null,
+        "artifactGroups": [
+          {
+            "label": "host",
+            "paths": [
+              "lib/plugins/mc-harness.mjs"
+            ],
+            "found": "lib/plugins/mc-harness.mjs"
+          },
+          {
+            "label": "client",
+            "paths": [
+              "lib/client.js"
+            ],
+            "found": "lib/client.js"
+          }
+        ]
       },
       "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+        "outcome": "guided-conflicting-evidence",
+        "reason": "registry-install-policy-requires-manual-steps"
       },
       "auditErrors": [],
       "current": {
@@ -36019,6 +36038,57 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
+      }
+    },
+    {
+      "repository": "lisihao/dsh-intelligent-UI",
+      "packageName": "@lisihao/dsh-solar-intelligent-experience-platform",
+      "version": "0.1.0-preview.1",
+      "verifiedCommit": "9a981bdba49f15fc3946febdb21870125c8940f2",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add --ignore-scripts  \"https://github.com/lisihao/dsh-intelligent-UI/releases/download/%40lisihao%2Fdsh-solar-intelligent-experience-platform%400.1.0-preview.1/lisihao-dsh-solar-intelligent-experience-platform-0.1.0-preview.1.tgz\"",
+          "profile": "desktop",
+          "spec": "https://github.com/lisihao/dsh-intelligent-UI/releases/download/%40lisihao%2Fdsh-solar-intelligent-experience-platform%400.1.0-preview.1/lisihao-dsh-solar-intelligent-experience-platform-0.1.0-preview.1.tgz",
+          "source": "tarball"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add --ignore-scripts  \"https://github.com/lisihao/dsh-intelligent-UI/releases/download/%40lisihao%2Fdsh-solar-intelligent-experience-platform%400.1.0-preview.1/lisihao-dsh-solar-intelligent-experience-platform-0.1.0-preview.1.tgz\"",
+          "profile": "desktop",
+          "spec": "https://github.com/lisihao/dsh-intelligent-UI/releases/download/%40lisihao%2Fdsh-solar-intelligent-experience-platform%400.1.0-preview.1/lisihao-dsh-solar-intelligent-experience-platform-0.1.0-preview.1.tgz",
+          "source": "tarball"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add --ignore-scripts  \"https://github.com/lisihao/dsh-intelligent-UI/releases/download/%40lisihao%2Fdsh-solar-intelligent-experience-platform%400.1.0-preview.1/lisihao-dsh-solar-intelligent-experience-platform-0.1.0-preview.1.tgz\"",
+          "profile": "desktop",
+          "spec": "https://github.com/lisihao/dsh-intelligent-UI/releases/download/%40lisihao%2Fdsh-solar-intelligent-experience-platform%400.1.0-preview.1/lisihao-dsh-solar-intelligent-experience-platform-0.1.0-preview.1.tgz",
+          "source": "tarball"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "@lisihao/dsh-solar-intelligent-experience-platform@0.1.0-preview.1",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-tarball-unverified",
+        "reason": "release-tarball-not-statically-verified"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
       }
     },
     {
@@ -48815,63 +48885,6 @@
       "assessment": {
         "outcome": "guided-no-matching-remote-command",
         "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "PrismScopes/dsh-aide",
-      "packageName": "dsh-aide",
-      "version": "0.11.1",
-      "verifiedCommit": "f006d422af09ba864302c95610040e178bb4d444",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-aide",
-          "profile": "web",
-          "spec": "dsh-aide",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin ... add` 可能显示 `Ignored build scripts` 并以失败结束；这是预期的安全检查，插件依赖已经写入 profile。在 DSH 所在机器执行：",
-          "profile": null,
-          "spec": "可能显示",
-          "source": "unknown"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-aide",
-          "profile": "web",
-          "spec": "dsh-aide",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-aide",
-          "profile": "web",
-          "spec": "dsh-aide",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-aide@0.11.1",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
       },
       "auditErrors": [],
       "current": {
