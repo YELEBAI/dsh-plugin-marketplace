@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-05T01:16:23.926Z",
+  "generatedAt": "2026-11-05T09:54:41.998Z",
   "total": 1373,
   "groups": {
     "remote-command-found": 460,
-    "local-or-unparsed-command-only": 636,
-    "no-install-command-found": 277
+    "local-or-unparsed-command-only": 635,
+    "no-install-command-found": 278
   },
   "rows": [
     {
@@ -4744,8 +4744,8 @@
     {
       "repository": "Altermoe/dsh-model-logos",
       "packageName": "dsh-model-logos",
-      "version": "0.4.0",
-      "verifiedCommit": "d29c387e0a08b81a5ae860b0b6d7facc2c7632ef",
+      "version": "0.5.0",
+      "verifiedCommit": "afc6f282db0e05711580e9575000d7ab03ed7557",
       "readmePath": "README.md",
       "commands": [
         {
@@ -4759,7 +4759,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-model-logos@0.4.0",
+        "spec": "dsh-model-logos@0.5.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -6990,6 +6990,36 @@
       }
     },
     {
+      "repository": "awol2005ex3/dsh-k8s",
+      "packageName": "dsh-k8s",
+      "version": "0.1.0",
+      "verifiedCommit": "37dfbd396fa6b79d12bcc22f4799ad9b053562cd",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-k8s@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "awol2005ex3/dsh-logo-custom",
       "packageName": "dsh-logo-custom",
       "version": "0.1.0",
@@ -7840,8 +7870,8 @@
     {
       "repository": "BangBang-03/dsh-memory-portrait",
       "packageName": "@bangbang-03/dsh-memory",
-      "version": "0.7.0",
-      "verifiedCommit": "68b83b1bd8c1bb4e2bbdc4ba90a1a1a4c71a08f9",
+      "version": "0.8.0",
+      "verifiedCommit": "f092d40fa6b6c4fcacf26d56f7e4d4672de13d79",
       "readmePath": "README.md",
       "commands": [
         {
@@ -7886,32 +7916,13 @@
         }
       ],
       "npmVerification": {
-        "verified": true,
-        "reason": "exact-npm-tarball-verified",
-        "spec": "@bangbang-03/dsh-memory@0.7.0",
-        "integrity": "sha512-DKVX7Z8VxIeKuic+s36MEc3k6hHBjtLj1P3uTaTXod92/d8i26cLvqq5BlQUQBrqnjpP+vUjMePgqGEq1Or8GQ==",
-        "tarball": "https://registry.npmjs.org/@bangbang-03/dsh-memory/-/dsh-memory-0.7.0.tgz",
-        "gitHead": "40623938210380ca6c9b0e7d15e398c9030ee552",
-        "artifactGroups": [
-          {
-            "label": "host",
-            "paths": [
-              "lib/index.js"
-            ],
-            "found": "lib/index.js"
-          },
-          {
-            "label": "client",
-            "paths": [
-              "lib/client.js"
-            ],
-            "found": "lib/client.js"
-          }
-        ]
+        "verified": false,
+        "spec": "@bangbang-03/dsh-memory@0.8.0",
+        "reason": "npm-version-not-published"
       },
       "assessment": {
-        "outcome": "guided-conflicting-evidence",
-        "reason": "manifest-requires-manual-steps"
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
       },
       "auditErrors": [],
       "current": {
@@ -11053,8 +11064,8 @@
     {
       "repository": "CAT0998/dsh-ai-cursor",
       "packageName": "dsh-ai-cursor",
-      "version": "0.12.0",
-      "verifiedCommit": "548113eb3c31e161fe4107df786e26ee36165171",
+      "version": "0.13.1",
+      "verifiedCommit": "2bd2fd94d2bb36e281f07759beba9f1d6de6aab6",
       "readmePath": "README.md",
       "commands": [
         {
@@ -11088,7 +11099,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-ai-cursor@0.12.0",
+        "spec": "dsh-ai-cursor@0.13.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -12967,36 +12978,6 @@
       }
     },
     {
-      "repository": "chenyth/dsh-image-editor",
-      "packageName": "dsh-image-editor",
-      "version": "0.2.0",
-      "verifiedCommit": "04305ae477b99827f09731d53b2579d575a101dc",
-      "readmePath": "README.md",
-      "commands": [],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-image-editor@0.2.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
       "repository": "ChenYueqi2024/dsh-memory",
       "packageName": "dsh-memory",
       "version": "0.4.0",
@@ -13445,7 +13426,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "4e73d55f4a830b04057da18171c43589ad12a372",
+      "verifiedCommit": "bd850f53c3c591930fe2e0e287630f4011f390d1",
       "readmePath": "README.md",
       "commands": [
         {
@@ -13882,14 +13863,14 @@
     {
       "repository": "cilis/dsh-whale-tts",
       "packageName": "dsh-whale-tts",
-      "version": "0.4.2",
-      "verifiedCommit": "b8cac44f0475f677945e8bc18b9b733209d0df80",
+      "version": "0.4.4",
+      "verifiedCommit": "1f0c3d0d9bb6b29cb4b3f650a0d1f4a9fcf50d73",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile <profile> add file:/路径/dsh-whale-tts-0.4.2.tgz",
+          "raw": "dsh plugin --profile <profile> add file:/路径/dsh-whale-tts-0.4.4.tgz",
           "profile": "<profile>",
-          "spec": "file:/路径/dsh-whale-tts-0.4.2.tgz",
+          "spec": "file:/路径/dsh-whale-tts-0.4.4.tgz",
           "source": "local"
         }
       ],
@@ -13897,7 +13878,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-whale-tts@0.4.2",
+        "spec": "dsh-whale-tts@0.4.4",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -14282,7 +14263,7 @@
       "repository": "CLICGGER-TYPES/dsh-piggy",
       "packageName": "dsh-piggy",
       "version": "0.37.2-rc.14",
-      "verifiedCommit": "f0693c5da1b142041fbfafb766d5f6391ba04b33",
+      "verifiedCommit": "de261dd1200eb90c711fcf1cf7baf6960c8aa58d",
       "readmePath": "README.md",
       "commands": [
         {
@@ -14690,15 +14671,15 @@
     {
       "repository": "comeonzhj/SuperAgent-General",
       "packageName": "dsh-superagent-general",
-      "version": "0.2.0",
-      "verifiedCommit": "325c1837997a5593a10b721fd0a824cf2f0d183a",
+      "version": "0.2.1",
+      "verifiedCommit": "1a201abd1c107e54fff35b8dbc5df11a5c1fc878",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-superagent-general@0.2.0",
+        "spec": "dsh-superagent-general@0.2.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -17232,7 +17213,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "d517473968f986e2e8dea168849877e24ad3cc26",
+      "verifiedCommit": "194b5450417b1e130262e670b21d30c7379ba598",
       "readmePath": "README.md",
       "commands": [
         {
@@ -19288,8 +19269,8 @@
     {
       "repository": "EternalNight996/memory-eternal",
       "packageName": "memory-eternal",
-      "version": "0.21.0",
-      "verifiedCommit": "e27ffe507986b470a828801b66bfe6a798cd760b",
+      "version": "0.22.0",
+      "verifiedCommit": "8d2c2bbf82c3d39b06e9546cb42d6d9ee1d0acc5",
       "readmePath": "README.md",
       "commands": [
         {
@@ -19324,10 +19305,10 @@
       "npmVerification": {
         "verified": true,
         "reason": "exact-npm-tarball-verified",
-        "spec": "memory-eternal@0.21.0",
-        "integrity": "sha512-kAV+V1oHhXN2AeMH5mNkTf484tJq+6lPgrJL/bD63W0t6TnWmIbmALAr6CdHfXBjz6DzKeafPSA2zjjT7FLIUg==",
-        "tarball": "https://registry.npmjs.org/memory-eternal/-/memory-eternal-0.21.0.tgz",
-        "gitHead": "e27ffe507986b470a828801b66bfe6a798cd760b",
+        "spec": "memory-eternal@0.22.0",
+        "integrity": "sha512-OHMA9zW3V2QBFfu/FRm+o11ttFIdJ+M37LSWvXL0LG6PSvc6lm8RKcY1t51o1Zoj2378F/ry5/eTcU8tjKEfDA==",
+        "tarball": "https://registry.npmjs.org/memory-eternal/-/memory-eternal-0.22.0.tgz",
+        "gitHead": "8d2c2bbf82c3d39b06e9546cb42d6d9ee1d0acc5",
         "artifactGroups": [
           {
             "label": "host",
@@ -19875,7 +19856,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.9.0-beta.34",
-      "verifiedCommit": "7be6c68b07eb81b108ce0f6584b7bfaf12dbe3ce",
+      "verifiedCommit": "a4e62522888ba70e7f6601f82d2a8c8fbc3d3a76",
       "readmePath": "README.md",
       "commands": [
         {
@@ -20340,14 +20321,14 @@
     {
       "repository": "FFFengMJL/dsh-plan-execute",
       "packageName": "dsh-plan-execute",
-      "version": "0.2.1",
-      "verifiedCommit": "aacd59f841911d6e7bc97c25c06518b2a4ae67f1",
+      "version": "0.2.2",
+      "verifiedCommit": "a1d455eb12ada21020cbd4c3592accabfbea2cac",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add /path/to/dsh-plan-execute-0.2.1.tgz",
+          "raw": "dsh plugin --profile web add /path/to/dsh-plan-execute-0.2.2.tgz",
           "profile": "web",
-          "spec": "/path/to/dsh-plan-execute-0.2.1.tgz",
+          "spec": "/path/to/dsh-plan-execute-0.2.2.tgz",
           "source": "local"
         },
         {
@@ -20361,7 +20342,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-plan-execute@0.2.1",
+        "spec": "dsh-plan-execute@0.2.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -20383,8 +20364,8 @@
     {
       "repository": "FFFengMJL/dsh-workspace-browser",
       "packageName": "dsh-workspace-browser",
-      "version": "0.2.1",
-      "verifiedCommit": "837e9a17da75b1b45c20d5120bafc77ed4e1787e",
+      "version": "0.3.0",
+      "verifiedCommit": "5482fbf3e4230f3d56a68851a0fb6cb499c0fd8b",
       "readmePath": "README.md",
       "commands": [
         {
@@ -20394,9 +20375,9 @@
           "source": "unknown"
         },
         {
-          "raw": "dsh plugin --profile web add \"$PWD/dsh-workspace-browser-0.2.1.tgz\"",
+          "raw": "dsh plugin --profile web add \"$PWD/dsh-workspace-browser-0.3.0.tgz\"",
           "profile": "web",
-          "spec": "$PWD/dsh-workspace-browser-0.2.1.tgz",
+          "spec": "$PWD/dsh-workspace-browser-0.3.0.tgz",
           "source": "unknown"
         },
         {
@@ -20410,7 +20391,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-workspace-browser@0.2.1",
+        "spec": "dsh-workspace-browser@0.3.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -23110,6 +23091,36 @@
       }
     },
     {
+      "repository": "guicaiyue/dsh-word-learn",
+      "packageName": "dsh-word-learn",
+      "version": "0.1.0",
+      "verifiedCommit": "ca4d99c8b42d9616438150b694fa64d2f4cc0643",
+      "readmePath": "README.md",
+      "commands": [],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-word-learn@0.1.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "gulagala001/dsh-btw",
       "packageName": "@gulagala001/dsh-btw",
       "version": "0.1.7-dsh.0.2.2-rc.1",
@@ -24459,8 +24470,8 @@
     {
       "repository": "Harvey-Will/dsh-vision-analysis",
       "packageName": "dsh-vision-analysis",
-      "version": "0.2.2-alpha.2",
-      "verifiedCommit": "85d63c613871f8b7d0a8eaf57d4de1997910749c",
+      "version": "0.2.2-rc.1",
+      "verifiedCommit": "68b3c481d0c6c2603e2d15ce94783c710df6cfe3",
       "readmePath": "README.md",
       "commands": [
         {
@@ -24474,7 +24485,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-vision-analysis@0.2.2-alpha.2",
+        "spec": "dsh-vision-analysis@0.2.2-rc.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -27623,7 +27634,7 @@
       "repository": "iJetLi/dsh-providers-hub",
       "packageName": "dsh-providers-hub",
       "version": "0.2.1-rc.2",
-      "verifiedCommit": "fddb8751f82b7ece80b398f514c974705b656fe4",
+      "verifiedCommit": "104f0fc3dd1e07df21fbc18ecba49b0a857d23d4",
       "readmePath": "README.md",
       "commands": [
         {
@@ -30399,7 +30410,7 @@
       "repository": "jingjie43/dsh-sim-telemetry",
       "packageName": "dsh-sim-telemetry",
       "version": "0.2.5",
-      "verifiedCommit": "b557ca5f70427f4c43a953bab943ac76d86c73ad",
+      "verifiedCommit": "d3b1f9cfee592f706a37fd869a719d511da0346f",
       "readmePath": "README.md",
       "commands": [
         {
@@ -32950,8 +32961,8 @@
     {
       "repository": "kingcharleslzy-ai/dsh-qwen-studio",
       "packageName": "dsh-qwen-studio",
-      "version": "2.19.0",
-      "verifiedCommit": "0791bfe5dd2196e4963d77a83df770e4f26d14d8",
+      "version": "2.19.1",
+      "verifiedCommit": "6fee48f76fd6ccbaffe196fba1c83632ebe211f4",
       "readmePath": "README.md",
       "commands": [
         {
@@ -32965,7 +32976,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-qwen-studio@2.19.0",
+        "spec": "dsh-qwen-studio@2.19.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -33474,20 +33485,20 @@
     {
       "repository": "KtKID/dsh-workbuddy",
       "packageName": "dsh-workbuddy",
-      "version": "0.1.1",
-      "verifiedCommit": "6ae29533499bd8afc80c65847cfe7ec0e94194d0",
+      "version": "0.2.2",
+      "verifiedCommit": "ae5bceb0a6c8f8038829f755a2f2b541c1a661f5",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/KtKID/dsh-workbuddy/releases/download/v0.1.0/dsh-workbuddy-0.1.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/KtKID/dsh-workbuddy/releases/latest/download/dsh-workbuddy.tgz",
           "profile": "web",
-          "spec": "https://github.com/KtKID/dsh-workbuddy/releases/download/v0.1.0/dsh-workbuddy-0.1.0.tgz",
+          "spec": "https://github.com/KtKID/dsh-workbuddy/releases/latest/download/dsh-workbuddy.tgz",
           "source": "tarball"
         },
         {
-          "raw": "dsh plugin --profile web add /absolute/path/dsh-workbuddy-0.1.0.tgz",
+          "raw": "dsh plugin --profile web add /absolute/path/dsh-workbuddy.tgz",
           "profile": "web",
-          "spec": "/absolute/path/dsh-workbuddy-0.1.0.tgz",
+          "spec": "/absolute/path/dsh-workbuddy.tgz",
           "source": "local"
         },
         {
@@ -33499,23 +33510,23 @@
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/KtKID/dsh-workbuddy/releases/download/v0.1.0/dsh-workbuddy-0.1.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/KtKID/dsh-workbuddy/releases/latest/download/dsh-workbuddy.tgz",
           "profile": "web",
-          "spec": "https://github.com/KtKID/dsh-workbuddy/releases/download/v0.1.0/dsh-workbuddy-0.1.0.tgz",
+          "spec": "https://github.com/KtKID/dsh-workbuddy/releases/latest/download/dsh-workbuddy.tgz",
           "source": "tarball"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile web add https://github.com/KtKID/dsh-workbuddy/releases/download/v0.1.0/dsh-workbuddy-0.1.0.tgz",
+          "raw": "dsh plugin --profile web add https://github.com/KtKID/dsh-workbuddy/releases/latest/download/dsh-workbuddy.tgz",
           "profile": "web",
-          "spec": "https://github.com/KtKID/dsh-workbuddy/releases/download/v0.1.0/dsh-workbuddy-0.1.0.tgz",
+          "spec": "https://github.com/KtKID/dsh-workbuddy/releases/latest/download/dsh-workbuddy.tgz",
           "source": "tarball"
         }
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-workbuddy@0.1.1",
+        "spec": "dsh-workbuddy@0.2.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -33751,7 +33762,7 @@
       "repository": "KurutoDenzeru/tersio",
       "packageName": "@krtclcdy/tersio",
       "version": "2.25.17",
-      "verifiedCommit": "02e2e094842793915cad01da3acb992c7a5c2aa6",
+      "verifiedCommit": "2769ea1d4c2650e1be8b20468ed35855fc9e6a60",
       "readmePath": "README.md",
       "commands": [
         {
@@ -34477,7 +34488,7 @@
       "repository": "lcsdg/dsh-quick-prompts",
       "packageName": "@max1997/dsh-quick-prompts",
       "version": "0.2.0",
-      "verifiedCommit": "8f40907bfb8014b5f6ba2c1e87f1a45b14cf4478",
+      "verifiedCommit": "e4c7457d6a88a4ab2e6442e85acd0e22db277aeb",
       "readmePath": "README.md",
       "commands": [
         {
@@ -38326,7 +38337,7 @@
       "repository": "ljwzhaoxiaoniu/DLR",
       "packageName": "dsh-tsm-agent",
       "version": "0.2.2",
-      "verifiedCommit": "abaa872f00f42fbbcf2724ef07f49dc40680d9e5",
+      "verifiedCommit": "2e0f139ddf1e4eb5227cc0ea4bf28cb630ace623",
       "readmePath": "README.md",
       "commands": [
         {
@@ -38755,7 +38766,7 @@
       "repository": "looput/dsh-finance-lab",
       "packageName": "dsh-finance",
       "version": "0.1.0",
-      "verifiedCommit": "927606d08223aaf2c089bf7dd27be2a7669b309a",
+      "verifiedCommit": "579ac392d592b3bbb929fa54ae53c84fce769158",
       "readmePath": "README.md",
       "commands": [
         {
@@ -51491,59 +51502,6 @@
       "assessment": {
         "outcome": "guided-tarball-unverified",
         "reason": "release-tarball-not-statically-verified"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": [
-          "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
-        ]
-      }
-    },
-    {
-      "repository": "Qingzhou-Joshua/dsh-dev-toolbox",
-      "packageName": "dsh-dev-toolbox",
-      "version": "0.1.0",
-      "verifiedCommit": "2a51f741de5dad638444a8658a750b2a3fd26103",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin add` fetches sources and runs `prepare` to build `lib/`. pnpm ≥10 blocks that script until it is allowlisted.",
-          "profile": null,
-          "spec": "fetches",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add github:Qingzhou-Joshua/dsh-dev-toolbox",
-          "profile": "web",
-          "spec": "github:Qingzhou-Joshua/dsh-dev-toolbox",
-          "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin --profile web add /absolute/path/to/dsh-dev-toolbox",
-          "profile": "web",
-          "spec": "/absolute/path/to/dsh-dev-toolbox",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [],
-      "remoteCommands": [],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-dev-toolbox@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-no-matching-remote-command",
-        "reason": "readme-does-not-document-a-remote-install-for-this-package"
       },
       "auditErrors": [],
       "current": {
