@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T01:48:28.752Z",
+  "generatedAt": "2026-11-08T09:23:51.311Z",
   "total": 1399,
   "groups": {
-    "remote-command-found": 477,
-    "local-or-unparsed-command-only": 634,
+    "remote-command-found": 476,
+    "local-or-unparsed-command-only": 635,
     "no-install-command-found": 288
   },
   "rows": [
@@ -1824,8 +1824,8 @@
     {
       "repository": "2239058652/dsh-mcp-workbench",
       "packageName": "dsh-mcp-workbench",
-      "version": "0.8.2",
-      "verifiedCommit": "714306d651f6bdd3cdf325e53ed68a6c9506f99e",
+      "version": "0.8.4",
+      "verifiedCommit": "e2feea3aa31f6d64661f13142478a15cb26c2389",
       "readmePath": "README.md",
       "commands": [
         {
@@ -1857,7 +1857,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-mcp-workbench@0.8.2",
+        "spec": "dsh-mcp-workbench@0.8.4",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -6125,63 +6125,6 @@
         "reviewReasons": [
           "readme-documents-github-install-but-runtime-entry-artifacts-are-missing"
         ]
-      }
-    },
-    {
-      "repository": "Artenx/dsh-monkeyai-sessions",
-      "packageName": "dsh-monkeyai-sessions",
-      "version": "0.1.0",
-      "verifiedCommit": "6c9c9348b910e06c42ef7a0daeb884d016c75597",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-monkeyai-sessions",
-          "profile": "web",
-          "spec": "dsh-monkeyai-sessions",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add ./dsh-monkeyai-sessions-0.1.0.tgz",
-          "profile": "web",
-          "spec": "./dsh-monkeyai-sessions-0.1.0.tgz",
-          "source": "local"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-monkeyai-sessions",
-          "profile": "web",
-          "spec": "dsh-monkeyai-sessions",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-monkeyai-sessions",
-          "profile": "web",
-          "spec": "dsh-monkeyai-sessions",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-monkeyai-sessions@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
       }
     },
     {
@@ -13455,7 +13398,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "544efc4eac890983344b35a3fca0774f9dc2f957",
+      "verifiedCommit": "b75441aa6830bc5c0e3084c688d3ba54aa214974",
       "readmePath": "README.md",
       "commands": [
         {
@@ -15660,6 +15603,76 @@
       }
     },
     {
+      "repository": "czp0312/dsh-ssh-workspace",
+      "packageName": "dsh-ssh-workspaces",
+      "version": "0.3.0",
+      "verifiedCommit": "cb61825ca5ea858b0ee80b84a9818c7f71c2c0dd",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-ssh-workspaces@0.3.0",
+          "profile": "desktop",
+          "spec": "dsh-ssh-workspaces@0.3.0",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-ssh-workspaces@0.3.0",
+          "profile": "web",
+          "spec": "dsh-ssh-workspaces@0.3.0",
+          "source": "npm"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-ssh-workspaces@0.3.0",
+          "profile": "desktop",
+          "spec": "dsh-ssh-workspaces@0.3.0",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-ssh-workspaces@0.3.0",
+          "profile": "web",
+          "spec": "dsh-ssh-workspaces@0.3.0",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile desktop add dsh-ssh-workspaces@0.3.0",
+          "profile": "desktop",
+          "spec": "dsh-ssh-workspaces@0.3.0",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add dsh-ssh-workspaces@0.3.0",
+          "profile": "web",
+          "spec": "dsh-ssh-workspaces@0.3.0",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-ssh-workspaces@0.3.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "desktop",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
       "repository": "d3cker/dsh-open-terminal",
       "packageName": "dsh-open-terminal",
       "version": "0.1.4",
@@ -17408,7 +17421,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "5edd0fbb97baec4864d68523370727e268f57810",
+      "verifiedCommit": "2c0451b6b6a6ce15217100a771b3f41dbbfbc8b2",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17505,59 +17518,6 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "diqierjia/StrataGate-AgentMemory",
-      "packageName": "stratagate-dsh",
-      "version": "0.3.44",
-      "verifiedCommit": "d910fee6633cb3b904d8a31267904db8d8a3ea9b",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add stratagate-dsh",
-          "profile": "web",
-          "spec": "stratagate-dsh",
-          "source": "npm"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add stratagate-dsh",
-          "profile": "web",
-          "spec": "stratagate-dsh",
-          "source": "npm"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add stratagate-dsh",
-          "profile": "web",
-          "spec": "stratagate-dsh",
-          "source": "npm"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "stratagate-dsh@0.3.44",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [
-          "prepare"
-        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -20252,7 +20212,7 @@
       "repository": "FeatherHunter/dsh-mattpocock-skills-deck",
       "packageName": "dsh-mattpocock-skills-deck",
       "version": "1.9.0-beta.34",
-      "verifiedCommit": "b1d2ea6c86aea431bda1998fc92aed1e4df1b3b8",
+      "verifiedCommit": "57b88d72df36c7377b0326614d2e6c26eb6e9461",
       "readmePath": "README.md",
       "commands": [
         {
@@ -23692,15 +23652,15 @@
     {
       "repository": "gulagala001/dsh-btw",
       "packageName": "@gulagala001/dsh-btw",
-      "version": "0.1.7-dsh.0.2.2-rc.1",
-      "verifiedCommit": "0074bc52df369758e9c662e4833b0eb5555f386a",
+      "version": "0.1.8-dsh.0.2.2-rc.1",
+      "verifiedCommit": "fed85019664e98868120c4544f700d049fb27ecc",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "@gulagala001/dsh-btw@0.1.7-dsh.0.2.2-rc.1",
+        "spec": "@gulagala001/dsh-btw@0.1.8-dsh.0.2.2-rc.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -23909,15 +23869,15 @@
     {
       "repository": "gulagala001/opencu",
       "packageName": "opencu",
-      "version": "2.2.10-dsh.0.2.2-rc.1",
-      "verifiedCommit": "519aa7e2f29ee61d063f03830fc929c7a89f9aea",
+      "version": "2.2.11-dsh.0.2.2-rc.1",
+      "verifiedCommit": "82d2b47018d019734fddc82a180dade82ff60453",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "opencu@2.2.10-dsh.0.2.2-rc.1",
+        "spec": "opencu@2.2.11-dsh.0.2.2-rc.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -27751,6 +27711,58 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "icpjimait/dsh-photo-pose-plugin",
+      "packageName": "dsh-photo-pose-plugin",
+      "version": "0.2.0",
+      "verifiedCommit": "2d02a6cf9825f542deeed07f875673f5dfe717e9",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin add`。见官方 [Package and install a plugin](https://deepseek-harness.github.io/deepseek-harness/en/develop/basic/publish)。",
+          "profile": null,
+          "spec": "。见官方",
+          "source": "unknown"
+        },
+        {
+          "raw": "dsh plugin --profile demo add /path/to/dsh-photo-pose-plugin",
+          "profile": "demo",
+          "spec": "/path/to/dsh-photo-pose-plugin",
+          "source": "local"
+        },
+        {
+          "raw": "dsh plugin add ./...` 时生效。以后真要发 GitHub，要么发 npm 预编译版，要么让用户在 `pnpm-workspace.yaml` 里 allowBuilds，见官方发布教程的 \"Installing from GitHub: the build-script catch\" 一节。",
+          "profile": null,
+          "spec": "./",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-photo-pose-plugin@0.2.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "headless",
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -38499,59 +38511,59 @@
       "repository": "lire1131/dsh-undo-savepoint",
       "packageName": "dsh-undo-savepoint",
       "version": "0.5.1",
-      "verifiedCommit": "52da5178bf3364e1ee99c58caddea21152a25e9b",
+      "verifiedCommit": "c5a3d0451c8f539e33d6bea9dba41002c038d264",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile desktop add github:lire1131/dsh-undo-savepoint#v0.5.1",
+          "raw": "dsh plugin --profile desktop add github:lire1131/dsh-undo-savepoint",
           "profile": "desktop",
-          "spec": "github:lire1131/dsh-undo-savepoint#v0.5.1",
+          "spec": "github:lire1131/dsh-undo-savepoint",
           "source": "unknown"
         },
         {
-          "raw": "dsh plugin --profile desktop add dsh-undo-savepoint@0.5.1",
+          "raw": "dsh plugin --profile desktop add dsh-undo-savepoint",
           "profile": "desktop",
-          "spec": "dsh-undo-savepoint@0.5.1",
+          "spec": "dsh-undo-savepoint",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add github:lire1131/dsh-undo-savepoint#v0.5.1",
+          "raw": "dsh plugin --profile web add github:lire1131/dsh-undo-savepoint",
           "profile": "web",
-          "spec": "github:lire1131/dsh-undo-savepoint#v0.5.1",
+          "spec": "github:lire1131/dsh-undo-savepoint",
           "source": "unknown"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-undo-savepoint@0.5.1",
+          "raw": "dsh plugin --profile web add dsh-undo-savepoint",
           "profile": "web",
-          "spec": "dsh-undo-savepoint@0.5.1",
+          "spec": "dsh-undo-savepoint",
           "source": "npm"
         }
       ],
       "targetedCommands": [
         {
-          "raw": "dsh plugin --profile desktop add dsh-undo-savepoint@0.5.1",
+          "raw": "dsh plugin --profile desktop add dsh-undo-savepoint",
           "profile": "desktop",
-          "spec": "dsh-undo-savepoint@0.5.1",
+          "spec": "dsh-undo-savepoint",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-undo-savepoint@0.5.1",
+          "raw": "dsh plugin --profile web add dsh-undo-savepoint",
           "profile": "web",
-          "spec": "dsh-undo-savepoint@0.5.1",
+          "spec": "dsh-undo-savepoint",
           "source": "npm"
         }
       ],
       "remoteCommands": [
         {
-          "raw": "dsh plugin --profile desktop add dsh-undo-savepoint@0.5.1",
+          "raw": "dsh plugin --profile desktop add dsh-undo-savepoint",
           "profile": "desktop",
-          "spec": "dsh-undo-savepoint@0.5.1",
+          "spec": "dsh-undo-savepoint",
           "source": "npm"
         },
         {
-          "raw": "dsh plugin --profile web add dsh-undo-savepoint@0.5.1",
+          "raw": "dsh plugin --profile web add dsh-undo-savepoint",
           "profile": "web",
-          "spec": "dsh-undo-savepoint@0.5.1",
+          "spec": "dsh-undo-savepoint",
           "source": "npm"
         }
       ],
