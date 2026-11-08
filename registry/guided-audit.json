@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T17:02:11.999Z",
-  "total": 1399,
+  "generatedAt": "2026-11-08T22:28:30.268Z",
+  "total": 1400,
   "groups": {
     "remote-command-found": 471,
-    "local-or-unparsed-command-only": 640,
+    "local-or-unparsed-command-only": 641,
     "no-install-command-found": 288
   },
   "rows": [
@@ -6396,6 +6396,71 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "AskTheWay/dsh-auto-memory",
+      "packageName": "dsh-auto-memory",
+      "version": "1.6.0",
+      "verifiedCommit": "5cf383d726842eaf82e4c2964daecef3600071a6",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-auto-memory",
+          "profile": "web",
+          "spec": "dsh-auto-memory",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin add` pulls it straight from the registry, no manual download:",
+          "profile": null,
+          "spec": "pulls",
+          "source": "npm"
+        },
+        {
+          "raw": "dsh plugin --profile web add /abs/path`.",
+          "profile": "web",
+          "spec": "/abs/path",
+          "source": "local"
+        }
+      ],
+      "targetedCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-auto-memory",
+          "profile": "web",
+          "spec": "dsh-auto-memory",
+          "source": "npm"
+        }
+      ],
+      "remoteCommands": [
+        {
+          "raw": "dsh plugin --profile web add dsh-auto-memory",
+          "profile": "web",
+          "spec": "dsh-auto-memory",
+          "source": "npm"
+        }
+      ],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-auto-memory@1.6.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-npm-unverified",
+        "reason": "npm-version-not-published"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
@@ -13409,7 +13474,7 @@
       "repository": "chnjames/dsh-plugin-market",
       "packageName": "dsh-plugin-market",
       "version": "0.3.0",
-      "verifiedCommit": "7632fbe675f03628a036efa0adb29ce2d9b74076",
+      "verifiedCommit": "db3aa16db8ae7e8dd166df386dc2686a687bb653",
       "readmePath": "README.md",
       "commands": [
         {
@@ -17362,7 +17427,7 @@
       "repository": "dingzhenyao/dsh-plugin-directory",
       "packageName": "dsh-plugin-directory",
       "version": "0.1.0-rc.1",
-      "verifiedCommit": "9dc47a7269bba30f314b4b216b6615cdb864cda9",
+      "verifiedCommit": "1dc5ece01da7cc20f57866c50c8738c4e26087b6",
       "readmePath": "README.md",
       "commands": [
         {
@@ -19481,8 +19546,8 @@
     {
       "repository": "EternalNight996/memory-eternal",
       "packageName": "memory-eternal",
-      "version": "0.30.0",
-      "verifiedCommit": "2b05083b5fb7f6931f02160e783a8613bda3d784",
+      "version": "0.30.2",
+      "verifiedCommit": "8f559034a55ce308b40e9bed787e2ad259a2b0fc",
       "readmePath": "README.md",
       "commands": [
         {
@@ -19517,10 +19582,10 @@
       "npmVerification": {
         "verified": true,
         "reason": "exact-npm-tarball-verified",
-        "spec": "memory-eternal@0.30.0",
-        "integrity": "sha512-aTjoDVT8y6CarfiUKPSVgu3oZXxOq/hPcs0Np8xjKBeezAE952p8FBi40GFjkKi7ZNR4wmvoM1TkMMlPJ+aomw==",
-        "tarball": "https://registry.npmjs.org/memory-eternal/-/memory-eternal-0.30.0.tgz",
-        "gitHead": "42e9de5def8b6d545c3b4b7d8adeae5ec1e011e7",
+        "spec": "memory-eternal@0.30.2",
+        "integrity": "sha512-67np0zptjeZlPere8a0Vv3MaoJK7lSW+E693uJK4j50xTLiErRI7X30Wq/o17s/1qd0vgpTDBmxhk5TRjZYeAw==",
+        "tarball": "https://registry.npmjs.org/memory-eternal/-/memory-eternal-0.30.2.tgz",
+        "gitHead": "8f559034a55ce308b40e9bed787e2ad259a2b0fc",
         "artifactGroups": [
           {
             "label": "host",
@@ -23557,75 +23622,6 @@
           "postinstall"
         ],
         "runtimeArtifactsCommitted": true,
-        "reviewReasons": []
-      }
-    },
-    {
-      "repository": "guicaiyue/dsh-archify-projects",
-      "packageName": "dsh-archify-projects",
-      "version": "0.1.0",
-      "verifiedCommit": "e5bd3a24d5eb13ab017f090f5491f24e5d141317",
-      "readmePath": "README.md",
-      "commands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-archify-projects",
-          "profile": "web",
-          "spec": "dsh-archify-projects",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add https://github.com/guicaiyue/dsh-archify-projects/releases/download/v0.1.0/dsh-archify-projects-0.1.0.tgz",
-          "profile": "web",
-          "spec": "https://github.com/guicaiyue/dsh-archify-projects/releases/download/v0.1.0/dsh-archify-projects-0.1.0.tgz",
-          "source": "tarball"
-        }
-      ],
-      "targetedCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-archify-projects",
-          "profile": "web",
-          "spec": "dsh-archify-projects",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add https://github.com/guicaiyue/dsh-archify-projects/releases/download/v0.1.0/dsh-archify-projects-0.1.0.tgz",
-          "profile": "web",
-          "spec": "https://github.com/guicaiyue/dsh-archify-projects/releases/download/v0.1.0/dsh-archify-projects-0.1.0.tgz",
-          "source": "tarball"
-        }
-      ],
-      "remoteCommands": [
-        {
-          "raw": "dsh plugin --profile web add dsh-archify-projects",
-          "profile": "web",
-          "spec": "dsh-archify-projects",
-          "source": "npm"
-        },
-        {
-          "raw": "dsh plugin --profile web add https://github.com/guicaiyue/dsh-archify-projects/releases/download/v0.1.0/dsh-archify-projects-0.1.0.tgz",
-          "profile": "web",
-          "spec": "https://github.com/guicaiyue/dsh-archify-projects/releases/download/v0.1.0/dsh-archify-projects-0.1.0.tgz",
-          "source": "tarball"
-        }
-      ],
-      "npmVerification": {
-        "verified": false,
-        "spec": "dsh-archify-projects@0.1.0",
-        "reason": "npm-version-not-published"
-      },
-      "assessment": {
-        "outcome": "guided-npm-unverified",
-        "reason": "npm-version-not-published"
-      },
-      "auditErrors": [],
-      "current": {
-        "profiles": [
-          "web"
-        ],
-        "requiresBuildApproval": true,
-        "manualSteps": true,
-        "lifecycleScripts": [],
-        "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
     },
@@ -28176,7 +28172,7 @@
       "repository": "iJetLi/dsh-providers-hub",
       "packageName": "dsh-providers-hub",
       "version": "0.2.1-rc.2",
-      "verifiedCommit": "5042cec86a88c01e0061346de0b8c5d325aa2422",
+      "verifiedCommit": "9c04c56d4beea6822214952b9cda642c0835db47",
       "readmePath": "README.md",
       "commands": [
         {
@@ -31545,7 +31541,7 @@
       "repository": "Johnly1986/AmberFlow",
       "packageName": "amberflow",
       "version": "2.0.0",
-      "verifiedCommit": "4ce8a4888602daae4832e4d625b0a3ce14512925",
+      "verifiedCommit": "fcc751500127e7b491d7bc9c43da0fa7d0dd1e41",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
@@ -32988,14 +32984,14 @@
     {
       "repository": "kazari-qwp/dsh-tiered-plugin-menu",
       "packageName": "dsh-tiered-plugin-menu",
-      "version": "0.1.11",
-      "verifiedCommit": "6dff37fb3c1c9e28c8d07086a5a11d021fb13602",
+      "version": "0.2.1",
+      "verifiedCommit": "6e65c4a2aa0ac67eddce670d2832acfc5b179a05",
       "readmePath": "README.md",
       "commands": [
         {
-          "raw": "dsh plugin --profile desktop add ./dsh-tiered-plugin-menu-0.1.11.tgz",
+          "raw": "dsh plugin --profile desktop add ./dsh-tiered-plugin-menu-0.2.1.tgz",
           "profile": "desktop",
-          "spec": "./dsh-tiered-plugin-menu-0.1.11.tgz",
+          "spec": "./dsh-tiered-plugin-menu-0.2.1.tgz",
           "source": "local"
         }
       ],
@@ -33003,7 +32999,7 @@
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-tiered-plugin-menu@0.1.11",
+        "spec": "dsh-tiered-plugin-menu@0.2.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -33495,7 +33491,7 @@
       "repository": "KKL08/dsh-plastic-memory",
       "packageName": "dsh-plastic-memory",
       "version": "0.2.0-beta.1",
-      "verifiedCommit": "72334b27eda980eba53e7254a9cf524217894bc8",
+      "verifiedCommit": "4ecc88c9237c05c765f8ba8608aaba213e516995",
       "readmePath": "README.md",
       "commands": [
         {
@@ -36227,8 +36223,8 @@
     {
       "repository": "liang-today/dsh-liangxiang",
       "packageName": "dsh-liangxiang",
-      "version": "1.2.2-beta.4",
-      "verifiedCommit": "ea37bdc71e91e4fcd71721bf195600d91b7a379f",
+      "version": "1.2.2-beta.5",
+      "verifiedCommit": "5f1465dd23c22833e9fe727fea2e4e982695ed9f",
       "readmePath": "README.md",
       "commands": [
         {
@@ -36256,7 +36252,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-liangxiang@1.2.2-beta.4",
+        "spec": "dsh-liangxiang@1.2.2-beta.5",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -37486,8 +37482,8 @@
     {
       "repository": "lightporta/dsh-plugin-trust-broker",
       "packageName": "dsh-plugin-trust-broker",
-      "version": "0.1.0",
-      "verifiedCommit": "964378d6b6221bb6e9a053e2abf3784617d4a367",
+      "version": "0.2.0",
+      "verifiedCommit": "b6759ed0cb1809cc935657caf891deddedd54d5c",
       "readmePath": "README.md",
       "commands": [
         {
@@ -37501,19 +37497,13 @@
           "profile": "<profile>",
           "spec": "<本项目的绝对路径>",
           "source": "unknown"
-        },
-        {
-          "raw": "dsh plugin add` 之前执行）。宿主侧仍需接入准入流程，用受控的同一份物化内容完成安装和 apply。确认后若重新下载、补装依赖、执行生成脚本或替换来源，必须先重审。",
-          "profile": null,
-          "spec": "之前执行）。宿主侧仍需接入准入流程，用受控的同一份物化内容完成安装和",
-          "source": "unknown"
         }
       ],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "dsh-plugin-trust-broker@0.1.0",
+        "spec": "dsh-plugin-trust-broker@0.2.0",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -37523,7 +37513,6 @@
       "auditErrors": [],
       "current": {
         "profiles": [
-          "headless",
           "web"
         ],
         "requiresBuildApproval": true,
@@ -37816,15 +37805,15 @@
     {
       "repository": "liliumneko/dsh-plugin-auv",
       "packageName": "@local/dsh-auv",
-      "version": "0.1.1",
-      "verifiedCommit": "c0c6cf14cc6335dca95b37939d024e14ef0a32f6",
+      "version": "0.1.2",
+      "verifiedCommit": "9c8b08ecaff74398489f8e18f489e20190d2c244",
       "readmePath": "README.md",
       "commands": [],
       "targetedCommands": [],
       "remoteCommands": [],
       "npmVerification": {
         "verified": false,
-        "spec": "@local/dsh-auv@0.1.1",
+        "spec": "@local/dsh-auv@0.1.2",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -47066,8 +47055,8 @@
     {
       "repository": "NelsonLongxiang/dsh-open-a2a-net",
       "packageName": "@nelsonlongxiang/dsh-open-a2a-net",
-      "version": "0.8.0",
-      "verifiedCommit": "3fd979fba29693971d786b8eccd1569959d2294e",
+      "version": "0.8.1",
+      "verifiedCommit": "35f0be9b2510093f71d6d937b704d9112c04bfc0",
       "readmePath": "README.md",
       "commands": [
         {
@@ -47095,7 +47084,7 @@
       ],
       "npmVerification": {
         "verified": false,
-        "spec": "@nelsonlongxiang/dsh-open-a2a-net@0.8.0",
+        "spec": "@nelsonlongxiang/dsh-open-a2a-net@0.8.1",
         "reason": "npm-version-not-published"
       },
       "assessment": {
@@ -47240,6 +47229,45 @@
         "requiresBuildApproval": true,
         "manualSteps": true,
         "lifecycleScripts": [],
+        "runtimeArtifactsCommitted": false,
+        "reviewReasons": []
+      }
+    },
+    {
+      "repository": "nevercanner/dsh-session-send",
+      "packageName": "dsh-session-send",
+      "version": "0.4.0",
+      "verifiedCommit": "0a890135895ce120c4adfa894017c48fcd282a6f",
+      "readmePath": "README.md",
+      "commands": [
+        {
+          "raw": "dsh plugin add https://github.com/nevercanner/dsh-session-send",
+          "profile": null,
+          "spec": "https://github.com/nevercanner/dsh-session-send",
+          "source": "unknown"
+        }
+      ],
+      "targetedCommands": [],
+      "remoteCommands": [],
+      "npmVerification": {
+        "verified": false,
+        "spec": "dsh-session-send@0.4.0",
+        "reason": "npm-version-not-published"
+      },
+      "assessment": {
+        "outcome": "guided-no-matching-remote-command",
+        "reason": "readme-does-not-document-a-remote-install-for-this-package"
+      },
+      "auditErrors": [],
+      "current": {
+        "profiles": [
+          "web"
+        ],
+        "requiresBuildApproval": true,
+        "manualSteps": true,
+        "lifecycleScripts": [
+          "prepare"
+        ],
         "runtimeArtifactsCommitted": false,
         "reviewReasons": []
       }
